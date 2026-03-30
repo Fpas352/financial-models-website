@@ -1,0 +1,24 @@
+{
+  "name": "banking-models-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Banking Models Store — handles contact forms, custom model requests, and static file serving.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0"
+  },
+  "optionalDependencies": {
+    "nodemailer": "^6.9.16"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true
+}

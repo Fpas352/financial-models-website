@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ======================================================
+       Banking Models Store — Pricing Page (pricing.html)
+
+       PURPOSE: Transparent pricing for pre-built models,
+       custom models, and premium packages. Includes a
+       feature comparison table and FAQ accordion.
+
+       SECTIONS:
+       1. Header
+       2. Page hero — "Transparent pricing"
+       3. Pricing tiers — 3 cards (Pre-built, Custom, Premium)
+       4. Feature comparison table — 3-tier matrix
+       5. What's included — 6 value-prop cards
+       6. FAQ accordion (#faq)
+       7. CTA banner
+       8. Footer
+       ====================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Banking Models Store</title>
+  <meta name="description" content="Transparent pricing for pre-built Excel models, custom builds, and premium packages. No subscriptions, no hidden fees. From £29.">
+
+  <link rel="canonical" href="https://bankingmodels.store/pricing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pricing | Banking Models Store">
+  <meta property="og:description" content="Transparent pricing for pre-built Excel models, custom builds, and premium packages. No subscriptions.">
+  <meta property="og:url" content="https://bankingmodels.store/pricing.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing | Banking Models Store">
+  <meta name="twitter:description" content="Transparent pricing. No subscriptions. Pre-built models from £29. Custom builds from £199.">
+
+  <!-- Schema.org: FAQ Page (enables rich snippets in Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What do I receive after purchase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You receive a download link to a fully built .xlsx Excel workbook, plus a PDF documentation pack that includes the model specification, formula reference, and user guide. For custom models, you also receive a recorded walkthrough session."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I customise the pre-built models?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Every workbook is fully unlocked — no macros, no VBA, no protected sheets. You can modify assumptions, add new tabs, extend the forecast period, or adapt the logic to your specific use case."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer support after purchase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Pre-built models include email support. Custom models include 30 days of dedicated email support plus a walkthrough session. Premium custom engagements include 60 days of email and call support plus a 90-minute training session."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a custom model take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most custom models are delivered within 5-10 business days depending on complexity. Premium custom models with priority turnaround are delivered within 5 business days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use these for client work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can use any model internally and for client projects. You may not resell or redistribute the models as standalone products, but using them as part of your consulting or advisory work is perfectly fine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer enterprise or team licensing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our Premium tier includes team licensing options. For larger organisations, contact us directly and we'll put together a package with volume discounts and dedicated support."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="logo">Banking<span>Models</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="pricing.html" class="active">Pricing</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ====================================================
+       PAGE HERO
+       ==================================================== -->
+  <section class="model-detail-hero">
+    <div class="container">
+      <span class="section-label">Pricing</span>
+      <h1>Transparent pricing, no surprises</h1>
+      <p>One-time purchases. No subscriptions. No hidden fees. Pick a pre-built model or commission something bespoke.</p>
+    </div>
+  </section>
+
+
+  <!-- ====================================================
+       PRICING TIERS
+       3 cards: Pre-built, Custom (highlighted), Premium.
+       Each card: title, price, description, feature list, CTA.
+       ==================================================== -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-tiers">
+
+        <!-- TIER 1: Pre-built Models -->
+        <div class="pricing-tier">
+          <div class="pricing-tier__header">
+            <div class="pricing-tier__icon">&#x1F4CB;</div>
+            <h3>Pre-built Models</h3>
+            <p class="pricing-tier__desc">Production-ready Excel workbooks you can download and use immediately.</p>
+          </div>
+          <div class="pricing-tier__price">
+            <span class="pricing-tier__amount">&pound;29 &ndash; &pound;99</span>
+            <span class="pricing-tier__period">one-time purchase</span>
+          </div>
+          <ul class="pricing-tier__features">
+            <li class="included">Fully built .xlsx workbook</li>
+            <li class="included">Colour-coded tabs & clear inputs</li>
+            <li class="included">Formula documentation</li>
+            <li class="included">3 scenario overlays</li>
+            <li class="included">Free updates for life</li>
+            <li class="included">Email support</li>
+            <li class="excluded">Custom assumptions</li>
+            <li class="excluded">Tailored outputs</li>
+            <li class="excluded">Walkthrough session</li>
+          </ul>
+          <a href="models.html#models" class="btn btn-outline-dark" style="width:100%; justify-content:center;">Browse Models</a>
+        </div>
+
+        <!-- TIER 2: Custom Models (highlighted) -->
+        <div class="pricing-tier pricing-tier--popular">
+          <div class="pricing-tier__badge">Most Popular</div>
+          <div class="pricing-tier__header">
+            <div class="pricing-tier__icon">&#x2692;&#xFE0F;</div>
+            <h3>Custom Models</h3>
+            <p class="pricing-tier__desc">Bespoke models scoped to your business, sector, and specific decision-making needs.</p>
+          </div>
+          <div class="pricing-tier__price">
+            <span class="pricing-tier__amount">From &pound;199</span>
+            <span class="pricing-tier__period">per model</span>
+          </div>
+          <ul class="pricing-tier__features">
+            <li class="included">Everything in Pre-built</li>
+            <li class="included">Custom assumptions & drivers</li>
+            <li class="included">Tailored outputs & dashboards</li>
+            <li class="included">Industry-specific logic</li>
+            <li class="included">2 rounds of revisions</li>
+            <li class="included">30-day email support</li>
+            <li class="included">45-min walkthrough session</li>
+            <li class="excluded">Priority turnaround</li>
+            <li class="excluded">Ongoing maintenance</li>
+          </ul>
+          <a href="models.html#custom" class="btn btn-primary" style="width:100%; justify-content:center;">Request Custom Model</a>
+        </div>
+
+        <!-- TIER 3: Premium Custom -->
+        <div class="pricing-tier">
+          <div class="pricing-tier__header">
+            <div class="pricing-tier__icon">&#x1F48E;</div>
+            <h3>Premium Custom</h3>
+            <p class="pricing-tier__desc">Enterprise-grade models with ongoing support, training, and priority delivery.</p>
+          </div>
+          <div class="pricing-tier__price">
+            <span class="pricing-tier__amount">&pound;499+</span>
+            <span class="pricing-tier__period">per engagement</span>
+          </div>
+          <ul class="pricing-tier__features">
+            <li class="included">Everything in Custom</li>
+            <li class="included">Complex multi-sheet models</li>
+            <li class="included">Board-ready presentation layer</li>
+            <li class="included">Priority 5-day turnaround</li>
+            <li class="included">Unlimited revisions (30 days)</li>
+            <li class="included">60-day email & call support</li>
+            <li class="included">90-min walkthrough + training</li>
+            <li class="included">Quarterly maintenance option</li>
+            <li class="included">Team licensing available</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline-dark" style="width:100%; justify-content:center;">Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================
+       FEATURE COMPARISON TABLE
+       Side-by-side matrix: Pre-built vs Custom vs Premium.
+       Responsive — scrolls horizontally on mobile.
+       ==================================================== -->
+  <section class="alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Compare Plans</span>
+        <h2>What's included in each tier</h2>
+      </div>
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Pre-built</th>
+              <th>Custom</th>
+              <th>Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Excel workbook (.xlsx)</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Formula documentation</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Scenario analysis</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Free lifetime updates</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Email support</td>
+              <td class="check">&#10003;</td>
+              <td class="check">30 days</td>
+              <td class="check">60 days</td>
+            </tr>
+            <tr>
+              <td>Custom assumptions & drivers</td>
+              <td class="cross">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Tailored outputs & dashboards</td>
+              <td class="cross">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Industry-specific logic</td>
+              <td class="cross">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Revision rounds</td>
+              <td class="cross">&mdash;</td>
+              <td>2 rounds</td>
+              <td class="check">Unlimited</td>
+            </tr>
+            <tr>
+              <td>Walkthrough session</td>
+              <td class="cross">&mdash;</td>
+              <td>45 min</td>
+              <td>90 min</td>
+            </tr>
+            <tr>
+              <td>Board-ready presentation layer</td>
+              <td class="cross">&mdash;</td>
+              <td class="cross">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Priority turnaround (5 days)</td>
+              <td class="cross">&mdash;</td>
+              <td class="cross">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Phone / video call support</td>
+              <td class="cross">&mdash;</td>
+              <td class="cross">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Ongoing maintenance option</td>
+              <td class="cross">&mdash;</td>
+              <td class="cross">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Team / enterprise licensing</td>
+              <td class="cross">&mdash;</td>
+              <td class="cross">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <!-- Price row -->
+            <tr>
+              <td><strong>Price</strong></td>
+              <td><strong>&pound;29 &ndash; &pound;99</strong></td>
+              <td><strong>From &pound;199</strong></td>
+              <td><strong>&pound;499+</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================
+       WHAT'S INCLUDED WITH EVERY PURCHASE
+       6 value-prop cards showing what comes with any tier.
+       ==================================================== -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Every Purchase Includes</span>
+        <h2>No surprises. Everything you need.</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F4CA;</div>
+          <h3>Production-Ready Workbook</h3>
+          <p>Fully built, formula-driven .xlsx file with colour-coded tabs, clear inputs, and comprehensive calculations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F4D6;</div>
+          <h3>Full Documentation</h3>
+          <p>Model specification, formula reference, workbook layout guide, and QA checklist included with every model.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F504;</div>
+          <h3>Free Lifetime Updates</h3>
+          <p>When we improve a model, you get the update. New features, fixes, and enhancements delivered to your inbox.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F6E1;&#xFE0F;</div>
+          <h3>Built-in Controls</h3>
+          <p>Balance verification, ratio monitoring, and error flags built into every model. Catch issues before they matter.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F9E9;</div>
+          <h3>Modular Design</h3>
+          <p>Each model is self-contained but designed to connect with others. Expand your toolkit over time without rework.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F4AC;</div>
+          <h3>Email Support</h3>
+          <p>Questions about logic, customisation, or implementation? We respond within 24 hours on business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================
+       FAQ ACCORDION
+       Common pre-purchase questions. JS toggles .open class
+       for max-height animation. Anchor: #faq
+       ==================================================== -->
+  <section class="alt-bg" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">FAQ</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-list">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What do I receive after purchase?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>You receive a download link to a fully built .xlsx Excel workbook, plus a PDF documentation pack that includes the model specification, formula reference, and user guide. For custom models, you also receive a recorded walkthrough session. All files are yours to keep and use forever.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I customise the pre-built models?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. Every workbook is fully unlocked &mdash; no macros, no VBA, no protected sheets. You can modify assumptions, add new tabs, extend the forecast period, or adapt the logic to your specific use case. Every formula is visible and documented so you know exactly what's happening.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer support after purchase?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Pre-built models include email support for questions about the model logic and structure. Custom models include 30 days of dedicated email support plus a walkthrough session. Premium custom engagements include 60 days of email and call support, plus a 90-minute training session. We typically respond within 24 hours on business days.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            What's the difference between Custom and Premium?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Custom models are scoped to your specific business needs with tailored assumptions, outputs, and industry logic. Premium takes this further with board-ready presentation layers, priority 5-day delivery, unlimited revisions, extended support (including phone/video calls), and optional ongoing quarterly maintenance. Premium is ideal for enterprise teams or high-stakes board-level deliverables.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does a custom model take?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Most custom models are delivered within 5&ndash;10 business days depending on complexity. Premium custom models with priority turnaround are delivered within 5 business days. We'll confirm the timeline during the scoping conversation before you commit.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I use these for client work?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. You can use any model internally and for client projects. You may not resell or redistribute the models as standalone products, but using them as part of your consulting or advisory work is perfectly fine. For team-wide licensing, see our Premium tier or contact us for volume pricing.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Is there a refund policy?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Due to the digital nature of the product, we don't offer refunds after delivery. We encourage you to review model specifications, feature lists, and sample screenshots on the Models page before purchasing. If you're unsure, reach out first &mdash; we're happy to answer any questions before you buy.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer enterprise or team licensing?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Our Premium tier includes team licensing options. For larger organisations or custom enterprise agreements, contact us directly and we'll put together a package that fits your team size and needs, including volume discounts and dedicated support.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================
+       CTA BANNER
+       Two clear CTAs: Browse Models + Request Custom Model
+       ==================================================== -->
+  <section class="cta-v2">
+    <div class="cta-v2__inner">
+      <h2>Ready to get started?</h2>
+      <p>Browse our pre-built models or tell us what you need. Every purchase includes documentation, controls, and free lifetime updates.</p>
+      <div class="hero-v2__actions">
+        <a href="models.html#models" class="btn btn-primary btn-lg">Browse Models</a>
+        <a href="models.html#custom" class="btn btn-ghost btn-lg">Request Custom Model</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Banking<span>Models</span></a>
+          <p>Professional Excel banking models for FP&amp;A, treasury, and strategic finance. Modular. Transparent. Ready to use.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Models</h4>
+          <ul>
+            <li><a href="models.html#models">Pre-built Models</a></li>
+            <li><a href="models.html#custom">Custom Models</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="about.html#methodology">Methodology</a></li>
+            <li><a href="pricing.html#faq">FAQ</a></li>
+            <li><a href="contact.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Banking Models Store. All rights reserved.</span>
+        <span>Built for banking professionals.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

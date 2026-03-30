@@ -1,0 +1,11 @@
+This directory is for website images.
+
+Suggested files to add:
+- og-image.png (1200x630) — social media sharing preview
+- favicon.ico — browser tab icon
+- lending-screenshot.png — workbook screenshot for models page
+- deposits-screenshot.png
+- treasury-screenshot.png
+- capital-screenshot.png
+- integrated-screenshot.png
+- logo.svg — vector logo for header (if replacing text logo)

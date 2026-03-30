@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ======================================================
+       Banking Models Store — About Page (about.html)
+
+       PURPOSE: Explains the modelling philosophy, methodology,
+       and positioning. Builds trust by articulating what the
+       models are (and aren't) and the 8 design principles.
+
+       SECTIONS:
+       1. Header
+       2. Page hero — "Built by practitioners, for practitioners"
+       3. The Problem — narrative about the modelling gap
+       4. Methodology (#methodology) — 8 principle cards
+       5. Positioning — "what they are / aren't" comparison
+       6. CTA banner
+       7. Footer
+       ====================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Banking Models Store</title>
+  <meta name="description" content="Our modelling methodology and 8 design principles. Learn why our banking models are built differently — transparent, cohort-based, and commercially useful.">
+
+  <link rel="canonical" href="https://bankingmodels.store/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About | Banking Models Store">
+  <meta property="og:description" content="Our modelling methodology and design principles. Built by practitioners, for practitioners.">
+  <meta property="og:url" content="https://bankingmodels.store/about.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About | Banking Models Store">
+  <meta name="twitter:description" content="8 design principles behind every banking model we build.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER (same as all pages) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="logo">Banking<span>Models</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="pricing.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <span class="section-label">About</span>
+      <h1>Built by practitioners, for practitioners</h1>
+      <p>We build the banking models we wished existed when we needed them &mdash; commercially useful, transparent, and designed for real decisions.</p>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       THE PROBLEM
+       Narrative section explaining the gap between simple
+       templates and complex regulatory models. Establishes
+       the positioning: "commercially useful middle ground".
+       ==================================================== -->
+  <section>
+    <div class="container">
+      <div class="about-prose">
+        <span class="section-label">The Problem</span>
+        <h2>The modelling gap in banking</h2>
+        <p>
+          If you work in banking FP&amp;A, treasury, or consulting, you've seen the same problem. On one side: oversimplified templates that use flat growth rates and back-of-envelope interest calculations. On the other: heavyweight regulatory models that take months to build, require dedicated teams to maintain, and obscure the commercial logic behind layers of compliance.
+        </p>
+        <p>
+          Neither serves the person who needs to answer questions like: <em>"What happens to our NIM if rates drop 100bps?"</em> or <em>"How does a new product launch affect our capital ratios?"</em> or <em>"What's our credit cost trajectory under a stress scenario?"</em>
+        </p>
+        <p>
+          That's the gap we fill. Our models are sophisticated enough for real banking analysis but practical enough to use without a dedicated model risk team. Every formula is visible. Every assumption is stated. Every output is traceable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       METHODOLOGY — 8 DESIGN PRINCIPLES
+       Numbered cards explaining the constraints we enforce
+       in every workbook. Anchor: #methodology (linked from
+       footer "Resources" column).
+       ==================================================== -->
+  <section id="methodology" class="alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Methodology</span>
+        <h2>How we build models</h2>
+        <p class="section-subtitle">Eight principles that guide every model we create. These aren't aspirations &mdash; they're constraints we enforce in every workbook.</p>
+      </div>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-number">1</div>
+          <div>
+            <h4>Separate inputs, calculations, outputs, and checks</h4>
+            <p>Every workbook is structured by function. Blue tabs for inputs, white for calculations, orange for analysis, green for outputs, red for controls. You always know where you are.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">2</div>
+          <div>
+            <h4>Monthly time periods</h4>
+            <p>Banking moves in months, not quarters or years. All models use monthly granularity with a 24-month forecast horizon. Annual summaries are derived, not assumed.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">3</div>
+          <div>
+            <h4>Simple, robust logic first</h4>
+            <p>We prefer transparent formulas over clever ones. If a simpler approach gives the same analytical value, we use it. Complexity is earned, not defaulted to.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">4</div>
+          <div>
+            <h4>Scenario capability built in</h4>
+            <p>Every model supports Base, Upside, and Downside scenarios. Scenario drivers are separated from calculations so you can test different futures without touching the engine.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">5</div>
+          <div>
+            <h4>Readable formulas</h4>
+            <p>No nested IF statements 200 characters deep. No hidden named ranges. Formulas are broken into logical steps with clear intermediate calculations.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">6</div>
+          <div>
+            <h4>No manual hardcoding in calculations</h4>
+            <p>Every number in a calculation tab comes from an assumption or a prior calculation. If you need to change something, you change it once in the inputs. It flows everywhere.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">7</div>
+          <div>
+            <h4>Version control and release notes</h4>
+            <p>Every model includes version tracking. When we update a model, you know exactly what changed and why. No mystery diffs.</p>
+          </div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">8</div>
+          <div>
+            <h4>Designed for non-expert users</h4>
+            <p>The buyer isn't always the builder. Our models are designed so that someone who didn't create them can pick them up, understand the structure, and start using them productively.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       POSITIONING: WHAT THEY ARE / AREN'T
+       Side-by-side comparison with green checks (what they
+       are) and red crosses (what they aren't).
+       ==================================================== -->
+  <section>
+    <div class="container">
+      <div class="about-prose">
+        <span class="section-label">Positioning</span>
+        <h2>What these models are (and aren't)</h2>
+        <div class="positioning-grid">
+          <div>
+            <h4 class="positioning-heading positioning-heading--positive">What they are</h4>
+            <ul class="positioning-list">
+              <li><span class="positioning-icon positioning-icon--positive">&#10003;</span> Commercially useful for actual decisions</li>
+              <li><span class="positioning-icon positioning-icon--positive">&#10003;</span> Cohort-based with behavioural dynamics</li>
+              <li><span class="positioning-icon positioning-icon--positive">&#10003;</span> Transparent and fully auditable</li>
+              <li><span class="positioning-icon positioning-icon--positive">&#10003;</span> Modular and composable</li>
+              <li><span class="positioning-icon positioning-icon--positive">&#10003;</span> Professional, ready to present</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="positioning-heading positioning-heading--negative">What they aren't</h4>
+            <ul class="positioning-list">
+              <li><span class="positioning-icon positioning-icon--negative">&#10007;</span> Generic finance templates</li>
+              <li><span class="positioning-icon positioning-icon--negative">&#10007;</span> Academic exercises</li>
+              <li><span class="positioning-icon positioning-icon--negative">&#10007;</span> Regulatory compliance tools</li>
+              <li><span class="positioning-icon positioning-icon--negative">&#10007;</span> VBA / macro-dependent</li>
+              <li><span class="positioning-icon positioning-icon--negative">&#10007;</span> Oversimplified planning sheets</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-v2">
+    <div class="cta-v2__inner">
+      <h2>See the models for yourself</h2>
+      <p>Explore the feature set, review the specifications, and pick the model that fits your workflow.</p>
+      <div class="hero-v2__actions">
+        <a href="models.html" class="btn btn-primary btn-lg">Explore Models</a>
+        <a href="contact.html" class="btn btn-ghost btn-lg">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (same as all pages) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Banking<span>Models</span></a>
+          <p>Professional Excel banking models for FP&amp;A, treasury, and strategic finance. Modular. Transparent. Ready to use.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Models</h4>
+          <ul>
+            <li><a href="models.html#lending">Lending Model</a></li>
+            <li><a href="models.html#deposits">Deposits Model</a></li>
+            <li><a href="models.html#treasury">Treasury / ALM</a></li>
+            <li><a href="models.html#capital">Capital Model</a></li>
+            <li><a href="models.html#integrated">Integrated Model</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="about.html#methodology">Methodology</a></li>
+            <li><a href="pricing.html#faq">FAQ</a></li>
+            <li><a href="contact.html">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Banking Models Store. All rights reserved.</span>
+        <span>Built for banking professionals.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

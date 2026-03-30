@@ -1,0 +1,9 @@
+# Banking Models Store — robots.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://bankingmodels.store/sitemap.xml
+
+# Block backend and data directories
+Disallow: /backend/
