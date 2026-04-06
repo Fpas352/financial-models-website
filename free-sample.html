@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=PASTE_GA4_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'PASTE_GA4_ID_HERE');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Sample | SFS Models</title>
+  <meta name="description" content="Download a free working sample of our Three-Statement Financial Model. No payment, no card required.">
+
+  <link rel="canonical" href="https://sfsmodels.com/free-sample.html">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="logo">SFS Models</a>
+        <ul class="nav-links">
+          <li><a href="models.html">Models</a></li>
+          <li><a href="free-samples.html" class="active">Free Samples</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Try Before You Buy</h1>
+      <p>Download a free working sample of our Three-Statement Financial Model. No payment. No card required.</p>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE -->
+  <section class="section">
+    <div class="container" style="max-width:540px;">
+
+      <form id="free-sample-form" class="form">
+        <div class="form__group">
+          <input type="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Me the Free Sample</button>
+      </form>
+
+      <p style="color:var(--color-muted); font-size:0.85rem; text-align:center; margin-top:1rem;">We respect your privacy. No spam, ever.</p>
+
+      <div style="margin-top:2.5rem; font-size:0.95rem; color:var(--color-muted);">
+        <p style="margin-bottom:0.5rem;">&#10003; Fully working Excel file &mdash; not a locked demo</p>
+        <p style="margin-bottom:0.5rem;">&#10003; Includes instructions tab</p>
+        <p>&#10003; Instant delivery to your inbox</p>
+      </div>
+
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">SFS Models</a>
+          <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Models</h4>
+          <ul>
+            <li><a href="models.html#lending">Lending</a></li>
+            <li><a href="models.html#deposits">Deposits</a></li>
+            <li><a href="models.html#treasury">Treasury &amp; ALM</a></li>
+            <li><a href="models.html#capital">Capital &amp; RWA</a></li>
+            <li><a href="models.html#integrated">Integrated</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html#methodology">Methodology</a></li>
+            <li><a href="pricing.html#faq">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 SFS Models. All rights reserved.</span>
+        <span>London, UK &middot; hello@sfsmodels.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script>
+    (function() {
+      var form = document.getElementById('free-sample-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var email = form.querySelector('[name="email"]').value.trim();
+        if (!email) return;
+
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner"></span> Sending...';
+
+        fetch('PASTE_FORMSPREE_URL_HERE', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        })
+        .then(function(res) {
+          if (!res.ok) throw new Error('Server error');
+          return res.json();
+        })
+        .then(function() {
+          form.style.display = 'none';
+          var msg = document.createElement('p');
+          msg.className = 'form-success';
+          msg.textContent = 'Done \u2014 check your inbox in the next few minutes.';
+          form.parentElement.insertBefore(msg, form);
+        })
+        .catch(function() {
+          form.style.display = 'none';
+          var msg = document.createElement('p');
+          msg.className = 'form-error';
+          msg.style.color = '#ef4444';
+          msg.textContent = 'Something went wrong \u2014 please email hello@sfsmodels.com';
+          form.parentElement.insertBefore(msg, form);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

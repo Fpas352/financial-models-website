@@ -1,56 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ======================================================
-       Banking Models Store — Models Page (models.html)
-
-       PURPOSE: Product catalogue with pre-built models grid
-       and custom model request form.
-
-       SECTIONS:
-       1. Header
-       2. Page hero
-       3. Pre-built models — filter bar + 6 model cards
-       4. Custom model request — professional form
-       5. CTA banner
-       6. Footer
-
-       FILTER LOGIC:
-       Filter buttons use data-category attributes.
-       JS toggles visibility of cards based on matching
-       data-category values. "All" shows everything.
-       ====================================================== -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=PASTE_GA4_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'PASTE_GA4_ID_HERE');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Models | Banking Models Store</title>
-  <meta name="description" content="Browse our pre-built Excel financial models or request a custom model tailored to your business. Startup, SaaS, cash flow, budget, pricing, and break-even models.">
+  <title>Models | SFS Models</title>
+  <meta name="description" content="Institutional-grade Excel financial models for banking, treasury, risk, valuation, FP&amp;A, and more. Pre-built, documented, and scenario-ready.">
 
-  <link rel="canonical" href="https://bankingmodels.store/models.html">
+  <link rel="canonical" href="https://sfsmodels.com/models.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Financial Models | Banking Models Store">
-  <meta property="og:description" content="Browse pre-built Excel financial models or request a custom model tailored to your business.">
-  <meta property="og:url" content="https://bankingmodels.store/models.html">
+  <meta property="og:title" content="Models | SFS Models">
+  <meta property="og:description" content="Institutional-grade Excel financial models. Banking, treasury, risk, valuation, FP&amp;A, and more.">
+  <meta property="og:url" content="https://sfsmodels.com/models.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Financial Models | Banking Models Store">
-  <meta name="twitter:description" content="Browse pre-built Excel financial models or request a custom model tailored to your business.">
+  <meta name="twitter:title" content="Models | SFS Models">
+  <meta name="twitter:description" content="Institutional-grade Excel financial models. Pre-built, documented, and ready to use.">
 
-  <!-- Schema.org: Product listings -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Financial Models",
-    "description": "Pre-built Excel financial models for startups, SaaS, and finance teams",
-    "numberOfItems": 6,
+    "description": "Institutional-grade Excel financial models for banking, treasury, risk, valuation, FP&A, and corporate finance.",
+    "numberOfItems": 7,
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
         "item": {
           "@type": "Product",
-          "name": "Startup Financial Model",
-          "description": "Complete 3-statement model with revenue build-up, headcount planning, runway analysis, and investor-ready outputs.",
-          "offers": { "@type": "Offer", "price": "149", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" }
+          "name": "Lending Model",
+          "description": "Model retail and commercial loan books with full amortisation and covenant tracking.",
+          "offers": { "@type": "Offer", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" }
         }
       },
       {
@@ -58,9 +46,9 @@
         "position": 2,
         "item": {
           "@type": "Product",
-          "name": "SaaS Financial Model",
-          "description": "Subscription metrics engine with MRR/ARR waterfall, cohort retention, LTV/CAC analysis.",
-          "offers": { "@type": "Offer", "price": "199", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" }
+          "name": "DCF Valuation Model",
+          "description": "Intrinsic value via discounted cash flow with WACC and terminal value.",
+          "offers": { "@type": "Offer", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" }
         }
       },
       {
@@ -68,36 +56,39 @@
         "position": 3,
         "item": {
           "@type": "Product",
-          "name": "Cash Flow Forecast",
-          "description": "13-week rolling cash flow model with direct method forecasting and scenario analysis.",
-          "offers": { "@type": "Offer", "price": "99", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" }
+          "name": "3-Statement Integrated Model",
+          "description": "Fully linked P&L, balance sheet, and cash flow model.",
+          "offers": { "@type": "Offer", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" }
         }
       }
     ]
   }
   </script>
 
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="container">
       <nav class="nav-inner">
-        <a href="index.html" class="logo">Banking<span>Models</span></a>
+        <a href="index.html" class="logo">SFS Models</a>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
           <li><a href="models.html" class="active">Models</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="free-samples.html">Free Samples</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="pricing.html" class="btn btn-primary btn-sm">Get Started</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
         </div>
         <button class="hamburger" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -106,344 +97,821 @@
     </div>
   </header>
 
-  <!-- ====================================================
-       PAGE HERO
-       Gradient banner with headline and subtitle.
-       ==================================================== -->
-  <section class="model-detail-hero">
+  <main id="main-content">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
     <div class="container">
-      <span class="section-label">Product Catalogue</span>
-      <h1>Financial models built for real decisions</h1>
-      <p>Production-ready Excel workbooks you can download instantly, or request a custom model tailored to your business.</p>
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       PRE-BUILT MODELS SECTION
-       Filter bar + 6 model cards in responsive grid.
-       Each card: icon, name, description, price, CTA.
-       Filter buttons use data-category to toggle visibility.
-       ==================================================== -->
-  <section class="catalogue" id="models">
-    <div class="container">
-
-      <!-- Section heading -->
-      <div class="section-header">
-        <span class="section-label">Pre-Built Models</span>
-        <h2>Ready to download</h2>
-        <p class="section-subtitle">Each model is self-contained, fully documented, and production-ready. Pick the one you need and start modelling immediately.</p>
-      </div>
-
-      <!-- Filter buttons -->
-      <div class="catalogue__filters">
-        <button class="catalogue__filter active" data-filter="all">All</button>
-        <button class="catalogue__filter" data-filter="startup">Startup</button>
-        <button class="catalogue__filter" data-filter="saas">SaaS</button>
-        <button class="catalogue__filter" data-filter="finance">Finance</button>
-      </div>
-
-      <!-- Model cards grid (6 cards) -->
-      <div class="catalogue__grid">
-
-        <!-- Card 1: Startup Financial Model -->
-        <div class="catalogue__card" data-category="startup">
-          <div class="catalogue__card-icon">
-            <span>&#x1F680;</span>
-          </div>
-          <div class="catalogue__card-badge">Popular</div>
-          <h3 class="catalogue__card-title">Startup Financial Model</h3>
-          <p class="catalogue__card-desc">Complete 3-statement model with revenue build-up, headcount planning, runway analysis, and investor-ready outputs for seed to Series A startups.</p>
-          <ul class="catalogue__card-features">
-            <li>3-statement forecast (P&L, BS, CF)</li>
-            <li>Monthly + annual views</li>
-            <li>Runway & burn rate tracking</li>
-            <li>Cap table integration</li>
-          </ul>
-          <div class="catalogue__card-footer">
-            <div class="catalogue__card-price">&pound;149 <small>one-time</small></div>
-            <a href="contact.html" class="btn btn-primary btn-sm">Download</a>
-          </div>
-        </div>
-
-        <!-- Card 2: SaaS Financial Model -->
-        <div class="catalogue__card" data-category="saas">
-          <div class="catalogue__card-icon">
-            <span>&#x2601;&#xFE0F;</span>
-          </div>
-          <div class="catalogue__card-badge catalogue__card-badge--featured">Flagship</div>
-          <h3 class="catalogue__card-title">SaaS Financial Model</h3>
-          <p class="catalogue__card-desc">Subscription metrics engine with MRR/ARR waterfall, cohort retention, LTV/CAC analysis, and expansion revenue modelling for B2B SaaS businesses.</p>
-          <ul class="catalogue__card-features">
-            <li>MRR/ARR waterfall decomposition</li>
-            <li>Cohort-based retention curves</li>
-            <li>LTV/CAC & payback period</li>
-            <li>Expansion & contraction MRR</li>
-          </ul>
-          <div class="catalogue__card-footer">
-            <div class="catalogue__card-price">&pound;199 <small>one-time</small></div>
-            <a href="contact.html" class="btn btn-primary btn-sm">Download</a>
-          </div>
-        </div>
-
-        <!-- Card 3: Cash Flow Forecast -->
-        <div class="catalogue__card" data-category="finance">
-          <div class="catalogue__card-icon">
-            <span>&#x1F4B0;</span>
-          </div>
-          <h3 class="catalogue__card-title">Cash Flow Forecast</h3>
-          <p class="catalogue__card-desc">13-week rolling cash flow model with direct method forecasting, scenario analysis, and covenant monitoring for treasury and working capital management.</p>
-          <ul class="catalogue__card-features">
-            <li>13-week rolling direct method</li>
-            <li>Receipts & payments breakdown</li>
-            <li>3 scenario overlays</li>
-            <li>Covenant & liquidity alerts</li>
-          </ul>
-          <div class="catalogue__card-footer">
-            <div class="catalogue__card-price">&pound;99 <small>one-time</small></div>
-            <a href="contact.html" class="btn btn-primary btn-sm">Download</a>
-          </div>
-        </div>
-
-        <!-- Card 4: Budget Planner -->
-        <div class="catalogue__card" data-category="finance">
-          <div class="catalogue__card-icon">
-            <span>&#x1F4CA;</span>
-          </div>
-          <h3 class="catalogue__card-title">Budget Planner</h3>
-          <p class="catalogue__card-desc">Department-level budget vs actual tracking with variance analysis, headcount cost modelling, and monthly reforecasting capability.</p>
-          <ul class="catalogue__card-features">
-            <li>Department-level cost centres</li>
-            <li>Budget vs actual variance</li>
-            <li>Headcount & compensation</li>
-            <li>Rolling reforecast capability</li>
-          </ul>
-          <div class="catalogue__card-footer">
-            <div class="catalogue__card-price">&pound;79 <small>one-time</small></div>
-            <a href="contact.html" class="btn btn-primary btn-sm">Download</a>
-          </div>
-        </div>
-
-        <!-- Card 5: Pricing Model -->
-        <div class="catalogue__card" data-category="saas startup">
-          <div class="catalogue__card-icon">
-            <span>&#x1F3AF;</span>
-          </div>
-          <h3 class="catalogue__card-title">Pricing Model</h3>
-          <p class="catalogue__card-desc">Unit economics and pricing strategy model with sensitivity tables, margin analysis, discount waterfall, and competitive benchmarking framework.</p>
-          <ul class="catalogue__card-features">
-            <li>Unit economics calculator</li>
-            <li>Price sensitivity tables</li>
-            <li>Discount & margin waterfall</li>
-            <li>Tiered pricing simulator</li>
-          </ul>
-          <div class="catalogue__card-footer">
-            <div class="catalogue__card-price">&pound;119 <small>one-time</small></div>
-            <a href="contact.html" class="btn btn-primary btn-sm">Download</a>
-          </div>
-        </div>
-
-        <!-- Card 6: Break-even Analysis Model -->
-        <div class="catalogue__card" data-category="startup finance">
-          <div class="catalogue__card-icon">
-            <span>&#x2696;&#xFE0F;</span>
-          </div>
-          <h3 class="catalogue__card-title">Break-even Analysis</h3>
-          <p class="catalogue__card-desc">Fixed vs variable cost structure model with contribution margin analysis, break-even charts, operating leverage, and what-if scenarios.</p>
-          <ul class="catalogue__card-features">
-            <li>Fixed & variable cost split</li>
-            <li>Contribution margin analysis</li>
-            <li>Break-even point calculator</li>
-            <li>Operating leverage scenarios</li>
-          </ul>
-          <div class="catalogue__card-footer">
-            <div class="catalogue__card-price">&pound;69 <small>one-time</small></div>
-            <a href="contact.html" class="btn btn-primary btn-sm">Download</a>
-          </div>
-        </div>
-
-      </div><!-- /.catalogue__grid -->
-    </div>
-  </section>
-
-
-  <!-- ====================================================
-       CUSTOM MODEL REQUEST SECTION
-       Professional form for bespoke model enquiries.
-       2-column layout: info left, form right.
-       ==================================================== -->
-  <section class="custom-request" id="custom">
-    <div class="container">
-
-      <div class="custom-request__grid">
-
-        <!-- Left column: info & value props -->
-        <div class="custom-request__info">
-          <span class="section-label">Bespoke Solutions</span>
-          <h2>Need something tailored?</h2>
-          <p class="custom-request__intro">If our pre-built models don't quite fit, we'll build one from scratch. Custom models follow the same professional standards &mdash; transparent formulas, clear documentation, and production-ready design.</p>
-
-          <div class="custom-request__features">
-            <div class="custom-request__feature">
-              <div class="custom-request__feature-icon">&#x2713;</div>
-              <div>
-                <strong>Scoped to your business</strong>
-                <p>We tailor every assumption, driver, and output to your specific industry, size, and use case.</p>
-              </div>
-            </div>
-            <div class="custom-request__feature">
-              <div class="custom-request__feature-icon">&#x2713;</div>
-              <div>
-                <strong>Delivered in days, not months</strong>
-                <p>Most custom models are delivered within 5-10 business days depending on complexity.</p>
-              </div>
-            </div>
-            <div class="custom-request__feature">
-              <div class="custom-request__feature-icon">&#x2713;</div>
-              <div>
-                <strong>Full documentation included</strong>
-                <p>Every model comes with a formula guide, user instructions, and a walkthrough session.</p>
-              </div>
-            </div>
-            <div class="custom-request__feature">
-              <div class="custom-request__feature-icon">&#x2713;</div>
-              <div>
-                <strong>Revisions & support</strong>
-                <p>Two rounds of revisions included, plus 30 days of email support after delivery.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right column: form -->
-        <div class="custom-request__form-wrapper">
-          <div class="custom-request__form-card">
-            <h3>Request a custom model</h3>
-            <p class="custom-request__form-subtitle">Tell us about your requirements and we'll get back to you within 24 hours with a scope and quote.</p>
-
-            <form id="customModelForm" class="contact-form">
-
-              <label for="custom-business">Business Name *</label>
-              <input type="text" id="custom-business" name="business" placeholder="Your company name" required>
-
-              <label for="custom-sector">Sector *</label>
-              <select id="custom-sector" name="sector" required>
-                <option value="">Select your sector...</option>
-                <option value="banking">Banking & Financial Services</option>
-                <option value="fintech">Fintech</option>
-                <option value="insurance">Insurance</option>
-                <option value="saas">SaaS / Technology</option>
-                <option value="ecommerce">E-commerce / Retail</option>
-                <option value="real-estate">Real Estate</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="energy">Energy & Utilities</option>
-                <option value="manufacturing">Manufacturing</option>
-                <option value="professional-services">Professional Services</option>
-                <option value="other">Other</option>
-              </select>
-
-              <div class="custom-request__form-row">
-                <div>
-                  <label for="custom-revenue">Revenue Range</label>
-                  <select id="custom-revenue" name="revenue">
-                    <option value="">Select range...</option>
-                    <option value="pre-revenue">Pre-revenue</option>
-                    <option value="0-500k">&pound;0 &ndash; &pound;500k</option>
-                    <option value="500k-2m">&pound;500k &ndash; &pound;2M</option>
-                    <option value="2m-10m">&pound;2M &ndash; &pound;10M</option>
-                    <option value="10m-50m">&pound;10M &ndash; &pound;50M</option>
-                    <option value="50m+">&pound;50M+</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="custom-employees">Employees</label>
-                  <select id="custom-employees" name="employees">
-                    <option value="">Select range...</option>
-                    <option value="1-10">1 &ndash; 10</option>
-                    <option value="11-50">11 &ndash; 50</option>
-                    <option value="51-200">51 &ndash; 200</option>
-                    <option value="201-500">201 &ndash; 500</option>
-                    <option value="500+">500+</option>
-                  </select>
-                </div>
-              </div>
-
-              <label for="custom-description">Describe what you need *</label>
-              <textarea id="custom-description" name="description" placeholder="What decisions will this model support? What outputs do you need? Any specific requirements?" required></textarea>
-
-              <label for="custom-file" class="custom-request__file-label">
-                <span class="custom-request__file-icon">&#x1F4CE;</span>
-                <span class="custom-request__file-text">Attach a brief or reference file (optional)</span>
-                <span class="custom-request__file-hint">PDF, XLSX, DOCX &mdash; Max 10 MB</span>
-                <input type="file" id="custom-file" name="file" accept=".pdf,.xlsx,.xls,.docx,.doc,.csv,.pptx">
-              </label>
-
-              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:8px;">
-                Request Custom Model &#x2192;
-              </button>
-            </form>
-          </div>
-        </div>
-
-      </div><!-- /.custom-request__grid -->
-    </div>
-  </section>
-
-
-  <!-- CTA BANNER -->
-  <section class="cta-v2">
-    <div class="cta-v2__inner">
-      <h2>Not sure which model to start with?</h2>
-      <p>Get in touch and we'll help you pick the right one &mdash; or scope a custom build that fits your exact needs.</p>
-      <div class="hero-v2__actions">
-        <a href="pricing.html" class="btn btn-primary btn-lg">See Pricing</a>
-        <a href="contact.html" class="btn btn-ghost btn-lg">Ask Us</a>
+      <span class="section-label">Model Library</span>
+      <h1>Financial models. Built to institutional standard.</h1>
+      <p class="hero__subtitle--gold">Built for banking. Every model is designed to the standard expected by finance teams at banks, funds, and financial institutions.</p>
+      <div class="model-search">
+        <input type="text" id="modelSearch" class="model-search__input" placeholder="Search models..." aria-label="Search models">
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════════
+       CUSTOM MODEL — HERO CTA
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="custom-cta" id="custom">
+    <div class="container">
+      <div class="custom-cta__inner">
+        <h2 class="custom-cta__title">Built Around Your Business</h2>
+        <p class="custom-cta__subtitle">Institutional-grade models, built for your exact requirements</p>
+        <p class="custom-cta__body">The models on this page exist to show you what we do. The real value is in what we build for you. We work directly with finance teams at banks and financial institutions to deliver bespoke models built around your data, your processes, and your reporting requirements &mdash; not adapted from a template, built from scratch for your business.</p>
+
+        <div class="custom-cta__values">
+          <div class="custom-cta__value"><span class="custom-cta__num">1</span> Fully bespoke to your requirements</div>
+          <div class="custom-cta__value"><span class="custom-cta__num">2</span> Built by finance professionals, not developers</div>
+          <div class="custom-cta__value"><span class="custom-cta__num">3</span> Delivered to bank-grade standard</div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg custom-cta__btn" id="openEnquiryModal">Discuss Your Requirements &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATEGORY 1: BANKING & LENDING
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="banking-lending">
+    <div class="container">
+      <div class="cat-header">
+        <h2 class="cat-header__title">Banking &amp; Lending</h2>
+        <p class="cat-header__audience">FP&amp;A, credit and ALM teams</p>
+        <p class="cat-header__price">From &pound;249 per model</p>
+      </div>
+      <div class="model-grid">
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Lending Model</h3>
+            <p class="model-card__desc">Model retail and commercial loan books with full amortisation and covenant tracking.</p>
+            <ul class="model-card__features">
+              <li>Cohort-based vintage engine with PD/LGD</li>
+              <li>3 scenarios &middot; NIM bridge output</li>
+              <li>Full P&amp;L, provisions &amp; CHECKS tab</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;299</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="lending">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Deposits Model</h3>
+            <p class="model-card__desc">Analyse deposit product mix, funding costs, and maturity profiles.</p>
+            <ul class="model-card__features">
+              <li>Product-level stock &amp; flow engine</li>
+              <li>Deposit beta pricing &amp; NIM contribution</li>
+              <li>Maturity &amp; repricing gap analysis</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="deposits">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Credit Analysis Model</h3>
+            <p class="model-card__desc">Assess borrower creditworthiness with ratio analysis and scoring.</p>
+            <ul class="model-card__features">
+              <li>Financial ratio analysis &amp; scoring grid</li>
+              <li>Qualitative overlays &amp; risk rating</li>
+              <li>Summary credit memo output</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="credit-analysis">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Loan Pricing Model</h3>
+            <p class="model-card__desc">Price loans to target return on equity with full cost-of-funds build.</p>
+            <ul class="model-card__features">
+              <li>Cost-of-funds &amp; capital allocation build</li>
+              <li>Target ROE back-solve</li>
+              <li>Fee income &amp; breakeven analysis</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="loan-pricing">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>IFRS 9 ECL Model</h3>
+            <p class="model-card__desc">Calculate expected credit losses across stages with PD/LGD/EAD inputs.</p>
+            <ul class="model-card__features">
+              <li>Stage 1/2/3 allocation with transfer logic</li>
+              <li>Lifetime ECL &amp; 12-month ECL calculation</li>
+              <li>Macro overlay &amp; sensitivity analysis</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;299</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="ifrs9-ecl">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Deposit Pricing &amp; NII Model</h3>
+            <p class="model-card__desc">Model deposit pricing decisions and net interest income impact.</p>
+            <ul class="model-card__features">
+              <li>Product-level rate setting &amp; beta pass-through</li>
+              <li>NII impact of rate changes</li>
+              <li>Competitive positioning analysis</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="deposit-nii">Buy Model</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATEGORY 2: TREASURY & CAPITAL MARKETS
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section alt-bg" id="treasury-capital-markets">
+    <div class="container">
+      <div class="cat-header">
+        <h2 class="cat-header__title">Treasury &amp; Capital Markets</h2>
+        <p class="cat-header__audience">ALM, treasury and trading desks</p>
+        <p class="cat-header__price">From &pound;249 per model</p>
+      </div>
+      <div class="model-grid">
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Treasury / IRS Model</h3>
+            <p class="model-card__desc">Value and risk-manage interest rate swaps with full cash flow schedules.</p>
+            <ul class="model-card__features">
+              <li>Yield curve build &amp; discount factors</li>
+              <li>Fixed/float leg PV &amp; net MTM</li>
+              <li>DV01, hedge effectiveness &amp; P&amp;L</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;299</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="treasury">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Bond Pricing &amp; Yield Model</h3>
+            <p class="model-card__desc">Price fixed income instruments and calculate yield metrics.</p>
+            <ul class="model-card__features">
+              <li>Dirty/clean price &amp; accrued interest</li>
+              <li>YTM, current yield &amp; Z-spread</li>
+              <li>Duration &amp; convexity output</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="bond-pricing">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Duration &amp; Rate Sensitivity Model</h3>
+            <p class="model-card__desc">Measure portfolio duration, convexity, and rate sensitivity.</p>
+            <ul class="model-card__features">
+              <li>Modified &amp; effective duration</li>
+              <li>Parallel &amp; non-parallel shift scenarios</li>
+              <li>P&amp;L impact of rate moves (bps)</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="duration">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>FX Hedging Model</h3>
+            <p class="model-card__desc">Model FX exposure and evaluate hedging strategies.</p>
+            <ul class="model-card__features">
+              <li>Multi-currency exposure mapping</li>
+              <li>Forward &amp; option hedge strategies</li>
+              <li>Hedge cost &amp; effectiveness tracking</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="fx-hedging">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>LCR Model</h3>
+            <p class="model-card__desc">Calculate Liquidity Coverage Ratio to Basel III standards.</p>
+            <ul class="model-card__features">
+              <li>HQLA classification &amp; haircuts</li>
+              <li>Net cash outflow calculation</li>
+              <li>30-day stress scenario &amp; buffer</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="lcr">Buy Model</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATEGORY 3: RISK & REGULATORY
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="risk-regulatory">
+    <div class="container">
+      <div class="cat-header">
+        <h2 class="cat-header__title">Risk &amp; Regulatory</h2>
+        <p class="cat-header__audience">CRO office and regulatory reporting</p>
+        <p class="cat-header__price">From &pound;299 per model</p>
+      </div>
+      <div class="model-grid">
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Capital / Regulatory Model</h3>
+            <p class="model-card__desc">Calculate risk-weighted assets and capital ratios under Basel frameworks.</p>
+            <ul class="model-card__features">
+              <li>Credit, market &amp; op risk RWA</li>
+              <li>CET1/T1/Total Capital ratios &amp; buffers</li>
+              <li>Pillar 2A, stress testing &amp; RAROC</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;299</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="capital">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>VaR Model</h3>
+            <p class="model-card__desc">Estimate Value at Risk using historical and parametric methods.</p>
+            <ul class="model-card__features">
+              <li>Historical &amp; parametric VaR methods</li>
+              <li>Confidence intervals (95%/99%)</li>
+              <li>Backtesting &amp; stress VaR</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;299</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="var">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Stress Testing Model</h3>
+            <p class="model-card__desc">Run scenario and sensitivity analysis for ICAAP and board reporting.</p>
+            <ul class="model-card__features">
+              <li>Base, adverse &amp; severe scenarios</li>
+              <li>P&amp;L, capital &amp; liquidity impact</li>
+              <li>Board-ready output &amp; sensitivity tables</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;299</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="stress-testing">Buy Model</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATEGORY 4: VALUATION & CORPORATE FINANCE
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section alt-bg" id="valuation-corporate-finance">
+    <div class="container">
+      <div class="cat-header">
+        <h2 class="cat-header__title">Valuation &amp; Corporate Finance</h2>
+        <p class="cat-header__audience">M&amp;A, PE and equity research</p>
+        <p class="cat-header__price">From &pound;199 per model</p>
+      </div>
+      <div class="model-grid">
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>DCF Valuation Model</h3>
+            <p class="model-card__desc">Intrinsic value via discounted cash flow with WACC and terminal value.</p>
+            <ul class="model-card__features">
+              <li>FCFF/FCFE projections &amp; WACC build</li>
+              <li>Gordon growth &amp; exit multiple terminal value</li>
+              <li>Sensitivity tables &amp; football field output</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="dcf">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Trading Comps Model</h3>
+            <p class="model-card__desc">Peer group valuation using market multiples.</p>
+            <ul class="model-card__features">
+              <li>EV/EBITDA, P/E &amp; P/B multiples</li>
+              <li>Peer screening &amp; outlier flags</li>
+              <li>Implied valuation range output</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;199</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="trading-comps">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Precedent Transactions Model</h3>
+            <p class="model-card__desc">M&amp;A deal comps with transaction multiple analysis.</p>
+            <ul class="model-card__features">
+              <li>Deal database with premium analysis</li>
+              <li>EV/Revenue, EV/EBITDA &amp; P/E multiples</li>
+              <li>Implied valuation &amp; premium/discount</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;199</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="precedent-transactions">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>LBO Model</h3>
+            <p class="model-card__desc">Leveraged buyout returns model with debt waterfall and IRR analysis.</p>
+            <ul class="model-card__features">
+              <li>Sources &amp; uses, debt tranches &amp; waterfall</li>
+              <li>IRR &amp; MOIC at multiple exit years</li>
+              <li>Sensitivity on entry/exit multiples</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;299</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="lbo">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>SOTP Valuation Model</h3>
+            <p class="model-card__desc">Sum-of-the-parts valuation for diversified businesses.</p>
+            <ul class="model-card__features">
+              <li>Segment-level valuation (DCF &amp; comps)</li>
+              <li>Holding company discount analysis</li>
+              <li>Consolidated equity bridge</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;199</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="sotp">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>DDM (Dividend Discount) Model</h3>
+            <p class="model-card__desc">Equity valuation based on projected dividend streams.</p>
+            <ul class="model-card__features">
+              <li>Multi-stage growth DDM</li>
+              <li>Cost of equity &amp; CAPM build</li>
+              <li>Payout ratio &amp; sustainable growth</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;199</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="ddm">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Valuations Model (Multi-Method)</h3>
+            <p class="model-card__desc">Combined valuation across DCF, comps, and precedents.</p>
+            <ul class="model-card__features">
+              <li>DCF, trading comps &amp; precedents in one</li>
+              <li>Football field &amp; valuation range chart</li>
+              <li>Weighted blended valuation output</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;299</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="valuations">Buy Model</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATEGORY 5: FP&A & MANAGEMENT REPORTING
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="fpa-management-reporting">
+    <div class="container">
+      <div class="cat-header">
+        <h2 class="cat-header__title">FP&amp;A &amp; Management Reporting</h2>
+        <p class="cat-header__audience">CFO office and finance teams</p>
+        <p class="cat-header__price">From &pound;149 per model</p>
+      </div>
+      <div class="model-grid">
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>3-Statement Integrated Model</h3>
+            <p class="model-card__desc">Fully linked P&amp;L, balance sheet, and cash flow model.</p>
+            <ul class="model-card__features">
+              <li>Income statement, balance sheet &amp; cash flow</li>
+              <li>Revenue &amp; cost driver assumptions</li>
+              <li>3 scenarios &amp; ratio analysis output</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;249</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="three-statement">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Budget vs Actual Variance Model</h3>
+            <p class="model-card__desc">Monthly variance analysis with commentary framework.</p>
+            <ul class="model-card__features">
+              <li>Budget vs actual by line item</li>
+              <li>Volume/price/mix variance decomposition</li>
+              <li>YTD tracking &amp; commentary fields</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;149</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="budget-variance">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Rolling Forecast Model</h3>
+            <p class="model-card__desc">Dynamic 12-month rolling forecast with reforecast logic.</p>
+            <ul class="model-card__features">
+              <li>12-month rolling window with auto-roll</li>
+              <li>Actuals lock &amp; reforecast mechanism</li>
+              <li>Trend analysis &amp; forecast accuracy</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;149</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="rolling-forecast">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Budget vs Forecast Model</h3>
+            <p class="model-card__desc">Track forecast accuracy against original budget.</p>
+            <ul class="model-card__features">
+              <li>Budget, latest forecast &amp; actuals side-by-side</li>
+              <li>Variance waterfall &amp; bridge charts</li>
+              <li>Forecast bias tracking</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;149</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="budget-forecast">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Cost Control Model</h3>
+            <p class="model-card__desc">Departmental cost tracking and variance analysis.</p>
+            <ul class="model-card__features">
+              <li>Cost centre &amp; department breakdown</li>
+              <li>Headcount &amp; non-staff cost tracking</li>
+              <li>Monthly run-rate &amp; savings analysis</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;149</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="cost-control">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Management Accounts Pack</h3>
+            <p class="model-card__desc">Board-ready management accounts with KPI dashboard.</p>
+            <ul class="model-card__features">
+              <li>P&amp;L, BS &amp; cash flow summaries</li>
+              <li>KPI dashboard with RAG indicators</li>
+              <li>Board pack format, print-ready</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;199</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="management-accounts">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Working Capital Model</h3>
+            <p class="model-card__desc">Cash conversion cycle and working capital requirement analysis.</p>
+            <ul class="model-card__features">
+              <li>Receivables, payables &amp; inventory drivers</li>
+              <li>Cash conversion cycle tracking</li>
+              <li>Working capital facility sizing</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;149</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="working-capital">Buy Model</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATEGORY 6: ACCOUNTING & FIXED ASSETS
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section alt-bg" id="accounting-fixed-assets">
+    <div class="container">
+      <div class="cat-header">
+        <h2 class="cat-header__title">Accounting &amp; Fixed Assets</h2>
+        <p class="cat-header__audience">Technical accounting and finance ops</p>
+        <p class="cat-header__price">From &pound;99 per model</p>
+      </div>
+      <div class="model-grid">
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Capitalisation Model (IAS 38)</h3>
+            <p class="model-card__desc">Intangible asset capitalisation with phase tracking and amortisation.</p>
+            <ul class="model-card__features">
+              <li>Research vs development phase tracking</li>
+              <li>Amortisation schedules by asset</li>
+              <li>IAS 38 compliance checks</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;99</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="capitalisation">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>PPE Model (IAS 16)</h3>
+            <p class="model-card__desc">Property, plant and equipment register with depreciation schedules.</p>
+            <ul class="model-card__features">
+              <li>Asset register with additions &amp; disposals</li>
+              <li>SL &amp; reducing balance depreciation</li>
+              <li>NBV roll-forward &amp; disclosure notes</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;99</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="ppe">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Impairment Model (IAS 36)</h3>
+            <p class="model-card__desc">Impairment testing with value-in-use and recoverable amount.</p>
+            <ul class="model-card__features">
+              <li>Value-in-use DCF &amp; fair value less costs</li>
+              <li>CGU-level impairment allocation</li>
+              <li>Reversal tracking &amp; disclosure output</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;99</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="impairment">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Capex Model</h3>
+            <p class="model-card__desc">Capital expenditure planning, approval tracking, and variance analysis.</p>
+            <ul class="model-card__features">
+              <li>Project-level capex tracking</li>
+              <li>Approval workflow &amp; phasing</li>
+              <li>Budget vs actual &amp; forecast to complete</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;149</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="capex">Buy Model</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATEGORY 7: DEBT & LEVERAGE
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="debt-leverage">
+    <div class="container">
+      <div class="cat-header">
+        <h2 class="cat-header__title">Debt &amp; Leverage</h2>
+        <p class="cat-header__audience">Leveraged finance and corporate treasury</p>
+        <p class="cat-header__price">From &pound;149 per model</p>
+      </div>
+      <div class="model-grid">
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Debt Schedule Model</h3>
+            <p class="model-card__desc">Full debt waterfall with covenant testing and refinancing scenarios.</p>
+            <ul class="model-card__features">
+              <li>Multi-tranche debt with waterfalls</li>
+              <li>Covenant testing (leverage, DSCR, ICR)</li>
+              <li>Refinancing &amp; prepayment scenarios</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;199</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="debt-schedule">Buy Model</a>
+          </div>
+        </div>
+
+        <div class="model-card fade-in-on-scroll">
+          <div class="model-card__header">
+            <h3>Debt Amortisation Model</h3>
+            <p class="model-card__desc">Loan amortisation schedules across multiple tranches.</p>
+            <ul class="model-card__features">
+              <li>Bullet, annuity &amp; sculpted repayment</li>
+              <li>Fixed &amp; floating rate tranches</li>
+              <li>Total debt service &amp; cash sweep logic</li>
+            </ul>
+          </div>
+          <div class="model-card__footer">
+            <span class="model-card__price">&pound;149</span>
+            <a href="contact.html" class="btn btn-primary ls-buy-btn" data-model-id="debt-amortisation">Buy Model</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPANDING LIBRARY
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="expanding-library" id="coming-soon">
+    <div class="container">
+      <h2 class="expanding-library__title">Expanding Library</h2>
+      <p class="expanding-library__copy">New institutional-grade models added regularly across banking, risk, capital markets, and beyond.</p>
+
+      <div class="expanding-library__grid">
+        <div class="expanding-library__item"><span>ICAAP Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>ILAAP Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Basel IV RWA Calculator</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>IFRS 17 Insurance Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Private Equity Fund Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Real Estate Fund Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Credit Fund Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Merger Consequences Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Restructuring &amp; Recovery Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Infrastructure DCF Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Project Finance Model (SPV)</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>PPP / Concession Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Portfolio Return Attribution Model</span><span class="pill-soon">Soon</span></div>
+        <div class="expanding-library__item"><span>Buy-to-Let / Property Investment Model</span><span class="pill-soon">Soon</span></div>
+      </div>
+
+      <div class="expanding-library__notify">
+        <form id="notifyForm" class="notify-form">
+          <input type="email" id="notify-email" class="notify-form__input" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary btn-sm notify-form__btn">Notify Me</button>
+        </form>
+        <p class="notify-error" style="display:none;">Please enter a valid email address</p>
+        <p class="notify-success" style="display:none;">You're on the list. We'll let you know when new models drop.</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Banking<span>Models</span></a>
-          <p>Professional Excel banking models for FP&amp;A, treasury, and strategic finance. Modular. Transparent. Ready to use.</p>
+          <a href="index.html" class="logo">SFS Models</a>
+          <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
         </div>
         <div class="footer-col">
           <h4>Models</h4>
           <ul>
-            <li><a href="models.html#models">Startup Model</a></li>
-            <li><a href="models.html#models">SaaS Model</a></li>
-            <li><a href="models.html#models">Cash Flow Forecast</a></li>
-            <li><a href="models.html#models">Budget Planner</a></li>
-            <li><a href="models.html#custom">Custom Model</a></li>
+            <li><a href="#banking-lending">Banking &amp; Lending</a></li>
+            <li><a href="#treasury-capital-markets">Treasury &amp; Capital Markets</a></li>
+            <li><a href="#risk-regulatory">Risk &amp; Regulatory</a></li>
+            <li><a href="#valuation-corporate-finance">Valuation &amp; Corporate Finance</a></li>
+            <li><a href="#fpa-management-reporting">FP&amp;A &amp; Reporting</a></li>
+            <li><a href="#accounting-fixed-assets">Accounting &amp; Fixed Assets</a></li>
+            <li><a href="#debt-leverage">Debt &amp; Leverage</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
             <li><a href="about.html#methodology">Methodology</a></li>
             <li><a href="pricing.html#faq">FAQ</a></li>
-            <li><a href="contact.html">Support</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Banking Models Store. All rights reserved.</span>
-        <span>Built for banking professionals.</span>
+        <span>&copy; 2026 SFS Models. All rights reserved.</span>
+        <span>London, UK &middot; hello@sfsmodels.com</span>
       </div>
     </div>
   </footer>
+
+  <!-- ENQUIRY MODAL -->
+  <div class="enquiry-modal" id="enquiryModal" aria-hidden="true">
+    <div class="enquiry-modal__backdrop"></div>
+    <div class="enquiry-modal__panel">
+      <button type="button" class="enquiry-modal__close" aria-label="Close">&times;</button>
+      <h2 class="enquiry-modal__title">Tell Us What You Need</h2>
+      <p class="enquiry-modal__subtitle">We'll come back to you within one business day.</p>
+
+      <form id="enquiryModalForm" class="form enquiry-modal__form">
+        <div class="form__group">
+          <label for="eq-name">Full Name *</label>
+          <input type="text" id="eq-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form__group">
+          <label for="eq-email">Email Address *</label>
+          <input type="email" id="eq-email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form__group">
+          <label for="eq-company">Company / Institution *</label>
+          <input type="text" id="eq-company" name="business" placeholder="Your company name" required>
+        </div>
+        <div class="form__group">
+          <label for="eq-role">Role / Job Title *</label>
+          <input type="text" id="eq-role" name="role" placeholder="e.g. Head of FP&amp;A" required>
+        </div>
+        <div class="form__group">
+          <label for="eq-description">What do you need built? *</label>
+          <textarea id="eq-description" name="description" placeholder="Describe the model, the use case, and any specific requirements — the more detail the better" required></textarea>
+        </div>
+        <div class="form__group">
+          <label for="eq-timeline">Preferred timeline</label>
+          <select id="eq-timeline" name="timeline">
+            <option value="asap">As soon as possible</option>
+            <option value="1month">Within 1 month</option>
+            <option value="3months">Within 3 months</option>
+            <option value="flexible">No fixed timeline</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary enquiry-modal__submit">Send Enquiry</button>
+      </form>
+
+      <div class="enquiry-modal__success" style="display:none;">
+        <p>Thank you. We'll be in touch within one business day.</p>
+      </div>
+      <div class="enquiry-modal__error" style="display:none;">
+        <p>Something went wrong. Please email us directly at <a href="mailto:hello@sfsmodels.com">hello@sfsmodels.com</a></p>
+      </div>
+    </div>
+  </div>
 
   <script src="js/scripts.js"></script>
 </body>

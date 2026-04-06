@@ -1,9 +1,9 @@
-# Banking Models Store — robots.txt
+# SFS Models — robots.txt
 
 User-agent: *
 Allow: /
 
-Sitemap: https://bankingmodels.store/sitemap.xml
+Sitemap: https://sfsmodels.com/sitemap.xml
 
 # Block backend and data directories
 Disallow: /backend/

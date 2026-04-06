@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+
+# No build command — plain HTML/CSS/JS, no bundler
+
+# Custom 404 page
+[[redirects]]
+  from = "/api/*"
+  to = "/404.html"
+  status = 404
+
+# Catch-all 404
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

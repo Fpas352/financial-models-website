@@ -1,57 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ======================================================
-       Banking Models Store — About Page (about.html)
-
-       PURPOSE: Explains the modelling philosophy, methodology,
-       and positioning. Builds trust by articulating what the
-       models are (and aren't) and the 8 design principles.
-
-       SECTIONS:
-       1. Header
-       2. Page hero — "Built by practitioners, for practitioners"
-       3. The Problem — narrative about the modelling gap
-       4. Methodology (#methodology) — 8 principle cards
-       5. Positioning — "what they are / aren't" comparison
-       6. CTA banner
-       7. Footer
-       ====================================================== -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=PASTE_GA4_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'PASTE_GA4_ID_HERE');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Banking Models Store</title>
-  <meta name="description" content="Our modelling methodology and 8 design principles. Learn why our banking models are built differently — transparent, cohort-based, and commercially useful.">
+  <title>About | SFS Models</title>
+  <meta name="description" content="Built by finance professionals with direct experience in banking FP&A, treasury, risk, and regulatory reporting. Our modelling methodology and design principles.">
 
-  <link rel="canonical" href="https://bankingmodels.store/about.html">
+  <link rel="canonical" href="https://sfsmodels.com/about.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="About | Banking Models Store">
-  <meta property="og:description" content="Our modelling methodology and design principles. Built by practitioners, for practitioners.">
-  <meta property="og:url" content="https://bankingmodels.store/about.html">
+  <meta property="og:title" content="About | SFS Models">
+  <meta property="og:description" content="Built by finance professionals. Our modelling methodology and the 8 design principles behind every model.">
+  <meta property="og:url" content="https://sfsmodels.com/about.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="About | Banking Models Store">
+  <meta name="twitter:title" content="About | SFS Models">
   <meta name="twitter:description" content="8 design principles behind every banking model we build.">
 
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
 </head>
 <body>
 
-  <!-- HEADER (same as all pages) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container">
       <nav class="nav-inner">
-        <a href="index.html" class="logo">Banking<span>Models</span></a>
+        <a href="index.html" class="logo">SFS Models</a>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
           <li><a href="models.html">Models</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="free-samples.html">Free Samples</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="pricing.html" class="btn btn-primary btn-sm">Get Started</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
         </div>
         <button class="hamburger" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -60,22 +55,19 @@
     </div>
   </header>
 
+  <main id="main-content">
+
   <!-- PAGE HERO -->
-  <section class="about-hero">
+  <section class="page-hero">
     <div class="container">
       <span class="section-label">About</span>
-      <h1>Built by practitioners, for practitioners</h1>
+      <h1>Built by practitioners, for practitioners.</h1>
       <p>We build the banking models we wished existed when we needed them &mdash; commercially useful, transparent, and designed for real decisions.</p>
     </div>
   </section>
 
-  <!-- ====================================================
-       THE PROBLEM
-       Narrative section explaining the gap between simple
-       templates and complex regulatory models. Establishes
-       the positioning: "commercially useful middle ground".
-       ==================================================== -->
-  <section>
+  <!-- THE PROBLEM -->
+  <section class="section">
     <div class="container">
       <div class="about-prose">
         <span class="section-label">The Problem</span>
@@ -93,13 +85,44 @@
     </div>
   </section>
 
-  <!-- ====================================================
-       METHODOLOGY — 8 DESIGN PRINCIPLES
-       Numbered cards explaining the constraints we enforce
-       in every workbook. Anchor: #methodology (linked from
-       footer "Resources" column).
-       ==================================================== -->
-  <section id="methodology" class="alt-bg">
+  <!-- EXPERTISE -->
+  <section class="section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Expertise</span>
+        <h2>Where our experience comes from</h2>
+      </div>
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <h4>Banking FP&amp;A</h4>
+          <p>Balance sheet forecasting, NIM analysis, product-level P&amp;L, and board reporting for retail and commercial banks.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Treasury &amp; ALM</h4>
+          <p>Funding strategy, interest rate risk, repricing gap analysis, FTP frameworks, and liquidity management.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Credit Risk</h4>
+          <p>PD/LGD modelling, ECL provisioning, vintage analysis, stress testing, and portfolio credit quality monitoring.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Capital &amp; Regulatory</h4>
+          <p>Basel III/IV capital adequacy, RWA optimisation, ICAAP/ILAAP, Pillar 2 buffers, and recovery planning.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Derivatives &amp; Hedging</h4>
+          <p>IRS valuation, yield curve construction, hedge effectiveness, MTM accounting, and risk sensitivity analysis.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Financial Advisory</h4>
+          <p>Due diligence models, acquisition financing, capital raising, strategic planning, and investor presentations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="section" id="methodology">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Methodology</span>
@@ -111,7 +134,7 @@
           <div class="principle-number">1</div>
           <div>
             <h4>Separate inputs, calculations, outputs, and checks</h4>
-            <p>Every workbook is structured by function. Blue tabs for inputs, white for calculations, orange for analysis, green for outputs, red for controls. You always know where you are.</p>
+            <p>Every workbook is structured by function. Blue tabs for inputs, white for calculations, green for outputs, red for controls. You always know where you are.</p>
           </div>
         </div>
         <div class="principle-card">
@@ -146,7 +169,7 @@
           <div class="principle-number">6</div>
           <div>
             <h4>No manual hardcoding in calculations</h4>
-            <p>Every number in a calculation tab comes from an assumption or a prior calculation. If you need to change something, you change it once in the inputs. It flows everywhere.</p>
+            <p>Every number in a calculation tab comes from an assumption or a prior calculation. If you need to change something, you change it once in the inputs.</p>
           </div>
         </div>
         <div class="principle-card">
@@ -160,19 +183,15 @@
           <div class="principle-number">8</div>
           <div>
             <h4>Designed for non-expert users</h4>
-            <p>The buyer isn't always the builder. Our models are designed so that someone who didn't create them can pick them up, understand the structure, and start using them productively.</p>
+            <p>The buyer isn't always the builder. Our models are designed so that someone who didn't create them can pick them up and start using them productively.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====================================================
-       POSITIONING: WHAT THEY ARE / AREN'T
-       Side-by-side comparison with green checks (what they
-       are) and red crosses (what they aren't).
-       ==================================================== -->
-  <section>
+  <!-- POSITIONING -->
+  <section class="section alt-bg">
     <div class="container">
       <div class="about-prose">
         <span class="section-label">Positioning</span>
@@ -204,55 +223,52 @@
   </section>
 
   <!-- CTA BANNER -->
-  <section class="cta-v2">
-    <div class="cta-v2__inner">
-      <h2>See the models for yourself</h2>
-      <p>Explore the feature set, review the specifications, and pick the model that fits your workflow.</p>
-      <div class="hero-v2__actions">
-        <a href="models.html" class="btn btn-primary btn-lg">Explore Models</a>
-        <a href="contact.html" class="btn btn-ghost btn-lg">Get in Touch</a>
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__inner">
+        <h2>See the models for yourself</h2>
+        <p>Explore the feature set, review the specifications, and pick the model that fits your workflow.</p>
+        <div class="hero__actions">
+          <a href="models.html" class="btn btn-primary btn-lg">Explore Models</a>
+          <a href="contact.html" class="btn btn-outline btn-lg">Get in Touch</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER (same as all pages) -->
+  </main>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Banking<span>Models</span></a>
-          <p>Professional Excel banking models for FP&amp;A, treasury, and strategic finance. Modular. Transparent. Ready to use.</p>
+          <a href="index.html" class="logo">SFS Models</a>
+          <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
         </div>
         <div class="footer-col">
           <h4>Models</h4>
           <ul>
-            <li><a href="models.html#lending">Lending Model</a></li>
-            <li><a href="models.html#deposits">Deposits Model</a></li>
-            <li><a href="models.html#treasury">Treasury / ALM</a></li>
-            <li><a href="models.html#capital">Capital Model</a></li>
-            <li><a href="models.html#integrated">Integrated Model</a></li>
+            <li><a href="models.html#lending">Lending</a></li>
+            <li><a href="models.html#deposits">Deposits</a></li>
+            <li><a href="models.html#treasury">Treasury &amp; ALM</a></li>
+            <li><a href="models.html#capital">Capital &amp; RWA</a></li>
+            <li><a href="models.html#integrated">Integrated</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
             <li><a href="about.html#methodology">Methodology</a></li>
             <li><a href="pricing.html#faq">FAQ</a></li>
-            <li><a href="contact.html">Support</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Banking Models Store. All rights reserved.</span>
-        <span>Built for banking professionals.</span>
+        <span>&copy; 2026 SFS Models. All rights reserved.</span>
+        <span>London, UK &middot; hello@sfsmodels.com</span>
       </div>
     </div>
   </footer>

@@ -1,80 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ======================================================
-       Banking Models Store — Contact Page (contact.html)
-
-       PURPOSE: Professional contact page with enquiry form,
-       consultation booking section, contact details, and
-       location map placeholder.
-
-       SECTIONS:
-       1. Header
-       2. Page hero — "Get in touch"
-       3. Contact form + info sidebar (2-column grid)
-       4. Book a consultation (full-width CTA)
-       5. Contact details bar (email, phone, hours)
-       6. Map placeholder
-       7. Footer
-
-       FORM HANDLING:
-       Currently simulated client-side (see js/scripts.js).
-       POST /api/contact with JSON body for production.
-       ====================================================== -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=PASTE_GA4_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'PASTE_GA4_ID_HERE');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Banking Models Store</title>
-  <meta name="description" content="Get in touch to purchase a model, book a consultation, or ask about custom builds and enterprise licensing. We respond within 24 hours.">
+  <title>Contact | SFS Models</title>
+  <meta name="description" content="Get in touch to purchase a model, request a custom build, or ask about enterprise licensing. We respond within 24 hours.">
 
-  <link rel="canonical" href="https://bankingmodels.store/contact.html">
+  <link rel="canonical" href="https://sfsmodels.com/contact.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact | Banking Models Store">
-  <meta property="og:description" content="Get in touch to purchase a model, book a consultation, or ask about custom builds.">
-  <meta property="og:url" content="https://bankingmodels.store/contact.html">
+  <meta property="og:title" content="Contact | SFS Models">
+  <meta property="og:description" content="Get in touch to purchase a model, request a custom build, or ask about enterprise licensing.">
+  <meta property="og:url" content="https://sfsmodels.com/contact.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Contact | Banking Models Store">
+  <meta name="twitter:title" content="Contact | SFS Models">
   <meta name="twitter:description" content="Get in touch — we respond within 24 hours.">
 
-  <!-- Schema.org: LocalBusiness (helps Google show contact info) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Banking Models Store",
-    "email": "hello@bankingmodels.store",
-    "telephone": "+442079460958",
-    "url": "https://bankingmodels.store",
+    "name": "SFS Models",
+    "email": "hello@sfsmodels.com",
+    "url": "https://sfsmodels.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "London",
       "addressCountry": "GB"
     },
     "openingHours": "Mo-Fr 09:00-17:30",
-    "priceRange": "£29 - £499+"
+    "priceRange": "£199 - £1,500+"
   }
   </script>
 
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="container">
       <nav class="nav-inner">
-        <a href="index.html" class="logo">Banking<span>Models</span></a>
+        <a href="index.html" class="logo">SFS Models</a>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
           <li><a href="models.html">Models</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="free-samples.html">Free Samples</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="pricing.html" class="btn btn-primary btn-sm">Get Started</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
         </div>
         <button class="hamburger" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -83,267 +72,329 @@
     </div>
   </header>
 
+  <main id="main-content">
 
-  <!-- ====================================================
-       PAGE HERO
-       ==================================================== -->
-  <section class="contact-hero">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
     <div class="container">
       <span class="section-label">Contact</span>
       <h1>Get in touch</h1>
-      <p>Whether you need a pre-built model, a custom build, or just have a question &mdash; we'd love to hear from you. We typically respond within 24 hours.</p>
+      <p>Whether you need a pre-built model, a custom build, or just have a question &mdash; we'd love to hear from you.</p>
     </div>
   </section>
 
-
-  <!-- ====================================================
-       CONTACT DETAILS BAR
-       3 key pieces of contact info in a horizontal strip.
-       ==================================================== -->
+  <!-- CONTACT DETAILS BAR -->
   <section class="contact-bar">
     <div class="container">
       <div class="contact-bar__grid">
-
         <div class="contact-bar__item">
-          <div class="contact-bar__icon">&#x2709;&#xFE0F;</div>
-          <div>
-            <div class="contact-bar__label">Email us</div>
-            <div class="contact-bar__value">hello@bankingmodels.store</div>
-          </div>
+          <div class="contact-bar__label">Email</div>
+          <div class="contact-bar__value">hello@sfsmodels.com</div>
         </div>
-
         <div class="contact-bar__divider"></div>
-
         <div class="contact-bar__item">
-          <div class="contact-bar__icon">&#x1F4DE;</div>
-          <div>
-            <div class="contact-bar__label">Call us</div>
-            <div class="contact-bar__value">+44 (0) 20 7946 0958</div>
-          </div>
+          <div class="contact-bar__label">Response time</div>
+          <div class="contact-bar__value">Within 24 hours</div>
         </div>
-
         <div class="contact-bar__divider"></div>
-
         <div class="contact-bar__item">
-          <div class="contact-bar__icon">&#x1F552;</div>
-          <div>
-            <div class="contact-bar__label">Business hours</div>
-            <div class="contact-bar__value">Mon &ndash; Fri, 9:00 &ndash; 17:30 GMT</div>
-          </div>
+          <div class="contact-bar__label">Hours</div>
+          <div class="contact-bar__value">Mon &ndash; Fri, 9:00 &ndash; 17:30 GMT</div>
         </div>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ====================================================
-       CONTACT FORM + SIDEBAR
-       2-column layout: form left, info right.
-       Form: name, email, business type, message.
-       Sidebar: trust signals + FAQ links.
-       ==================================================== -->
-  <section class="contact-main">
+  <!-- GENERAL CONTACT FORM -->
+  <section class="section" id="contact">
     <div class="container">
       <div class="contact-grid">
 
-        <!-- LEFT: Contact Form -->
+        <!-- LEFT: Form -->
         <div>
-          <h2 class="contact-main__heading">Send us a message</h2>
-          <p class="contact-main__subtitle">Fill in the form below and we'll get back to you within one business day.</p>
+          <h2>Send us a message</h2>
+          <p class="contact-subtitle">Fill in the form below and we'll get back to you within one business day.</p>
 
-          <form id="contactForm" class="contact-form">
+          <form id="contactForm" class="form">
 
-            <div class="contact-form__row">
-              <div>
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" placeholder="John Smith" required>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="contact-name">Full Name *</label>
+                <input type="text" id="contact-name" name="name" placeholder="Your name" required>
               </div>
-              <div>
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+              <div class="form__group">
+                <label for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" name="email" placeholder="you@company.com" required>
               </div>
             </div>
 
-            <label for="business-type">Business Type</label>
-            <select id="business-type" name="business_type">
-              <option value="">Select your business type...</option>
-              <option value="bank">Bank / Building Society</option>
-              <option value="fintech">Fintech</option>
-              <option value="consultancy">Consultancy / Advisory</option>
-              <option value="corporate">Corporate Finance</option>
-              <option value="startup">Startup</option>
-              <option value="investor">Investor / PE / VC</option>
-              <option value="education">Education / Academic</option>
-              <option value="other">Other</option>
-            </select>
+            <div class="form__group">
+              <label for="contact-type">Enquiry Type</label>
+              <select id="contact-type" name="business_type">
+                <option value="">Select type...</option>
+                <option value="prebuilt">Pre-built model purchase</option>
+                <option value="custom">Custom model request</option>
+                <option value="bundle">Full Library Bundle</option>
+                <option value="enterprise">Enterprise / team licensing</option>
+                <option value="support">Support question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
 
-            <label for="message">Message *</label>
-            <textarea id="message" name="message" placeholder="Tell us what you're looking for &mdash; a specific model, a custom build, enterprise licensing, or any questions you have..." required></textarea>
+            <div class="form__group">
+              <label for="contact-message">Message *</label>
+              <textarea id="contact-message" name="message" placeholder="Tell us what you're looking for..." required></textarea>
+            </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:16px 28px;">
-              Send Message &#x2192;
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Send Message
             </button>
-
-            <p class="contact-form__privacy">By submitting this form you agree to our privacy policy. We'll never share your details with third parties.</p>
           </form>
         </div>
 
         <!-- RIGHT: Sidebar -->
         <div class="contact-sidebar">
-
-          <!-- Trust signals -->
           <div class="contact-trust-card">
-            <h4>Why people trust us</h4>
+            <h4>Quick links</h4>
             <ul class="contact-trust-list">
               <li>
-                <span class="contact-trust-check">&#x2713;</span>
+                <span class="contact-trust-check">&#x2192;</span>
                 <div>
-                  <strong>200+ models sold</strong>
-                  <p>Trusted by finance teams, fintechs, and consultancies across 15+ countries.</p>
+                  <a href="models.html"><strong>Browse all 9 models</strong></a>
+                  <p>View specifications and pricing</p>
                 </div>
               </li>
               <li>
-                <span class="contact-trust-check">&#x2713;</span>
+                <span class="contact-trust-check">&#x2192;</span>
                 <div>
-                  <strong>24-hour response time</strong>
-                  <p>We respond to every enquiry within one business day, usually sooner.</p>
+                  <a href="pricing.html#faq"><strong>Frequently asked questions</strong></a>
+                  <p>Answers to common pre-purchase questions</p>
                 </div>
               </li>
               <li>
-                <span class="contact-trust-check">&#x2713;</span>
+                <span class="contact-trust-check">&#x2192;</span>
                 <div>
-                  <strong>No obligation</strong>
-                  <p>Ask anything. We're happy to help you decide before you commit.</p>
+                  <a href="pricing.html#custom"><strong>Custom model pricing</strong></a>
+                  <p>Simple, Standard, and Complex tiers</p>
                 </div>
               </li>
               <li>
-                <span class="contact-trust-check">&#x2713;</span>
+                <span class="contact-trust-check">&#x2192;</span>
                 <div>
-                  <strong>Free lifetime updates</strong>
-                  <p>Every model purchase includes free updates and ongoing email support.</p>
+                  <a href="about.html#methodology"><strong>Our methodology</strong></a>
+                  <p>8 design principles behind every model</p>
                 </div>
               </li>
             </ul>
           </div>
-
-          <!-- Quick FAQ links -->
-          <div class="contact-faq-card">
-            <h4>Common questions</h4>
-            <ul class="contact-faq-links">
-              <li><a href="pricing.html#faq">&#x2192; What do I receive after purchase?</a></li>
-              <li><a href="pricing.html#faq">&#x2192; Can I customise the models?</a></li>
-              <li><a href="pricing.html#faq">&#x2192; Do you offer enterprise licensing?</a></li>
-              <li><a href="pricing.html">&#x2192; See full pricing breakdown</a></li>
-              <li><a href="models.html#models">&#x2192; Browse all models</a></li>
-            </ul>
-          </div>
-
         </div>
 
       </div>
     </div>
   </section>
 
-
-  <!-- ====================================================
-       BOOK A CONSULTATION
-       Full-width CTA section for booking a call.
-       ==================================================== -->
-  <section class="consultation">
+  <!-- CUSTOM MODEL REQUEST — 3-STEP FORM -->
+  <section class="section alt-bg" id="custom-request">
     <div class="container">
-      <div class="consultation__card">
-        <div class="consultation__content">
-          <div class="consultation__icon">&#x1F4C5;</div>
-          <div>
-            <span class="section-label">Free Consultation</span>
-            <h2>Book a 30-minute call</h2>
-            <p>Not sure which model fits your needs? Want to discuss a custom build? Book a free, no-obligation consultation with our team. We'll help you identify the right solution for your business.</p>
-          </div>
-        </div>
-        <div class="consultation__details">
-          <div class="consultation__detail">
-            <div class="consultation__detail-icon">&#x23F1;&#xFE0F;</div>
-            <div>
-              <strong>30 minutes</strong>
-              <p>Focused session to understand your needs</p>
+      <div class="section-header">
+        <span class="section-label">Custom Model Request</span>
+        <h2>Tell us what you need</h2>
+        <p class="section-subtitle">Complete the form below and we'll respond within 24 hours with a scope and quote.</p>
+      </div>
+
+      <div class="multistep-form-wrapper">
+        <form id="customModelForm" class="form multistep-form">
+
+          <!-- Progress bar -->
+          <div class="multistep-progress">
+            <div class="multistep-progress__step active" data-step="1">
+              <div class="multistep-progress__dot">1</div>
+              <span>Your Details</span>
+            </div>
+            <div class="multistep-progress__line"></div>
+            <div class="multistep-progress__step" data-step="2">
+              <div class="multistep-progress__dot">2</div>
+              <span>Requirements</span>
+            </div>
+            <div class="multistep-progress__line"></div>
+            <div class="multistep-progress__step" data-step="3">
+              <div class="multistep-progress__dot">3</div>
+              <span>Review &amp; Submit</span>
             </div>
           </div>
-          <div class="consultation__detail">
-            <div class="consultation__detail-icon">&#x1F4BB;</div>
-            <div>
-              <strong>Video or phone</strong>
-              <p>Zoom, Teams, or a simple phone call</p>
+
+          <!-- STEP 1: Your Details -->
+          <div class="multistep-panel active" data-step="1">
+            <h3>Step 1: Your details</h3>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label for="custom-name">Full Name *</label>
+                <input type="text" id="custom-name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="form__group">
+                <label for="custom-email">Email Address *</label>
+                <input type="email" id="custom-email" name="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label for="custom-company">Company / Organisation *</label>
+              <input type="text" id="custom-company" name="business" placeholder="Your company name" required>
+            </div>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label for="custom-sector">Sector *</label>
+                <select id="custom-sector" name="sector" required>
+                  <option value="">Select sector...</option>
+                  <option value="banking">Banking &amp; Building Societies</option>
+                  <option value="fintech">Fintech</option>
+                  <option value="pe-vc">PE / VC / Advisory</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="corporate">Corporate Finance</option>
+                  <option value="consulting">Management Consulting</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label for="custom-role">Your Role</label>
+                <input type="text" id="custom-role" name="role" placeholder="e.g. Head of FP&A">
+              </div>
+            </div>
+
+            <div class="multistep-nav">
+              <div></div>
+              <button type="button" class="btn btn-primary multistep-next">Next: Requirements</button>
             </div>
           </div>
-          <div class="consultation__detail">
-            <div class="consultation__detail-icon">&#x1F4B0;</div>
-            <div>
-              <strong>Completely free</strong>
-              <p>No obligation, no hard sell</p>
+
+          <!-- STEP 2: Requirements -->
+          <div class="multistep-panel" data-step="2">
+            <h3>Step 2: Model requirements</h3>
+
+            <div class="form__group">
+              <label for="custom-model-type">What type of model do you need? *</label>
+              <select id="custom-model-type" name="model_type" required>
+                <option value="">Select type...</option>
+                <option value="lending">Lending / Credit</option>
+                <option value="deposits">Deposits / Funding</option>
+                <option value="treasury">Treasury / ALM / Derivatives</option>
+                <option value="capital">Capital / Regulatory</option>
+                <option value="integrated">Integrated / Full Bank</option>
+                <option value="cashflow">Cash Flow Forecasting</option>
+                <option value="valuation">Valuation / M&amp;A</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label for="custom-complexity">Estimated Complexity</label>
+                <select id="custom-complexity" name="complexity">
+                  <option value="">Select...</option>
+                  <option value="simple">Simple (&pound;500&ndash;&pound;800)</option>
+                  <option value="standard">Standard (&pound;800&ndash;&pound;1,500)</option>
+                  <option value="complex">Complex (&pound;1,500+)</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label for="custom-timeline">Preferred Timeline</label>
+                <select id="custom-timeline" name="timeline">
+                  <option value="">Select...</option>
+                  <option value="urgent">ASAP (1&ndash;2 weeks)</option>
+                  <option value="normal">Standard (2&ndash;4 weeks)</option>
+                  <option value="flexible">Flexible (4+ weeks)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label for="custom-description">Describe what you need *</label>
+              <textarea id="custom-description" name="description" placeholder="What decisions will this model support? What outputs do you need? Any specific requirements, data sources, or constraints?" required></textarea>
+            </div>
+
+            <div class="multistep-nav">
+              <button type="button" class="btn btn-outline multistep-prev">Back</button>
+              <button type="button" class="btn btn-primary multistep-next">Next: Review</button>
             </div>
           </div>
-        </div>
-        <a href="mailto:hello@bankingmodels.store?subject=Consultation%20Request" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">
-          Book a Consultation &#x2192;
-        </a>
+
+          <!-- STEP 3: Review & Submit -->
+          <div class="multistep-panel" data-step="3">
+            <h3>Step 3: Review &amp; submit</h3>
+            <p>Please review your details before submitting. We'll respond within 24 hours with a scope and quote.</p>
+
+            <div class="multistep-review">
+              <div class="multistep-review__section">
+                <h4>Your Details</h4>
+                <div class="multistep-review__grid">
+                  <div><span class="multistep-review__label">Name</span><span class="multistep-review__value" id="review-name"></span></div>
+                  <div><span class="multistep-review__label">Email</span><span class="multistep-review__value" id="review-email"></span></div>
+                  <div><span class="multistep-review__label">Company</span><span class="multistep-review__value" id="review-company"></span></div>
+                  <div><span class="multistep-review__label">Sector</span><span class="multistep-review__value" id="review-sector"></span></div>
+                  <div><span class="multistep-review__label">Role</span><span class="multistep-review__value" id="review-role"></span></div>
+                </div>
+              </div>
+              <div class="multistep-review__section">
+                <h4>Requirements</h4>
+                <div class="multistep-review__grid">
+                  <div><span class="multistep-review__label">Model Type</span><span class="multistep-review__value" id="review-model-type"></span></div>
+                  <div><span class="multistep-review__label">Complexity</span><span class="multistep-review__value" id="review-complexity"></span></div>
+                  <div><span class="multistep-review__label">Timeline</span><span class="multistep-review__value" id="review-timeline"></span></div>
+                </div>
+                <div style="margin-top:1rem;">
+                  <span class="multistep-review__label">Description</span>
+                  <p class="multistep-review__value" id="review-description" style="margin-top:0.5rem;"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="multistep-nav">
+              <button type="button" class="btn btn-outline multistep-prev">Back</button>
+              <button type="submit" class="btn btn-primary">Submit Request</button>
+            </div>
+          </div>
+
+        </form>
       </div>
     </div>
   </section>
 
-
-  <!-- ====================================================
-       MAP PLACEHOLDER
-       Grey box simulating a map embed. Replace with a real
-       Google Maps or Mapbox embed in production.
-       ==================================================== -->
-  <section class="contact-map">
-    <div class="contact-map__placeholder">
-      <div class="contact-map__pin">&#x1F4CD;</div>
-      <div class="contact-map__label">
-        <strong>Banking Models Store</strong>
-        <p>London, United Kingdom</p>
-        <p class="contact-map__note">We work with clients globally &mdash; all models use GBP defaults but are fully customisable to any currency.</p>
-      </div>
-    </div>
-  </section>
-
+  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Banking<span>Models</span></a>
-          <p>Professional Excel banking models for FP&amp;A, treasury, and strategic finance. Modular. Transparent. Ready to use.</p>
+          <a href="index.html" class="logo">SFS Models</a>
+          <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
         </div>
         <div class="footer-col">
           <h4>Models</h4>
           <ul>
-            <li><a href="models.html#models">Pre-built Models</a></li>
-            <li><a href="models.html#custom">Custom Models</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="models.html#lending">Lending</a></li>
+            <li><a href="models.html#deposits">Deposits</a></li>
+            <li><a href="models.html#treasury">Treasury &amp; ALM</a></li>
+            <li><a href="models.html#capital">Capital &amp; RWA</a></li>
+            <li><a href="models.html#integrated">Integrated</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
             <li><a href="about.html#methodology">Methodology</a></li>
             <li><a href="pricing.html#faq">FAQ</a></li>
-            <li><a href="contact.html">Support</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Banking Models Store. All rights reserved.</span>
-        <span>Built for banking professionals.</span>
+        <span>&copy; 2026 SFS Models. All rights reserved.</span>
+        <span>London, UK &middot; hello@sfsmodels.com</span>
       </div>
     </div>
   </footer>
