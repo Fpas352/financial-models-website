@@ -517,11 +517,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const q = modelSearch.value.toLowerCase().trim();
       const cards = document.querySelectorAll('.model-card');
       const sections = document.querySelectorAll('.section[id], .section.alt-bg');
+      const customCta = document.querySelector('.custom-cta');
 
       cards.forEach(card => {
         const text = card.textContent.toLowerCase();
         card.style.display = q && !text.includes(q) ? 'none' : '';
       });
+
+      // Hide custom CTA section while searching so results are visible
+      if (customCta) {
+        customCta.style.display = q ? 'none' : '';
+      }
 
       // Hide category sections where all cards are hidden
       sections.forEach(sec => {
