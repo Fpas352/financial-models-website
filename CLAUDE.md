@@ -8,7 +8,7 @@ Work autonomously from start to finish without asking for approval, confirmation
 
 Static marketing website for SFS Models — a business selling institutional-grade Excel-based financial models for banks, fintechs, and advisory firms. Vanilla HTML/CSS/JS frontend with an optional Express backend for form handling. No build tools, no frameworks, no preprocessors.
 
-**Brand:** SFS Models | sfsmodels.com | hello@sfsmodels.com
+**Brand:** SFS Models | sfsmodels.com | sfsmodels362@gmail.com
 **Aesthetic:** Dark Bloomberg/Goldman theme (#0A0C10 bg, #C9A84C gold accent)
 **Fonts:** DM Sans (body) + DM Serif Display (headlines) via Google Fonts
 
