@@ -521,7 +521,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       cards.forEach(card => {
         const text = card.textContent.toLowerCase();
-        card.style.display = q && !text.includes(q) ? 'none' : '';
+        const show = !q || text.includes(q);
+        card.style.display = show ? '' : 'none';
+        // Ensure fade-in cards become visible when matched by search
+        if (show && q && card.classList.contains('fade-in-on-scroll')) {
+          card.classList.add('is-visible');
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }
+        if (!q) {
+          card.style.opacity = '';
+          card.style.transform = '';
+        }
       });
 
       // Hide custom CTA section while searching so results are visible

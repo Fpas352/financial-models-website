@@ -251,6 +251,15 @@ const LS_PRODUCTS = {
     checkoutEmbed: true,
   },
 
+  // ── Integrated Planning ────────────────────────────────────
+  "complete-ltp": {
+    name: "Complete LTP Model",
+    price: "£999",
+    buyUrl: "PASTE_LS_URL_HERE",
+    freeUrl: "PASTE_LS_FREE_URL_HERE",
+    checkoutEmbed: true,
+  },
+
   // ── Bundle ─────────────────────────────────────────────────
   "full-library": {
     name: "Full Model Library Bundle",
