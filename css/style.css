@@ -2025,6 +2025,53 @@ section {
   margin-top: 0.5rem;
 }
 
+/* ── Buy / Coming Soon button variants ───────────────────────────────── */
+.btn-buy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid #C9A84C;
+  background: #C9A84C;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .02em;
+  transition: all var(--transition);
+}
+.btn-buy:hover {
+  background: #d4b65c;
+  border-color: #d4b65c;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, .35);
+}
+.btn-buy:active {
+  transform: translateY(0);
+}
+
+.btn-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .04);
+  color: rgba(232, 230, 224, .4);
+  cursor: not-allowed;
+  letter-spacing: .02em;
+  pointer-events: none;
+  user-select: none;
+}
+
 .model-card__desc {
   font-size: 0.88rem;
   color: var(--text-muted);
