@@ -10,14 +10,14 @@ const LS_PRODUCTS = {
   "deposits": {
     name: "Deposits Model",
     price: "£249",
-    buyUrl: "PASTE_LS_URL_HERE",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/b9e50e05-8261-407a-9342-5da481afff99",
     freeUrl: "PASTE_LS_FREE_URL_HERE",
     checkoutEmbed: true,
   },
   "credit-analysis": {
     name: "Credit Analysis Model",
     price: "£249",
-    buyUrl: "PASTE_LS_URL_HERE",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/46ce4412-ea32-42c5-9b32-0f2164885396",
     freeUrl: "PASTE_LS_FREE_URL_HERE",
     checkoutEmbed: true,
   },
