@@ -746,6 +746,28 @@ document.head.appendChild(injectedStyles);
 
 document.addEventListener('DOMContentLoaded', function() {
 
+  // Wire up Lemon Squeezy checkout URLs from ls-config.js
+  if (window.LS_PRODUCTS) {
+    document.querySelectorAll('.ls-buy-btn[data-model-id]').forEach(function(btn) {
+      var modelId = btn.dataset.modelId;
+      var product = window.LS_PRODUCTS[modelId];
+      if (product && product.buyUrl && product.buyUrl !== 'PASTE_LS_URL_HERE') {
+        btn.href = product.buyUrl;
+        btn.target = '_blank';
+        btn.rel = 'noopener';
+      }
+    });
+    document.querySelectorAll('.ls-free-btn[data-model-id]').forEach(function(btn) {
+      var modelId = btn.dataset.modelId;
+      var product = window.LS_PRODUCTS[modelId];
+      if (product && product.freeUrl && product.freeUrl !== 'PASTE_LS_FREE_URL_HERE') {
+        btn.href = product.freeUrl;
+        btn.target = '_blank';
+        btn.rel = 'noopener';
+      }
+    });
+  }
+
   // Track buy button clicks
   document.querySelectorAll('.ls-buy-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {

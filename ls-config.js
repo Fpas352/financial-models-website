@@ -3,7 +3,7 @@ const LS_PRODUCTS = {
   "lending": {
     name: "Lending Model",
     price: "£299",
-    buyUrl: "PASTE_LS_URL_HERE",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/632f013e-5b34-47db-be5d-6e0e366a7801",
     freeUrl: "PASTE_LS_FREE_URL_HERE",
     checkoutEmbed: true,
   },
@@ -269,4 +269,10 @@ const LS_PRODUCTS = {
   },
 };
 
+// Make available to ES modules
 export default LS_PRODUCTS;
+
+// Make available to non-module scripts loaded via <script src="ls-config.js">
+if (typeof window !== 'undefined') {
+  window.LS_PRODUCTS = LS_PRODUCTS;
+}
