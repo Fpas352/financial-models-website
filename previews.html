@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=PASTE_GA4_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'PASTE_GA4_ID_HERE');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Previews | SFS Models</title>
+  <meta name="description" content="Preview images of every SFS Models financial model. See the inputs, formulas, outputs and structure of each Excel workbook before you buy.">
+
+  <link rel="canonical" href="https://sfsmodels.com/previews.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Model Previews | SFS Models">
+  <meta property="og:description" content="Preview images of every SFS Models financial model — see inside before you buy.">
+  <meta property="og:url" content="https://sfsmodels.com/previews.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Model Previews | SFS Models">
+  <meta name="twitter:description" content="Preview images of every SFS Models financial model — see inside before you buy.">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Preview page — scoped styles, no effect on other pages */
+    .preview-section {
+      padding: 48px 0;
+    }
+    .preview-section + .preview-section {
+      border-top: 1px solid var(--border);
+    }
+    .preview-model {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .preview-model:last-child {
+      border-bottom: none;
+    }
+    .preview-model__info h3 {
+      margin-bottom: 8px;
+    }
+    .preview-model__price {
+      color: var(--gold);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .preview-model__desc {
+      color: var(--text-muted);
+      font-size: .9rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .preview-model__buy {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 2px solid #C9A84C;
+      background: #C9A84C;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: .02em;
+      transition: all var(--transition);
+    }
+    .preview-model__buy:hover {
+      background: #d4b65c;
+      border-color: #d4b65c;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(201, 168, 76, .35);
+    }
+    .preview-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .preview-gallery__item {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #fff;
+      cursor: zoom-in;
+      border: 1px solid var(--border);
+      transition: all .2s ease;
+    }
+    .preview-gallery__item:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+      box-shadow: 0 4px 20px rgba(201, 168, 76, .2);
+    }
+    .preview-gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+    }
+    .preview-gallery__label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 6px 10px;
+      background: linear-gradient(to top, rgba(10,12,16,.9), transparent);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      pointer-events: none;
+    }
+    .preview-cat-header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .preview-cat-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 4px;
+    }
+    .preview-cat-header p {
+      color: var(--text-muted);
+      font-size: .88rem;
+    }
+
+    /* Zoom overlay */
+    .zoom-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(10, 12, 16, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      cursor: zoom-out;
+    }
+    .zoom-overlay.active { display: flex; }
+    .zoom-overlay img {
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .zoom-overlay__close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #E8E6E0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .zoom-overlay__close:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #C9A84C;
+      color: #C9A84C;
+    }
+
+    .preview-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .preview-model {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .preview-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .preview-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="logo">SFS Models</a>
+        <ul class="nav-links">
+          <li><a href="models.html">Models</a></li>
+          <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">See Inside</span>
+      <h1>Model Previews</h1>
+      <p class="preview-intro">Every model at a glance &mdash; real inputs, real formulas, real outputs. Click any image to enlarge. Every model ships fully unlocked with documentation and integrity checks.</p>
+    </div>
+  </section>
+
+  <!-- BANKING & LENDING -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="preview-cat-header">
+        <h2>Banking &amp; Lending</h2>
+        <p>FP&amp;A, credit and ALM teams</p>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Lending Model</h3>
+          <div class="preview-model__price">&pound;299</div>
+          <p class="preview-model__desc">Model retail and commercial loan books with full amortisation, cohort vintages, PD/LGD and NIM bridge.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/632f013e-5b34-47db-be5d-6e0e366a7801" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="lending"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Deposits Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Deposit product mix, funding costs and maturity profiles with beta pricing and repricing gap analysis.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/b9e50e05-8261-407a-9342-5da481afff99" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="deposits"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Credit Analysis Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Borrower creditworthiness via ratio analysis, scoring, qualitative overlays and summary credit memo.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/46ce4412-ea32-42c5-9b32-0f2164885396" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="credit-analysis"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Loan Pricing Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Loan pricing to a target RoE with full cost-of-funds build, capital allocation and breakeven analysis.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/f18f7cd2-c25e-44f9-bade-72ed164122a1" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="loan-pricing"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>IFRS 9 ECL Model</h3>
+          <div class="preview-model__price">&pound;299</div>
+          <p class="preview-model__desc">Expected credit losses with stage 1/2/3 allocation, PD term structures, LGD and macro overlay.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c2e532cd-876b-4b73-b0b9-8f48a2b5c5b5" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="ifrs9-ecl"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Deposit Pricing &amp; NII Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Deposit pricing decisions and NII impact with product-level rate setting and beta pass-through.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/ee0345a8-ad6e-4246-a0b2-b1f859bf7542" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="deposit-nii"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREASURY & CAPITAL MARKETS -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="preview-cat-header">
+        <h2>Treasury &amp; Capital Markets</h2>
+        <p>ALM, treasury and trading desks</p>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Treasury / IRS Model</h3>
+          <div class="preview-model__price">&pound;299</div>
+          <p class="preview-model__desc">Interest rate swaps with fixed/float leg schedules, yield curve, MTM, DV01 and hedge effectiveness.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/9a7a7285-e61c-4f7a-a9c0-5cbec18ce654" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="treasury"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Bond Pricing &amp; Yield Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Fixed income pricing with dirty/clean price, YTM, Z-spread, duration and convexity.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/6f29ee62-1b49-4945-a1cd-8fcba0a2805c" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="bond-pricing"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Duration &amp; Rate Sensitivity</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Portfolio duration, convexity and key rate durations with parallel and non-parallel shift scenarios.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/1c3c1cfd-738b-40aa-b638-39c8c00d9c74" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="duration"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>FX Hedging Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Multi-currency exposure mapping with forwards, options and cross-currency swap hedge analysis.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/fd0612bb-dc87-40a7-a74a-0ac83d25b038" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="fx-hedging"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>LCR Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Liquidity Coverage Ratio to Basel III / CRD IV standards with HQLA classification and 30-day stress.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/5130a045-1277-442f-820e-a328438003ec" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="lcr"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISK & REGULATORY -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="preview-cat-header">
+        <h2>Risk &amp; Regulatory</h2>
+        <p>CRO office and regulatory reporting</p>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Capital / Regulatory Model</h3>
+          <div class="preview-model__price">&pound;299</div>
+          <p class="preview-model__desc">Basel III capital adequacy with credit, market and op risk RWA, CET1/Tier 1/Total ratios and buffers.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/0e7a9079-6e33-4dfe-b090-f735ab8866e0" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="capital"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>VaR Model</h3>
+          <div class="preview-model__price">&pound;299</div>
+          <p class="preview-model__desc">Portfolio Value at Risk with historical and parametric methods, 95% and 99% confidence intervals.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/25789511-04c5-4c36-89d0-3aa9bce1ce00" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="var"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Stress Testing Model</h3>
+          <div class="preview-model__price">&pound;299</div>
+          <p class="preview-model__desc">Scenario analysis for ICAAP and board reporting with base, adverse and severe downside scenarios.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/a56cffcd-a0a3-4387-b50e-b13238942a07" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="stress-testing"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUATION & CORPORATE FINANCE -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="preview-cat-header">
+        <h2>Valuation &amp; Corporate Finance</h2>
+        <p>M&amp;A, PE and equity research</p>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>DCF Valuation Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Intrinsic value via discounted cash flow with WACC, FCFF/FCFE projections and football field output.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/e1b91846-dd4c-43ae-b5c8-69c0388862d4" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="dcf"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Trading Comps Model</h3>
+          <div class="preview-model__price">&pound;199</div>
+          <p class="preview-model__desc">Peer group valuation with EV/EBITDA, P/E, P/B and EV/Revenue multiples and outlier detection.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/36a3e4b4-6f62-48d3-b918-94624268fc75" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="trading-comps"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Precedent Transactions Model</h3>
+          <div class="preview-model__price">&pound;199</div>
+          <p class="preview-model__desc">M&amp;A deal comps with transaction multiples, premium analysis vs undisturbed and deal database.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/21f9d40c-71e6-422a-84b5-bf4da7f63e5b" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="precedent-transactions"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>LBO Model</h3>
+          <div class="preview-model__price">&pound;299</div>
+          <p class="preview-model__desc">Leveraged buyout returns with sources and uses, debt waterfall, IRR and MOIC analysis.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/d70dace0-06f4-4d12-b10a-bf2f119ebd10" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="lbo"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>SOTP Valuation Model</h3>
+          <div class="preview-model__price">&pound;199</div>
+          <p class="preview-model__desc">Sum-of-the-parts valuation for conglomerates with segment-level DCF, comps and holdco discount.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/bcf5a945-2cdb-48d4-87af-661b7f6b2003" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="sotp"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>DDM (Dividend Discount) Model</h3>
+          <div class="preview-model__price">&pound;199</div>
+          <p class="preview-model__desc">Equity valuation via projected dividend streams with CAPM cost of equity and multi-stage growth.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/bfb02fd8-ea6d-4dc2-9dfd-cec2c999ef72" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="ddm"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Valuations Model (Multi-Method)</h3>
+          <div class="preview-model__price">&pound;299</div>
+          <p class="preview-model__desc">Combined DCF, comps and precedents workbook with football field chart and weighted blended output.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/e3fc4e67-3a48-43e6-adc7-4edd1384ae24" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="valuations"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FP&A & MANAGEMENT REPORTING -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="preview-cat-header">
+        <h2>FP&amp;A &amp; Management Reporting</h2>
+        <p>CFO office and finance teams</p>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>3-Statement Integrated Model</h3>
+          <div class="preview-model__price">&pound;249</div>
+          <p class="preview-model__desc">Fully linked P&amp;L, balance sheet and cash flow with automatic balancing and ratio analysis.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/73592e75-8927-4cfe-8cac-4f48f66c5b3a" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="three-statement"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Budget vs Actual Variance</h3>
+          <div class="preview-model__price">&pound;149</div>
+          <p class="preview-model__desc">Monthly variance with volume, price and mix decomposition and YTD tracking.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/8acd3dc6-5662-41ba-bc09-a7a28af21dff" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="budget-variance"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Rolling Forecast Model</h3>
+          <div class="preview-model__price">&pound;149</div>
+          <p class="preview-model__desc">Dynamic 12-month rolling forecast with auto-roll mechanism, actuals lock and accuracy tracking.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/5e0df751-64c6-407a-9481-c167c99a9fd7" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="rolling-forecast"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Budget vs Forecast Model</h3>
+          <div class="preview-model__price">&pound;149</div>
+          <p class="preview-model__desc">Side-by-side budget, forecast and actuals with variance waterfall and forecast bias tracking.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/833fc9ac-8ced-4c3a-852a-e09e9f5f6af2" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="budget-forecast"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Cost Control Model</h3>
+          <div class="preview-model__price">&pound;149</div>
+          <p class="preview-model__desc">Departmental cost tracking with cost centre breakdown, headcount analysis and run-rates.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/b55b9694-4bb7-4de5-a8ad-577ce6ea1894" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="cost-control"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Management Accounts Pack</h3>
+          <div class="preview-model__price">&pound;199</div>
+          <p class="preview-model__desc">Board-ready pack with P&amp;L, BS, CF summaries, KPI dashboard and RAG status indicators.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/96762927-d7c9-4b01-a860-a08e7d462680" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="management-accounts"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Working Capital Model</h3>
+          <div class="preview-model__price">&pound;149</div>
+          <p class="preview-model__desc">Receivables, payables and inventory drivers with cash conversion cycle and facility sizing.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/2bb17238-7e57-434d-b8f1-ec766eac2ed1" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="working-capital"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCOUNTING & FIXED ASSETS -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="preview-cat-header">
+        <h2>Accounting &amp; Fixed Assets</h2>
+        <p>Technical accounting and finance ops</p>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Capitalisation Model (IAS 38)</h3>
+          <div class="preview-model__price">&pound;99</div>
+          <p class="preview-model__desc">Intangible asset capitalisation compliant with IAS 38 with R&amp;D phase tracking and amortisation.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/5ee04133-40ec-44b9-ad9c-f870a010ee3e" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="capitalisation"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>PPE Model (IAS 16)</h3>
+          <div class="preview-model__price">&pound;99</div>
+          <p class="preview-model__desc">Fixed asset register and depreciation compliant with IAS 16, straight-line and reducing balance.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c1a8ea06-0eb2-45e2-b379-274d30e4a9eb" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="ppe"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Impairment Model (IAS 36)</h3>
+          <div class="preview-model__price">&pound;99</div>
+          <p class="preview-model__desc">Impairment testing compliant with IAS 36, value-in-use via DCF and CGU-level allocation.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/11f2f980-dbdd-442f-921d-a5353d4f970d" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="impairment"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Capex Model</h3>
+          <div class="preview-model__price">&pound;149</div>
+          <p class="preview-model__desc">Capital expenditure planning with project-level detail, approval workflows and forecast to complete.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/284fde0c-71d8-4a95-9e21-e80c0e95ba32" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="capex"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEBT & LEVERAGE -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="preview-cat-header">
+        <h2>Debt &amp; Leverage</h2>
+        <p>Leveraged finance and corporate treasury</p>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Debt Schedule Model</h3>
+          <div class="preview-model__price">&pound;199</div>
+          <p class="preview-model__desc">Multi-tranche debt waterfall with leverage, DSCR, ICR covenants and refinancing scenarios.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/883cc917-b6a6-48ab-91b1-725b70f68503" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="debt-schedule"></div>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Debt Amortisation Model</h3>
+          <div class="preview-model__price">&pound;149</div>
+          <p class="preview-model__desc">Bullet, annuity and sculpted repayment profiles with fixed/floating rate and cash sweep mechanics.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/22cb6fa8-5566-444a-ab58-578d82e3c095" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="debt-amortisation"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATED PLANNING -->
+  <section class="section preview-section">
+    <div class="container">
+      <div class="preview-cat-header">
+        <h2>Integrated Planning</h2>
+        <p>CFOs, FP&amp;A heads and board-level reporting</p>
+      </div>
+
+      <div class="preview-model">
+        <div class="preview-model__info">
+          <h3>Complete LTP Model</h3>
+          <div class="preview-model__price">&pound;999</div>
+          <p class="preview-model__desc">Comprehensive Long-Term Plan covering income, costs, balance sheet, capital, funding and liquidity.</p>
+          <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/82b900e2-1410-44b6-a317-c77276d70af1" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
+        </div>
+        <div class="preview-gallery" data-model="complete-ltp"></div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Zoom overlay -->
+  <div class="zoom-overlay" id="zoomOverlay">
+    <button type="button" class="zoom-overlay__close" aria-label="Close">&times;</button>
+    <img id="zoomImage" src="" alt="">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">SFS Models</a>
+          <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Models</h4>
+          <ul>
+            <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+            <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+            <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+            <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+            <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html#methodology">Methodology</a></li>
+            <li><a href="pricing.html#faq">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 SFS Models. All rights reserved.</span>
+        <span><a href="terms.html">Terms &amp; Conditions</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+
+  <script>
+  // Populate gallery thumbnails and wire up zoom
+  (function() {
+    const IMAGES = [
+      { file: '01_hero.png',      label: 'Overview' },
+      { file: '02_formulas.png',  label: 'Formulas' },
+      { file: '03_inputs.png',    label: 'Inputs' },
+      { file: '04_outputs.png',   label: 'Outputs' },
+      { file: '05_structure.png', label: 'Structure' },
+      { file: '06_detail.png',    label: 'Detail' }
+    ];
+
+    // Populate each gallery
+    document.querySelectorAll('.preview-gallery[data-model]').forEach(gallery => {
+      const modelId = gallery.dataset.model;
+      IMAGES.forEach(img => {
+        const item = document.createElement('div');
+        item.className = 'preview-gallery__item';
+        item.dataset.src = 'images/previews/' + modelId + '/' + img.file;
+        item.innerHTML =
+          '<img src="images/previews/' + modelId + '/' + img.file + '" alt="' + img.label + '" loading="lazy">' +
+          '<span class="preview-gallery__label">' + img.label + '</span>';
+        gallery.appendChild(item);
+      });
+    });
+
+    // Zoom overlay
+    const overlay = document.getElementById('zoomOverlay');
+    const zoomImg = document.getElementById('zoomImage');
+    const closeBtn = overlay.querySelector('.zoom-overlay__close');
+
+    document.querySelectorAll('.preview-gallery__item').forEach(item => {
+      item.addEventListener('click', () => {
+        zoomImg.src = item.dataset.src;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeOverlay() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay || e.target === closeBtn) closeOverlay();
+    });
+    closeBtn.addEventListener('click', closeOverlay);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay();
+    });
+  })();
+  </script>
+</body>
+</html>
