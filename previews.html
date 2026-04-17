@@ -11,17 +11,17 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Model Previews | SFS Models</title>
-  <meta name="description" content="Preview images of every SFS Models financial model. See the inputs, formulas, outputs and structure of each Excel workbook before you buy.">
+  <title>Preview Models | SFS Models</title>
+  <meta name="description" content="Preview every SFS Models financial model before you buy. See the cover, inputs, calculations and dashboard for each Excel workbook.">
 
   <link rel="canonical" href="https://sfsmodels.com/previews.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Model Previews | SFS Models">
-  <meta property="og:description" content="Preview images of every SFS Models financial model — see inside before you buy.">
+  <meta property="og:title" content="Preview Models | SFS Models">
+  <meta property="og:description" content="Preview every SFS Models financial model — see inside before you buy.">
   <meta property="og:url" content="https://sfsmodels.com/previews.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Model Previews | SFS Models">
-  <meta name="twitter:description" content="Preview images of every SFS Models financial model — see inside before you buy.">
+  <meta name="twitter:title" content="Preview Models | SFS Models">
+  <meta name="twitter:description" content="Preview every SFS Models financial model — see inside before you buy.">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,7 +89,7 @@
     }
     .preview-gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
     }
     .preview-gallery__item {
@@ -127,6 +127,16 @@
       text-transform: uppercase;
       letter-spacing: .05em;
       pointer-events: none;
+    }
+    .preview-gallery__placeholder {
+      grid-column: 1 / -1;
+      padding: 40px;
+      text-align: center;
+      color: var(--text-muted);
+      background: var(--bg-surface);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      font-size: .9rem;
     }
     .preview-cat-header {
       margin-bottom: 24px;
@@ -201,14 +211,6 @@
         grid-template-columns: 1fr;
         gap: 20px;
       }
-      .preview-gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 480px) {
-      .preview-gallery {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -223,6 +225,7 @@
         <a href="index.html" class="logo">SFS Models</a>
         <ul class="nav-links">
           <li><a href="models.html">Models</a></li>
+          <li><a href="previews.html" class="active">Preview Models</a></li>
           <li><a href="free-samples.html">Free Samples</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -243,7 +246,7 @@
   <section class="page-hero">
     <div class="container">
       <span class="section-label">See Inside</span>
-      <h1>Model Previews</h1>
+      <h1>Preview Models</h1>
       <p class="preview-intro">Every model at a glance &mdash; real inputs, real formulas, real outputs. Click any image to enlarge. Every model ships fully unlocked with documentation and integrity checks.</p>
     </div>
   </section>
@@ -724,43 +727,19 @@
   <script src="js/scripts.js"></script>
 
   <script>
-  // Populate gallery thumbnails and wire up zoom
+  // Populate galleries from manifest.json
   (function() {
-    const IMAGES = [
-      { file: '01_hero.png',      label: 'Overview' },
-      { file: '02_formulas.png',  label: 'Formulas' },
-      { file: '03_inputs.png',    label: 'Inputs' },
-      { file: '04_outputs.png',   label: 'Outputs' },
-      { file: '05_structure.png', label: 'Structure' },
-      { file: '06_detail.png',    label: 'Detail' }
-    ];
-
-    // Populate each gallery
-    document.querySelectorAll('.preview-gallery[data-model]').forEach(gallery => {
-      const modelId = gallery.dataset.model;
-      IMAGES.forEach(img => {
-        const item = document.createElement('div');
-        item.className = 'preview-gallery__item';
-        item.dataset.src = 'images/previews/' + modelId + '/' + img.file;
-        item.innerHTML =
-          '<img src="images/previews/' + modelId + '/' + img.file + '" alt="' + img.label + '" loading="lazy">' +
-          '<span class="preview-gallery__label">' + img.label + '</span>';
-        gallery.appendChild(item);
-      });
-    });
-
-    // Zoom overlay
-    const overlay = document.getElementById('zoomOverlay');
-    const zoomImg = document.getElementById('zoomImage');
+    const overlay  = document.getElementById('zoomOverlay');
+    const zoomImg  = document.getElementById('zoomImage');
     const closeBtn = overlay.querySelector('.zoom-overlay__close');
 
-    document.querySelectorAll('.preview-gallery__item').forEach(item => {
+    function attachZoom(item) {
       item.addEventListener('click', () => {
         zoomImg.src = item.dataset.src;
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
       });
-    });
+    }
 
     function closeOverlay() {
       overlay.classList.remove('active');
@@ -774,6 +753,36 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay();
     });
+
+    // Fetch manifest and build galleries
+    fetch('images/previews/manifest.json')
+      .then(r => r.json())
+      .then(manifest => {
+        document.querySelectorAll('.preview-gallery[data-model]').forEach(gallery => {
+          const modelId = gallery.dataset.model;
+          const images = manifest[modelId];
+
+          if (!images || !images.length) {
+            gallery.innerHTML = '<div class="preview-gallery__placeholder">Preview images coming soon</div>';
+            return;
+          }
+
+          images.forEach(img => {
+            const src = 'images/previews/' + modelId + '/' + img.file;
+            const item = document.createElement('div');
+            item.className = 'preview-gallery__item';
+            item.dataset.src = src;
+            item.innerHTML =
+              '<img src="' + src + '" alt="' + img.label + '" loading="lazy">' +
+              '<span class="preview-gallery__label">' + img.label + '</span>';
+            attachZoom(item);
+            gallery.appendChild(item);
+          });
+        });
+      })
+      .catch(err => {
+        console.error('Could not load preview manifest:', err);
+      });
   })();
   </script>
 </body>

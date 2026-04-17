@@ -1,0 +1,750 @@
+{
+  "lending": [
+    {
+      "file": "lending-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "lending-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "lending-model_03_rwa.png",
+      "label": "RWA"
+    },
+    {
+      "file": "lending-model_04_sensitivity.png",
+      "label": "Sensitivity"
+    },
+    {
+      "file": "lending-model_05_outputs.png",
+      "label": "Outputs"
+    }
+  ],
+  "deposits": [
+    {
+      "file": "deposits-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "deposits-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "deposits-model_03_liquidity.png",
+      "label": "Liquidity"
+    },
+    {
+      "file": "deposits-model_04_sensitivity.png",
+      "label": "Sensitivity"
+    },
+    {
+      "file": "deposits-model_05_outputs.png",
+      "label": "Outputs"
+    }
+  ],
+  "credit-analysis": [
+    {
+      "file": "credit-analysis-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "credit-analysis-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "credit-analysis-model_03_cashflow.png",
+      "label": "Cashflow"
+    },
+    {
+      "file": "credit-analysis-model_04_outputs.png",
+      "label": "Outputs"
+    },
+    {
+      "file": "credit-analysis-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "loan-pricing": [
+    {
+      "file": "loan-pricing-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "loan-pricing-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "loan-pricing-model_03_rate-sensitivity.png",
+      "label": "Rate Sensitivity"
+    },
+    {
+      "file": "loan-pricing-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "loan-pricing-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "ifrs9-ecl": [
+    {
+      "file": "ifrs9-ecl-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "ifrs9-ecl-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "ifrs9-ecl-model_03_ecl-engine.png",
+      "label": "ECL Engine"
+    },
+    {
+      "file": "ifrs9-ecl-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "ifrs9-ecl-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "deposit-nii": [
+    {
+      "file": "deposit-nii-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "deposit-nii-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "deposit-nii-model_03_pricing-opt.png",
+      "label": "Pricing Opt"
+    },
+    {
+      "file": "deposit-nii-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "deposit-nii-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "treasury": [
+    {
+      "file": "treasury-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "treasury-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "treasury-model_03_cashflows.png",
+      "label": "Cashflows"
+    },
+    {
+      "file": "treasury-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "treasury-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "bond-pricing": [
+    {
+      "file": "bond-pricing-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "bond-pricing-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "bond-pricing-model_03_scenarios.png",
+      "label": "Scenarios"
+    },
+    {
+      "file": "bond-pricing-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "bond-pricing-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "duration": [
+    {
+      "file": "duration-model_01_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "duration-model_02_bond-valuation.png",
+      "label": "Bond Valuation"
+    },
+    {
+      "file": "duration-model_03_price-sensitivity.png",
+      "label": "Price Sensitivity"
+    },
+    {
+      "file": "duration-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "duration-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "fx-hedging": [
+    {
+      "file": "fx-hedging-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "fx-hedging-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "fx-hedging-model_03_forward-curves.png",
+      "label": "Forward Curves"
+    },
+    {
+      "file": "fx-hedging-model_04_mtm-valuation.png",
+      "label": "MTM Valuation"
+    },
+    {
+      "file": "fx-hedging-model_05_dashboard.png",
+      "label": "Dashboard"
+    }
+  ],
+  "lcr": [
+    {
+      "file": "lcr-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "lcr-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "lcr-model_03_stress-test.png",
+      "label": "Stress Test"
+    },
+    {
+      "file": "lcr-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "lcr-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "capital": [
+    {
+      "file": "capital-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "capital-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "capital-model_03_credit-rwa.png",
+      "label": "Credit RWA"
+    },
+    {
+      "file": "capital-model_04_market-rwa.png",
+      "label": "Market RWA"
+    },
+    {
+      "file": "capital-model_05_dashboard.png",
+      "label": "Dashboard"
+    }
+  ],
+  "var": [
+    {
+      "file": "var-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "var-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "var-model_03_stressed-var.png",
+      "label": "Stressed VaR"
+    },
+    {
+      "file": "var-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "var-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "stress-testing": [
+    {
+      "file": "stress-testing-model_01_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "stress-testing-model_02_macro-scenarios.png",
+      "label": "Macro Scenarios"
+    },
+    {
+      "file": "stress-testing-model_03_credit-stress.png",
+      "label": "Credit Stress"
+    },
+    {
+      "file": "stress-testing-model_04_market-stress.png",
+      "label": "Market Stress"
+    },
+    {
+      "file": "stress-testing-model_05_dashboard.png",
+      "label": "Dashboard"
+    }
+  ],
+  "dcf": [
+    {
+      "file": "dcf-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "dcf-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "dcf-model_03_dcf-valuation.png",
+      "label": "DCF Valuation"
+    },
+    {
+      "file": "dcf-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "dcf-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "trading-comps": [
+    {
+      "file": "trading-comps-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "trading-comps-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "trading-comps-model_03_valuation-metrics.png",
+      "label": "Valuation Metrics"
+    },
+    {
+      "file": "trading-comps-model_04_implied-valuation.png",
+      "label": "Implied Valuation"
+    },
+    {
+      "file": "trading-comps-model_05_dashboard.png",
+      "label": "Dashboard"
+    }
+  ],
+  "precedent-transactions": [
+    {
+      "file": "precedent-transactions-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "precedent-transactions-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "precedent-transactions-model_03_implied-valuation.png",
+      "label": "Implied Valuation"
+    },
+    {
+      "file": "precedent-transactions-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "precedent-transactions-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "lbo": [
+    {
+      "file": "lbo-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "lbo-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "lbo-model_03_balance-sheet.png",
+      "label": "Balance Sheet"
+    },
+    {
+      "file": "lbo-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "lbo-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "sotp": [
+    {
+      "file": "sotp-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "sotp-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "sotp-model_03_sotp-summary.png",
+      "label": "Sotp Summary"
+    },
+    {
+      "file": "sotp-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "sotp-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "ddm": [
+    {
+      "file": "ddm-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "ddm-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "ddm-model_03_valuation-summary.png",
+      "label": "Valuation Summary"
+    },
+    {
+      "file": "ddm-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "ddm-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "valuations": [
+    {
+      "file": "valuations-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "valuations-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "valuations-model_03_dcf.png",
+      "label": "DCF"
+    },
+    {
+      "file": "valuations-model_04_weighted-valuation.png",
+      "label": "Weighted Valuation"
+    },
+    {
+      "file": "valuations-model_05_dashboard.png",
+      "label": "Dashboard"
+    }
+  ],
+  "three-statement": [
+    {
+      "file": "three-statement-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "three-statement-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "three-statement-model_03_balance-sheet.png",
+      "label": "Balance Sheet"
+    },
+    {
+      "file": "three-statement-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "three-statement-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "budget-variance": [
+    {
+      "file": "budget-variance-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "budget-variance-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "budget-variance-model_03_budget.png",
+      "label": "Budget"
+    },
+    {
+      "file": "budget-variance-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "budget-variance-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "rolling-forecast": [
+    {
+      "file": "rolling-forecast-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "rolling-forecast-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "rolling-forecast-model_03_original-budget.png",
+      "label": "Original Budget"
+    },
+    {
+      "file": "rolling-forecast-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "rolling-forecast-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "budget-forecast": [
+    {
+      "file": "budget-forecast-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "budget-forecast-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "budget-forecast-model_03_revenue-budget.png",
+      "label": "Revenue Budget"
+    },
+    {
+      "file": "budget-forecast-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "budget-forecast-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "cost-control": [
+    {
+      "file": "cost-control-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "cost-control-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "cost-control-model_03_cost-detail.png",
+      "label": "Cost Detail"
+    },
+    {
+      "file": "cost-control-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "cost-control-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "management-accounts": [
+    {
+      "file": "management-accounts-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "management-accounts-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "management-accounts-model_03_balance-sheet.png",
+      "label": "Balance Sheet"
+    },
+    {
+      "file": "management-accounts-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "management-accounts-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "working-capital": [
+    {
+      "file": "working-capital-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "working-capital-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "working-capital-model_03_nwc-summary.png",
+      "label": "Nwc Summary"
+    },
+    {
+      "file": "working-capital-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "working-capital-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "capitalisation": [
+    {
+      "file": "capitalisation-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "capitalisation-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "capitalisation-model_03_amortisation.png",
+      "label": "Amortisation"
+    },
+    {
+      "file": "capitalisation-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "capitalisation-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "ppe": [
+    {
+      "file": "ppe-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "ppe-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "ppe-model_03_revaluation.png",
+      "label": "Revaluation"
+    },
+    {
+      "file": "ppe-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "ppe-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "impairment": [
+    {
+      "file": "impairment-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "impairment-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "impairment-model_03_recoverable-amount.png",
+      "label": "Recoverable Amount"
+    },
+    {
+      "file": "impairment-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "impairment-model_05_scenario-comparison.png",
+      "label": "Scenario Comparison"
+    }
+  ],
+  "capex": [
+    {
+      "file": "capex-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "capex-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "capex-model_03_budget-tracking.png",
+      "label": "Budget Tracking"
+    },
+    {
+      "file": "capex-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "capex-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "debt-schedule": [
+    {
+      "file": "debt-schedule-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "debt-schedule-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "debt-schedule-model_03_facility-1.png",
+      "label": "Facility 1"
+    },
+    {
+      "file": "debt-schedule-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "debt-schedule-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ],
+  "debt-amortisation": [
+    {
+      "file": "debt-amortisation-model_01_cover.png",
+      "label": "Cover"
+    },
+    {
+      "file": "debt-amortisation-model_02_inputs.png",
+      "label": "Inputs"
+    },
+    {
+      "file": "debt-amortisation-model_03_tranche-1.png",
+      "label": "Tranche 1"
+    },
+    {
+      "file": "debt-amortisation-model_04_dashboard.png",
+      "label": "Dashboard"
+    },
+    {
+      "file": "debt-amortisation-model_05_sensitivity.png",
+      "label": "Sensitivity"
+    }
+  ]
+}
