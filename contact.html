@@ -116,7 +116,9 @@
           <h2>Send us a message</h2>
           <p class="contact-subtitle">Fill in the form below and we'll get back to you within one business day.</p>
 
-          <form id="contactForm" class="form">
+          <form id="contactForm" class="form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden-honeypot" style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
 
             <div class="form__row">
               <div class="form__group">
@@ -204,7 +206,9 @@
       </div>
 
       <div class="multistep-form-wrapper">
-        <form id="customModelForm" class="form multistep-form">
+        <form id="customModelForm" class="form multistep-form" name="custom-model" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="custom-model">
+          <p class="hidden-honeypot" style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
 
           <!-- Progress bar -->
           <div class="multistep-progress">

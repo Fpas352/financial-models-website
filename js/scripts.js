@@ -205,14 +205,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = contactForm.querySelector('button[type="submit"]');
       setButtonLoading(btn, true);
 
-      submitForm('/api/contact', data)
+      submitForm('/api/contact', data, contactForm)
         .then(() => {
           showFormSuccess(contactForm, 'Message sent! We\'ll get back to you within 24 hours.');
           contactForm.reset();
         })
-        .catch(() => {
-          showFormSuccess(contactForm, 'Message sent! We\'ll get back to you within 24 hours.');
-          contactForm.reset();
+        .catch((err) => {
+          console.error('Contact form submission failed:', err);
+          showFormError(contactForm, 'Sorry — something went wrong. Please email sfsmodels362@gmail.com directly.');
         })
         .finally(() => setButtonLoading(btn, false));
     });
@@ -338,18 +338,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = customForm.querySelector('button[type="submit"]');
       setButtonLoading(btn, true);
 
-      submitForm('/api/custom-model', data)
+      submitForm('/api/custom-model', data, customForm)
         .then(() => {
           showFormSuccess(customForm, 'Request received! We\'ll send you a scope and quote within 24 hours.');
           customForm.reset();
           currentStep = 1;
           goToStep(1);
         })
-        .catch(() => {
-          showFormSuccess(customForm, 'Request received! We\'ll send you a scope and quote within 24 hours.');
-          customForm.reset();
-          currentStep = 1;
-          goToStep(1);
+        .catch((err) => {
+          console.error('Custom model form submission failed:', err);
+          showFormError(customForm, 'Sorry — something went wrong. Please email sfsmodels362@gmail.com directly.');
         })
         .finally(() => setButtonLoading(btn, false));
     });
@@ -419,15 +417,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Submit to backend (fail gracefully — show success regardless)
-      fetch('/api/notify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: emailInput.value.trim() }),
-      }).catch(() => {});
-
-      notifyForm.style.display = 'none';
-      successMsg.style.display = 'block';
+      // Submit to Netlify Forms
+      submitForm(null, null, notifyForm)
+        .then(() => {
+          notifyForm.style.display = 'none';
+          successMsg.style.display = 'block';
+        })
+        .catch(() => {
+          // On error, still show success — this is a low-stakes notify signup
+          notifyForm.style.display = 'none';
+          successMsg.style.display = 'block';
+        });
     });
   }
 
@@ -491,13 +491,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = form.querySelector('button[type="submit"]');
         setButtonLoading(btn, true);
 
-        submitForm('/api/custom-model', data)
+        submitForm('/api/custom-model', data, form)
           .then(() => {
             form.style.display = 'none';
             errorEl.style.display = 'none';
             successEl.style.display = 'block';
           })
-          .catch(() => {
+          .catch((err) => {
+            console.error('Enquiry form submission failed:', err);
             form.style.display = 'none';
             successEl.style.display = 'none';
             errorEl.style.display = 'block';
@@ -631,23 +632,70 @@ function showFormSuccess(form, message) {
 }
 
 /**
- * Submit form data to backend API.
- * Falls back to simulated success if backend is unavailable.
+ * Show a form error message (for failed submissions).
  */
-function submitForm(endpoint, data) {
-  return fetch(endpoint, {
+function showFormError(form, message) {
+  const existing = form.closest('.section, .multistep-form-wrapper, div')?.querySelector('.form-error-banner');
+  if (existing) existing.remove();
+
+  const el = document.createElement('div');
+  el.className = 'form-error-banner';
+  el.style.cssText = 'padding:14px 18px; background:rgba(248,113,113,.08); border:1px solid rgba(248,113,113,.3); border-radius:8px; color:#F87171; font-size:.9rem; margin-bottom:16px; display:flex; align-items:center; gap:10px;';
+  el.innerHTML = `
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;">
+      <circle cx="10" cy="10" r="10" fill="#F87171"/>
+      <path d="M10 5v6M10 13.5v1" stroke="#0A0C10" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span>${message}</span>
+  `;
+
+  form.parentElement.insertBefore(el, form);
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/**
+ * Submit form data to backend API.
+ * Submits to Netlify Forms via POST to / with form-encoded body.
+ * The second arg (data) is ignored for Netlify — we use the actual <form>
+ * element to build FormData, which ensures form-name and all fields
+ * (including hidden honeypot) are included.
+ *
+ * For backwards compatibility, endpoint and data are accepted but
+ * callers should prefer passing the form element directly as the 3rd arg.
+ */
+function submitForm(endpoint, data, formEl) {
+  // Find the form — prefer explicit arg, otherwise infer from endpoint legacy mapping
+  let form = formEl;
+  if (!form) {
+    // Legacy call paths — map /api/contact → #contactForm, etc.
+    if (endpoint === '/api/contact') form = document.getElementById('contactForm');
+    else if (endpoint === '/api/custom-model') {
+      // Could be either customModelForm or enquiryModalForm — pick whichever is visible
+      const modal = document.getElementById('enquiryModalForm');
+      const custom = document.getElementById('customModelForm');
+      if (modal && modal.closest('.enquiry-modal.is-open')) form = modal;
+      else form = custom || modal;
+    }
+  }
+
+  if (!form) {
+    return Promise.resolve(); // nothing to submit
+  }
+
+  const formData = new FormData(form);
+  const body = new URLSearchParams(formData).toString();
+
+  return fetch('/', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body,
   })
   .then(res => {
-    if (!res.ok) throw new Error('Server error');
-    return res.json();
-  })
-  .catch(() => {
-    // Backend not available — simulate success for static hosting
-    return new Promise(resolve => setTimeout(resolve, 1200));
+    if (!res.ok) throw new Error('Netlify form error');
+    return res;
   });
+  // Note: no .catch fallback — we WANT real failures to bubble up now
+  // so we know if something's wrong. The callers still handle errors gracefully.
 }
 
 

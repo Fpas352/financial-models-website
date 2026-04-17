@@ -847,8 +847,10 @@
       </div>
 
       <div class="expanding-library__notify">
-        <form id="notifyForm" class="notify-form">
-          <input type="email" id="notify-email" class="notify-form__input" placeholder="Enter your email" required>
+        <form id="notifyForm" class="notify-form" name="notify" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="notify">
+          <p class="hidden-honeypot" style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+          <input type="email" id="notify-email" name="email" class="notify-form__input" placeholder="Enter your email" required>
           <button type="submit" class="btn btn-primary btn-sm notify-form__btn">Notify Me</button>
         </form>
         <p class="notify-error" style="display:none;">Please enter a valid email address</p>
@@ -904,7 +906,9 @@
       <h2 class="enquiry-modal__title">Tell Us What You Need</h2>
       <p class="enquiry-modal__subtitle">We'll come back to you within one business day.</p>
 
-      <form id="enquiryModalForm" class="form enquiry-modal__form">
+      <form id="enquiryModalForm" class="form enquiry-modal__form" name="enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="enquiry">
+        <p class="hidden-honeypot" style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
         <div class="form__group">
           <label for="eq-name">Full Name *</label>
           <input type="text" id="eq-name" name="name" placeholder="Your name" required>
