@@ -3,7 +3,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sfsmodels.com/sitemap.xml
+Sitemap: https://sfsmodels.org/sitemap.xml
 
 # Block backend and data directories
 Disallow: /backend/
