@@ -849,8 +849,10 @@
       <div class="expanding-library__notify">
         <form id="notifyForm" class="notify-form" name="notify" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="notify">
+          <input type="hidden" name="source" value="models-page-expanding-library">
+          <input type="hidden" name="subject" value="New model release alerts">
           <p class="hidden-honeypot" style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
-          <input type="email" id="notify-email" name="email" class="notify-form__input" placeholder="Enter your email" required>
+          <input type="email" id="notify-email" name="email" class="notify-form__input" placeholder="Enter your work email" required>
           <button type="submit" class="btn btn-primary btn-sm notify-form__btn">Notify Me</button>
         </form>
         <p class="notify-error" style="display:none;">Please enter a valid email address</p>

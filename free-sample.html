@@ -65,19 +65,34 @@
 
       <form id="free-sample-form" class="form" name="free-sample" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thankyou.html">
         <input type="hidden" name="form-name" value="free-sample">
+        <input type="hidden" name="source" value="free-sample-page">
+        <input type="hidden" name="sample_requested" value="three-statement">
         <p class="hidden-honeypot" style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
         <div class="form__group">
-          <input type="email" name="email" placeholder="your@email.com" required>
+          <label for="fs-name">Full Name *</label>
+          <input type="text" id="fs-name" name="name" placeholder="Your name" required>
         </div>
+
+        <div class="form__group">
+          <label for="fs-email">Work Email *</label>
+          <input type="email" id="fs-email" name="email" placeholder="you@company.com" required>
+        </div>
+
+        <div class="form__group">
+          <label for="fs-company">Company</label>
+          <input type="text" id="fs-company" name="company" placeholder="Your company (optional)">
+        </div>
+
         <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Me the Free Sample</button>
       </form>
 
-      <p style="color:var(--text-muted); font-size:0.85rem; text-align:center; margin-top:1rem;">We respect your privacy. No spam, ever.</p>
+      <p style="color:var(--text-muted); font-size:0.85rem; text-align:center; margin-top:1rem;">We respect your privacy. No spam, ever. Sample delivered within 1 business day.</p>
 
       <div style="margin-top:2.5rem; font-size:0.95rem; color:var(--text-muted);">
         <p style="margin-bottom:0.5rem;">&#10003; Fully working Excel file &mdash; not a locked demo</p>
         <p style="margin-bottom:0.5rem;">&#10003; Includes instructions tab</p>
-        <p>&#10003; Instant delivery to your inbox</p>
+        <p>&#10003; Delivered to your inbox within 1 business day</p>
       </div>
 
     </div>
