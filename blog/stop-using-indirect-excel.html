@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INDIRECT() in Excel: Why You Should Stop Using It | SFS Models Blog</title>
+<meta name="description" content="INDIRECT() is volatile, breaks silently when sheets are renamed, and can't be traced. Four alternatives by use case for cleaner financial models.">
+<link rel="canonical" href="https://sfsmodels.org/blog/stop-using-indirect-excel.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="INDIRECT() in Excel: Why You Should Stop Using It">
+<meta property="og:description" content="INDIRECT() is volatile, breaks silently when sheets are renamed, and can't be traced. Four alternatives by use case for cleaner financial models.">
+<meta property="og:url" content="https://sfsmodels.org/blog/stop-using-indirect-excel.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "INDIRECT() in Excel: Why You Should Stop Using It",
+  "description": "INDIRECT() is volatile, breaks silently when sheets are renamed, and can't be traced. Four alternatives by use case for cleaner financial models.",
+  "datePublished": "2026-04-21",
+  "dateModified": "2026-04-21",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/stop-using-indirect-excel.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>INDIRECT() in Excel: Why You Should Stop Using It</h1>
+    <p class="meta">Published 2026-04-21 &middot; SFS Models</p>
+    <p class="summary">INDIRECT() is the most overused finance modelling function. Three specific problems and four alternatives by use case.</p>
+
+    <p>INDIRECT() is one of those small Excel modelling habits that causes outsized pain when models get inherited. It's convenient for building flexible references &mdash; <code>=INDIRECT("'"&amp;A1&amp;"'!B5")</code> &mdash; but it has three properties that should disqualify it from any model that anyone other than the original builder will use.</p>
+
+<h2>1. It's volatile</h2>
+
+<p>Every recalculation re-evaluates every INDIRECT in the workbook. On a 50-tab model with 200 INDIRECT calls, this is the difference between a 0.5s recalc and a 30s recalc. Volatile functions also trigger recalculation when totally unrelated cells change, which makes audits painful.</p>
+
+<h2>2. It breaks silently when sheets are renamed</h2>
+
+<p>No #REF! error. Just wrong numbers. The user has no idea anything went wrong &mdash; the formula still "works", it just points at nothing now and returns 0 or #REF! that's lost in a sea of other values.</p>
+
+<h2>3. It can't be traced</h2>
+
+<p>F2 doesn't show you what cell INDIRECT is pointing at. F5 &rarr; Special &rarr; Precedents doesn't follow it. You have to mentally evaluate the string concatenation to figure out where the reference goes. In a model audit, this is hours of additional work per page.</p>
+
+<h2>What to use instead</h2>
+
+<p><strong>For cross-sheet references where the sheet is fixed:</strong></p>
+<p>Just use a normal reference. <code>='Lending'!B5</code>. No INDIRECT needed.</p>
+
+<p><strong>For lookups across multiple sheets where the sheet name varies:</strong></p>
+<p>Use a single consolidation tab that pulls all sheets via fixed references, then INDEX/MATCH against the consolidation. One layer of indirection, fully traceable.</p>
+
+<p><strong>For "sometimes show this, sometimes show that":</strong></p>
+<p>CHOOSE or INDEX with a switch cell. Both traceable. Both non-volatile.</p>
+
+<pre><code>=CHOOSE(MATCH(scenario_cell, {"Base","Upside","Downside"}, 0),
+        Base_value, Upside_value, Downside_value)</code></pre>
+
+<p><strong>If you genuinely need a dynamic sheet reference (rare):</strong></p>
+<p>Build a helper column with the actual values and INDEX/MATCH against that. Avoid INDIRECT.</p>
+
+<h2>The general principle</h2>
+
+<p>In a model that other people will inherit, traceability beats convenience every time. Anything that breaks F5 &rarr; Special &rarr; Precedents is a future bug factory.</p>
+
+<p>For our entire <a href="/models.html">model catalogue</a>, we have a hard rule: no INDIRECT, no INDIRECT.EXT, no OFFSET (similarly volatile and untraceable). Every reference is either direct or via INDEX/MATCH against a fixed range.</p>
+
+<p>It takes 5% more upfront work and saves 50% of audit time. Always worth it.</p>
+
+
+    <div class="blog-cta">
+      <h3>Get the SFS Models Catalogue</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/models.html" class="btn btn-primary">View SFS Models Catalogue</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

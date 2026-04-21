@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Calculate Mid-Year Discounting in a DCF Model | SFS Models Blog</title>
+<meta name="description" content="Mid-year discounting in DCF models corrects the systematic ~5% under-valuation from end-of-year discounting. Formulas, Excel implementation, common mistakes.">
+<link rel="canonical" href="https://sfsmodels.org/blog/mid-year-discounting-dcf.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Calculate Mid-Year Discounting in a DCF Model">
+<meta property="og:description" content="Mid-year discounting in DCF models corrects the systematic ~5% under-valuation from end-of-year discounting. Formulas, Excel implementation, common mistakes.">
+<meta property="og:url" content="https://sfsmodels.org/blog/mid-year-discounting-dcf.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Calculate Mid-Year Discounting in a DCF Model",
+  "description": "Mid-year discounting in DCF models corrects the systematic ~5% under-valuation from end-of-year discounting. Formulas, Excel implementation, common mistakes.",
+  "datePublished": "2026-04-21",
+  "dateModified": "2026-04-21",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/mid-year-discounting-dcf.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>How to Calculate Mid-Year Discounting in a DCF Model</h1>
+    <p class="meta">Published 2026-04-21 &middot; SFS Models</p>
+    <p class="summary">End-of-year discounting under-discounts cash flows by half a year of WACC. Mid-year discounting fixes this. Here's the formula, the Excel implementation, and the common mistakes.</p>
+
+    <p>If you've built a DCF model in Excel and used standard end-of-year discounting, you're systematically under-valuing the business by approximately half a year of WACC. On a growth business, that's a 5-10% understatement of enterprise value. Mid-year discounting fixes this.</p>
+
+<h2>What is mid-year discounting?</h2>
+
+<p>In a standard DCF, you discount each year's free cash flow (FCF) back to present value using:</p>
+
+<pre><code>PV = FCF / (1 + WACC)^t</code></pre>
+
+<p>Where <code>t</code> is the number of years from the valuation date.</p>
+
+<p>The problem: this formula assumes all of year <code>t</code>'s cash flow arrives on December 31st of year <code>t</code>. In reality, cash flows arrive throughout the year &mdash; roughly evenly. The "average" cash arrives at mid-year (June 30th).</p>
+
+<p>Mid-year discounting adjusts for this by discounting cash flows by half a period less:</p>
+
+<pre><code>PV = FCF / (1 + WACC)^(t - 0.5)</code></pre>
+
+<p>For a 5-year forecast at 10% WACC, mid-year discounting gives you ~4.7% higher PV vs end-of-year. On a $1bn EV business, that's $47m of value.</p>
+
+<h2>When to use mid-year vs end-of-year</h2>
+
+<p><strong>Use mid-year when:</strong></p>
+<ul>
+<li>Cash flows arrive evenly throughout the year (most operating businesses)</li>
+<li>You're presenting valuations to investment committees who expect mid-year (standard at most US PE firms)</li>
+<li>Public company valuations (most sell-side equity research uses mid-year)</li>
+</ul>
+
+<p><strong>Use end-of-year when:</strong></p>
+<ul>
+<li>Cash flows are heavily back-loaded (project finance, infrastructure concessions where cash arrives at completion milestones)</li>
+<li>You're modelling for tax-driven structures where year-end timing matters</li>
+<li>The receiving institution has a stated convention (some EU banks default to end-of-year)</li>
+</ul>
+
+<h2>The terminal value adjustment</h2>
+
+<p>Most DCF builders forget that mid-year discounting also affects terminal value. Two adjustments:</p>
+
+<p><strong>1. Discount the terminal value back further.</strong></p>
+
+<p>If your explicit forecast ends in year 5 and you've used mid-year discounting for years 1&ndash;5, the terminal value (which represents value FROM year 6 onwards) should be discounted at:</p>
+
+<pre><code>TV PV = TV / (1 + WACC)^(5 - 0.5) = TV / (1 + WACC)^4.5</code></pre>
+
+<p>NOT <code>TV / (1 + WACC)^5</code>.</p>
+
+<p><strong>2. The terminal value formula doesn't change.</strong></p>
+
+<p>The Gordon growth formula gives you the value AS OF the end of the explicit forecast period. So whether you use mid-year or end-of-year, the TV formula itself is:</p>
+
+<pre><code>TV = FCF(year n+1) / (WACC - g)</code></pre>
+
+<p>Only the discount factor applied to bring TV back to present value changes.</p>
+
+<h2>Implementing mid-year discounting in Excel</h2>
+
+<p>Add a "discount factor" row to your DCF tab that applies mid-year automatically:</p>
+
+<pre><code>Year:           1     2     3     4     5
+FCF:            100   120   140   160   180
+Discount factor: 1/(1+WACC)^0.5  1/(1+WACC)^1.5  1/(1+WACC)^2.5  ...
+
+PV = FCF &times; Discount factor</code></pre>
+
+<p>Sum the PVs of years 1&ndash;n + discounted terminal value = enterprise value.</p>
+
+<p>For our <a href="/dcf-model-excel.html">DCF Model</a>, we built in a toggle on the INPUTS tab &mdash; switch between mid-year and end-of-year and the entire model recalibrates.</p>
+
+<h2>Common mistakes</h2>
+
+<ol>
+<li><strong>Discounting terminal value at year n + 1 instead of n.</strong> TV represents value at end of year n, so discount it at year n (or year n &minus; 0.5 for mid-year).</li>
+<li><strong>Using mid-year for one year and end-of-year for others.</strong> Be consistent across all years in the explicit forecast.</li>
+<li><strong>Ignoring stub periods.</strong> If your valuation date isn't year-end, the first period is a stub (e.g., 7 months). Adjust the discount factor for the stub period accordingly.</li>
+<li><strong>Mid-year on a project that ends in year 5.</strong> If the business has a defined termination (project finance), don't use mid-year for the final year &mdash; use the actual cash receipt timing.</li>
+</ol>
+
+<h2>Free DCF model</h2>
+
+<p>If you want to skip the build, our <a href="/free-sample.html">free DCF Lite</a> has both end-of-year and mid-year discounting available as a switch.</p>
+
+<p>For the full version with three-statement integration, terminal value cross-check, and 8 integrity checks: <a href="/dcf-model-excel.html">DCF Model Excel Template</a>.</p>
+
+
+    <div class="blog-cta">
+      <h3>Get the DCF Model Excel Template</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/dcf-model-excel.html" class="btn btn-primary">View DCF Model Excel Template</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>
