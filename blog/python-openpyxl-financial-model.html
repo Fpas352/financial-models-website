@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building Financial Models Programmatically with Python and openpyxl | SFS Models Blog</title>
+<meta name="description" content="How we build 18 institutional-grade Excel financial models programmatically using Python and openpyxl. Patterns, gotchas, and the standard helper library.">
+<link rel="canonical" href="https://sfsmodels.org/blog/python-openpyxl-financial-model.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building Financial Models Programmatically with Python and openpyxl">
+<meta property="og:description" content="How we build 18 institutional-grade Excel financial models programmatically using Python and openpyxl. Patterns, gotchas, and the standard helper library.">
+<meta property="og:url" content="https://sfsmodels.org/blog/python-openpyxl-financial-model.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building Financial Models Programmatically with Python and openpyxl",
+  "description": "How we build 18 institutional-grade Excel financial models programmatically using Python and openpyxl. Patterns, gotchas, and the standard helper library.",
+  "datePublished": "2026-04-22",
+  "dateModified": "2026-04-22",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/python-openpyxl-financial-model.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>Building Financial Models Programmatically with Python and openpyxl</h1>
+    <p class="meta">Published 2026-04-22 &middot; SFS Models</p>
+    <p class="summary">Hand-edited Excel models are unmaintainable at scale. Python + openpyxl makes the build script the source of truth. Here's our standard pattern: helpers, named ranges, the no-circularity rule, and how we validate all 18 models in one command.</p>
+
+    <p>Every financial model in our catalogue is generated by a Python script using openpyxl. We never edit the .xlsx files by hand. The build script is the source of truth.</p>
+
+<p>This isn't a hipster tooling choice &mdash; it's the only way to maintain a catalogue of 18 institutional-grade models without going insane. Here's the pattern.</p>
+
+<h2>Why scripts as source of truth</h2>
+
+<p>Hand-edited Excel files have four problems at scale:</p>
+
+<ol>
+<li><strong>No version control</strong>. Git can store .xlsx but can't diff it. You can see <em>that</em> the file changed but not <em>what</em> changed.</li>
+<li><strong>Style drift</strong>. Five models, five slightly different formats. Looks unprofessional.</li>
+<li><strong>Cascading bugs</strong>. Fix a formula in one model, forget to fix it in the other 17.</li>
+<li><strong>No testing</strong>. You can't unit-test a hand-edited Excel file. You can unit-test a Python script that generates one.</li>
+</ol>
+
+<p>Build scripts solve all four. Each model has a build_<em>name</em>_v<em>n</em>.py file. Run the script, get the .xlsx. Change the script, regenerate. Commit the script to git.</p>
+
+<h2>The standard helper library</h2>
+
+<p>Every build script imports the same set of helpers:</p>
+
+<pre><code class="language-python">from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from openpyxl.utils import get_column_letter
+from openpyxl import Workbook
+from openpyxl.worksheet.datavalidation import DataValidation
+from openpyxl.formatting.rule import CellIsRule, FormulaRule
+from openpyxl.workbook.defined_name import DefinedName
+
+# Style constants
+NAVY       = "1F3864"
+MID_BLUE   = "2E75B6"
+WHITE      = "FFFFFF"
+BLUE_FONT  = "0000FF"   # hardcoded inputs
+BLACK_FONT = "000000"   # formulas
+YELLOW_BG  = "FFFDE7"   # input cell fill
+GREEN_PASS = "C6EFCE"   # CHECKS pass
+RED_FAIL   = "FFC7CE"   # CHECKS fail
+GREEN_TOT  = "E2EFDA"   # total row fill
+
+# Number formats
+FMT_GBP    = '#,##0;(#,##0);"-"'
+FMT_GBPm   = '#,##0.0,,"m";(#,##0.0,,"m");"-"'
+FMT_PCT    = '0.0%;(0.0%);"-"'
+FMT_BPS    = '0" bps";(0" bps");"-"'
+FMT_DATE   = 'mmm-yy'
+
+def inp(ws, row, col, value, fmt=FMT_GBP):
+    # Hardcoded input cell: blue font, yellow fill.
+    c = ws.cell(row=row, column=col, value=value)
+    c.font = Font(name="Arial", size=10, color=BLUE_FONT)
+    c.fill = PatternFill("solid", fgColor=YELLOW_BG)
+    c.number_format = fmt
+    return c
+
+def calc(ws, row, col, formula, fmt=FMT_GBP):
+    # Formula cell: black font, no fill.
+    c = ws.cell(row=row, column=col, value=formula)
+    c.font = Font(name="Arial", size=10, color=BLACK_FONT)
+    c.number_format = fmt
+    return c
+
+def label(ws, row, col, text, indent=0, bold=False):
+    # Text label cell.
+    c = ws.cell(row=row, column=col, value=text)
+    c.font = Font(name="Arial", size=10, bold=bold)
+    c.alignment = Alignment(horizontal="left", indent=indent)
+    return c
+
+def section_header(ws, row, col_start, col_end, text):
+    # Dark navy section header.
+    c = ws.cell(row=row, column=col_start, value=text)
+    c.font = Font(name="Arial", size=10, bold=True, color=WHITE)
+    c.fill = PatternFill("solid", fgColor=NAVY)
+    for col in range(col_start + 1, col_end + 1):
+        ws.cell(row=row, column=col).fill = PatternFill("solid", fgColor=NAVY)
+    return c
+</code></pre>
+
+<p>Three functions handle 80% of cell creation: <code>inp()</code> for hardcoded inputs (blue/yellow), <code>calc()</code> for formulas (black, no fill), <code>label()</code> for text. Consistency across all 18 models comes for free.</p>
+
+<h2>Common openpyxl gotchas</h2>
+
+<h3>Named ranges API changed</h3>
+
+<p>The old <code>wb.defined_names.definedName</code> API is deprecated. Use string-key iteration:</p>
+
+<pre><code class="language-python"># CORRECT
+for name in wb.defined_names:
+    dn = wb.defined_names[name]
+
+# WRONG (raises AttributeError in current openpyxl)
+for dn in wb.defined_names.definedName:
+    ...
+</code></pre>
+
+<h3>Formulas are strings, not evaluated</h3>
+
+<p>openpyxl writes formula strings to cells but doesn't evaluate them. The cell's value when read back is the formula text, not the result. To get evaluated values, you need to either:</p>
+
+<ul>
+<li>Open the file in Excel/LibreOffice (which triggers recalc on save)</li>
+<li>Run the file through <code>libreoffice --headless --convert-to xlsx</code> to force recalc</li>
+<li>Use a separate library like <code>pycel</code> (limited support) or <code>formulas</code> (better but slow)</li>
+</ul>
+
+<p>Our validation pipeline runs every model through headless LibreOffice to force recalc, then reads the values back. Catches formula bugs before shipping.</p>
+
+<h3>Performance with large workbooks</h3>
+
+<p>openpyxl in default (cell-by-cell) mode is slow for large workbooks. For models with &gt;10,000 formula cells, use write-only mode or batch the cell creation.</p>
+
+<p>Bigger payoff: avoid creating empty cells. openpyxl tracks every accessed cell, so even reading <code>ws.cell(row=1000, col=1)</code> in an empty area inflates the file. Only touch cells you intend to populate.</p>
+
+<h2>The no-circularity rule</h2>
+
+<p>The hardest discipline in financial modelling: avoiding circular references.</p>
+
+<p>The classic case in banking: interest income depends on the loan balance, but the loan balance depends on interest income (interest gets capitalised, or the cash book grows from interest received).</p>
+
+<p>The naive fix &mdash; turn on Excel's iterative calculation &mdash; works but creates a brittle model. Audit teams reject models that depend on iterative calculation because they can produce different results based on iteration count.</p>
+
+<p>The clean fix: <strong>always reference prior period balance, never current</strong>.</p>
+
+<pre><code class="language-python"># Cell layout: opening, drawdown, repayment, interest, closing
+# For row 12 (period 2):
+calc(ws, 12, 5, '=I11')              # opening = prior closing
+calc(ws, 12, 8, '=E12*rate/12')      # interest on opening
+calc(ws, 12, 9, '=E12+F12-G12+H12')  # closing = opening + flows + interest
+</code></pre>
+
+<p>This pattern works for: lending interest, deposit interest, capital constraints (current period capital from prior period), provision charges. Circular by reference, sequential by construction.</p>
+
+<h2>Validation: the CHECKS tab</h2>
+
+<p>Every model has a CHECKS tab with 30&ndash;40 integrity tests:</p>
+
+<ul>
+<li>BS balances (assets = liabilities + equity)</li>
+<li>CF closing ties to BS cash</li>
+<li>Debt schedule closing ties to BS debt</li>
+<li>Total interest from debt schedule = total interest in IS</li>
+<li>Scenario switches working (Upside &gt; Base on key metrics)</li>
+<li>No negative equity in Base scenario</li>
+</ul>
+
+<p>Each check returns "PASS" or "FAIL" with conditional formatting (green/red). The whole catalogue is validated by:</p>
+
+<pre><code class="language-bash">cd models &amp;&amp; python3 validate_all.py</code></pre>
+
+<p>If any model has a failing CHECK, the build fails. Catches bugs before shipping.</p>
+
+<h2>The full pipeline</h2>
+
+<ol>
+<li>Edit build_<em>name</em>_v<em>n</em>.py</li>
+<li>Run <code>python3 build_<em>name</em>_v<em>n</em>.py</code> &mdash; outputs .xlsx</li>
+<li>Run <code>python3 validate_all.py</code> &mdash; opens each .xlsx through LibreOffice headless and reads CHECKS tab</li>
+<li>If validation passes, commit the build script + .xlsx to git</li>
+<li>Push &mdash; CI rebuilds and re-validates as a sanity check</li>
+</ol>
+
+<p>This is how we ship 18 institutional-grade models with two engineers (effectively just me) and zero production bugs in 18 months.</p>
+
+<h2>Should you do this?</h2>
+
+<p>If you're building 1&ndash;2 financial models, no &mdash; openpyxl is overkill, just use Excel directly.</p>
+
+<p>If you're building 5+ models that share styling, structure, or reusable calculations, yes &mdash; the upfront investment in helpers pays back within the third model.</p>
+
+<p>Our entire <a href="/models.html">catalogue of 18 models</a> uses this approach. If you're curious about the helper library or have specific openpyxl questions, ping us via <a href="/contact.html">contact</a>.</p>
+
+
+    <div class="blog-cta">
+      <h3>Get the SFS Models Catalogue</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/models.html" class="btn btn-primary">View SFS Models Catalogue</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

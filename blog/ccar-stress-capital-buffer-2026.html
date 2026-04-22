@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CCAR Stress Capital Buffer Trap for the 2026 Cycle | SFS Models Blog</title>
+<meta name="description" content="The 2026 CCAR cycle introduces revised SCB rules that make dividends a binding capital input. Most regional banks haven't updated their models. What changes and how to fix it.">
+<link rel="canonical" href="https://sfsmodels.org/blog/ccar-stress-capital-buffer-2026.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The CCAR Stress Capital Buffer Trap for the 2026 Cycle">
+<meta property="og:description" content="The 2026 CCAR cycle introduces revised SCB rules that make dividends a binding capital input. Most regional banks haven't updated their models. What changes and how to fix it.">
+<meta property="og:url" content="https://sfsmodels.org/blog/ccar-stress-capital-buffer-2026.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The CCAR Stress Capital Buffer Trap for the 2026 Cycle",
+  "description": "The 2026 CCAR cycle introduces revised SCB rules that make dividends a binding capital input. Most regional banks haven't updated their models. What changes and how to fix it.",
+  "datePublished": "2026-04-22",
+  "dateModified": "2026-04-22",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/ccar-stress-capital-buffer-2026.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>The CCAR Stress Capital Buffer Trap for the 2026 Cycle</h1>
+    <p class="meta">Published 2026-04-22 &middot; SFS Models</p>
+    <p class="summary">Revised SCB rules for the 2026 CCAR cycle make planned dividends a binding input to capital adequacy. Most regional bank models still treat dividends as a pure use of capital. Here's what changes and what to fix.</p>
+
+    <p>The 2026 CCAR cycle is the first under the revised stress capital buffer (SCB) rules. Most US regional banks are still running their 2024 framework. The gap between the two will show up at the next examination cycle.</p>
+
+<h2>What is the Stress Capital Buffer?</h2>
+
+<p>The SCB is the bank-specific buffer above the regulatory minimum CET1 ratio (4.5%) plus the global capital conservation buffer (2.5%). For US banks subject to CCAR, the SCB is calibrated based on the bank's projected capital decline under the supervisory severely adverse scenario.</p>
+
+<p>SCB = Maximum projected capital decline + 4 quarters of planned common stock dividends.</p>
+
+<p>That last component &mdash; planned dividends &mdash; is what changed for 2026.</p>
+
+<h2>What changed for 2026</h2>
+
+<p>Under the previous methodology, planned dividends in the SCB calculation were measured as a static four-quarter sum at submission time. Under the revised methodology, the four-quarter dividend sum is calculated dynamically across the stress horizon.</p>
+
+<p>The practical effect: as your projected dividends change quarter-by-quarter under stress, your SCB recalibrates. Higher dividends = larger SCB = higher minimum CET1 you must maintain.</p>
+
+<p>This makes dividends a <strong>binding input to capital adequacy</strong>, not just a use of capital. If your model treats dividends as a flow to be subtracted from CET1 each quarter (the standard approach), you're missing the buffer feedback loop.</p>
+
+<h2>What breaks in most internal models</h2>
+
+<p>Three patterns we see consistently when reviewing regional bank stress test models:</p>
+
+<ol>
+<li><strong>Dividends modelled as a pure use of capital.</strong> Each quarter, dividends reduce CET1. The SCB is a separate input on the capital ratio tab. The two don't talk to each other.</li>
+<li><strong>SCB modelled as a single static add-on.</strong> The buffer is a number entered on INPUTS and held constant across the stress horizon. Quarter-by-quarter recalculation isn't built in.</li>
+<li><strong>PPNR projections still using 2018-vintage models.</strong> Pre-COVID rate environments don't tell you anything useful about 2024-26. Net interest margin under stress in the new regime depends heavily on deposit beta calibration (see <a href="/blog/deposit-beta-calibration.html">our piece on deposit beta</a>).</li>
+</ol>
+
+<h2>The fix: quarterly SCB recalculation</h2>
+
+<p>The model structure that handles the new methodology:</p>
+
+<ul>
+<li><strong>One INPUTS tab</strong> with quarterly dividend assumptions (not annual aggregate)</li>
+<li><strong>One CAPITAL_ACTIONS tab</strong> calculating the rolling 4-quarter dividend sum at each quarter</li>
+<li><strong>One SCB tab</strong> calculating the SCB at each quarter as: max projected capital decline (across remaining horizon from this quarter) + rolling 4-quarter dividend sum</li>
+<li><strong>One CAPITAL_RATIOS tab</strong> calculating CET1 ratio against the time-varying SCB-inclusive minimum</li>
+<li><strong>MDA logic</strong> that auto-restricts dividends when the CET1 ratio falls below P1 + buffers, which then feeds back into the SCB calculation in the next iteration</li>
+</ul>
+
+<p>The feedback loop between dividends and SCB is what makes the new methodology operationally complex. Done right, the model converges quickly. Done wrong (using iterative calculation), it spirals.</p>
+
+<p>Our trick: model the MDA restriction as a function of <em>prior quarter's</em> capital ratio, not current. This breaks the circularity cleanly. Same principle as our universal "no circularities" rule for bank models.</p>
+
+<h2>Walked example: $50bn regional bank</h2>
+
+<p>Consider a $50bn regional bank planning $1.2bn in annual dividends ($300m/quarter).</p>
+
+<p><strong>Under old methodology:</strong> SCB calculation includes $1.2bn dividend addition. Maximum projected CET1 decline (say 250bps over 9 quarters) drives a buffer of, say, 3.5%.</p>
+
+<p><strong>Under new methodology:</strong> at each quarter, the rolling 4-quarter dividend sum is recalculated. If projected stress causes dividend cuts (per MDA), the SCB declines &mdash; but lagging the actual decline. The bank may face a higher SCB during the recovery phase than under the old methodology.</p>
+
+<p>Practical impact: the bank's modelled CET1 decline may now breach the 5.125% AT1 trigger floor when it didn't under the old framework. That's a material capital plan change that needs to land before the 2026 cycle, not during it.</p>
+
+<h2>What to do now</h2>
+
+<ol>
+<li><strong>Audit your current capital plan model.</strong> Search for "SCB" in formulas. If it appears as a static cell on INPUTS, you're on the old methodology.</li>
+<li><strong>Rebuild capital_actions and SCB calculations as quarterly time series.</strong> Don't shortcut to annual.</li>
+<li><strong>Recalibrate PPNR.</strong> Use 2022&ndash;2025 actuals as the base, not 2018&ndash;2019.</li>
+<li><strong>Recalibrate deposit beta.</strong> The 2022&ndash;23 cycle showed actual betas were 2&ndash;3x your old assumptions. See <a href="/blog/deposit-beta-calibration.html">deposit beta calibration</a>.</li>
+<li><strong>Run the model end-to-end on the 2025 supervisory severely adverse scenario.</strong> If your output looks materially worse than your 2024 submission, you're calibrated correctly. If it looks the same, something's wrong.</li>
+</ol>
+
+<h2>The model that handles this</h2>
+
+<p>Our <a href="/bank-stress-test-model.html">Bank Stress Test Model</a> is built for the new methodology natively &mdash; quarterly SCB recalculation, dividend-as-input, recalibratable PPNR, MDA feedback loop. Tested against the 2025 supervisory severely adverse scenario.</p>
+
+
+    <div class="blog-cta">
+      <h3>Get the Bank Stress Test Model</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/bank-stress-test-model.html" class="btn btn-primary">View Bank Stress Test Model</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Most CECL Models Drift After Year 2 (And How to Fix It) | SFS Models Blog</title>
+<meta name="description" content="CECL went live for SEC filers in 2020. Five years later, most US bank methodologies have quietly drifted away from regulatory expectations. The four drift patterns examiners are flagging and how to fix each.">
+<link rel="canonical" href="https://sfsmodels.org/blog/cecl-methodology-drift.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why Most CECL Models Drift After Year 2 (And How to Fix It)">
+<meta property="og:description" content="CECL went live for SEC filers in 2020. Five years later, most US bank methodologies have quietly drifted away from regulatory expectations. The four drift patterns examiners are flagging and how to fix each.">
+<meta property="og:url" content="https://sfsmodels.org/blog/cecl-methodology-drift.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why Most CECL Models Drift After Year 2 (And How to Fix It)",
+  "description": "CECL went live for SEC filers in 2020. Five years later, most US bank methodologies have quietly drifted away from regulatory expectations. The four drift patterns examiners are flagging and how to fix each.",
+  "datePublished": "2026-04-22",
+  "dateModified": "2026-04-22",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/cecl-methodology-drift.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>Why Most CECL Models Drift After Year 2 (And How to Fix It)</h1>
+    <p class="meta">Published 2026-04-22 &middot; SFS Models</p>
+    <p class="summary">CECL adoption was 2020. Five years on, methodologies have drifted. Examiners are flagging four specific patterns: stale R&S forecast horizons, undefended reversion paths, ungrounded Q-factors, and outdated pool segmentation. How to fix each.</p>
+
+    <p>CECL (ASC 326) went live for SEC filers in 2020 and for non-SEC filers in 2023. Most banks built their methodology in the adoption window and haven't materially refreshed it since. That's a problem &mdash; OCC and FDIC examiners are now flagging methodology drift as a systemic issue, particularly at regional banks with CRE concentration.</p>
+
+<h2>The four drift patterns</h2>
+
+<h3>1. Reasonable & Supportable forecast horizon hasn't been re-justified</h3>
+
+<p>CECL requires a Reasonable &amp; Supportable (R&amp;S) forecast period &mdash; the window over which you can defensibly project macro variables. After R&amp;S, you revert to historical loss rates.</p>
+
+<p>Most banks picked 1&ndash;2 years at adoption and haven't revisited it. In 2020, with COVID uncertainty, 1 year was defensible. In 2026, with a clearer macro outlook, you might justify 2&ndash;3 years &mdash; but you must document why.</p>
+
+<p><strong>Examiner flag:</strong> "Why is your R&amp;S period still 1 year? What changed since adoption to justify the same window?" If you don't have a written answer, you have a finding.</p>
+
+<p><strong>Fix:</strong> annual R&amp;S period review, board-approved. Document the macro backdrop justification each year.</p>
+
+<h3>2. Reversion path is an Excel formula nobody can defend</h3>
+
+<p>After the R&amp;S period, you must revert from forecast loss rates to historical mean. Most banks implemented this as a linear interpolation in Excel and never wrote the methodology document.</p>
+
+<p>The reversion path matters: a steep reversion in year 2 vs a gentle reversion over years 2&ndash;5 produces materially different lifetime ECL.</p>
+
+<p><strong>Examiner flag:</strong> "Show me the methodology document for your reversion path. Why linear vs exponential? Why over this duration?"</p>
+
+<p><strong>Fix:</strong> document the reversion methodology explicitly. Common defensible approaches:</p>
+<ul>
+<li>Linear over R&amp;S+1 to year 5 (simple, defensible if no specific macro view)</li>
+<li>Exponential decay (industry-standard for some portfolios)</li>
+<li>Step-function aligned to forecast cycles (e.g., revert at end of forecast)</li>
+</ul>
+
+<h3>3. Q-factor adjustments don't tie to specific defensible signals</h3>
+
+<p>The Q-factor (qualitative adjustment) is where most banks bury the macro overlay. The amount is defensible only if it ties to a specific external signal.</p>
+
+<p>"Macro deterioration" isn't a number. "+10bps to allowance reflecting CRE office vacancy increase from 14% to 19% per CBRE Q4 2025 report" is a number.</p>
+
+<p><strong>Examiner flag:</strong> "What's the source for your +5bps Q-factor on the C&amp;I book?" If you can't cite an external data source, the Q-factor will be challenged.</p>
+
+<p><strong>Fix:</strong> every Q-factor entry must have:</p>
+<ul>
+<li>An external data source (Fed, Bloomberg, CBRE, BLS, etc.)</li>
+<li>A documented rule connecting the data signal to the Q-factor magnitude</li>
+<li>Evidence of historical back-testing (does the rule produce sensible numbers in past cycles?)</li>
+</ul>
+
+<h3>4. Pool segmentation hasn't evolved with portfolio mix</h3>
+
+<p>Your 2020 CRE pool segmentation (owner-occupied / income-producing / construction) may have been adequate then. In 2026, with the office sector deterioration creating a wholly different risk profile, you might need to subdivide income-producing into office / multifamily / retail / industrial.</p>
+
+<p><strong>Examiner flag:</strong> "Why is your office CRE pooled with multifamily?" If you don't have a defensible reason, that's a finding.</p>
+
+<p><strong>Fix:</strong> annual segmentation review. If a sub-segment has materially different risk characteristics from the parent pool, separate it.</p>
+
+<h2>The annual methodology refresh framework</h2>
+
+<p>Build this into your CECL governance:</p>
+
+<ol>
+<li><strong>Annual R&amp;S period review</strong> &mdash; 1 page, board-approved, justifies the chosen horizon</li>
+<li><strong>Annual reversion methodology review</strong> &mdash; 1 page, justifies the chosen reversion shape and duration</li>
+<li><strong>Quarterly Q-factor review</strong> &mdash; line-by-line update of each Q-factor with external data citation</li>
+<li><strong>Annual pool segmentation review</strong> &mdash; assesses whether the current pools are still risk-coherent</li>
+<li><strong>Annual back-test</strong> &mdash; compares the prior year's allowance against actual losses, identifies methodology gaps</li>
+</ol>
+
+<p>This isn't optional. Examiners explicitly ask for the documentation. If it doesn't exist, you have a finding.</p>
+
+<h2>The model that supports this</h2>
+
+<p>Our <a href="/ifrs9-cecl-model-excel.html">IFRS 9 / CECL ECL Model</a> builds in the documentation framework: Q-factor cells include source citation columns, R&amp;S and reversion parameters live in a single methodology tab, and pool segmentation is rebuildable without breaking the calculation layer.</p>
+
+<p>Audit-ready by construction. Methodology document is the same workbook you use to compute the allowance.</p>
+
+
+    <div class="blog-cta">
+      <h3>Get the IFRS 9 / CECL ECL Model</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/ifrs9-cecl-model-excel.html" class="btn btn-primary">View IFRS 9 / CECL ECL Model</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>
