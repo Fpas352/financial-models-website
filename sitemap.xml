@@ -109,6 +109,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://sfsmodels.org/icaap-model-excel.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sfsmodels.org/project-finance-model-excel.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sfsmodels.org/pe-fund-waterfall-model-excel.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sfsmodels.org/ifrs17-insurance-model-excel.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://sfsmodels.org/thankyou.html</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
