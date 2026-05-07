@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel Financial Model Best Practices: The 12 Rules That Actually Matter | SFS Models Blog</title>
+<meta name="description" content="The 12 Excel financial modelling best practices that separate institutional-grade models from templates. Colour coding, no INDIRECT, circular references, named ranges, and more.">
+<link rel="canonical" href="https://sfsmodels.org/blog/excel-financial-model-best-practices.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Excel Financial Model Best Practices: The 12 Rules That Actually Matter">
+<meta property="og:description" content="The 12 Excel financial modelling best practices that separate institutional-grade models from templates. Colour coding, no INDIRECT, circular references, named ranges, and more.">
+<meta property="og:url" content="https://sfsmodels.org/blog/excel-financial-model-best-practices.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Excel Financial Model Best Practices: The 12 Rules That Actually Matter",
+  "description": "The 12 Excel financial modelling best practices that separate institutional-grade models from templates. Colour coding, no INDIRECT, circular references, named ranges, and more.",
+  "datePublished": "2026-05-07",
+  "dateModified": "2026-05-07",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/excel-financial-model-best-practices.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>Excel Financial Model Best Practices: The 12 Rules That Actually Matter</h1>
+    <p class="meta">Published 2026-05-07 &middot; SFS Models</p>
+    <p class="summary">Most best-practice lists are generic. These 12 rules come from building 18 institutional-grade models and watching finance teams use them under pressure. They're ranked by how often violating them causes real problems.</p>
+
+    <p>There are hundreds of Excel modelling guides. Most repeat the same obvious advice. This list comes from a different place: watching real finance teams break real models under real time pressure, then fixing the fallout.</p>
+
+<p>These 12 rules are ranked by the cost of getting them wrong &mdash; not by how frequently they appear in textbooks.</p>
+
+<h2>1. Colour-code every single cell</h2>
+
+<p>Blue font for hardcoded inputs, black for formulas, green for cross-sheet links. No exceptions.</p>
+
+<p>When a model breaks at 11pm before a board presentation, the first question is: which cell is hardcoded? If your model uses black font everywhere, that question takes an hour. With colour coding, it takes 30 seconds.</p>
+
+<p>The convention that matters most: blue font on a yellow fill for hardcoded inputs. Anyone who opens the model for the first time knows exactly where to look.</p>
+
+<h2>2. Never use INDIRECT</h2>
+
+<p>INDIRECT returns the reference implied by a text string. It breaks silently when a sheet is renamed. It breaks when rows are inserted. It is not tracked by Excel's dependency engine, so auditing tools miss it.</p>
+
+<p>The common use case: dynamic sheet references (<code>=INDIRECT(A1&amp;"!B5")</code>). Replace with CHOOSE + static references, or restructure so the data is on one sheet.</p>
+
+<pre><code>=INDIRECT(A1&"!B5")          -- BREAKS when sheet is renamed
+=CHOOSE(scenario, Sheet1!B5, Sheet2!B5, Sheet3!B5)  -- CORRECT</code></pre>
+
+<h2>3. Inputs on one tab only</h2>
+
+<p>Every hardcoded assumption lives on the INPUTS tab. Not on calculation sheets. Not in formula strings. Not buried in named ranges scattered across the workbook.</p>
+
+<p>The test: can someone change every assumption in the model without leaving the INPUTS tab? If yes, the model passes. If no, find the strays.</p>
+
+<p>The practical consequence: users don't need to understand the model's structure to run sensitivities. They change one tab, outputs update. This is the difference between a tool someone will actually use and one they'll rebuild from scratch.</p>
+
+<h2>4. Interest on prior-period balance, always</h2>
+
+<p>Calculate interest charges on the opening (prior-period closing) balance, not the current period's closing balance. This eliminates circularity in every debt, deposit, and loan roll-forward without enabling iterative calculation.</p>
+
+<pre><code>Opening balance   = Prior closing (no circular)
+Interest charge   = Opening × rate
+Closing balance   = Opening + drawdown - repayment + interest</code></pre>
+
+<p>Models that use closing balance for interest require iterative calculation. Iterative calculation is non-deterministic (result depends on iteration count), rejected by audit teams, and breaks on copy-paste into new workbooks.</p>
+
+<h2>5. IFERROR on every division</h2>
+
+<p>Always. No exceptions. <code>=IFERROR(A/B, 0)</code> or <code>=IFERROR(A/B, "-")</code> depending on whether zero or a dash is the correct display for undefined.</p>
+
+<p>The failure mode: a model built with bare divisions fails on the first zero-denominator input. In a model with 5,000 formula cells, one #DIV/0! propagates to hundreds of dependent cells. The model looks broken. It takes an hour to diagnose.</p>
+
+<h2>6. Format negatives in parentheses, not with a minus sign</h2>
+
+<p>Finance convention: negative numbers are displayed as (1,234) not -1,234. Use format strings that include the parenthesis format:</p>
+
+<pre><code>#,##0;(#,##0);"-"</code></pre>
+
+<p>The semicolons separate: positive format; negative format; zero format. The zero format shows a dash rather than "0" &mdash; standard for financial statements.</p>
+
+<p>A model presented to a CFO that shows negative numbers with minus signs looks like a student spreadsheet. The format string is a three-character fix.</p>
+
+<h2>7. Named ranges for everything referenced more than once</h2>
+
+<p>Any cell that multiple formulas reference should have a named range. <code>BaseRate</code>, <code>ScenarioSelect</code>, <code>StartDate</code>, <code>WACCBase</code>.</p>
+
+<p>The practical benefit: when you need to find all formulas that reference a key assumption, <code>Ctrl+F</code> on the named range name finds them all. With cell references (<code>INPUTS!$B$12</code>), you hope you got every instance.</p>
+
+<p>Named ranges also survive row and column insertion, unlike absolute cell references that silently point to the wrong cell if a row is inserted above them.</p>
+
+<h2>8. Maximum 3 levels of IF nesting</h2>
+
+<p>Nested IFs beyond three levels are untestable. No one can read them. They break on edge cases that the author didn't consider when writing the formula.</p>
+
+<pre><code>=IF(A=1, x, IF(A=2, y, IF(A=3, z, "")))   -- 3 levels: acceptable
+=IF(A=1, x, IF(A=2, y, IF(A=3, z, IF(A=4, w, ""))))   -- 4 levels: refactor</code></pre>
+
+<p>The refactor options: CHOOSE (for numeric indices), INDEX/MATCH (for lookup tables), IFS (Excel 2016+), or helper columns that break the logic into readable steps.</p>
+
+<h2>9. Freeze panes on every data tab</h2>
+
+<p>Freeze row 1&ndash;2 (headers and column labels) and column A (row labels) on every calculation sheet. <code>=View &gt; Freeze Panes &gt; Freeze at B3</code>.</p>
+
+<p>The failure mode: a model where scrolling right loses the row labels, or scrolling down loses the column headers, is impossible to use in a meeting. The user loses track of which row they're looking at, which period they're in.</p>
+
+<p>This takes 30 seconds per tab. There is no excuse for missing it.</p>
+
+<h2>10. A CHECKS tab with explicit pass/fail</h2>
+
+<p>Every model should have a tab called CHECKS (or equivalent) with explicit integrity tests. The minimum set:</p>
+
+<ul>
+<li>Balance sheet balances: Assets = Liabilities + Equity</li>
+<li>Cash flow closing = balance sheet cash</li>
+<li>Debt schedule closing ties to balance sheet debt</li>
+<li>Interest from debt schedule = interest in P&amp;L</li>
+</ul>
+
+<p>Each check is a formula that returns "PASS" or "FAIL" with conditional formatting (green/red). When someone hands you a model, you look at the CHECKS tab first. All green = model integrity is intact. Any red = find the error before using any output.</p>
+
+<h2>11. No hardcoded numbers in formula cells</h2>
+
+<p>A formula that reads <code>=B5*0.35</code> has a hardcoded 0.35. What is 0.35? A tax rate? A fee? An assumption made in 2021 that was never updated? Nobody knows.</p>
+
+<p>Every number in a formula should come from a named range or an INPUTS cell reference. The formula should read <code>=B5*TaxRate</code> or <code>=B5*INPUTS!$C$18</code>. The value lives in one place. When it changes, you change it once.</p>
+
+<h2>12. Print setup before you consider the model done</h2>
+
+<p>Every tab should print cleanly on A4 landscape. Set:</p>
+
+<ul>
+<li>Orientation: landscape</li>
+<li>Scale: fit to page width (1 page wide, height free)</li>
+<li>Print titles: rows 1:2 repeat on every page</li>
+<li>Margins: 0.5cm left/right, 0.6cm top/bottom</li>
+</ul>
+
+<p>This is not aesthetic. A finance director who can't print the model cleanly for a board pack will not use it again. It takes 5 minutes per tab.</p>
+
+<h2>The test that catches everything else</h2>
+
+<p>Give the model to someone who didn't build it. Tell them nothing. Ask them to change one assumption and tell you what the output is.</p>
+
+<p>If they can do it in under 10 minutes without asking you a question, the model is user-ready. If they can't, something from this list is missing.</p>
+
+<p>Browse our <a href="/models.html">full model catalogue</a> &mdash; all 18 models are built to this standard. Open formulas, no VBA, CHECKS tab all green, print-ready on first open.</p>
+
+
+    <div class="blog-cta">
+      <h3>Get the SFS Models Financial Model Catalogue</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/models.html" class="btn btn-primary">View SFS Models Financial Model Catalogue</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

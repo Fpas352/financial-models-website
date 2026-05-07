@@ -597,6 +597,326 @@ calc(ws, 12, 9, '=E12+F12-G12+H12')  # closing = opening + flows + interest
 <p>Our entire <a href="/models.html">catalogue of 18 models</a> uses this approach. If you're curious about the helper library or have specific openpyxl questions, ping us via <a href="/contact.html">contact</a>.</p>
 """,
     },
+    {
+        "slug": "lbo-model-debt-sizing",
+        "title": "LBO Model Debt Sizing: How to Structure the Debt Stack",
+        "h1": "LBO Model Debt Sizing: How to Structure the Debt Stack",
+        "keyword": "lbo model debt sizing",
+        "meta_desc": "How to size the debt stack in an LBO model. Senior debt, mezzanine, PIK, DSCR constraints, leverage multiples, and the debt sculpting mechanics PE firms actually use.",
+        "published": "2026-05-07",
+        "summary": "Debt sizing in an LBO model is not a single calculation &mdash; it's an iterative constraint problem with credit ratios, leverage multiples, and coverage tests all biting at once. Here's how PE professionals actually structure the debt stack.",
+        "product_link": "/lbo-model-excel.html",
+        "product_name": "LBO Model Excel Template",
+        "body": """<p>Most LBO model tutorials start with a fixed debt amount and work backwards to returns. In practice, the debt stack is determined by constraints &mdash; and identifying which constraint bites first is the core of the debt sizing exercise.</p>
+
+<h2>The four debt sizing constraints</h2>
+
+<p>Every leveraged buyout is constrained by at least one of these four limits. Often two or three bind simultaneously:</p>
+
+<ol>
+<li><strong>Leverage multiple</strong> &mdash; Senior lenders quote a maximum Debt / EBITDA (e.g. 4.5x senior, 6.0x total). This gives you the headline quantum.</li>
+<li><strong>DSCR floor</strong> &mdash; Lenders require minimum debt service coverage (typically 1.10x&ndash;1.25x). In Year 1, stressed EBITDA minus capex must cover P&amp;I payments.</li>
+<li><strong>Fixed charge coverage</strong> &mdash; Similar to DSCR but includes finance leases, rent, and sometimes management fees.</li>
+<li><strong>Equity minimum</strong> &mdash; Most PE deals require 30&ndash;40% equity as a minimum. Regulatory capital (for financial institution targets) can push this higher.</li>
+</ol>
+
+<h2>Building the debt schedule in order</h2>
+
+<p>The correct build sequence is: senior debt first, then mezzanine/subordinated, then PIK/seller notes. Each layer is sized against what the coverage ratios allow after the prior layer.</p>
+
+<h3>Step 1: Senior term loan (TLB)</h3>
+
+<pre><code>Senior debt = MIN(
+    Entry EBITDA × Senior leverage cap,
+    (EBITDA - Capex - Tax) / DSCR floor × (1 / annual P+I %)
+)</code></pre>
+
+<p>The second term is often harder to calculate because P+I % depends on the debt quantum (circular). Solve by iteration: start at the leverage cap and step down until DSCR clears.</p>
+
+<h3>Step 2: Revolving credit facility (RCF)</h3>
+
+<p>The RCF sits pari passu with the TLB but is typically excluded from the leverage calculation at close (drawn = 0). Size it as 0.5&ndash;1.0x EBITDA for operational liquidity. The RCF tightens the effective DSCR through its commitment fee, which is a fixed charge regardless of drawdown.</p>
+
+<h3>Step 3: Mezzanine / unitranche</h3>
+
+<p>After senior is maxed, test whether adding a mezzanine tranche is feasible. Mezzanine lenders look at total leverage (typically cap at 6.0&ndash;7.0x in today's market) and interest coverage (EBITDA / total interest &ge; 2.0x). PIK mezzanine is tested on cash coverage only (excluding PIK coupon), which is why sponsors prefer it when coverage is tight.</p>
+
+<h3>Step 4: Seller note / PIK toggle</h3>
+
+<p>Any remaining valuation gap is filled with seller paper (PIK or deferred cash). Seller notes typically sit outside the restricted group covenants, making them effectively equity-like from the senior lender perspective.</p>
+
+<h2>The debt schedule mechanics</h2>
+
+<p>The critical modelling rule: calculate interest on the opening balance, not the closing balance. Using closing balance creates a circular reference. The correct formula for each period:</p>
+
+<pre><code>Opening balance  = Prior period closing
+Scheduled repayment = Amortisation schedule (% or fixed)
+Cash sweep       = Excess free cash flow above mandatory debt service
+Interest charge  = Opening balance × (rate / 12)
+Closing balance  = Opening + Drawdown - Repayment - Sweep</code></pre>
+
+<p>The cash sweep is where most LBO models get it wrong. The sweep applies to free cash flow after mandatory P&amp;I, before dividends, but after capex and working capital. The sweep rate (50%, 75%, 100%) is negotiated &mdash; build it as a INPUTS parameter, not a hardcode.</p>
+
+<h2>Covenant headroom testing</h2>
+
+<p>Three covenant tests to build into the model alongside the debt schedule:</p>
+
+<table>
+<thead><tr><th>Covenant</th><th>Typical threshold</th><th>Test formula</th></tr></thead>
+<tbody>
+<tr><td>Net leverage</td><td>&le; 5.5x</td><td>Net Debt / LTM EBITDA</td></tr>
+<tr><td>Interest cover</td><td>&ge; 2.0x</td><td>LTM EBITDA / LTM Cash Interest</td></tr>
+<tr><td>Fixed charge cover</td><td>&ge; 1.1x</td><td>(EBITDA - Capex - Tax) / (P&amp;I + Leases)</td></tr>
+</tbody>
+</table>
+
+<p>Flag a breach (FAIL) if any covenant threshold is breached in any period. Build this into your CHECKS tab with RAG formatting so a breach is immediately visible.</p>
+
+<h2>What changes the returns more than anything else</h2>
+
+<p>Sensitivity analysis almost always shows the same result: entry multiple and exit multiple dwarf everything else in their impact on IRR. But debt sizing affects the equity cheque, which determines how hard the leverage effect works.</p>
+
+<p>The mechanical relationship: for every 1.0x of additional leverage at entry (holding purchase price constant), equity invested decreases proportionally. On a 5-year hold with flat EBITDA, 1.0x extra leverage adds approximately 300&ndash;500bps to IRR, before interest cost drag.</p>
+
+<p>Above the DSCR floor, the limit on leverage is almost always the senior lender's leverage cap &mdash; not the economics. The economics almost always want more debt than the credit market will provide.</p>
+
+<h2>Building this in Excel</h2>
+
+<p>The debt schedule should have one row per tranche, one column per period. Build it bottom-up:</p>
+
+<ol>
+<li>INPUTS tab: all covenant thresholds, leverage caps, interest rates, amortisation %, cash sweep %</li>
+<li>Debt schedule tab: tranche-by-tranche roll-forward with interest and repayment</li>
+<li>Covenant check tab: test each covenant each period, flag any breach</li>
+<li>Returns tab: equity bridge from entry to exit using debt paydown + EBITDA growth + multiple</li>
+</ol>
+
+<p>Our <a href="/lbo-model-excel.html">LBO Model</a> covers all of this &mdash; senior TLB, RCF, mezzanine, PIK, covenant testing, cash sweep, and equity returns waterfall. Open formulas, no VBA.</p>
+""",
+    },
+    {
+        "slug": "wacc-calculation-banking",
+        "title": "WACC for Banks: Why the Standard Formula Breaks Down",
+        "h1": "WACC for Banks: Why the Standard Formula Breaks Down",
+        "keyword": "wacc calculation for banks",
+        "meta_desc": "WACC doesn't work for banks. Why the textbook formula breaks down for financial institutions, what to use instead, and how to value a bank correctly.",
+        "published": "2026-05-07",
+        "summary": "The textbook WACC formula assumes debt is a funding choice. For banks, debt (deposits) is the product. This one difference invalidates WACC for bank valuation &mdash; and most analysts apply it anyway.",
+        "product_link": "/bank-financial-model.html",
+        "product_name": "Bank Long-Term Plan Model",
+        "body": """<p>The WACC formula works by weighting the cost of each funding layer against its proportion of total capital. The insight is that debt is cheaper than equity (because interest is tax-deductible and debt ranks senior), so optimal capital structure includes some leverage.</p>
+
+<p>For non-financial companies, this is clean. A manufacturing business borrows to fund plant and equipment. The amount it borrows is a financing decision, separate from what it does with the money.</p>
+
+<p>For banks, this distinction collapses entirely. Here's why.</p>
+
+<h2>The bank problem: debt is the product</h2>
+
+<p>A bank's "debt" is overwhelmingly customer deposits. Those deposits are not a funding choice &mdash; they are the product. The bank takes in deposits, pays a rate, and lends them out at a higher rate. The spread is the business.</p>
+
+<p>If you apply WACC to a bank, you're saying: deposits are cheap funding that creates a tax shield, and the bank should optimise its debt-to-equity ratio to minimise WACC. But the bank cannot choose to have fewer deposits (or more) for its WACC. The deposit base is a function of the business &mdash; customers, rates, products, competition. It is not a capital structure decision.</p>
+
+<p>The second problem: WACC-based DCF discounts free cash flow to the firm (FCFF). FCFF = EBIT(1-t) + D&amp;A - Capex - Working capital change. For a bank, &ldquo;working capital change&rdquo; includes changes in loans, deposits, securities &mdash; i.e., the entire balance sheet. The resulting FCFF is near-zero in a growing bank (all cash flow is reinvested into the loan book) and wildly volatile.</p>
+
+<h2>What bank analysts use instead</h2>
+
+<p>Three methodologies dominate bank valuation:</p>
+
+<h3>1. Dividend Discount Model (DDM)</h3>
+
+<p>Discount dividends (or distributable earnings) to equity at the cost of equity only &mdash; not WACC. This sidesteps the debt problem entirely by valuing equity directly.</p>
+
+<pre><code>Value of equity = D₁ / (Ke - g)</code></pre>
+
+<p>Where <code>D₁</code> is next year's expected dividend, <code>Ke</code> is cost of equity, and <code>g</code> is the long-run dividend growth rate.</p>
+
+<p>For banks in a steady state with consistent payout ratios, this gives sensible results. The problem: few banks are in steady state. Regulatory capital requirements, balance sheet growth, and stress test buffers all create lumpy dividend capacity that breaks the Gordon Growth assumption.</p>
+
+<h3>2. Excess Returns Model</h3>
+
+<p>Value = Book equity + PV of excess returns</p>
+
+<p>Where excess return = (ROE - Ke) × Book equity each period.</p>
+
+<p>This is theoretically elegant: a bank trading at 1.0x book has no excess returns in the market's view. A bank at 2.0x book is expected to generate sustainable ROE above its cost of equity. It avoids the deposit/debt confusion because you never calculate FCFF &mdash; you work directly from equity returns.</p>
+
+<h3>3. Price-to-Tangible Book Value (P/TBV)</h3>
+
+<p>Not a DCF at all &mdash; a market multiples approach. P/TBV is the dominant bank valuation multiple because tangible book value is the regulatory capital base that constrains growth. The implied relationship:</p>
+
+<pre><code>P/TBV = (ROE - g) / (Ke - g)</code></pre>
+
+<p>A bank with ROE = Ke trades at 1.0x TBV. A bank with ROE &gt; Ke trades above 1.0x. US regional banks typically trade at 0.8x&ndash;1.5x TBV depending on ROE and growth expectations.</p>
+
+<h2>The correct cost of equity for a bank</h2>
+
+<p>Even though you're using Ke rather than WACC, estimating Ke for a bank has its own complications:</p>
+
+<p><strong>Beta</strong>: Bank betas are measured against total equity, but regulatory leverage constraints mean the asset beta is essentially fixed. High reported betas in bank stocks often reflect financial leverage and regulatory risk, not underlying business risk.</p>
+
+<p><strong>Risk-free rate</strong>: Use the 10-year government bond yield in the bank's reporting currency. For US banks: 10-year UST. For UK banks: 10-year gilt. Don't mix currencies.</p>
+
+<p><strong>ERP</strong>: The equity risk premium for banks is typically slightly higher than the market ERP due to the opacity of bank balance sheets and tail risk from regulatory capital requirements. Add 0.5&ndash;1.0% to a standard market ERP as a starting point.</p>
+
+<p><strong>Size premium</strong>: For community banks and regional banks below $10bn assets, add an additional 1&ndash;3% for illiquidity and concentration risk. Not needed for G-SIBs.</p>
+
+<h2>What about a bank-specific DCF?</h2>
+
+<p>It's possible to build a DCF for a bank if you frame it correctly: discount free cash flow to equity (not FCFF) at the cost of equity. Free cash flow to equity for a bank is:</p>
+
+<pre><code>FCFE = Net income
+     - Increase in required equity capital
+     + Change in excess capital above regulatory minimum</code></pre>
+
+<p>The "required equity capital" term is the key: as the bank grows its loan book, it must retain capital to maintain its CET1 ratio above the regulatory minimum. This retained capital is not distributable &mdash; it belongs to the regulators, not shareholders.</p>
+
+<p>This is why bank ROE consistently understates economic returns unless you adjust for the capital that's trapped under regulatory requirements.</p>
+
+<h2>For modellers working with banks</h2>
+
+<p>If you're building a financial model for a bank acquisition, a long-term plan, or a stress test:</p>
+
+<ul>
+<li>Don't attempt a WACC-based valuation</li>
+<li>Build the P&amp;L and balance sheet first, then derive distributable earnings after capital constraints</li>
+<li>Use P/TBV as your primary valuation anchor, with DDM or excess returns as cross-checks</li>
+<li>Track CET1 ratio at every period &mdash; it's the binding constraint on distributions</li>
+</ul>
+
+<p>Our <a href="/bank-financial-model.html">Bank Long-Term Plan Model</a> is built around this framework: full balance sheet projection, capital adequacy at every period, distributable earnings calculation, and ROE/ROA/P/TBV outputs. Not a generic three-statement model with a bank skin &mdash; a genuine bank planning tool.</p>
+""",
+    },
+    {
+        "slug": "excel-financial-model-best-practices",
+        "title": "Excel Financial Model Best Practices: The 12 Rules That Actually Matter",
+        "h1": "Excel Financial Model Best Practices: The 12 Rules That Actually Matter",
+        "keyword": "excel financial model best practices",
+        "meta_desc": "The 12 Excel financial modelling best practices that separate institutional-grade models from templates. Colour coding, no INDIRECT, circular references, named ranges, and more.",
+        "published": "2026-05-07",
+        "summary": "Most best-practice lists are generic. These 12 rules come from building 18 institutional-grade models and watching finance teams use them under pressure. They're ranked by how often violating them causes real problems.",
+        "product_link": "/models.html",
+        "product_name": "SFS Models Financial Model Catalogue",
+        "body": """<p>There are hundreds of Excel modelling guides. Most repeat the same obvious advice. This list comes from a different place: watching real finance teams break real models under real time pressure, then fixing the fallout.</p>
+
+<p>These 12 rules are ranked by the cost of getting them wrong &mdash; not by how frequently they appear in textbooks.</p>
+
+<h2>1. Colour-code every single cell</h2>
+
+<p>Blue font for hardcoded inputs, black for formulas, green for cross-sheet links. No exceptions.</p>
+
+<p>When a model breaks at 11pm before a board presentation, the first question is: which cell is hardcoded? If your model uses black font everywhere, that question takes an hour. With colour coding, it takes 30 seconds.</p>
+
+<p>The convention that matters most: blue font on a yellow fill for hardcoded inputs. Anyone who opens the model for the first time knows exactly where to look.</p>
+
+<h2>2. Never use INDIRECT</h2>
+
+<p>INDIRECT returns the reference implied by a text string. It breaks silently when a sheet is renamed. It breaks when rows are inserted. It is not tracked by Excel's dependency engine, so auditing tools miss it.</p>
+
+<p>The common use case: dynamic sheet references (<code>=INDIRECT(A1&amp;"!B5")</code>). Replace with CHOOSE + static references, or restructure so the data is on one sheet.</p>
+
+<pre><code>=INDIRECT(A1&"!B5")          -- BREAKS when sheet is renamed
+=CHOOSE(scenario, Sheet1!B5, Sheet2!B5, Sheet3!B5)  -- CORRECT</code></pre>
+
+<h2>3. Inputs on one tab only</h2>
+
+<p>Every hardcoded assumption lives on the INPUTS tab. Not on calculation sheets. Not in formula strings. Not buried in named ranges scattered across the workbook.</p>
+
+<p>The test: can someone change every assumption in the model without leaving the INPUTS tab? If yes, the model passes. If no, find the strays.</p>
+
+<p>The practical consequence: users don't need to understand the model's structure to run sensitivities. They change one tab, outputs update. This is the difference between a tool someone will actually use and one they'll rebuild from scratch.</p>
+
+<h2>4. Interest on prior-period balance, always</h2>
+
+<p>Calculate interest charges on the opening (prior-period closing) balance, not the current period's closing balance. This eliminates circularity in every debt, deposit, and loan roll-forward without enabling iterative calculation.</p>
+
+<pre><code>Opening balance   = Prior closing (no circular)
+Interest charge   = Opening × rate
+Closing balance   = Opening + drawdown - repayment + interest</code></pre>
+
+<p>Models that use closing balance for interest require iterative calculation. Iterative calculation is non-deterministic (result depends on iteration count), rejected by audit teams, and breaks on copy-paste into new workbooks.</p>
+
+<h2>5. IFERROR on every division</h2>
+
+<p>Always. No exceptions. <code>=IFERROR(A/B, 0)</code> or <code>=IFERROR(A/B, "-")</code> depending on whether zero or a dash is the correct display for undefined.</p>
+
+<p>The failure mode: a model built with bare divisions fails on the first zero-denominator input. In a model with 5,000 formula cells, one #DIV/0! propagates to hundreds of dependent cells. The model looks broken. It takes an hour to diagnose.</p>
+
+<h2>6. Format negatives in parentheses, not with a minus sign</h2>
+
+<p>Finance convention: negative numbers are displayed as (1,234) not -1,234. Use format strings that include the parenthesis format:</p>
+
+<pre><code>#,##0;(#,##0);"-"</code></pre>
+
+<p>The semicolons separate: positive format; negative format; zero format. The zero format shows a dash rather than "0" &mdash; standard for financial statements.</p>
+
+<p>A model presented to a CFO that shows negative numbers with minus signs looks like a student spreadsheet. The format string is a three-character fix.</p>
+
+<h2>7. Named ranges for everything referenced more than once</h2>
+
+<p>Any cell that multiple formulas reference should have a named range. <code>BaseRate</code>, <code>ScenarioSelect</code>, <code>StartDate</code>, <code>WACCBase</code>.</p>
+
+<p>The practical benefit: when you need to find all formulas that reference a key assumption, <code>Ctrl+F</code> on the named range name finds them all. With cell references (<code>INPUTS!$B$12</code>), you hope you got every instance.</p>
+
+<p>Named ranges also survive row and column insertion, unlike absolute cell references that silently point to the wrong cell if a row is inserted above them.</p>
+
+<h2>8. Maximum 3 levels of IF nesting</h2>
+
+<p>Nested IFs beyond three levels are untestable. No one can read them. They break on edge cases that the author didn't consider when writing the formula.</p>
+
+<pre><code>=IF(A=1, x, IF(A=2, y, IF(A=3, z, "")))   -- 3 levels: acceptable
+=IF(A=1, x, IF(A=2, y, IF(A=3, z, IF(A=4, w, ""))))   -- 4 levels: refactor</code></pre>
+
+<p>The refactor options: CHOOSE (for numeric indices), INDEX/MATCH (for lookup tables), IFS (Excel 2016+), or helper columns that break the logic into readable steps.</p>
+
+<h2>9. Freeze panes on every data tab</h2>
+
+<p>Freeze row 1&ndash;2 (headers and column labels) and column A (row labels) on every calculation sheet. <code>=View &gt; Freeze Panes &gt; Freeze at B3</code>.</p>
+
+<p>The failure mode: a model where scrolling right loses the row labels, or scrolling down loses the column headers, is impossible to use in a meeting. The user loses track of which row they're looking at, which period they're in.</p>
+
+<p>This takes 30 seconds per tab. There is no excuse for missing it.</p>
+
+<h2>10. A CHECKS tab with explicit pass/fail</h2>
+
+<p>Every model should have a tab called CHECKS (or equivalent) with explicit integrity tests. The minimum set:</p>
+
+<ul>
+<li>Balance sheet balances: Assets = Liabilities + Equity</li>
+<li>Cash flow closing = balance sheet cash</li>
+<li>Debt schedule closing ties to balance sheet debt</li>
+<li>Interest from debt schedule = interest in P&amp;L</li>
+</ul>
+
+<p>Each check is a formula that returns "PASS" or "FAIL" with conditional formatting (green/red). When someone hands you a model, you look at the CHECKS tab first. All green = model integrity is intact. Any red = find the error before using any output.</p>
+
+<h2>11. No hardcoded numbers in formula cells</h2>
+
+<p>A formula that reads <code>=B5*0.35</code> has a hardcoded 0.35. What is 0.35? A tax rate? A fee? An assumption made in 2021 that was never updated? Nobody knows.</p>
+
+<p>Every number in a formula should come from a named range or an INPUTS cell reference. The formula should read <code>=B5*TaxRate</code> or <code>=B5*INPUTS!$C$18</code>. The value lives in one place. When it changes, you change it once.</p>
+
+<h2>12. Print setup before you consider the model done</h2>
+
+<p>Every tab should print cleanly on A4 landscape. Set:</p>
+
+<ul>
+<li>Orientation: landscape</li>
+<li>Scale: fit to page width (1 page wide, height free)</li>
+<li>Print titles: rows 1:2 repeat on every page</li>
+<li>Margins: 0.5cm left/right, 0.6cm top/bottom</li>
+</ul>
+
+<p>This is not aesthetic. A finance director who can't print the model cleanly for a board pack will not use it again. It takes 5 minutes per tab.</p>
+
+<h2>The test that catches everything else</h2>
+
+<p>Give the model to someone who didn't build it. Tell them nothing. Ask them to change one assumption and tell you what the output is.</p>
+
+<p>If they can do it in under 10 minutes without asking you a question, the model is user-ready. If they can't, something from this list is missing.</p>
+
+<p>Browse our <a href="/models.html">full model catalogue</a> &mdash; all 18 models are built to this standard. Open formulas, no VBA, CHECKS tab all green, print-ready on first open.</p>
+""",
+    },
 ]
 
 

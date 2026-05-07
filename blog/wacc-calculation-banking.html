@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WACC for Banks: Why the Standard Formula Breaks Down | SFS Models Blog</title>
+<meta name="description" content="WACC doesn't work for banks. Why the textbook formula breaks down for financial institutions, what to use instead, and how to value a bank correctly.">
+<link rel="canonical" href="https://sfsmodels.org/blog/wacc-calculation-banking.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="WACC for Banks: Why the Standard Formula Breaks Down">
+<meta property="og:description" content="WACC doesn't work for banks. Why the textbook formula breaks down for financial institutions, what to use instead, and how to value a bank correctly.">
+<meta property="og:url" content="https://sfsmodels.org/blog/wacc-calculation-banking.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "WACC for Banks: Why the Standard Formula Breaks Down",
+  "description": "WACC doesn't work for banks. Why the textbook formula breaks down for financial institutions, what to use instead, and how to value a bank correctly.",
+  "datePublished": "2026-05-07",
+  "dateModified": "2026-05-07",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/wacc-calculation-banking.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>WACC for Banks: Why the Standard Formula Breaks Down</h1>
+    <p class="meta">Published 2026-05-07 &middot; SFS Models</p>
+    <p class="summary">The textbook WACC formula assumes debt is a funding choice. For banks, debt (deposits) is the product. This one difference invalidates WACC for bank valuation &mdash; and most analysts apply it anyway.</p>
+
+    <p>The WACC formula works by weighting the cost of each funding layer against its proportion of total capital. The insight is that debt is cheaper than equity (because interest is tax-deductible and debt ranks senior), so optimal capital structure includes some leverage.</p>
+
+<p>For non-financial companies, this is clean. A manufacturing business borrows to fund plant and equipment. The amount it borrows is a financing decision, separate from what it does with the money.</p>
+
+<p>For banks, this distinction collapses entirely. Here's why.</p>
+
+<h2>The bank problem: debt is the product</h2>
+
+<p>A bank's "debt" is overwhelmingly customer deposits. Those deposits are not a funding choice &mdash; they are the product. The bank takes in deposits, pays a rate, and lends them out at a higher rate. The spread is the business.</p>
+
+<p>If you apply WACC to a bank, you're saying: deposits are cheap funding that creates a tax shield, and the bank should optimise its debt-to-equity ratio to minimise WACC. But the bank cannot choose to have fewer deposits (or more) for its WACC. The deposit base is a function of the business &mdash; customers, rates, products, competition. It is not a capital structure decision.</p>
+
+<p>The second problem: WACC-based DCF discounts free cash flow to the firm (FCFF). FCFF = EBIT(1-t) + D&amp;A - Capex - Working capital change. For a bank, &ldquo;working capital change&rdquo; includes changes in loans, deposits, securities &mdash; i.e., the entire balance sheet. The resulting FCFF is near-zero in a growing bank (all cash flow is reinvested into the loan book) and wildly volatile.</p>
+
+<h2>What bank analysts use instead</h2>
+
+<p>Three methodologies dominate bank valuation:</p>
+
+<h3>1. Dividend Discount Model (DDM)</h3>
+
+<p>Discount dividends (or distributable earnings) to equity at the cost of equity only &mdash; not WACC. This sidesteps the debt problem entirely by valuing equity directly.</p>
+
+<pre><code>Value of equity = D₁ / (Ke - g)</code></pre>
+
+<p>Where <code>D₁</code> is next year's expected dividend, <code>Ke</code> is cost of equity, and <code>g</code> is the long-run dividend growth rate.</p>
+
+<p>For banks in a steady state with consistent payout ratios, this gives sensible results. The problem: few banks are in steady state. Regulatory capital requirements, balance sheet growth, and stress test buffers all create lumpy dividend capacity that breaks the Gordon Growth assumption.</p>
+
+<h3>2. Excess Returns Model</h3>
+
+<p>Value = Book equity + PV of excess returns</p>
+
+<p>Where excess return = (ROE - Ke) × Book equity each period.</p>
+
+<p>This is theoretically elegant: a bank trading at 1.0x book has no excess returns in the market's view. A bank at 2.0x book is expected to generate sustainable ROE above its cost of equity. It avoids the deposit/debt confusion because you never calculate FCFF &mdash; you work directly from equity returns.</p>
+
+<h3>3. Price-to-Tangible Book Value (P/TBV)</h3>
+
+<p>Not a DCF at all &mdash; a market multiples approach. P/TBV is the dominant bank valuation multiple because tangible book value is the regulatory capital base that constrains growth. The implied relationship:</p>
+
+<pre><code>P/TBV = (ROE - g) / (Ke - g)</code></pre>
+
+<p>A bank with ROE = Ke trades at 1.0x TBV. A bank with ROE &gt; Ke trades above 1.0x. US regional banks typically trade at 0.8x&ndash;1.5x TBV depending on ROE and growth expectations.</p>
+
+<h2>The correct cost of equity for a bank</h2>
+
+<p>Even though you're using Ke rather than WACC, estimating Ke for a bank has its own complications:</p>
+
+<p><strong>Beta</strong>: Bank betas are measured against total equity, but regulatory leverage constraints mean the asset beta is essentially fixed. High reported betas in bank stocks often reflect financial leverage and regulatory risk, not underlying business risk.</p>
+
+<p><strong>Risk-free rate</strong>: Use the 10-year government bond yield in the bank's reporting currency. For US banks: 10-year UST. For UK banks: 10-year gilt. Don't mix currencies.</p>
+
+<p><strong>ERP</strong>: The equity risk premium for banks is typically slightly higher than the market ERP due to the opacity of bank balance sheets and tail risk from regulatory capital requirements. Add 0.5&ndash;1.0% to a standard market ERP as a starting point.</p>
+
+<p><strong>Size premium</strong>: For community banks and regional banks below $10bn assets, add an additional 1&ndash;3% for illiquidity and concentration risk. Not needed for G-SIBs.</p>
+
+<h2>What about a bank-specific DCF?</h2>
+
+<p>It's possible to build a DCF for a bank if you frame it correctly: discount free cash flow to equity (not FCFF) at the cost of equity. Free cash flow to equity for a bank is:</p>
+
+<pre><code>FCFE = Net income
+     - Increase in required equity capital
+     + Change in excess capital above regulatory minimum</code></pre>
+
+<p>The "required equity capital" term is the key: as the bank grows its loan book, it must retain capital to maintain its CET1 ratio above the regulatory minimum. This retained capital is not distributable &mdash; it belongs to the regulators, not shareholders.</p>
+
+<p>This is why bank ROE consistently understates economic returns unless you adjust for the capital that's trapped under regulatory requirements.</p>
+
+<h2>For modellers working with banks</h2>
+
+<p>If you're building a financial model for a bank acquisition, a long-term plan, or a stress test:</p>
+
+<ul>
+<li>Don't attempt a WACC-based valuation</li>
+<li>Build the P&amp;L and balance sheet first, then derive distributable earnings after capital constraints</li>
+<li>Use P/TBV as your primary valuation anchor, with DDM or excess returns as cross-checks</li>
+<li>Track CET1 ratio at every period &mdash; it's the binding constraint on distributions</li>
+</ul>
+
+<p>Our <a href="/bank-financial-model.html">Bank Long-Term Plan Model</a> is built around this framework: full balance sheet projection, capital adequacy at every period, distributable earnings calculation, and ROE/ROA/P/TBV outputs. Not a generic three-statement model with a bank skin &mdash; a genuine bank planning tool.</p>
+
+
+    <div class="blog-cta">
+      <h3>Get the Bank Long-Term Plan Model</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/bank-financial-model.html" class="btn btn-primary">View Bank Long-Term Plan Model</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

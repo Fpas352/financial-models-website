@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const animateTargets = document.querySelectorAll(
     '.fade-in-on-scroll, .section-header, .model-card, .pricing-tier, ' +
-    '.pricing-card, .testimonial, .usp-card, .expertise-card, ' +
+    '.pricing-card, .usp-card, .expertise-card, ' +
     '.principle-card, .feature-card, .contact-trust-card, ' +
     '.bundle-highlight, .format-bar'
   );
@@ -846,5 +846,71 @@ document.addEventListener('DOMContentLoaded', function() {
       gtag('event', 'purchase', { currency: 'GBP' });
     }
   }
+
+
+  // ----------------------------------------------------------
+  // 11. COOKIE CONSENT & DEFERRED ANALYTICS LOADER
+  // ----------------------------------------------------------
+  //
+  // Analytics (GA4) only loads after the user accepts cookies.
+  // To enable analytics: paste your GA4 Measurement ID below.
+  // Until an ID is set, the banner never appears.
+  //
+  // PECR compliance: no non-essential cookies are set before
+  // consent. The Reject option is as prominent as Accept.
+  //
+  const GA4_ID = ''; // e.g. 'G-XXXXXXXXXX' — leave empty to disable
+
+  function loadGA4() {
+    if (!GA4_ID || window.gtagLoaded) return;
+    window.gtagLoaded = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_ID, { anonymize_ip: true });
+  }
+
+  function showCookieBanner() {
+    if (document.querySelector('.cookie-consent')) return;
+    const banner = document.createElement('div');
+    banner.className = 'cookie-consent';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.innerHTML =
+      '<div class="cookie-consent__inner">' +
+        '<p class="cookie-consent__text">We use anonymised analytics to understand how the site is used. Only strictly necessary cookies are set by default. See our <a href="privacy.html">Privacy Policy</a>.</p>' +
+        '<div class="cookie-consent__actions">' +
+          '<button type="button" class="cookie-consent__btn cookie-consent__btn--reject">Reject</button>' +
+          '<button type="button" class="cookie-consent__btn cookie-consent__btn--accept">Accept</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(banner);
+
+    banner.querySelector('.cookie-consent__btn--accept').addEventListener('click', function () {
+      try { localStorage.setItem('cookieConsent', 'accepted'); } catch (e) {}
+      banner.remove();
+      loadGA4();
+    });
+    banner.querySelector('.cookie-consent__btn--reject').addEventListener('click', function () {
+      try { localStorage.setItem('cookieConsent', 'rejected'); } catch (e) {}
+      banner.remove();
+    });
+  }
+
+  (function initConsent() {
+    if (!GA4_ID) return; // nothing to ask consent for
+    let choice = null;
+    try { choice = localStorage.getItem('cookieConsent'); } catch (e) {}
+    if (choice === 'accepted') {
+      loadGA4();
+    } else if (!choice) {
+      showCookieBanner();
+    }
+    // 'rejected' → do nothing, banner will re-show only if localStorage is cleared
+  })();
 
 });

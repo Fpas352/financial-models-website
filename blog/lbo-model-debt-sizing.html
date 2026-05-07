@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LBO Model Debt Sizing: How to Structure the Debt Stack | SFS Models Blog</title>
+<meta name="description" content="How to size the debt stack in an LBO model. Senior debt, mezzanine, PIK, DSCR constraints, leverage multiples, and the debt sculpting mechanics PE firms actually use.">
+<link rel="canonical" href="https://sfsmodels.org/blog/lbo-model-debt-sizing.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="LBO Model Debt Sizing: How to Structure the Debt Stack">
+<meta property="og:description" content="How to size the debt stack in an LBO model. Senior debt, mezzanine, PIK, DSCR constraints, leverage multiples, and the debt sculpting mechanics PE firms actually use.">
+<meta property="og:url" content="https://sfsmodels.org/blog/lbo-model-debt-sizing.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LBO Model Debt Sizing: How to Structure the Debt Stack",
+  "description": "How to size the debt stack in an LBO model. Senior debt, mezzanine, PIK, DSCR constraints, leverage multiples, and the debt sculpting mechanics PE firms actually use.",
+  "datePublished": "2026-05-07",
+  "dateModified": "2026-05-07",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/lbo-model-debt-sizing.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>LBO Model Debt Sizing: How to Structure the Debt Stack</h1>
+    <p class="meta">Published 2026-05-07 &middot; SFS Models</p>
+    <p class="summary">Debt sizing in an LBO model is not a single calculation &mdash; it's an iterative constraint problem with credit ratios, leverage multiples, and coverage tests all biting at once. Here's how PE professionals actually structure the debt stack.</p>
+
+    <p>Most LBO model tutorials start with a fixed debt amount and work backwards to returns. In practice, the debt stack is determined by constraints &mdash; and identifying which constraint bites first is the core of the debt sizing exercise.</p>
+
+<h2>The four debt sizing constraints</h2>
+
+<p>Every leveraged buyout is constrained by at least one of these four limits. Often two or three bind simultaneously:</p>
+
+<ol>
+<li><strong>Leverage multiple</strong> &mdash; Senior lenders quote a maximum Debt / EBITDA (e.g. 4.5x senior, 6.0x total). This gives you the headline quantum.</li>
+<li><strong>DSCR floor</strong> &mdash; Lenders require minimum debt service coverage (typically 1.10x&ndash;1.25x). In Year 1, stressed EBITDA minus capex must cover P&amp;I payments.</li>
+<li><strong>Fixed charge coverage</strong> &mdash; Similar to DSCR but includes finance leases, rent, and sometimes management fees.</li>
+<li><strong>Equity minimum</strong> &mdash; Most PE deals require 30&ndash;40% equity as a minimum. Regulatory capital (for financial institution targets) can push this higher.</li>
+</ol>
+
+<h2>Building the debt schedule in order</h2>
+
+<p>The correct build sequence is: senior debt first, then mezzanine/subordinated, then PIK/seller notes. Each layer is sized against what the coverage ratios allow after the prior layer.</p>
+
+<h3>Step 1: Senior term loan (TLB)</h3>
+
+<pre><code>Senior debt = MIN(
+    Entry EBITDA × Senior leverage cap,
+    (EBITDA - Capex - Tax) / DSCR floor × (1 / annual P+I %)
+)</code></pre>
+
+<p>The second term is often harder to calculate because P+I % depends on the debt quantum (circular). Solve by iteration: start at the leverage cap and step down until DSCR clears.</p>
+
+<h3>Step 2: Revolving credit facility (RCF)</h3>
+
+<p>The RCF sits pari passu with the TLB but is typically excluded from the leverage calculation at close (drawn = 0). Size it as 0.5&ndash;1.0x EBITDA for operational liquidity. The RCF tightens the effective DSCR through its commitment fee, which is a fixed charge regardless of drawdown.</p>
+
+<h3>Step 3: Mezzanine / unitranche</h3>
+
+<p>After senior is maxed, test whether adding a mezzanine tranche is feasible. Mezzanine lenders look at total leverage (typically cap at 6.0&ndash;7.0x in today's market) and interest coverage (EBITDA / total interest &ge; 2.0x). PIK mezzanine is tested on cash coverage only (excluding PIK coupon), which is why sponsors prefer it when coverage is tight.</p>
+
+<h3>Step 4: Seller note / PIK toggle</h3>
+
+<p>Any remaining valuation gap is filled with seller paper (PIK or deferred cash). Seller notes typically sit outside the restricted group covenants, making them effectively equity-like from the senior lender perspective.</p>
+
+<h2>The debt schedule mechanics</h2>
+
+<p>The critical modelling rule: calculate interest on the opening balance, not the closing balance. Using closing balance creates a circular reference. The correct formula for each period:</p>
+
+<pre><code>Opening balance  = Prior period closing
+Scheduled repayment = Amortisation schedule (% or fixed)
+Cash sweep       = Excess free cash flow above mandatory debt service
+Interest charge  = Opening balance × (rate / 12)
+Closing balance  = Opening + Drawdown - Repayment - Sweep</code></pre>
+
+<p>The cash sweep is where most LBO models get it wrong. The sweep applies to free cash flow after mandatory P&amp;I, before dividends, but after capex and working capital. The sweep rate (50%, 75%, 100%) is negotiated &mdash; build it as a INPUTS parameter, not a hardcode.</p>
+
+<h2>Covenant headroom testing</h2>
+
+<p>Three covenant tests to build into the model alongside the debt schedule:</p>
+
+<table>
+<thead><tr><th>Covenant</th><th>Typical threshold</th><th>Test formula</th></tr></thead>
+<tbody>
+<tr><td>Net leverage</td><td>&le; 5.5x</td><td>Net Debt / LTM EBITDA</td></tr>
+<tr><td>Interest cover</td><td>&ge; 2.0x</td><td>LTM EBITDA / LTM Cash Interest</td></tr>
+<tr><td>Fixed charge cover</td><td>&ge; 1.1x</td><td>(EBITDA - Capex - Tax) / (P&amp;I + Leases)</td></tr>
+</tbody>
+</table>
+
+<p>Flag a breach (FAIL) if any covenant threshold is breached in any period. Build this into your CHECKS tab with RAG formatting so a breach is immediately visible.</p>
+
+<h2>What changes the returns more than anything else</h2>
+
+<p>Sensitivity analysis almost always shows the same result: entry multiple and exit multiple dwarf everything else in their impact on IRR. But debt sizing affects the equity cheque, which determines how hard the leverage effect works.</p>
+
+<p>The mechanical relationship: for every 1.0x of additional leverage at entry (holding purchase price constant), equity invested decreases proportionally. On a 5-year hold with flat EBITDA, 1.0x extra leverage adds approximately 300&ndash;500bps to IRR, before interest cost drag.</p>
+
+<p>Above the DSCR floor, the limit on leverage is almost always the senior lender's leverage cap &mdash; not the economics. The economics almost always want more debt than the credit market will provide.</p>
+
+<h2>Building this in Excel</h2>
+
+<p>The debt schedule should have one row per tranche, one column per period. Build it bottom-up:</p>
+
+<ol>
+<li>INPUTS tab: all covenant thresholds, leverage caps, interest rates, amortisation %, cash sweep %</li>
+<li>Debt schedule tab: tranche-by-tranche roll-forward with interest and repayment</li>
+<li>Covenant check tab: test each covenant each period, flag any breach</li>
+<li>Returns tab: equity bridge from entry to exit using debt paydown + EBITDA growth + multiple</li>
+</ol>
+
+<p>Our <a href="/lbo-model-excel.html">LBO Model</a> covers all of this &mdash; senior TLB, RCF, mezzanine, PIK, covenant testing, cash sweep, and equity returns waterfall. Open formulas, no VBA.</p>
+
+
+    <div class="blog-cta">
+      <h3>Get the LBO Model Excel Template</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/lbo-model-excel.html" class="btn btn-primary">View LBO Model Excel Template</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>
