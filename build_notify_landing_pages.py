@@ -16,6 +16,7 @@ from pathlib import Path
 MODELS = [
     {
         "slug": "icaap-model-excel",
+        "cta_name": "ICAAP Model",
         "title": "ICAAP Model Excel Template",
         "h1": "ICAAP Model Excel Template",
         "keyword": "icaap model excel",
@@ -40,14 +41,14 @@ MODELS = [
             ("PRA SREP submission alignment", "Output tab maps to PRA SREP table format. Saves weeks at submission time vs reformatting."),
             ("Combined buffer logic", "P1 + P2A + P2B (PRA) + Conservation + Countercyclical + Systemic combined into one MDA threshold."),
             ("Three-year capital plan", "Projects capital ratios across the planning horizon under base + stress."),
-            ("Stress test integrated", "Same engine handles capital adequacy and stress testing &mdash; not two separate models."),
+            ("Stress test integrated", "Same engine handles capital adequacy and stress testing - not two separate models."),
             ("UK + EU coverage", "Works for both PRA-supervised UK banks and ECB SSM-supervised EU banks. Buffer logic is jurisdiction-aware."),
         ],
         "faqs": [
             ("When will this be available?", "We're targeting Q3 2026 release. Sign up for notification and we'll email you the moment it ships."),
             ("Will it cover ILAAP too?", "ILAAP (Internal Liquidity Adequacy Assessment Process) is a separate model on a parallel track. Sign up here to get notified for both when ready."),
-            ("Is there a US equivalent?", "Yes &mdash; our <a href=\"/bank-stress-test-model.html\">Bank Stress Test Model</a> covers CCAR / DFAST for US BHCs (live now)."),
-            ("Can I commission an early build?", "Yes &mdash; we do custom builds for institutions that need it sooner. Pricing varies by scope. Use the form below or contact us directly."),
+            ("Is there a US equivalent?", "Yes - our <a href=\"/bank-stress-test-model.html\">Bank Stress Test Model</a> covers CCAR / DFAST for US BHCs (live now)."),
+            ("Can I commission an early build?", "Yes - we do custom builds for institutions that need it sooner. Pricing varies by scope. Use the form below or contact us directly."),
         ],
         "spec": "Excel (.xlsx) &middot; ~14 tabs &middot; PRA + ECB SSM aligned &middot; expected pricing &pound;1,295 &middot; Q3 2026 launch target",
         "related": [
@@ -58,6 +59,7 @@ MODELS = [
     },
     {
         "slug": "project-finance-model-excel",
+        "cta_name": "Project Finance SPV Model",
         "title": "Project Finance Model Excel Template",
         "h1": "Project Finance Model (SPV) Excel Template",
         "keyword": "project finance model excel",
@@ -80,15 +82,15 @@ MODELS = [
         "differentiators": [
             ("Debt sculpting", "Senior debt amortisation calibrated to maintain target DSCR throughout the operating phase. Most templates use straight-line amortisation."),
             ("DSRA modelling", "Debt Service Reserve Account funded at financial close, drawn down on cash flow shortfalls, replenished from project cash."),
-            ("LLCR + PLCR + DSCR", "All three cover ratios calculated &mdash; not just DSCR. Lenders will want all three."),
+            ("LLCR + PLCR + DSCR", "All three cover ratios calculated - not just DSCR. Lenders will want all three."),
             ("Long-dated horizon", "Up to 30-year forecast. Works for infrastructure concessions and PPP deals."),
             ("Debt sizing tool", "Solves debt quantum from target DSCR, not the other way around. Standard at infrastructure desks."),
         ],
         "faqs": [
-            ("When will this be available?", "Built as an .xlsx file already. Currently being prepared for launch &mdash; targeting May 2026. Sign up to get notified the moment it ships."),
-            ("Will it support PPP / concession deals?", "Yes &mdash; the same engine handles infrastructure, energy, PPP, concession deals. Toggle on INPUTS."),
+            ("When will this be available?", "Built as an .xlsx file already. Currently being prepared for launch - targeting May 2026. Sign up to get notified the moment it ships."),
+            ("Will it support PPP / concession deals?", "Yes - the same engine handles infrastructure, energy, PPP, concession deals. Toggle on INPUTS."),
             ("What about renewable energy specifics?", "Solar, wind, battery storage all work. Revenue can be PPA-based, merchant-based, or blended."),
-            ("Can I commission an early build?", "Yes &mdash; for time-sensitive deals, we do custom builds with same-day delivery. Use the form below or contact us."),
+            ("Can I commission an early build?", "Yes - for time-sensitive deals, we do custom builds with same-day delivery. Use the form below or contact us."),
         ],
         "spec": "Excel (.xlsx) &middot; ~12 tabs &middot; up to 30-year horizon &middot; expected pricing &pound;495 &middot; May 2026 launch target",
         "related": [
@@ -99,6 +101,7 @@ MODELS = [
     },
     {
         "slug": "pe-fund-waterfall-model-excel",
+        "cta_name": "PE Fund Waterfall Model",
         "title": "PE Fund Waterfall Model Excel Template",
         "h1": "Private Equity Fund Waterfall Model",
         "keyword": "private equity waterfall excel",
@@ -119,17 +122,17 @@ MODELS = [
             ("CHECKS", "Fund cash flows reconcile, returns calculations tie, waterfall splits sum correctly."),
         ],
         "differentiators": [
-            ("European + American carry", "Most templates support one. Ours has both with a single switch &mdash; useful when modelling different fund structures or comparing waterfall economics."),
+            ("European + American carry", "Most templates support one. Ours has both with a single switch - useful when modelling different fund structures or comparing waterfall economics."),
             ("Full catch-up mechanics", "GP catch-up after LP preferred return is calculated explicitly with the right precedence. Most templates skip this."),
             ("Realistic fee modelling", "Management fee on commitment vs NAV with the standard taper post-investment period."),
             ("LP-side perspective", "Output tab includes LP-side cash flow profile, not just GP economics."),
             ("Fund vs deal split", "Both fund-level and deal-level returns calculated and reconciled."),
         ],
         "faqs": [
-            ("When will this be available?", "Built as an .xlsx file already. Currently being prepared for launch &mdash; targeting May 2026. Sign up to get notified the moment it ships."),
-            ("Does it support continuation funds?", "Not in v1. Available as a custom build &mdash; contact us."),
+            ("When will this be available?", "Built as an .xlsx file already. Currently being prepared for launch - targeting May 2026. Sign up to get notified the moment it ships."),
+            ("Does it support continuation funds?", "Not in v1. Available as a custom build - contact us."),
             ("What about real estate / credit funds?", "Separate models on the same release track: <a href=\"/contact.html\">contact us</a> if you want all three."),
-            ("Can I commission an early build?", "Yes &mdash; we do custom builds for fund teams that need it sooner. Use the form below."),
+            ("Can I commission an early build?", "Yes - we do custom builds for fund teams that need it sooner. Use the form below."),
         ],
         "spec": "Excel (.xlsx) &middot; ~10 tabs &middot; expected pricing &pound;295 &middot; May 2026 launch target",
         "related": [
@@ -140,6 +143,7 @@ MODELS = [
     },
     {
         "slug": "ifrs17-insurance-model-excel",
+        "cta_name": "IFRS 17 Insurance Model",
         "title": "IFRS 17 Insurance Model Excel Template",
         "h1": "IFRS 17 Insurance Model Excel Template",
         "keyword": "ifrs 17 model excel",
@@ -162,16 +166,16 @@ MODELS = [
         ],
         "differentiators": [
             ("Both GMM and PAA", "Same workbook handles long-duration (life, health) and short-duration (P&amp;C) contracts. Switch by contract group."),
-            ("Three transition methods", "Full retrospective, modified retrospective, fair value &mdash; all built in for institutions still finalising the transition story."),
+            ("Three transition methods", "Full retrospective, modified retrospective, fair value - all built in for institutions still finalising the transition story."),
             ("CSM amortisation", "Coverage units approach. Time-based and other allocation patterns supported."),
             ("Disclosure format", "P&amp;L output matches IFRS 17 financial statement disclosure format. Audit-ready."),
             ("Sensitivity testing", "Discount rate, risk adjustment, lapse rate sensitivities with one-click recalc."),
         ],
         "faqs": [
-            ("When will this be available?", "Built as an .xlsx file already. Currently being prepared for launch &mdash; targeting Q3 2026. Sign up to get notified."),
+            ("When will this be available?", "Built as an .xlsx file already. Currently being prepared for launch - targeting Q3 2026. Sign up to get notified."),
             ("Does it cover SST (Swiss Solvency Test) too?", "Not in v1. SST and Solvency II capital modelling is a separate release track."),
-            ("Will it work with my actuarial system data?", "Yes &mdash; the model is data-input agnostic. Paste cash flows from any system into the input tab."),
-            ("Can I commission an early build?", "Yes &mdash; for institutions in implementation, we do custom builds. Use the form below or contact us."),
+            ("Will it work with my actuarial system data?", "Yes - the model is data-input agnostic. Paste cash flows from any system into the input tab."),
+            ("Can I commission an early build?", "Yes - for institutions in implementation, we do custom builds. Use the form below or contact us."),
         ],
         "spec": "Excel (.xlsx) &middot; ~12 tabs &middot; GMM + PAA + Transition &middot; expected pricing &pound;1,295 &middot; Q3 2026 launch target",
         "related": [
@@ -182,6 +186,7 @@ MODELS = [
     },
     {
         "slug": "ilaap-model-excel",
+        "cta_name": "ILAAP Model",
         "title": "ILAAP Model Excel Template",
         "h1": "ILAAP Model Excel Template",
         "keyword": "ilaap model excel",
@@ -206,12 +211,12 @@ MODELS = [
             ("PRA ILAAP submission alignment", "Output format mirrors PRA ILAAP table structure. Reduces reformatting work at submission time."),
             ("LCR + NSFR + Survival Horizon", "All three regulatory liquidity metrics in one model. Most templates cover only LCR."),
             ("Idiosyncratic + systemic stress", "Three stress scenarios built in: bank-specific crisis, market-wide stress, combined. Regulator expectation."),
-            ("FTP framework integrated", "Internal liquidity cost allocation framework included. Not just regulatory metrics — operational ALM tool."),
+            ("FTP framework integrated", "Internal liquidity cost allocation framework included. Not just regulatory metrics - operational ALM tool."),
             ("Companion to ICAAP model", "Designed to pair with the ICAAP model for banks needing both Pillar 2 submissions."),
         ],
         "faqs": [
             ("When will this be available?", "Targeting Q3 2026. Sign up and we'll email you the moment it ships."),
-            ("Is there an ICAAP model too?", "Yes &mdash; the <a href=\"/icaap-model-excel.html\">ICAAP Model</a> is on the same release track. Sign up for both."),
+            ("Is there an ICAAP model too?", "Yes - the <a href=\"/icaap-model-excel.html\">ICAAP Model</a> is on the same release track. Sign up for both."),
             ("Does it cover US LCR (FR 2052a)?", "v1 covers CRR2/PRA methodology. US LCR (FR 2052a reporting) is a separate model on the pipeline."),
             ("Can I commission an early build?", "Yes. For time-sensitive ILAAP submissions, we do custom builds. Use the form below or email sfsmodels362@gmail.com."),
         ],
@@ -224,6 +229,7 @@ MODELS = [
     },
     {
         "slug": "real-estate-fund-model-excel",
+        "cta_name": "Real Estate Fund Model",
         "title": "Real Estate Fund Model Excel Template",
         "h1": "Real Estate Fund Financial Model Excel Template",
         "keyword": "real estate fund model excel",
@@ -248,13 +254,13 @@ MODELS = [
             ("Property-level and fund-level returns", "Calculates IRR both at individual asset level and rolled up to fund level. Handles portfolio blending."),
             ("ICR covenant tracking", "Interest cover ratio calculated and flagged against covenant threshold throughout hold period."),
             ("Leveraged and unlevered IRR", "Both always calculated and displayed. Separates asset quality from capital structure effect."),
-            ("Exit cap rate sensitivity", "One of the most important real estate valuation inputs — dedicated sensitivity table with 5 scenarios."),
-            ("GP/LP waterfall included", "Full European waterfall mechanics. Not just property-level returns — fund economics too."),
+            ("Exit cap rate sensitivity", "One of the most important real estate valuation inputs - dedicated sensitivity table with 5 scenarios."),
+            ("GP/LP waterfall included", "Full European waterfall mechanics. Not just property-level returns - fund economics too."),
         ],
         "faqs": [
             ("When will this be available?", "Targeting Q3 2026. Sign up and we'll email when it ships."),
             ("Does it handle REITs?", "v1 targets private real estate funds. REIT-specific modelling (NAV, FFO, AFFO) is a separate release track."),
-            ("What about UK Stamp Duty and SDLT?", "Yes &mdash; transaction cost assumptions include configurable SDLT for UK assets. Other jurisdictions configurable via INPUTS."),
+            ("What about UK Stamp Duty and SDLT?", "Yes - transaction cost assumptions include configurable SDLT for UK assets. Other jurisdictions configurable via INPUTS."),
             ("Can I commission an early build for a live deal?", "Yes. For active transactions, we do custom builds with fast turnaround. Use the form below."),
         ],
         "spec": "Excel (.xlsx) &middot; ~12 tabs &middot; commercial and residential &middot; expected pricing &pound;395 &middot; Q3 2026 launch target",
@@ -266,6 +272,7 @@ MODELS = [
     },
     {
         "slug": "credit-fund-model-excel",
+        "cta_name": "Credit Fund Model",
         "title": "Credit Fund Model Excel Template",
         "h1": "Credit Fund Financial Model Excel Template",
         "keyword": "credit fund model excel",
@@ -292,12 +299,12 @@ MODELS = [
             ("Duration and DV01", "Full duration analytics: Macaulay, modified, convexity, DV01. Not just yield metrics."),
             ("Default scenario analysis", "Stress default rates by rating category with recovery assumptions. Calculates fund-level impact on IRR."),
             ("NAV roll-forward", "Monthly NAV build with fee netting. Essential for credit fund reporting."),
-            ("Reinvestment rate sensitivity", "Critical for credit funds with revolving portfolios — built into the returns engine."),
+            ("Reinvestment rate sensitivity", "Critical for credit funds with revolving portfolios - built into the returns engine."),
         ],
         "faqs": [
             ("When will this be available?", "Targeting Q3 2026. Sign up and we'll email when it ships."),
             ("Does it cover CLO tranche structuring?", "v1 focuses on the equity/GP perspective. CLO tranching model is a separate release on the pipeline."),
-            ("What about private credit / direct lending?", "Yes &mdash; the floating rate, OID, PIK mechanics for direct lending are all supported."),
+            ("What about private credit / direct lending?", "Yes - the floating rate, OID, PIK mechanics for direct lending are all supported."),
             ("Can I commission an early build?", "Yes. Use the form below or email sfsmodels362@gmail.com for custom builds."),
         ],
         "spec": "Excel (.xlsx) &middot; ~13 tabs &middot; direct lending + fixed income &middot; expected pricing &pound;395 &middot; Q3 2026 launch target",
@@ -309,6 +316,7 @@ MODELS = [
     },
     {
         "slug": "merger-consequences-model-excel",
+        "cta_name": "Merger Consequences Model",
         "title": "Merger Consequences Model Excel Template",
         "h1": "Merger Consequences (Accretion / Dilution) Model",
         "keyword": "merger consequences model excel",
@@ -330,16 +338,16 @@ MODELS = [
             ("CHECKS", "PPA sources and uses balance, EPS calculations tie, pro forma financials reconcile."),
         ],
         "differentiators": [
-            ("Purchase price allocation built in", "Goodwill, D&A step-up, identified intangibles all modelled explicitly &mdash; not just headline EPS math."),
+            ("Purchase price allocation built in", "Goodwill, D&A step-up, identified intangibles all modelled explicitly - not just headline EPS math."),
             ("Synergy breakeven analysis", "Calculates the minimum synergies required for accretion. Standard ask from investment committee."),
             ("Financing mix toggle", "Switch between all-cash, all-stock, and mixed financing in one click. Each updates accretion/dilution automatically."),
-            ("Cost to achieve synergies", "Transaction and integration costs modelled with phasing &mdash; not just gross synergies."),
+            ("Cost to achieve synergies", "Transaction and integration costs modelled with phasing - not just gross synergies."),
             ("IRR of the acquisition", "Calculates implied IRR of the deal at current price and synergy assumptions. Bridges M&A and PE frameworks."),
         ],
         "faqs": [
             ("When will this be available?", "Targeting Q2 2026. Sign up and we'll email when it ships."),
             ("Does it work for bank M&A (bank-on-bank deals)?", "v1 is sector-agnostic. Bank-specific M&A model (tangible book value dilution, CET1 impact) is a separate release."),
-            ("Will it handle stock-for-stock deals with exchange ratios?", "Yes &mdash; fixed exchange ratio, fixed value, and collar structures are all supported."),
+            ("Will it handle stock-for-stock deals with exchange ratios?", "Yes - fixed exchange ratio, fixed value, and collar structures are all supported."),
             ("Can I commission an early build for a live deal?", "Yes. For live mandates, we build custom models with same-day or next-day turnaround. Use the form below."),
         ],
         "spec": "Excel (.xlsx) &middot; ~11 tabs &middot; sector-agnostic &middot; expected pricing &pound;295 &middot; Q2 2026 launch target",
@@ -351,6 +359,7 @@ MODELS = [
     },
     {
         "slug": "restructuring-model-excel",
+        "cta_name": "Restructuring and Recovery Model",
         "title": "Restructuring & Recovery Financial Model Excel",
         "h1": "Restructuring & Recovery Financial Model",
         "keyword": "restructuring financial model excel",
@@ -373,7 +382,7 @@ MODELS = [
             ("CHECKS", "Cash flows reconcile, creditor waterfall sums correctly, debt service on exit structure is serviceable."),
         ],
         "differentiators": [
-            ("13-week cash flow", "Week-by-week liquidity model with receipts and disbursements &mdash; essential for any distressed situation."),
+            ("13-week cash flow", "Week-by-week liquidity model with receipts and disbursements - essential for any distressed situation."),
             ("Going concern vs liquidation", "Side-by-side comparison with break-even enterprise value. Fundamental to any restructuring engagement."),
             ("Debt-for-equity mechanics", "Proper treatment of the debt-for-equity conversion including new money, backstop fees, and equity allocation."),
             ("Creditor recovery waterfall", "Full priority waterfall by tranche with recovery rates. Essential tool for any creditor-side or advisor engagement."),
@@ -381,9 +390,9 @@ MODELS = [
         ],
         "faqs": [
             ("When will this be available?", "Targeting Q3 2026. Sign up and we'll email when it ships."),
-            ("Does it cover UK administration and CVA processes?", "Yes &mdash; UK administration, CVA, and US Chapter 11 scenarios are all handled. Jurisdiction is configurable."),
+            ("Does it cover UK administration and CVA processes?", "Yes - UK administration, CVA, and US Chapter 11 scenarios are all handled. Jurisdiction is configurable."),
             ("Will it work for financial institutions (bank restructurings)?", "v1 is sector-agnostic. Bank-specific restructuring (regulatory capital implications, resolution mechanics) is a custom build."),
-            ("Can I commission an early build for a live situation?", "Yes &mdash; for live mandates this is the most common request. Same-day builds available. Use the form below."),
+            ("Can I commission an early build for a live situation?", "Yes - for live mandates this is the most common request. Same-day builds available. Use the form below."),
         ],
         "spec": "Excel (.xlsx) &middot; ~12 tabs &middot; UK administration + US Chapter 11 &middot; expected pricing &pound;495 &middot; Q3 2026 launch target",
         "related": [
@@ -431,6 +440,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "7852444a13cc4cc78cdb4162c284e1de"}}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -532,7 +544,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <div class="container" style="max-width:760px;">
       <h2>About SFS Models</h2>
       <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals. Used by FP&amp;A, Treasury, ALM and Capital teams at US and UK regional banks, by PE firms, and by corporate finance consultancies. Open formulas, no VBA, fully auditable.</p>
-      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the live catalogue</a></p>
+      <p style="margin-top:1rem;"><a href="/contact.html?model={slug}" class="btn btn-primary" data-enquiry-cta="{slug}">Request the {cta_name}</a> <a href="/models.html" class="btn btn-secondary">Browse the live catalogue</a></p>
     </div>
   </section>
 
@@ -632,6 +644,7 @@ def main():
             slug=m["slug"],
             subtitle=m["subtitle"],
             form_name=m["form_name"],
+            cta_name=m["cta_name"],
             audience=m["audience"],
             tabs_html=render_tabs(m["tabs"]),
             diff_html=render_diff(m["differentiators"]),

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IFRS 9 Staging: When 12-Month ECL Becomes Lifetime ECL | SFS Models Blog</title>
+<meta name="description" content="IFRS 9 stage 2 transfer is the judgement that moves the provision. How to define SICR, set thresholds, avoid the 30-day backstop trap, and build staging that survives audit.">
+<link rel="canonical" href="https://sfsmodels.org/blog/ifrs9-staging-sicr.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="IFRS 9 Staging: When 12-Month ECL Becomes Lifetime ECL">
+<meta property="og:description" content="IFRS 9 stage 2 transfer is the judgement that moves the provision. How to define SICR, set thresholds, avoid the 30-day backstop trap, and build staging that survives audit.">
+<meta property="og:url" content="https://sfsmodels.org/blog/ifrs9-staging-sicr.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "IFRS 9 Staging: When 12-Month ECL Becomes Lifetime ECL",
+  "description": "IFRS 9 stage 2 transfer is the judgement that moves the provision. How to define SICR, set thresholds, avoid the 30-day backstop trap, and build staging that survives audit.",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/ifrs9-staging-sicr.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>IFRS 9 Staging: When 12-Month ECL Becomes Lifetime ECL</h1>
+    <p class="meta">Published 2026-09-07 &middot; SFS Models</p>
+    <p class="summary">Stage 2 is where the provision actually moves. A loan transferring from stage 1 to stage 2 can multiply its ECL by ten overnight, and the trigger is a judgement, not a number handed to you.</p>
+
+    <p>Most of the argument about an IFRS 9 provision is not about PD, LGD or discounting. It is about staging. A loan sitting in stage 1 carries 12 months of expected loss. The same loan in stage 2 carries lifetime expected loss. On a 7-year amortising facility that is not a marginal change, it is frequently a five to ten times increase in the provision for that exposure.</p>
+
+<p>So the question that moves your numbers is narrow: what counts as a significant increase in credit risk?</p>
+
+<h2>What the standard actually requires</h2>
+
+<p>IFRS 9 asks you to compare credit risk <em>at the reporting date</em> against credit risk <em>at initial recognition</em>, for the remaining life of the instrument. Two things follow from that sentence, and both are routinely got wrong.</p>
+
+<p>First, it is a relative test, not an absolute one. A borrower can be objectively poor quality and still sit in stage 1, provided it was equally poor quality when you wrote the loan. A BB facility originated as BB has not deteriorated. Absolute-quality thresholds fail the standard.</p>
+
+<p>Second, it is lifetime PD you compare, not 12-month PD. A facility can show a flat 12-month PD while its lifetime PD has moved materially, because the deterioration is expected to bite in year three. If your staging test runs on 12-month PD because that is the number your rating system produces monthly, you will transfer late.</p>
+
+<h2>Setting the threshold</h2>
+
+<p>The standard gives you no number. In practice three approaches are defensible, and the choice matters more than the calibration.</p>
+
+<p><strong>Relative PD movement.</strong> Transfer when lifetime PD has increased by more than a set multiple of origination PD. The trap is that a fixed multiple is brutal at the good end and toothless at the poor end. A move from 0.10% to 0.25% is a 150% increase and almost certainly noise. A move from 8% to 14% is a 75% increase and is a genuine problem. A single multiple cannot serve both.</p>
+
+<p><strong>Absolute PD movement with a relative floor.</strong> Combine the two: transfer if lifetime PD has risen by more than X percentage points <em>and</em> by more than Y percent of its origination level. This is the most common design at UK banks and it survives challenge better than either test alone.</p>
+
+<p><strong>Rating-notch movement.</strong> Transfer on a drop of N notches from origination grade. Operationally simple, and it maps onto how credit officers already think, which matters when the staging output has to be explained. The weakness is that notch width is not constant across the scale, so a two-notch move means different things at different points.</p>
+
+<h2>The 30-day backstop is a floor, not a policy</h2>
+
+<p>IFRS 9 carries a rebuttable presumption that credit risk has increased significantly once a payment is more than 30 days past due. A surprising number of models treat this as the staging rule.</p>
+
+<p>It is not. It is the backstop that catches what your primary test missed. If your 30-day trigger is doing most of the transferring, your quantitative test is not working, and that is exactly what an auditor will look for. Run the diagnostic: what share of your stage 2 population arrived there through the PD test, and what share through days past due alone? If the second number is above roughly a third, the primary test is too slack.</p>
+
+<h2>Transfers back, and why they are asymmetric in practice</h2>
+
+<p>Staging is symmetric in the standard. An exposure that recovers moves back to stage 1. In practice most institutions apply a probation period, commonly three to six months of performance, before allowing the transfer back.</p>
+
+<p>That is defensible, but it has a modelling consequence people miss: it makes your stage 2 population sticky, so provision releases lag provision charges through a cycle. If your model transfers back instantly, your ECL will look more volatile than your peers' and you will be asked why.</p>
+
+<h2>Where the model usually breaks</h2>
+
+<p>Three failures account for most of the staging problems worth finding.</p>
+
+<p><strong>No origination PD stored.</strong> The comparison is against initial recognition, so you need the PD at origination for every live exposure. Banks that started IFRS 9 without that field end up proxying it from the origination rating grade, which is workable but must be disclosed and will be challenged.</p>
+
+<p><strong>Staging applied after the ECL calculation.</strong> The stage determines whether you use 12-month or lifetime ECL, so it has to be resolved first. A model that calculates both and then picks is fine. A model that calculates 12-month ECL and then scales it up for stage 2 exposures is not, because lifetime ECL is not a multiple of 12-month ECL.</p>
+
+<p><strong>No reconciliation of stage movement.</strong> Your provision movement should decompose into: new lending, repayments, stage transfers, model and assumption changes, and write-offs. If stage transfers are not an explicit line, nobody can explain the provision to the audit committee, and the number becomes unpresentable regardless of whether it is right.</p>
+
+<h2>The practical test</h2>
+
+<p>Take one facility that transferred to stage 2 this month. Trace it: origination PD, current lifetime PD, which trigger fired, what the ECL was before and after, and where that movement appears in the provision walk. If you cannot do that in under five minutes, the staging logic is buried somewhere it should not be.</p>
+
+<p>Our <a href="/ifrs9-cecl-model-excel.html">IFRS 9 ECL Model</a> carries stage 1, 2 and 3 allocation with the transfer logic on its own tab, lifetime and 12-month ECL calculated in parallel rather than scaled, and a macro overlay applied after staging. Every stage movement lands in the provision reconciliation.</p>
+
+    <div class="blog-cta">
+      <h3>Get the IFRS 9 ECL Model</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/ifrs9-cecl-model-excel.html" class="btn btn-primary">View IFRS 9 ECL Model</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

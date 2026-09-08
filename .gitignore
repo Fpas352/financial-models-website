@@ -33,3 +33,6 @@ CLAUDE.md
 SETUP_CHECKLIST.md
 audit-report.md
 changes-log.md
+
+# Internal working files (never publish)
+ls-config-pending.js

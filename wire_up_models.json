@@ -1,0 +1,113 @@
+{
+  "_comment": "Fill in checkout_url for each model from Lemon Squeezy, then run wire_up_models.py. Prices confirmed 2026-09-07: ICAAP/ILAAP/IFRS17 already quoted to live prospects at these figures, so do not change those three.",
+  "_tab_counts_verified": "from models/final/*.xlsx on 2026-09-07",
+  "models": {
+    "icaap-model-excel": {
+      "workbook": "01_ICAAP_Model_v5.xlsx",
+      "tabs": 17,
+      "price": 1295,
+      "committed": "quoted to Bank Muscat 2026-09-07, do not change",
+      "checkout_url": "",
+      "upload_folder": "upload-ready/20-icaap-model",
+      "file_to_sell": "upload-ready/20-icaap-model/01_ICAAP_Model_v5.xlsx",
+      "screenshots": 5
+    },
+    "ilaap-model-excel": {
+      "workbook": "02_ILAAP_Model_v5.xlsx",
+      "tabs": 17,
+      "price": 995,
+      "committed": "quoted to Bank Muscat 2026-09-07, do not change",
+      "checkout_url": "",
+      "upload_folder": "upload-ready/23-ilaap-model",
+      "file_to_sell": "upload-ready/23-ilaap-model/02_ILAAP_Model_v5.xlsx",
+      "screenshots": 5
+    },
+    "ifrs17-insurance-model-excel": {
+      "workbook": "04_IFRS17_Insurance_Model_v5.xlsx",
+      "tabs": 17,
+      "price": 1295,
+      "committed": "quoted to Custodian Life and Valeri Teliashvili 2026-09-07, do not change",
+      "checkout_url": "",
+      "upload_folder": "upload-ready/21-ifrs17-insurance-model",
+      "file_to_sell": "upload-ready/21-ifrs17-insurance-model/04_IFRS17_Insurance_Model_v5.xlsx",
+      "screenshots": 5
+    },
+    "pe-fund-waterfall-model-excel": {
+      "workbook": "05_PE_Fund_Model_v5.xlsx",
+      "tabs": 17,
+      "price": 295,
+      "checkout_url": "",
+      "upload_folder": "upload-ready/32-pe-fund-model",
+      "file_to_sell": "upload-ready/32-pe-fund-model/05_PE_Fund_Model_v5.xlsx",
+      "screenshots": 5
+    },
+    "real-estate-fund-model-excel": {
+      "workbook": "06_RE_Fund_Model_v5.xlsx",
+      "tabs": 17,
+      "price": 395,
+      "checkout_url": "",
+      "upload_folder": "upload-ready/38-re-fund-model",
+      "file_to_sell": "upload-ready/38-re-fund-model/06_RE_Fund_Model_v5.xlsx",
+      "screenshots": 5
+    },
+    "credit-fund-model-excel": {
+      "workbook": "07_Credit_Fund_Model_v5.xlsx",
+      "tabs": 17,
+      "price": 395,
+      "checkout_url": "",
+      "upload_folder": "upload-ready/11-credit-fund-model",
+      "file_to_sell": "upload-ready/11-credit-fund-model/07_Credit_Fund_Model_v5.xlsx",
+      "screenshots": 5
+    },
+    "merger-consequences-model-excel": {
+      "workbook": "08_Merger_Consequences_Model_v5.xlsx",
+      "tabs": 18,
+      "price": 295,
+      "checkout_url": "",
+      "upload_folder": "upload-ready/31-merger-consequences-model",
+      "file_to_sell": "upload-ready/31-merger-consequences-model/08_Merger_Consequences_Model_v5.xlsx",
+      "screenshots": 5
+    },
+    "restructuring-model-excel": {
+      "workbook": "09_Restructuring_Recovery_Model_v5.xlsx",
+      "tabs": 17,
+      "price": 495,
+      "checkout_url": "",
+      "upload_folder": "upload-ready/39-restructuring-recovery-model",
+      "file_to_sell": "upload-ready/39-restructuring-recovery-model/09_Restructuring_Recovery_Model_v5.xlsx",
+      "screenshots": 5
+    },
+    "project-finance-model-excel": {
+      "workbook": "11_Project_Finance_SPV_Model_v5.xlsx",
+      "tabs": 18,
+      "price": 495,
+      "checkout_url": "",
+      "upload_folder": "upload-ready/37-project-finance-spv-model",
+      "file_to_sell": "upload-ready/37-project-finance-spv-model/11_Project_Finance_SPV_Model_v5.xlsx",
+      "screenshots": 5
+    }
+  },
+  "_no_landing_page_yet": {
+    "_note": "Built, no landing page. Need a models.html card, or a new page.",
+    "01-basel-iv-rwa-calculator": {
+      "tabs": 17,
+      "suggested_price": 495
+    },
+    "25-infrastructure-dcf-model": {
+      "tabs": 18,
+      "suggested_price": 395
+    },
+    "35-ppp-concession-model": {
+      "tabs": 17,
+      "suggested_price": 495
+    },
+    "33-portfolio-return-attribution-model": {
+      "tabs": 17,
+      "suggested_price": 295
+    },
+    "05-buy-to-let-model": {
+      "tabs": 17,
+      "suggested_price": 149
+    }
+  }
+}

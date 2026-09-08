@@ -23,10 +23,10 @@ MODELS = [
         "price_usd": "320",
         "checkout": "https://sfsmodels.lemonsqueezy.com/checkout/buy/e1b91846-dd4c-43ae-b5c8-69c0388862d4",
         "data_model_id": "dcf",
-        "audience": "Investment banking associates, private equity associates, corporate development, valuation analysts, finance directors. Used on real deals — not just for case studies.",
+        "audience": "Investment banking associates, private equity associates, corporate development, valuation analysts, finance directors. Used on real deals - not just for case studies.",
         "tabs": [
             ("COVER", "Model name, version, instructions, hyperlinked tab index."),
-            ("INPUTS", "All assumptions on one tab: WACC components, growth rates, margins, working capital, capex. Three scenarios — Base, Upside, Downside — controlled by one dropdown."),
+            ("INPUTS", "All assumptions on one tab: WACC components, growth rates, margins, working capital, capex. Three scenarios - Base, Upside, Downside - controlled by one dropdown."),
             ("OPERATING", "Five-year P&amp;L forecast. Revenue build, gross margin, EBITDA, taxes."),
             ("FCF", "Unlevered free cash flow with full reconciliation: EBIT &times; (1&minus;t) + D&amp;A &minus; Capex &minus; &Delta;WC. Mid-year discounting toggle."),
             ("WACC", "Cost of equity (CAPM), cost of debt (post-tax), capital structure, weighted average. Bottom-up beta calculation."),
@@ -42,8 +42,8 @@ MODELS = [
             ("Open formulas", "No macros, no VBA, no hidden sheets. You can audit every number to its source."),
         ],
         "faqs": [
-            ("Does it include industry-specific variants?", "No — this is the generalist model. Industry-specific variants (banks, insurance, REITs, project finance) are available as separate models in the catalogue."),
-            ("Can I customise it?", "Yes — fully open formulas. You own the file outright once purchased."),
+            ("Does it include industry-specific variants?", "No - this is the generalist model. Industry-specific variants (banks, insurance, REITs, project finance) are available as separate models in the catalogue."),
+            ("Can I customise it?", "Yes - fully open formulas. You own the file outright once purchased."),
             ("Will it work in Google Sheets?", "Yes, with minor adjustments. Array formulas behave differently and conditional formatting may need to be re-applied. Around 80% works out of the box."),
             ("Refund policy?", "14-day money-back guarantee, no questions asked, if it doesn't fit your need."),
         ],
@@ -81,13 +81,13 @@ MODELS = [
             ("Real cash sweep priority logic", "Most templates apply cash to whichever tranche the modeller hardcoded first. Ours follows actual credit agreement priority: mandatory amortisation, then first lien sweep, then second lien sweep, then optional repayment."),
             ("Covenant tracking", "Maintenance covenants (leverage, interest cover, FCCR) calculated each period with breach flags. Most templates ignore covenants entirely."),
             ("Dividend recap toggle", "Built-in dividend recap event in year three of the hold flexes capital structure mid-deal. Off by default."),
-            ("Returns waterfall &mdash; both conventions", "European and American carry waterfall. Switch via dropdown."),
-            ("Realistic debt terms", "Floating rate (SOFR + spread) with rate curves, OID, prepayment penalty &mdash; all built in."),
+            ("Returns waterfall - both conventions", "European and American carry waterfall. Switch via dropdown."),
+            ("Realistic debt terms", "Floating rate (SOFR + spread) with rate curves, OID, prepayment penalty - all built in."),
         ],
         "faqs": [
-            ("Does it support add-on acquisitions?", "Yes &mdash; a separate add-on transaction tab adds new sources/uses and consolidates into the operating model."),
-            ("Can it model a take-private?", "Yes &mdash; built for both private and take-private LBOs. Toggle on the INPUTS tab."),
-            ("Does it cover continuation funds or GP-led secondaries?", "Not in v1. Available as a custom build &mdash; contact us."),
+            ("Does it support add-on acquisitions?", "Yes - a separate add-on transaction tab adds new sources/uses and consolidates into the operating model."),
+            ("Can it model a take-private?", "Yes - built for both private and take-private LBOs. Toggle on the INPUTS tab."),
+            ("Does it cover continuation funds or GP-led secondaries?", "Not in v1. Available as a custom build - contact us."),
             ("Refund policy?", "14-day money-back guarantee, no questions asked."),
         ],
         "spec": "Excel (.xlsx) &middot; 9 tabs &middot; ~1,500 formula cells &middot; print-ready &middot; file size ~800 KB &middot; same-day delivery",
@@ -99,7 +99,7 @@ MODELS = [
     },
     {
         "slug": "bank-stress-test-model",
-        "title": "Bank Stress Test Model — ICAAP / CCAR / DFAST in Excel",
+        "title": "Bank Stress Test Model - ICAAP / CCAR / DFAST in Excel",
         "h1": "Bank Stress Test Model",
         "keyword": "bank stress test model",
         "meta_desc": "Bank-grade stress testing model in Excel for ICAAP, CCAR and DFAST. Scenario engine, P&L impact, capital projection, board-ready output. £299.",
@@ -122,14 +122,14 @@ MODELS = [
         "differentiators": [
             ("Scenario re-pointing in hours", "Macro variables on one tab. All downstream calculations key off named ranges. Drop in the new Fed or PRA scenario, recalc, done."),
             ("Multi-jurisdiction", "Same engine handles US (CCAR/DFAST), UK (PRA SREP / ICAAP) and EU (EBA stress test) supervisory frameworks. Buffer logic is jurisdiction-aware."),
-            ("Real PPNR overlay structure", "NII rate sensitivity, non-interest income trajectory, non-interest expense &mdash; with explicit overlay capacity for management actions."),
+            ("Real PPNR overlay structure", "NII rate sensitivity, non-interest income trajectory, non-interest expense - with explicit overlay capacity for management actions."),
             ("Credit loss methodology", "PD/LGD/EAD by segment with macro overlays. The same structure used by enterprise stress testing platforms, just in Excel."),
             ("Capital action logic", "Distributions auto-restricted when capital ratios fall below the MDA threshold."),
         ],
         "faqs": [
             ("Does it cover CECL or IFRS 9?", "ECL methodology lives in our separate IFRS 9 / CECL model. The stress test takes ECL output as an input."),
             ("Will it work for Category I/II US BHCs?", "It's calibrated for Category III/IV. For Category I/II requiring tailored portfolio segmentation or non-standard PPNR builds, contact us for a custom build."),
-            ("Does it support both CCAR and DFAST?", "Yes &mdash; both use the same supervisory scenarios. The model serves both."),
+            ("Does it support both CCAR and DFAST?", "Yes - both use the same supervisory scenarios. The model serves both."),
             ("Refund policy?", "14-day money-back guarantee."),
         ],
         "spec": "Excel (.xlsx) &middot; ~14 tabs &middot; ~4,000 formula cells &middot; file size ~3 MB &middot; same-day delivery &middot; includes 1 hour of email support",
@@ -164,15 +164,15 @@ MODELS = [
         ],
         "differentiators": [
             ("Both standards in one model", "IFRS 9 and CECL share most of the underlying mechanics but diverge on staging and lifetime treatment. Most templates support one. Ours supports both with a switch."),
-            ("Macro overlay built in", "Reasonable and supportable forecast (R&amp;S) period and reversion to historical loss rates &mdash; both modelled explicitly with adjustable parameters."),
+            ("Macro overlay built in", "Reasonable and supportable forecast (R&amp;S) period and reversion to historical loss rates - both modelled explicitly with adjustable parameters."),
             ("Stage migration", "Useful for IFRS 9 reporting and for institutions dual-reporting (e.g., US subsidiaries of European banks)."),
             ("Regulatory output alignment", "Output tab aligns to FFIEC Call Report Schedule RI-C (US) and IFRS 9 financial statement disclosures (international)."),
             ("Audit-ready documentation", "Every assumption has a comment cell explaining the source and the methodology decision."),
         ],
         "faqs": [
-            ("Does it support DCF methodology in addition to PD/LGD?", "PD/LGD/EAD is the default. DCF methodology variant available as a custom build &mdash; contact us."),
-            ("Will the output map to my call report schedule?", "Yes &mdash; for US institutions, output aligns to FFIEC Schedule RI-C. For European institutions, output aligns to IFRS 9 financial statement disclosures."),
-            ("Does it handle dual-reporting (IFRS 9 + CECL)?", "Yes &mdash; common for US subsidiaries of European banks. Run both methodologies side-by-side and compare."),
+            ("Does it support DCF methodology in addition to PD/LGD?", "PD/LGD/EAD is the default. DCF methodology variant available as a custom build - contact us."),
+            ("Will the output map to my call report schedule?", "Yes - for US institutions, output aligns to FFIEC Schedule RI-C. For European institutions, output aligns to IFRS 9 financial statement disclosures."),
+            ("Does it handle dual-reporting (IFRS 9 + CECL)?", "Yes - common for US subsidiaries of European banks. Run both methodologies side-by-side and compare."),
             ("Refund policy?", "14-day money-back guarantee."),
         ],
         "spec": "Excel (.xlsx) &middot; 11 tabs &middot; fully labelled &middot; same-day delivery &middot; includes 1 hour of email support",
@@ -184,7 +184,7 @@ MODELS = [
     },
     {
         "slug": "bank-financial-model",
-        "title": "Bank Financial Model — Long-Term Plan in Excel",
+        "title": "Bank Financial Model - Long-Term Plan in Excel",
         "h1": "Bank Long-Term Plan Model",
         "keyword": "bank financial model",
         "meta_desc": "Integrated bank LTP in Excel. Lending engine, deposits, treasury (IRRBB), capital and regulatory, KPI dashboards. Used by mid-market bank FP&A teams. £999.",
@@ -207,7 +207,7 @@ MODELS = [
             ("Single source of truth", "All modules reference one timeline and one scenario selector. Change scenario once and every output across every module updates."),
             ("No circular references", "Capital constraint references prior period, not current. Interest on opening balance, not closing. Built to recalculate cleanly with iteration off."),
             ("Forty integrity checks", "All must pass before the model is presented externally. Same standard used at top-tier banks."),
-            ("Real bank P&amp;L structure", "NII, fees, cost of funds, opex, provisions, tax &mdash; the standard FP&amp;A layout, not a generic three-statement."),
+            ("Real bank P&amp;L structure", "NII, fees, cost of funds, opex, provisions, tax - the standard FP&amp;A layout, not a generic three-statement."),
             ("ALM-grade treasury", "Real DV01 calculation, real hedge effectiveness ratio, real EVE/NII shock scenarios."),
         ],
         "faqs": [
@@ -266,6 +266,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "7852444a13cc4cc78cdb4162c284e1de"}}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -298,7 +301,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <h1>{h1}</h1>
       <p>{subtitle}</p>
       <p style="margin-top:1.5rem;">
-        <a href="{checkout}" target="_blank" rel="noopener" class="btn btn-primary" data-model-id="{data_model_id}">Buy Now &mdash; &pound;{price_gbp}</a>
+        <a href="{checkout}" target="_blank" rel="noopener" class="btn btn-primary" data-model-id="{data_model_id}">Buy Now - &pound;{price_gbp}</a>
         &nbsp;&nbsp;
         <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample First</a>
       </p>
@@ -339,7 +342,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <h2>Specifications</h2>
       <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">{spec}</p>
       <p style="margin-top:2rem;">
-        <a href="{checkout}" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-model-id="{data_model_id}">Buy Now &mdash; &pound;{price_gbp}</a>
+        <a href="{checkout}" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-model-id="{data_model_id}">Buy Now - &pound;{price_gbp}</a>
       </p>
       <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">14-day money-back guarantee &middot; same-day delivery &middot; secure checkout via Lemon Squeezy</p>
     </div>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICAAP: A Practical Guide for Finance Teams | SFS Models Blog</title>
+<meta name="description" content="What ICAAP actually requires, how to structure your capital adequacy assessment, what examiners look for, and how to build the capital model that supports it.">
+<link rel="canonical" href="https://sfsmodels.org/blog/icaap-model-guide.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="ICAAP: A Practical Guide for Finance Teams">
+<meta property="og:description" content="What ICAAP actually requires, how to structure your capital adequacy assessment, what examiners look for, and how to build the capital model that supports it.">
+<meta property="og:url" content="https://sfsmodels.org/blog/icaap-model-guide.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ICAAP: A Practical Guide for Finance Teams",
+  "description": "What ICAAP actually requires, how to structure your capital adequacy assessment, what examiners look for, and how to build the capital model that supports it.",
+  "datePublished": "2026-05-11",
+  "dateModified": "2026-05-11",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/icaap-model-guide.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>ICAAP: A Practical Guide for Bank Finance Teams</h1>
+    <p class="meta">Published 2026-05-11 &middot; SFS Models</p>
+    <p class="summary">Most ICAAP submissions fail at the model layer, not the narrative layer. The regulator already knows your capital ratios. What they want to see is whether your capital model is robust enough to trust under stress. This guide covers the mechanics.</p>
+
+    <p>The Internal Capital Adequacy Assessment Process (ICAAP) is the Pillar 2 submission in which a bank demonstrates to its regulator that it holds sufficient capital to absorb the risks it faces - under both base and stress conditions. In the UK, the PRA reviews ICAAP annually. In the EU, the ECB's SREP cycle uses it. For US banks under the Fed's Enhanced Prudential Standards, the internal capital plan serves a similar function.</p>
+
+    <p>Getting ICAAP right is not primarily a writing exercise. The regulator can read. What they scrutinise is the capital model underpinning the narrative - how risks are quantified, how scenarios are constructed, and whether the numbers are credible.</p>
+
+    <h2>What ICAAP must demonstrate</h2>
+
+    <p>At its core, ICAAP answers one question: <em>if adverse conditions materialise, does the bank have enough capital to absorb losses while remaining viable?</em></p>
+
+    <p>The regulator's framework for answering this question has three components:</p>
+
+    <ol>
+      <li><strong>Risk identification and quantification.</strong> Every material risk the bank faces must be identified, quantified where possible, and allocated a capital charge. Risks not captured by Pillar 1 RWA (market risk, credit concentration, IRRBB, operational risk, etc.) must be covered by Pillar 2A add-ons.</li>
+      <li><strong>Stress testing.</strong> Capital adequacy must be tested under at least one adverse scenario that is plausible and severe. The scenario must stress the bank's specific vulnerabilities, not just apply a generic macro shock.</li>
+      <li><strong>Capital plan.</strong> The bank must project its capital position over a 3-5 year horizon, showing that ratios remain above regulatory minima under base and stress conditions even as the business plan evolves.</li>
+    </ol>
+
+    <h2>The capital model structure</h2>
+
+    <p>The capital model is the engine. Without a credible model, the narrative is just words. A workable ICAAP capital model has five layers:</p>
+
+    <table>
+      <tr><th>Layer</th><th>What it contains</th><th>Key outputs</th></tr>
+      <tr><td>Capital base</td><td>CET1 instruments, retained earnings, OCI, deductions (goodwill, DTA, intangibles)</td><td>CET1, T1, Total Capital</td></tr>
+      <tr><td>Credit RWA</td><td>EAD by exposure class &times; risk weight (Standardised or IRB)</td><td>Credit RWA by book</td></tr>
+      <tr><td>Market RWA</td><td>VaR &times; multiplier &times; 12.5 (or Standardised approach)</td><td>Market RWA</td></tr>
+      <tr><td>Operational RWA</td><td>Basic Indicator Approach: 15% &times; 3-year average gross income &times; 12.5</td><td>Op risk RWA</td></tr>
+      <tr><td>Pillar 2A / buffers</td><td>SREP add-ons, capital conservation buffer, countercyclical buffer, SyRB</td><td>Total requirement, headroom</td></tr>
+    </table>
+
+    <p>The ratio that matters: <strong>CET1 ratio = CET1 capital &divide; Total RWA</strong>. The capital plan must show this stays above the combined buffer requirement (4.5% Pillar 1 + Pillar 2A + buffers) throughout the plan period, including in the stress scenario.</p>
+
+    <h2>The stress scenario: what makes one credible</h2>
+
+    <p>This is where most ICAAP submissions are weakest. Generic stress scenarios - "GDP falls 3%, unemployment rises to 8%" - don't demonstrate that you understand your specific vulnerabilities.</p>
+
+    <p>A credible adverse scenario has three properties:</p>
+
+    <p><strong>1. It's bank-specific.</strong> If your book is 60% commercial real estate, the scenario needs a CRE shock. If you're deposit-funded with high deposit beta, a rate-shock scenario that stresses NIM is essential. The regulator knows your balance sheet. Apply a scenario that would actually hurt you.</p>
+
+    <p><strong>2. It's internally consistent.</strong> A rate spike scenario that also has a property crash and a recession needs to show how those three forces interact. GDP and unemployment need to move in the same direction. Credit losses need to be a function of the macro shock, not an independent assumption.</p>
+
+    <p><strong>3. The loss estimates are defensible.</strong> PD migration, LGD haircuts, NIM compression, PPNR deterioration - each needs a documented methodology. "Stressed PD = base PD &times; 2" is not a methodology.</p>
+
+    <h2>Capital planning: the forward view</h2>
+
+    <p>The capital plan projects CET1 ratio and RWA over 3-5 years under base and stress scenarios. The key mechanics:</p>
+
+    <p><strong>Capital generation:</strong> Net income &minus; dividends &minus; share buybacks = retained earnings added to CET1. Stress NIM, credit losses, and PPNR simultaneously and the NI line deteriorates quickly. Banks that model stress NI as "base NI &times; 0.7" are guessing.</p>
+
+    <p><strong>RWA migration:</strong> Credit RWA expands in stress as PDs rise (under IRB) or as loans migrate to higher risk weight buckets. A bank with a £2bn book and 70% average risk weight has £1.4bn credit RWA. Under stress, PD migration can push this to £1.8-2.0bn before you've made a single new loan.</p>
+
+    <p><strong>The ratio trough:</strong> The capital plan should explicitly show the trough CET1 ratio under the stress scenario and the headroom above the regulatory minimum at that trough. If the trough is below the combined buffer requirement, the plan needs to show a management action (capital raise, dividend cut, RWA reduction) that restores the ratio.</p>
+
+    <h2>Pillar 2A: how to quantify risks not in Pillar 1</h2>
+
+    <p>Pillar 2A covers risks that Pillar 1 RWA doesn't fully capture. The most common P2A additions:</p>
+
+    <ul>
+      <li><strong>Credit concentration risk.</strong> Single-name, sector, and geographic concentrations above the Herfindahl-Hirschman Index thresholds. Standardised add-on: typically 1-3% of the concentrated exposure.</li>
+      <li><strong>IRRBB (interest rate risk in the banking book).</strong> EVE sensitivity under the six prescribed shocks (parallel up/down, steepener, flattener, short up, short down). P2A = capital needed to cover the EVE decline in the outlier scenario.</li>
+      <li><strong>Operational risk top-up.</strong> If BIA underestimates operational risk (e.g., large pending legal cases, cyber exposure), the P2A submission should quantify the gap.</li>
+      <li><strong>Model risk.</strong> If the capital model itself has material uncertainty, regulators increasingly expect a model risk charge. Not universal, but growing.</li>
+    </ul>
+
+    <h2>Common ICAAP model failures</h2>
+
+    <p>Based on what regulators publicly flag in their supervisory assessments:</p>
+
+    <ul>
+      <li><strong>Static balance sheet in the stress scenario.</strong> A bank that holds £500m of CRE loans doesn't hold that same £500m throughout the stress. Runoff, refinancing, and new origination all change the exposure. The stressed capital plan needs a dynamic balance sheet.</li>
+      <li><strong>Stress loss = base loss &times; multiplier.</strong> This is the first thing an examiner will challenge. If your stressed credit losses are exactly 2x base, the justification needs to be airtight. More credible: PD/LGD migration driven by the macro scenario.</li>
+      <li><strong>RWA held constant in stress.</strong> Standardised RWA can change if the mix shifts. IRB RWA expands automatically under stress as PDs rise. A fixed RWA line in the stress scenario signals the model isn't dynamic.</li>
+      <li><strong>No management actions documented.</strong> The regulator expects to see the levers available - dividend suspension, capital raise, RWA optimisation, asset disposal - and a timeline for exercising them. Without this, the stress scenario has no credible resolution.</li>
+    </ul>
+
+    <h2>ICAAP model in Excel: what it needs to do</h2>
+
+    <p>For most mid-tier banks (£5bn-£50bn assets), the ICAAP model lives in Excel. It needs to:</p>
+
+    <ul>
+      <li>Calculate CET1, T1, Total Capital from an auditable base</li>
+      <li>Build credit RWA by exposure class with risk weight inputs</li>
+      <li>Calculate market and op risk RWA per the Standardised approach</li>
+      <li>Apply P2A add-ons and buffer requirements to produce the overall capital requirement</li>
+      <li>Project all of the above over 5 years under Base, Adverse, and Severely Adverse scenarios using a single scenario switch</li>
+      <li>Show the trough ratio and headroom in the output summary</li>
+      <li>Pass a CHECKS tab that validates all balance sheet, debt schedule, and ratio integrity</li>
+    </ul>
+
+    <div class="blog-cta">
+      <h3>ICAAP Model - Excel Template</h3>
+      <p>Institutional-grade ICAAP model built for mid-tier bank Finance and Capital teams. Covers Pillar 1 RWA (credit, market, op risk), Pillar 2A quantification, capital plan projection, and stress testing with a single scenario switch. Fully open formulas, CHECKS tab, print-ready layout.</p>
+      <p><a href="/icaap-model-excel.html" class="btn btn-primary">View the ICAAP Model &rarr;</a></p>
+    </div>
+
+    <h2>ILAAP: the liquidity counterpart</h2>
+
+    <p>ICAAP covers capital adequacy. ILAAP - the Internal Liquidity Adequacy Assessment Process - covers liquidity adequacy. Both are required by the PRA (and equivalent regulators elsewhere) and are reviewed together in the SREP cycle.</p>
+
+    <p>The interaction matters: a bank can be adequately capitalised and illiquid at the same time. The 2023 SVB failure was fundamentally a liquidity crisis in a bank that was technically solvent. ICAAP alone doesn't protect against that. If you need to build ILAAP alongside ICAAP, the structure is similar but the focus is on LCR, NSFR, and survival horizon under a combined stress scenario. See our <a href="/ilaap-model-excel.html">ILAAP model</a> for the liquidity-side equivalent.</p>
+
+    <h2>Summary</h2>
+
+    <p>ICAAP quality is determined by the capital model, not the narrative. The model needs to be dynamic (balance sheet evolves under stress), scenario-driven (not just base &times; multiplier), and internally consistent (capital generation, RWA migration, and management actions all linked). If the model doesn't pass those tests, the SREP reviewers will find the weakness.</p>
+
+    <p>For a free DCF model to see our build quality before committing, <a href="/free-samples.html">download a sample here</a>.</p>
+
+    <p style="color:var(--text-muted); font-size: 0.85rem; margin-top: 3rem;">Published 2026-05-11. SFS Models builds institutional-grade Excel financial models for bank Finance, Capital, and Treasury teams. <a href="/models.html">View all models.</a></p>
+
+    <div class="blog-cta">
+      <h3>Get the Bank Stress Test Model</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/bank-stress-test-model.html" class="btn btn-primary">View Bank Stress Test Model</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

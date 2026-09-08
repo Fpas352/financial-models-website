@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build an IFRS 9 ECL Model in Excel | SFS Models Blog</title>
+<meta name="description" content="The tab structure, the PD/LGD/EAD mechanics and the reconciliations an IFRS 9 ECL model in Excel needs before anyone will sign it off. Written from bank practice.">
+<link rel="canonical" href="https://sfsmodels.org/blog/ifrs9-ecl-model-excel-build.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Build an IFRS 9 ECL Model in Excel">
+<meta property="og:description" content="The tab structure, the PD/LGD/EAD mechanics and the reconciliations an IFRS 9 ECL model in Excel needs before anyone will sign it off. Written from bank practice.">
+<meta property="og:url" content="https://sfsmodels.org/blog/ifrs9-ecl-model-excel-build.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Build an IFRS 9 ECL Model in Excel",
+  "description": "The tab structure, the PD/LGD/EAD mechanics and the reconciliations an IFRS 9 ECL model in Excel needs before anyone will sign it off. Written from bank practice.",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/ifrs9-ecl-model-excel-build.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>How to Build an IFRS 9 ECL Model in Excel</h1>
+    <p class="meta">Published 2026-09-07 &middot; SFS Models</p>
+    <p class="summary">An ECL model is not hard arithmetic. It is hard bookkeeping. Most of them fail review not because the loss numbers are wrong, but because nobody can trace how a provision moved between two dates.</p>
+
+    <p>The expected credit loss calculation itself is a line of arithmetic. Probability of default times loss given default times exposure at default, discounted. Anyone can write that formula.</p>
+
+<p>What makes an ECL model hard is everything around that line: getting the staging right before you calculate, holding lifetime and 12-month views in parallel, applying a forward-looking overlay without destroying the audit trail, and being able to explain in a committee why the provision moved by the amount it moved. Build for the explanation, not the arithmetic.</p>
+
+<h2>The tab structure that works</h2>
+
+<p>One workable layout, in dependency order.</p>
+
+<p><strong>INPUTS.</strong> Every assumption, nothing else. Segment definitions, PD term structures, LGD by collateral type, EAD parameters and credit conversion factors, discount rates, staging thresholds, macroeconomic scenarios and their weights. If a number can be argued about, it lives here in a blue cell, not buried in a formula three tabs away.</p>
+
+<p><strong>PORTFOLIO.</strong> The exposure data as received: facility, segment, origination date, origination PD or grade, current balance, undrawn commitment, collateral, days past due. This tab is a landing zone, so it should contain no formulas at all. Keeping it inert is what lets you swap a month's data without touching the model.</p>
+
+<p><strong>STAGING.</strong> The stage 1, 2 and 3 allocation, with each trigger evaluated in its own column so you can see which one fired. Quantitative test, backstop, and any qualitative flags, then the resulting stage. Do this before any ECL is calculated.</p>
+
+<p><strong>PD_TERM.</strong> Marginal and cumulative PD by period out to maturity, per segment and scenario. This is the tab that turns a point-in-time PD into the lifetime curve the standard needs.</p>
+
+<p><strong>ECL_12M</strong> and <strong>ECL_LIFETIME.</strong> Both calculated for every exposure, always. Then the stage picks which one flows through. Calculating only the one you think you need is where models become impossible to challenge.</p>
+
+<p><strong>OVERLAY.</strong> The forward-looking adjustment, applied as an explicit, separately visible layer. Never blended into the base PD.</p>
+
+<p><strong>RECONCILIATION.</strong> The provision walk from opening to closing, decomposed.</p>
+
+<p><strong>CHECKS.</strong> Everything that has to tie.</p>
+
+<h2>Lifetime is not a multiple of 12-month</h2>
+
+<p>The most common structural error is calculating a 12-month ECL and scaling it by some factor for stage 2 exposures.</p>
+
+<p>Lifetime ECL is the sum, across every remaining period, of the marginal probability of default in that period, times LGD, times expected exposure at that point, discounted back at the effective interest rate. Three things vary across those periods and none of them scale linearly: the marginal PD follows a term structure, the exposure amortises, and the discount factor compounds.</p>
+
+<p>For an amortising loan the exposure profile alone can make lifetime ECL a smaller multiple than intuition suggests, because the largest default probabilities in later years apply to a much smaller balance. Scale factors get this backwards on precisely the facilities where the provision matters most.</p>
+
+<h2>The scenario weighting most models get wrong</h2>
+
+<p>IFRS 9 requires a probability-weighted outcome, not a best estimate. That means running the ECL under each macroeconomic scenario and weighting the <em>results</em>.</p>
+
+<p>Running the model once on probability-weighted <em>inputs</em> is not the same thing and is not compliant. Because the relationship between macro variables and loss is convex, weighting the inputs systematically understates ECL. The gap widens exactly when it matters, in the tail.</p>
+
+<p>Structurally this means your ECL tabs need a scenario dimension from the outset. Retrofitting one into a model built for a single case is a rebuild, so decide early.</p>
+
+<h2>Overlays, and keeping them defensible</h2>
+
+<p>Post-model adjustments are a fact of life. New risks appear faster than models can be recalibrated. The problem is not having overlays, it is having overlays nobody can dismantle later.</p>
+
+<p>Keep every overlay as a separate, named line with its own rationale, its own quantum, and the population it applies to. When the underlying model is recalibrated, you need to be able to remove the overlay cleanly. An overlay buried inside a PD assumption cannot be removed without unpicking the whole calibration, and tends to survive for years after the risk it addressed has gone.</p>
+
+<h2>The reconciliation is the deliverable</h2>
+
+<p>The single most useful tab is the provision walk. Opening ECL, then:</p>
+
+<ul>
+<li>new lending originated in the period</li>
+<li>repayments, maturities and write-offs</li>
+<li>stage transfers, ideally split by direction</li>
+<li>changes in risk parameters within stage</li>
+<li>model and methodology changes</li>
+<li>overlay movements</li>
+<li>closing ECL</li>
+</ul>
+
+<p>If those components do not sum to the movement, something is wrong, and finding out at the reconciliation is far cheaper than finding out in committee. This is also the tab that gets projected on the wall, so it is worth more layout care than the calculation engines behind it.</p>
+
+<h2>Checks that must pass</h2>
+
+<p>Sum of exposures by stage equals total portfolio. Sum of ECL by stage equals total provision. Every stage 3 exposure has a lifetime calculation. No PD outside 0 to 1. No negative ECL. Scenario weights sum to exactly 1. Provision walk ties opening to closing. Every one of these has caught a real error in a real model.</p>
+
+<p>Our <a href="/ifrs9-cecl-model-excel.html">IFRS 9 ECL Model</a> is built on this structure, with lifetime and 12-month ECL calculated in parallel, scenario weighting applied to results rather than inputs, and the provision walk as a standing output.</p>
+
+    <div class="blog-cta">
+      <h3>Get the IFRS 9 ECL Model</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/ifrs9-cecl-model-excel.html" class="btn btn-primary">View IFRS 9 ECL Model</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

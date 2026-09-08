@@ -13,6 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -81,7 +84,7 @@
       <p style="color:var(--text-muted); font-size:0.85rem; text-align:center; margin-top:1rem;">We respect your privacy. No spam, ever. Sample delivered within 1 business day.</p>
 
       <div style="margin-top:2.5rem; font-size:0.95rem; color:var(--text-muted);">
-        <p style="margin-bottom:0.5rem;">&#10003; Fully working Excel file &mdash; not a locked demo</p>
+        <p style="margin-bottom:0.5rem;">&#10003; Fully working Excel file - not a locked demo</p>
         <p style="margin-bottom:0.5rem;">&#10003; Includes instructions tab</p>
         <p>&#10003; Delivered to your inbox within 1 business day</p>
       </div>
@@ -152,7 +155,7 @@
           return res.json();
         })
         .catch(function() {
-          // Fallback — simulate success for static hosting
+          // Fallback - simulate success for static hosting
           return new Promise(function(resolve) { setTimeout(resolve, 1200); });
         })
         .then(function() {

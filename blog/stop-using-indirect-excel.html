@@ -45,6 +45,9 @@
 .blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
 .blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
 </style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -76,7 +79,7 @@
     <p class="meta">Published 2026-04-21 &middot; SFS Models</p>
     <p class="summary">INDIRECT() is the most overused finance modelling function. Three specific problems and four alternatives by use case.</p>
 
-    <p>INDIRECT() is one of those small Excel modelling habits that causes outsized pain when models get inherited. It's convenient for building flexible references &mdash; <code>=INDIRECT("'"&amp;A1&amp;"'!B5")</code> &mdash; but it has three properties that should disqualify it from any model that anyone other than the original builder will use.</p>
+    <p>INDIRECT() is one of those small Excel modelling habits that causes outsized pain when models get inherited. It's convenient for building flexible references - <code>=INDIRECT("'"&amp;A1&amp;"'!B5")</code> - but it has three properties that should disqualify it from any model that anyone other than the original builder will use.</p>
 
 <h2>1. It's volatile</h2>
 
@@ -84,7 +87,7 @@
 
 <h2>2. It breaks silently when sheets are renamed</h2>
 
-<p>No #REF! error. Just wrong numbers. The user has no idea anything went wrong &mdash; the formula still "works", it just points at nothing now and returns 0 or #REF! that's lost in a sea of other values.</p>
+<p>No #REF! error. Just wrong numbers. The user has no idea anything went wrong - the formula still "works", it just points at nothing now and returns 0 or #REF! that's lost in a sea of other values.</p>
 
 <h2>3. It can't be traced</h2>
 

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Equity Fund Waterfalls: American vs European Structure | SFS Models Blog</title>
+<meta name="description" content="How PE fund distribution waterfalls work. American vs European structure, preferred return, catch-up, carried interest, clawback - with Excel implementation notes.">
+<link rel="canonical" href="https://sfsmodels.org/blog/pe-fund-waterfall-model.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Private Equity Fund Waterfalls: American vs European Structure">
+<meta property="og:description" content="How PE fund distribution waterfalls work. American vs European structure, preferred return, catch-up, carried interest, clawback - with Excel implementation notes.">
+<meta property="og:url" content="https://sfsmodels.org/blog/pe-fund-waterfall-model.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Private Equity Fund Waterfalls: American vs European Structure",
+  "description": "How PE fund distribution waterfalls work. American vs European structure, preferred return, catch-up, carried interest, clawback - with Excel implementation notes.",
+  "datePublished": "2026-05-11",
+  "dateModified": "2026-05-11",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/pe-fund-waterfall-model.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>Private Equity Fund Waterfalls: American vs European Structure</h1>
+    <p class="meta">Published 2026-05-11 &middot; SFS Models</p>
+    <p class="summary">The distribution waterfall is the mechanism that determines how a PE fund splits returns between LPs and the GP. Getting it wrong means either LPs get less than they should, or the GP takes carry they haven't earned. Here's the full mechanics.</p>
+
+    <p>A private equity fund waterfall is a sequence of distribution tiers that determines the order and proportion in which proceeds from fund realisations are paid to Limited Partners (LPs) and the General Partner (GP). Every PE fund has one. The terms are negotiated at fund formation and written into the LPA (Limited Partnership Agreement). Once set, they govern every distribution for the life of the fund.</p>
+
+    <p>The two dominant structures - American and European - differ in one critical way: timing of when the GP receives carried interest.</p>
+
+    <h2>The four standard tiers</h2>
+
+    <p>Most waterfall structures have four tiers, applied in sequence:</p>
+
+    <table>
+      <tr><th>Tier</th><th>Recipient</th><th>What it covers</th></tr>
+      <tr><td>1. Return of capital</td><td>LPs</td><td>LPs receive back 100% of contributed capital (including management fees paid to GP)</td></tr>
+      <tr><td>2. Preferred return</td><td>LPs</td><td>LPs receive a preferred return (hurdle rate) on contributed capital - typically 8% p.a., compounding</td></tr>
+      <tr><td>3. GP catch-up</td><td>GP</td><td>GP receives 100% of distributions until the GP has received a defined % of total profit (typically 20% of total profit, not just profit above the hurdle)</td></tr>
+      <tr><td>4. Carried interest split</td><td>80/20 LP/GP</td><td>Remaining distributions split: 80% to LPs, 20% to GP (standard carry)</td></tr>
+    </table>
+
+    <p>The hurdle rate (preferred return) is the critical threshold. Until LPs have received their capital back plus the hurdle, the GP receives nothing from Tier 2 onwards. Only after the hurdle is cleared does the GP catch-up mechanism activate.</p>
+
+    <h2>American waterfall: deal-by-deal carry</h2>
+
+    <p>The American (or deal-by-deal) waterfall calculates and distributes carry on each deal as it exits, rather than waiting for the fund as a whole to return capital and the hurdle.</p>
+
+    <p><strong>How it works:</strong></p>
+    <ol>
+      <li>Deal 1 exits with a 3x return</li>
+      <li>LPs receive their pro-rata capital back for Deal 1</li>
+      <li>LPs receive the hurdle on that capital</li>
+      <li>GP receives catch-up on Deal 1 profits</li>
+      <li>Remaining profits split 80/20 LP/GP</li>
+      <li>→ GP gets carry from Deal 1 now, regardless of what happens to Deals 2-10</li>
+    </ol>
+
+    <p><strong>The problem:</strong> If Deals 2-5 subsequently lose money, LPs have already paid carry on Deal 1. Without a clawback provision, the GP keeps that carry even though the fund overall may not have cleared the hurdle. This is why American structures typically include clawback provisions - contractual obligations for the GP to return carry if the fund fails to hit the hurdle on a whole-fund basis at wind-down.</p>
+
+    <p><strong>Who uses it:</strong> Common in US PE funds. More GP-friendly (accelerates carry). Requires strong clawback language to protect LPs.</p>
+
+    <h2>European waterfall: whole-fund carry</h2>
+
+    <p>The European (or whole-fund) waterfall requires the fund to return all LP capital and clear the hurdle across the entire fund before the GP is entitled to any carry.</p>
+
+    <p><strong>How it works:</strong></p>
+    <ol>
+      <li>All realisations from all deals go into the fund distribution pool</li>
+      <li>First: all LPs receive 100% of total contributed capital returned</li>
+      <li>Second: LPs receive the preferred return on all contributed capital</li>
+      <li>Third: GP catch-up on total fund profits</li>
+      <li>Fourth: 80/20 split on remaining profits</li>
+    </ol>
+
+    <p><strong>The effect:</strong> The GP receives no carry until every LP has their capital back plus the hurdle. If early exits are strong but later deals lose, the losses must be recovered before GP sees any carry. This is more LP-protective by design.</p>
+
+    <p><strong>Who uses it:</strong> Standard in European PE. Increasingly common in US VC. More LP-friendly, fewer clawback disputes.</p>
+
+    <h2>Worked example</h2>
+
+    <p>Fund size: £100m. Management fee: 2% p.a. on committed capital (£2m/year, 5-year investment period = £10m total fees, deducted from LP capital). Hurdle: 8% p.a. compounded. Carry: 20%. Deal-by-deal vs whole-fund.</p>
+
+    <p><strong>Scenario:</strong> Fund has three deals. Deal A returns £80m on £40m invested (2x). Deal B returns £30m on £40m invested (0.75x - a loss). Deal C is not yet exited.</p>
+
+    <p>Under <strong>American waterfall</strong>: Deal A exit triggers carry calculation on Deal A. LP gets £40m capital back + 8% hurdle on £40m over hold period. GP gets catch-up and then 20% carry on Deal A profits. Deal B's loss doesn't affect what's already been paid.</p>
+
+    <p>Under <strong>European waterfall</strong>: Deal A proceeds go into the pool. LP capital returned = £40m (Deal A) + £40m (Deal B) + management fees = £90m+ before any preferred return. Deal A's profits must absorb Deal B's losses. Only after the whole fund has returned capital and the hurdle does the GP see carry.</p>
+
+    <h2>The catch-up mechanic</h2>
+
+    <p>The catch-up clause is frequently misunderstood. It does NOT give the GP 100% of all distributions forever. It gives the GP 100% of distributions temporarily, until the GP has received exactly 20% of total fund profit (or whatever the carry percentage is).</p>
+
+    <p>Example: Total fund profit after returning capital and paying the preferred return = £50m. GP's 20% carry = £10m. The catch-up period continues until the GP has received £10m. After that, the 80/20 split applies to all remaining distributions.</p>
+
+    <p>In Excel, the catch-up is typically modelled as:</p>
+    <pre><code>GP_catchup = MIN(distributions_available, MAX(0, target_GP_carry - GP_carry_received_so_far))</code></pre>
+
+    <p>Where <code>target_GP_carry = total_fund_profit × carry_rate</code> and the calculation is iterative if distributions happen over multiple periods.</p>
+
+    <h2>Clawback provisions</h2>
+
+    <p>A clawback requires the GP (or the GP's principals) to return carry that was received if, at fund wind-down, the GP has received more carry than it was entitled to on a whole-fund basis.</p>
+
+    <p>Clawbacks are common in American waterfall funds. The practical challenge: by the time the fund winds down, principals may have left the firm, taxes on carry distributions have been paid, and recovering cash years later is difficult. Good LP due diligence checks whether the clawback is guaranteed by the principals personally or just the GP entity (which may have limited assets).</p>
+
+    <h2>Building a waterfall model in Excel</h2>
+
+    <p>A fund waterfall model needs to handle:</p>
+    <ul>
+      <li><strong>Capital account tracking:</strong> LP contributions by period, management fees deducted, total LP contributed capital</li>
+      <li><strong>Preferred return accumulation:</strong> 8% compounded on unreturned capital (XIRR logic, not simple interest)</li>
+      <li><strong>Deal proceeds allocation:</strong> which deal proceeds go to which LP (by ownership %)</li>
+      <li><strong>Tier-by-tier waterfall:</strong> MAX(0, ...) and MIN(available, remaining_entitlement) at each tier</li>
+      <li><strong>Carry ledger:</strong> running total of carry paid vs earned, to catch clawback positions</li>
+      <li><strong>IRR and MOIC:</strong> LP net IRR (after fees and carry), GP net IRR, fund gross IRR</li>
+    </ul>
+
+    <p>The trickiest part is the catch-up, because it requires knowing total fund profit before you can calculate the GP's entitlement - which creates a forward reference in a period-by-period model. The cleanest solution: calculate the catch-up in two passes, or restructure the model so fund-level totals are calculated first, then allocated to periods.</p>
+
+    <div class="blog-cta">
+      <h3>PE Fund Waterfall Model - Excel Template</h3>
+      <p>Institutional-grade PE fund model covering American and European waterfall structures, preferred return, catch-up, carried interest, clawback, GP and LP IRR, and MOIC. Switchable between waterfall types from the INPUTS tab. Fully open formulas, CHECKS tab, deal-level and fund-level outputs.</p>
+      <p><a href="/pe-fund-waterfall-model-excel.html" class="btn btn-primary">View the PE Fund Waterfall Model &rarr;</a></p>
+    </div>
+
+    <h2>LBO vs fund waterfall: the key difference</h2>
+
+    <p>A common point of confusion: the LBO model waterfall is not the same as the fund waterfall. The LBO waterfall allocates equity returns among the different capital tranches in a single deal (common equity, preferred equity, management equity). The fund waterfall allocates fund-level distributions between LPs and the GP across all deals.</p>
+
+    <p>They're both waterfalls, but at different levels of aggregation. A complete PE fund model needs both: the LBO waterfall for each deal, feeding into the fund waterfall for overall LP/GP economics. If you're building one level only, make sure you're clear about which level the question is asking about.</p>
+
+    <p style="color:var(--text-muted); font-size: 0.85rem; margin-top: 3rem;">Published 2026-05-11. SFS Models builds institutional-grade Excel financial models for PE firms, bank Finance teams, and investment managers. <a href="/models.html">View all models.</a></p>
+
+    <div class="blog-cta">
+      <h3>Get the LBO Model</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/lbo-model-excel.html" class="btn btn-primary">View LBO Model</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

@@ -45,6 +45,9 @@
 .blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
 .blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
 </style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -86,7 +89,7 @@
 
 <p>Where <code>t</code> is the number of years from the valuation date.</p>
 
-<p>The problem: this formula assumes all of year <code>t</code>'s cash flow arrives on December 31st of year <code>t</code>. In reality, cash flows arrive throughout the year &mdash; roughly evenly. The "average" cash arrives at mid-year (June 30th).</p>
+<p>The problem: this formula assumes all of year <code>t</code>'s cash flow arrives on December 31st of year <code>t</code>. In reality, cash flows arrive throughout the year - roughly evenly. The "average" cash arrives at mid-year (June 30th).</p>
 
 <p>Mid-year discounting adjusts for this by discounting cash flows by half a period less:</p>
 
@@ -116,7 +119,7 @@
 
 <p><strong>1. Discount the terminal value back further.</strong></p>
 
-<p>If your explicit forecast ends in year 5 and you've used mid-year discounting for years 1&ndash;5, the terminal value (which represents value FROM year 6 onwards) should be discounted at:</p>
+<p>If your explicit forecast ends in year 5 and you've used mid-year discounting for years 1-5, the terminal value (which represents value FROM year 6 onwards) should be discounted at:</p>
 
 <pre><code>TV PV = TV / (1 + WACC)^(5 - 0.5) = TV / (1 + WACC)^4.5</code></pre>
 
@@ -140,9 +143,9 @@ Discount factor: 1/(1+WACC)^0.5  1/(1+WACC)^1.5  1/(1+WACC)^2.5  ...
 
 PV = FCF &times; Discount factor</code></pre>
 
-<p>Sum the PVs of years 1&ndash;n + discounted terminal value = enterprise value.</p>
+<p>Sum the PVs of years 1-n + discounted terminal value = enterprise value.</p>
 
-<p>For our <a href="/dcf-model-excel.html">DCF Model</a>, we built in a toggle on the INPUTS tab &mdash; switch between mid-year and end-of-year and the entire model recalibrates.</p>
+<p>For our <a href="/dcf-model-excel.html">DCF Model</a>, we built in a toggle on the INPUTS tab - switch between mid-year and end-of-year and the entire model recalibrates.</p>
 
 <h2>Common mistakes</h2>
 
@@ -150,7 +153,7 @@ PV = FCF &times; Discount factor</code></pre>
 <li><strong>Discounting terminal value at year n + 1 instead of n.</strong> TV represents value at end of year n, so discount it at year n (or year n &minus; 0.5 for mid-year).</li>
 <li><strong>Using mid-year for one year and end-of-year for others.</strong> Be consistent across all years in the explicit forecast.</li>
 <li><strong>Ignoring stub periods.</strong> If your valuation date isn't year-end, the first period is a stub (e.g., 7 months). Adjust the discount factor for the stub period accordingly.</li>
-<li><strong>Mid-year on a project that ends in year 5.</strong> If the business has a defined termination (project finance), don't use mid-year for the final year &mdash; use the actual cash receipt timing.</li>
+<li><strong>Mid-year on a project that ends in year 5.</strong> If the business has a defined termination (project finance), don't use mid-year for the final year - use the actual cash receipt timing.</li>
 </ol>
 
 <h2>Free DCF model</h2>

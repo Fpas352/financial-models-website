@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reverse Stress Testing: Finding the Scenario That Breaks the Bank | SFS Models Blog</title>
+<meta name="description" content="Reverse stress testing starts from failure and works backwards. How to define the failure point, search for the scenarios that reach it, and make the output usable by a board.">
+<link rel="canonical" href="https://sfsmodels.org/blog/reverse-stress-testing-bank.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reverse Stress Testing: Finding the Scenario That Breaks the Bank">
+<meta property="og:description" content="Reverse stress testing starts from failure and works backwards. How to define the failure point, search for the scenarios that reach it, and make the output usable by a board.">
+<meta property="og:url" content="https://sfsmodels.org/blog/reverse-stress-testing-bank.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reverse Stress Testing: Finding the Scenario That Breaks the Bank",
+  "description": "Reverse stress testing starts from failure and works backwards. How to define the failure point, search for the scenarios that reach it, and make the output usable by a board.",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/reverse-stress-testing-bank.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>Reverse Stress Testing: Finding the Scenario That Breaks the Bank</h1>
+    <p class="meta">Published 2026-09-07 &middot; SFS Models</p>
+    <p class="summary">Ordinary stress testing asks what happens if things get bad. Reverse stress testing asks what would have to happen for the bank to stop being viable. The second question is harder and more useful.</p>
+
+    <p>A normal stress test starts with a scenario and produces a capital ratio. You pick an unemployment path and a house price fall, run them through, and see what CET1 does. The output is reassuring almost by construction, because the scenario was chosen to be severe but survivable.</p>
+
+<p>Reverse stress testing inverts it. You start at the point of non-viability and work backwards to find what could get you there. The question is not "how bad is a severe recession" but "what precisely would have to go wrong, and is that combination as implausible as we are assuming?"</p>
+
+<h2>Defining failure before you search for it</h2>
+
+<p>The exercise is meaningless without a precise failure condition, and it is rarely a single number. Candidates worth defining explicitly:</p>
+
+<p><strong>Capital.</strong> CET1 falls below the point where the business model stops working. That is usually well above the 4.5% minimum, because a bank hits its MDA restriction and loses access to funding markets long before it hits Pillar 1. Setting the trigger at the regulatory minimum produces a comfortable, useless answer.</p>
+
+<p><strong>Liquidity.</strong> The bank cannot meet outflows over a defined survival horizon. Often the binding constraint in practice, and frequently reached faster than the capital one.</p>
+
+<p><strong>Business model.</strong> Losses do not exhaust capital, but the franchise stops generating enough return to justify holding it. Harder to quantify, and the one most often skipped.</p>
+
+<p>Pick the definition, write it down, and get it agreed before running anything. Most of the value in the exercise is created in this conversation rather than in the modelling.</p>
+
+<h2>Searching backwards</h2>
+
+<p>Forward stress testing is one calculation. Reverse stress testing is a search across a space of scenarios, and the space is large.</p>
+
+<p>The tractable approach is to reduce it to the handful of drivers that actually move your outcome, then search over those. For most lenders that is credit losses on the largest portfolio, funding cost, and one concentration. Fix the others at base, then find the combination of your chosen drivers that reaches the failure point.</p>
+
+<p>Two properties make the result useful. First, express the answer in units a credit officer recognises: a default rate on the commercial book, a fall in a specific collateral value, a deposit outflow over a number of days. "A 4.2 standard deviation shock" is not actionable. Second, find the <em>closest</em> failure scenario, not any failure scenario. Anything is fatal if it is extreme enough. The question is what the least extreme fatal combination looks like, because that is the one worth defending against.</p>
+
+<h2>The output that changes decisions</h2>
+
+<p>Done properly this produces a small number of statements a board can act on. Something in the shape of: the bank stops being viable if commercial real estate defaults reach a given rate while collateral values fall by a given percentage, sustained over a given period.</p>
+
+<p>Then the useful conversation begins. How far is that from what we saw in 2008, or in 2020? What would we see first if we were heading there? Which of our current limits would have bound before we arrived, and did any of them get relaxed recently?</p>
+
+<p>That last question is the one that justifies the exercise. Reverse stress testing regularly finds that a limit framework was calibrated against a scenario milder than the one that actually breaks the bank.</p>
+
+<h2>Where it goes wrong</h2>
+
+<p><strong>Choosing a comfortable answer.</strong> If the failure scenario you report is obviously absurd, you have either set the failure point too low or searched only where you were confident nothing lived. A scenario nobody can argue with is a scenario nobody learns from.</p>
+
+<p><strong>Ignoring second-order effects.</strong> The path to failure is rarely one variable. Credit losses raise funding costs, which compress margin, which slows capital generation, which restricts new lending, which shrinks the earning asset base. A model with no feedback finds the failure point too far out.</p>
+
+<p><strong>Treating it as a compliance artefact.</strong> Reverse stress testing appears in ICAAP because supervisors ask for it, and it is easy to produce something that satisfies the requirement and informs nothing. The test of a real exercise is whether it changed a limit, a hedge or an appetite statement.</p>
+
+<h2>Building it</h2>
+
+<p>You do not need separate machinery. If your capital projection already runs scenarios from a single switch, reverse stress testing is a search loop over that engine: vary the drivers, evaluate the failure condition, keep the least extreme combination that trips it. What you do need is a projection where the drivers are genuinely parameterised rather than hardcoded, and where the failure condition is a formula rather than a judgement made by reading the output.</p>
+
+<p>Our <a href="/bank-stress-test-model.html">Bank Stress Test Model</a> runs base, adverse and severe scenarios through P&amp;L, capital and liquidity from one switch, with the capital and liquidity failure conditions calculated rather than eyeballed, and board-ready output.</p>
+
+    <div class="blog-cta">
+      <h3>Get the Bank Stress Test Model</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/bank-stress-test-model.html" class="btn btn-primary">View Bank Stress Test Model</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

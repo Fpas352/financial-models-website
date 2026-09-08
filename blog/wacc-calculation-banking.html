@@ -45,6 +45,9 @@
 .blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
 .blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
 </style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -74,7 +77,7 @@
     <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
     <h1>WACC for Banks: Why the Standard Formula Breaks Down</h1>
     <p class="meta">Published 2026-05-07 &middot; SFS Models</p>
-    <p class="summary">The textbook WACC formula assumes debt is a funding choice. For banks, debt (deposits) is the product. This one difference invalidates WACC for bank valuation &mdash; and most analysts apply it anyway.</p>
+    <p class="summary">The textbook WACC formula assumes debt is a funding choice. For banks, debt (deposits) is the product. This one difference invalidates WACC for bank valuation - and most analysts apply it anyway.</p>
 
     <p>The WACC formula works by weighting the cost of each funding layer against its proportion of total capital. The insight is that debt is cheaper than equity (because interest is tax-deductible and debt ranks senior), so optimal capital structure includes some leverage.</p>
 
@@ -84,11 +87,11 @@
 
 <h2>The bank problem: debt is the product</h2>
 
-<p>A bank's "debt" is overwhelmingly customer deposits. Those deposits are not a funding choice &mdash; they are the product. The bank takes in deposits, pays a rate, and lends them out at a higher rate. The spread is the business.</p>
+<p>A bank's "debt" is overwhelmingly customer deposits. Those deposits are not a funding choice - they are the product. The bank takes in deposits, pays a rate, and lends them out at a higher rate. The spread is the business.</p>
 
-<p>If you apply WACC to a bank, you're saying: deposits are cheap funding that creates a tax shield, and the bank should optimise its debt-to-equity ratio to minimise WACC. But the bank cannot choose to have fewer deposits (or more) for its WACC. The deposit base is a function of the business &mdash; customers, rates, products, competition. It is not a capital structure decision.</p>
+<p>If you apply WACC to a bank, you're saying: deposits are cheap funding that creates a tax shield, and the bank should optimise its debt-to-equity ratio to minimise WACC. But the bank cannot choose to have fewer deposits (or more) for its WACC. The deposit base is a function of the business - customers, rates, products, competition. It is not a capital structure decision.</p>
 
-<p>The second problem: WACC-based DCF discounts free cash flow to the firm (FCFF). FCFF = EBIT(1-t) + D&amp;A - Capex - Working capital change. For a bank, &ldquo;working capital change&rdquo; includes changes in loans, deposits, securities &mdash; i.e., the entire balance sheet. The resulting FCFF is near-zero in a growing bank (all cash flow is reinvested into the loan book) and wildly volatile.</p>
+<p>The second problem: WACC-based DCF discounts free cash flow to the firm (FCFF). FCFF = EBIT(1-t) + D&amp;A - Capex - Working capital change. For a bank, &ldquo;working capital change&rdquo; includes changes in loans, deposits, securities - i.e., the entire balance sheet. The resulting FCFF is near-zero in a growing bank (all cash flow is reinvested into the loan book) and wildly volatile.</p>
 
 <h2>What bank analysts use instead</h2>
 
@@ -96,7 +99,7 @@
 
 <h3>1. Dividend Discount Model (DDM)</h3>
 
-<p>Discount dividends (or distributable earnings) to equity at the cost of equity only &mdash; not WACC. This sidesteps the debt problem entirely by valuing equity directly.</p>
+<p>Discount dividends (or distributable earnings) to equity at the cost of equity only - not WACC. This sidesteps the debt problem entirely by valuing equity directly.</p>
 
 <pre><code>Value of equity = D₁ / (Ke - g)</code></pre>
 
@@ -110,15 +113,15 @@
 
 <p>Where excess return = (ROE - Ke) × Book equity each period.</p>
 
-<p>This is theoretically elegant: a bank trading at 1.0x book has no excess returns in the market's view. A bank at 2.0x book is expected to generate sustainable ROE above its cost of equity. It avoids the deposit/debt confusion because you never calculate FCFF &mdash; you work directly from equity returns.</p>
+<p>This is theoretically elegant: a bank trading at 1.0x book has no excess returns in the market's view. A bank at 2.0x book is expected to generate sustainable ROE above its cost of equity. It avoids the deposit/debt confusion because you never calculate FCFF - you work directly from equity returns.</p>
 
 <h3>3. Price-to-Tangible Book Value (P/TBV)</h3>
 
-<p>Not a DCF at all &mdash; a market multiples approach. P/TBV is the dominant bank valuation multiple because tangible book value is the regulatory capital base that constrains growth. The implied relationship:</p>
+<p>Not a DCF at all - a market multiples approach. P/TBV is the dominant bank valuation multiple because tangible book value is the regulatory capital base that constrains growth. The implied relationship:</p>
 
 <pre><code>P/TBV = (ROE - g) / (Ke - g)</code></pre>
 
-<p>A bank with ROE = Ke trades at 1.0x TBV. A bank with ROE &gt; Ke trades above 1.0x. US regional banks typically trade at 0.8x&ndash;1.5x TBV depending on ROE and growth expectations.</p>
+<p>A bank with ROE = Ke trades at 1.0x TBV. A bank with ROE &gt; Ke trades above 1.0x. US regional banks typically trade at 0.8x-1.5x TBV depending on ROE and growth expectations.</p>
 
 <h2>The correct cost of equity for a bank</h2>
 
@@ -128,9 +131,9 @@
 
 <p><strong>Risk-free rate</strong>: Use the 10-year government bond yield in the bank's reporting currency. For US banks: 10-year UST. For UK banks: 10-year gilt. Don't mix currencies.</p>
 
-<p><strong>ERP</strong>: The equity risk premium for banks is typically slightly higher than the market ERP due to the opacity of bank balance sheets and tail risk from regulatory capital requirements. Add 0.5&ndash;1.0% to a standard market ERP as a starting point.</p>
+<p><strong>ERP</strong>: The equity risk premium for banks is typically slightly higher than the market ERP due to the opacity of bank balance sheets and tail risk from regulatory capital requirements. Add 0.5-1.0% to a standard market ERP as a starting point.</p>
 
-<p><strong>Size premium</strong>: For community banks and regional banks below $10bn assets, add an additional 1&ndash;3% for illiquidity and concentration risk. Not needed for G-SIBs.</p>
+<p><strong>Size premium</strong>: For community banks and regional banks below $10bn assets, add an additional 1-3% for illiquidity and concentration risk. Not needed for G-SIBs.</p>
 
 <h2>What about a bank-specific DCF?</h2>
 
@@ -140,7 +143,7 @@
      - Increase in required equity capital
      + Change in excess capital above regulatory minimum</code></pre>
 
-<p>The "required equity capital" term is the key: as the bank grows its loan book, it must retain capital to maintain its CET1 ratio above the regulatory minimum. This retained capital is not distributable &mdash; it belongs to the regulators, not shareholders.</p>
+<p>The "required equity capital" term is the key: as the bank grows its loan book, it must retain capital to maintain its CET1 ratio above the regulatory minimum. This retained capital is not distributable - it belongs to the regulators, not shareholders.</p>
 
 <p>This is why bank ROE consistently understates economic returns unless you adjust for the capital that's trapped under regulatory requirements.</p>
 
@@ -152,10 +155,10 @@
 <li>Don't attempt a WACC-based valuation</li>
 <li>Build the P&amp;L and balance sheet first, then derive distributable earnings after capital constraints</li>
 <li>Use P/TBV as your primary valuation anchor, with DDM or excess returns as cross-checks</li>
-<li>Track CET1 ratio at every period &mdash; it's the binding constraint on distributions</li>
+<li>Track CET1 ratio at every period - it's the binding constraint on distributions</li>
 </ul>
 
-<p>Our <a href="/bank-financial-model.html">Bank Long-Term Plan Model</a> is built around this framework: full balance sheet projection, capital adequacy at every period, distributable earnings calculation, and ROE/ROA/P/TBV outputs. Not a generic three-statement model with a bank skin &mdash; a genuine bank planning tool.</p>
+<p>Our <a href="/bank-financial-model.html">Bank Long-Term Plan Model</a> is built around this framework: full balance sheet projection, capital adequacy at every period, distributable earnings calculation, and ROE/ROA/P/TBV outputs. Not a generic three-statement model with a bank skin - a genuine bank planning tool.</p>
 
 
     <div class="blog-cta">

@@ -45,6 +45,9 @@
 .blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
 .blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
 </style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -76,7 +79,7 @@
     <p class="meta">Published 2026-04-21 &middot; SFS Models</p>
     <p class="summary">Most US bank ALM models use deposit beta from the 2014-2019 cycle. Actual betas in 2022-2025 ran 2-3x higher. The recalibration framework, by tier, with EVE/NII shock implications.</p>
 
-    <p>Most US bank ALM models still use deposit beta assumptions calibrated against the 2014&ndash;2019 rate cycle. The 2022&ndash;2025 cycle showed those calibrations were materially wrong. Banks running stale betas understated their NII risk by ~3x heading into the SVB crisis.</p>
+    <p>Most US bank ALM models still use deposit beta assumptions calibrated against the 2014-2019 rate cycle. The 2022-2025 cycle showed those calibrations were materially wrong. Banks running stale betas understated their NII risk by ~3x heading into the SVB crisis.</p>
 
 <h2>What is deposit beta?</h2>
 
@@ -94,20 +97,20 @@
 
 <h2>What 2022-2025 changed</h2>
 
-<p>The previous decade (2010&ndash;2021) was characterised by ZIRP and modest rate moves. Deposit betas calibrated against this period showed:</p>
+<p>The previous decade (2010-2021) was characterised by ZIRP and modest rate moves. Deposit betas calibrated against this period showed:</p>
 
 <ul>
-<li>Retail savings: 20&ndash;30%</li>
-<li>Commercial deposits: 30&ndash;50%</li>
-<li>Institutional / brokered: 60&ndash;80%</li>
+<li>Retail savings: 20-30%</li>
+<li>Commercial deposits: 30-50%</li>
+<li>Institutional / brokered: 60-80%</li>
 </ul>
 
-<p>When rates rose 525bps over 2022&ndash;2023, actual betas were materially higher:</p>
+<p>When rates rose 525bps over 2022-2023, actual betas were materially higher:</p>
 
 <ul>
-<li>Retail savings: 35&ndash;50% (up from 20&ndash;30%)</li>
-<li>Commercial deposits: 70&ndash;90% (up from 30&ndash;50%)</li>
-<li>Uninsured commercial: 80&ndash;95% (the SVB cohort)</li>
+<li>Retail savings: 35-50% (up from 20-30%)</li>
+<li>Commercial deposits: 70-90% (up from 30-50%)</li>
+<li>Uninsured commercial: 80-95% (the SVB cohort)</li>
 </ul>
 
 <p>The reason: depositors had access to better rate alternatives (T-bills, money market funds yielding 5%+) and digital channels made it easy to move money.</p>
@@ -123,7 +126,7 @@
 
 <p>If your model assumes 30% beta when actual beta is 80%, in a +200bps shock your modelled NII is materially overstated. Your EVE / NII shock numbers are similarly distorted.</p>
 
-<p>For the 2022&ndash;23 cycle, banks running 2019-vintage betas were modelling NII benefits of ~10&ndash;15%. Actual NII benefits were closer to 3&ndash;5% &mdash; and for some banks (those with high uninsured commercial mix), NII actually compressed.</p>
+<p>For the 2022-23 cycle, banks running 2019-vintage betas were modelling NII benefits of ~10-15%. Actual NII benefits were closer to 3-5% - and for some banks (those with high uninsured commercial mix), NII actually compressed.</p>
 
 <h2>How to recalibrate</h2>
 
@@ -140,15 +143,15 @@
 
 <p><strong>2. Use 2022-2025 actuals as base case.</strong></p>
 
-<p>Calibrate against your bank's actual experience over the rising rate cycle. Don't blend with pre-2022 data &mdash; the rate environment was structurally different (digital access, money market yields, etc.).</p>
+<p>Calibrate against your bank's actual experience over the rising rate cycle. Don't blend with pre-2022 data - the rate environment was structurally different (digital access, money market yields, etc.).</p>
 
 <p><strong>3. Flex beta in scenarios.</strong></p>
 
-<p>Base case = 2022&ndash;2025 actuals. Adverse scenario = 1.2x base (faster pass-through under stress). Severely adverse = 1.5x base (run-off scenario).</p>
+<p>Base case = 2022-2025 actuals. Adverse scenario = 1.2x base (faster pass-through under stress). Severely adverse = 1.5x base (run-off scenario).</p>
 
 <p><strong>4. Re-calculate EVE / NII shock.</strong></p>
 
-<p>Re-run your standard shock scenarios (+200bps parallel, etc.) with new betas. Expect your numbers to look materially worse than the previous cycle's output. That's the point &mdash; the previous cycle's output was wrong.</p>
+<p>Re-run your standard shock scenarios (+200bps parallel, etc.) with new betas. Expect your numbers to look materially worse than the previous cycle's output. That's the point - the previous cycle's output was wrong.</p>
 
 <h2>What about the deposit beta floor?</h2>
 

@@ -45,6 +45,9 @@
 .blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
 .blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
 </style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -76,15 +79,15 @@
     <p class="meta">Published 2026-04-22 &middot; SFS Models</p>
     <p class="summary">CECL adoption was 2020. Five years on, methodologies have drifted. Examiners are flagging four specific patterns: stale R&S forecast horizons, undefended reversion paths, ungrounded Q-factors, and outdated pool segmentation. How to fix each.</p>
 
-    <p>CECL (ASC 326) went live for SEC filers in 2020 and for non-SEC filers in 2023. Most banks built their methodology in the adoption window and haven't materially refreshed it since. That's a problem &mdash; OCC and FDIC examiners are now flagging methodology drift as a systemic issue, particularly at regional banks with CRE concentration.</p>
+    <p>CECL (ASC 326) went live for SEC filers in 2020 and for non-SEC filers in 2023. Most banks built their methodology in the adoption window and haven't materially refreshed it since. That's a problem - OCC and FDIC examiners are now flagging methodology drift as a systemic issue, particularly at regional banks with CRE concentration.</p>
 
 <h2>The four drift patterns</h2>
 
 <h3>1. Reasonable & Supportable forecast horizon hasn't been re-justified</h3>
 
-<p>CECL requires a Reasonable &amp; Supportable (R&amp;S) forecast period &mdash; the window over which you can defensibly project macro variables. After R&amp;S, you revert to historical loss rates.</p>
+<p>CECL requires a Reasonable &amp; Supportable (R&amp;S) forecast period - the window over which you can defensibly project macro variables. After R&amp;S, you revert to historical loss rates.</p>
 
-<p>Most banks picked 1&ndash;2 years at adoption and haven't revisited it. In 2020, with COVID uncertainty, 1 year was defensible. In 2026, with a clearer macro outlook, you might justify 2&ndash;3 years &mdash; but you must document why.</p>
+<p>Most banks picked 1-2 years at adoption and haven't revisited it. In 2020, with COVID uncertainty, 1 year was defensible. In 2026, with a clearer macro outlook, you might justify 2-3 years - but you must document why.</p>
 
 <p><strong>Examiner flag:</strong> "Why is your R&amp;S period still 1 year? What changed since adoption to justify the same window?" If you don't have a written answer, you have a finding.</p>
 
@@ -94,7 +97,7 @@
 
 <p>After the R&amp;S period, you must revert from forecast loss rates to historical mean. Most banks implemented this as a linear interpolation in Excel and never wrote the methodology document.</p>
 
-<p>The reversion path matters: a steep reversion in year 2 vs a gentle reversion over years 2&ndash;5 produces materially different lifetime ECL.</p>
+<p>The reversion path matters: a steep reversion in year 2 vs a gentle reversion over years 2-5 produces materially different lifetime ECL.</p>
 
 <p><strong>Examiner flag:</strong> "Show me the methodology document for your reversion path. Why linear vs exponential? Why over this duration?"</p>
 
@@ -133,11 +136,11 @@
 <p>Build this into your CECL governance:</p>
 
 <ol>
-<li><strong>Annual R&amp;S period review</strong> &mdash; 1 page, board-approved, justifies the chosen horizon</li>
-<li><strong>Annual reversion methodology review</strong> &mdash; 1 page, justifies the chosen reversion shape and duration</li>
-<li><strong>Quarterly Q-factor review</strong> &mdash; line-by-line update of each Q-factor with external data citation</li>
-<li><strong>Annual pool segmentation review</strong> &mdash; assesses whether the current pools are still risk-coherent</li>
-<li><strong>Annual back-test</strong> &mdash; compares the prior year's allowance against actual losses, identifies methodology gaps</li>
+<li><strong>Annual R&amp;S period review</strong> - 1 page, board-approved, justifies the chosen horizon</li>
+<li><strong>Annual reversion methodology review</strong> - 1 page, justifies the chosen reversion shape and duration</li>
+<li><strong>Quarterly Q-factor review</strong> - line-by-line update of each Q-factor with external data citation</li>
+<li><strong>Annual pool segmentation review</strong> - assesses whether the current pools are still risk-coherent</li>
+<li><strong>Annual back-test</strong> - compares the prior year's allowance against actual losses, identifies methodology gaps</li>
 </ol>
 
 <p>This isn't optional. Examiners explicitly ask for the documentation. If it doesn't exist, you have a finding.</p>

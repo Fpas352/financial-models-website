@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ILAAP: The Practical Guide to Internal Liquidity Adequacy Assessment | SFS Models Blog</title>
+<meta name="description" content="How ILAAP works, what it must demonstrate, the difference from ICAAP, LCR vs NSFR vs survival horizon, and how to structure the liquidity model that supports it.">
+<link rel="canonical" href="https://sfsmodels.org/blog/ilaap-liquidity-model.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="ILAAP: The Practical Guide to Internal Liquidity Adequacy Assessment">
+<meta property="og:description" content="How ILAAP works, what it must demonstrate, the difference from ICAAP, LCR vs NSFR vs survival horizon, and how to structure the liquidity model that supports it.">
+<meta property="og:url" content="https://sfsmodels.org/blog/ilaap-liquidity-model.html">
+<meta property="og:site_name" content="SFS Models">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ILAAP: The Practical Guide to Internal Liquidity Adequacy Assessment",
+  "description": "How ILAAP works, what it must demonstrate, the difference from ICAAP, LCR vs NSFR vs survival horizon, and how to structure the liquidity model that supports it.",
+  "datePublished": "2026-05-11",
+  "dateModified": "2026-05-11",
+  "author": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "publisher": { "@type": "Organization", "name": "SFS Models", "url": "https://sfsmodels.org" },
+  "mainEntityOfPage": "https://sfsmodels.org/blog/ilaap-liquidity-model.html"
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.blog-post { max-width: 720px; margin: 0 auto; padding: 2rem 0; }
+.blog-post h1 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.15; margin-bottom: 0.5rem; }
+.blog-post .meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+.blog-post .summary { font-size: 1.15rem; line-height: 1.55; padding: 1rem 1.25rem; border-left: 3px solid #C9A84C; background: rgba(201,168,76,0.05); margin-bottom: 2rem; }
+.blog-post h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; margin-top: 2.2rem; margin-bottom: 0.6rem; }
+.blog-post p, .blog-post li { line-height: 1.7; font-size: 1.02rem; }
+.blog-post pre { background: rgba(0,0,0,0.06); padding: 0.9rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.92rem; }
+.blog-post code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.blog-post a { color: #C9A84C; }
+.blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
+.blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
+</style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="/index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="/models.html">Models</a></li>
+        <li><a href="/previews.html">Preview Models</a></li>
+        <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="container blog-post">
+    <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
+    <h1>ILAAP: A Practical Guide to Internal Liquidity Adequacy Assessment</h1>
+    <p class="meta">Published 2026-05-11 &middot; SFS Models</p>
+    <p class="summary">A bank can be adequately capitalised and still fail within days if it can't fund its liabilities. ILAAP is the regulatory framework that tests whether a bank can survive a liquidity stress. Here's what it requires and how to build the model that supports it.</p>
+
+    <p>The Internal Liquidity Adequacy Assessment Process (ILAAP) is the liquidity counterpart to ICAAP. Where ICAAP asks "does the bank have enough capital to absorb losses?", ILAAP asks "does the bank have enough liquidity to survive a stress event without external support?"</p>
+
+    <p>The 2023 Silicon Valley Bank failure illustrated this distinction with brutal clarity. SVB was technically solvent on a held-to-maturity basis. It failed because a deposit run over 48 hours exhausted its liquidity. ICAAP alone doesn't protect against that. ILAAP is the framework designed to catch it early.</p>
+
+    <p>In the UK, ILAAP is required for PRA-supervised banks and building societies under SS24/15. In the EU, SSM banks submit it alongside ICAAP as part of the SREP cycle. For US banks, the LCR rule and the internal liquidity stress testing requirements under the Liquidity Coverage Ratio final rule serve a broadly similar function.</p>
+
+    <h2>What ILAAP must demonstrate</h2>
+
+    <p>An ILAAP submission must demonstrate that the bank:</p>
+    <ol>
+      <li><strong>Understands its liquidity risk profile</strong> - where its funding comes from, how stable it is, where concentrations exist</li>
+      <li><strong>Maintains sufficient HQLA</strong> to survive a 30-day combined stress (LCR compliance)</li>
+      <li><strong>Has a stable funding structure</strong> over the medium term (NSFR compliance)</li>
+      <li><strong>Can survive a stressed period</strong> of at least 30 days on an intraday basis without accessing external markets</li>
+      <li><strong>Has an adequate ILAAP buffer</strong> of High Quality Liquid Assets beyond what LCR requires</li>
+    </ol>
+
+    <h2>The three regulatory metrics</h2>
+
+    <table>
+      <tr><th>Metric</th><th>What it measures</th><th>Minimum</th><th>Stress horizon</th></tr>
+      <tr><td>LCR (Liquidity Coverage Ratio)</td><td>HQLA &divide; Net stressed outflows over 30 days</td><td>100%</td><td>30 days</td></tr>
+      <tr><td>NSFR (Net Stable Funding Ratio)</td><td>Available Stable Funding &divide; Required Stable Funding</td><td>100%</td><td>1 year</td></tr>
+      <tr><td>Survival horizon</td><td>Days of liquidity under combined stress</td><td>Internal minimum (typically 30-90 days)</td><td>Bank-specific</td></tr>
+    </table>
+
+    <p>LCR is the primary near-term metric. It requires banks to hold enough High Quality Liquid Assets (HQLA) to cover net cash outflows over a 30-day stress scenario. HQLA is cash, central bank reserves, Level 1 government bonds, and qualifying Level 2 assets with haircuts.</p>
+
+    <p>NSFR is the structural funding metric. It asks whether the funding structure is stable enough to support the asset base over a 12-month horizon. Long-term assets must be funded by long-term liabilities; short-term wholesale funding creates NSFR pressure.</p>
+
+    <h2>The ILAAP stress scenario</h2>
+
+    <p>The ILAAP stress scenario is typically a combined market and idiosyncratic stress - a simultaneous market-wide liquidity squeeze and a bank-specific run driven by a loss of confidence.</p>
+
+    <p>The prescribed outflow rates for retail deposits in LCR are:</p>
+    <ul>
+      <li>Stable retail deposits (fully insured, established relationship): 3-5% run-off</li>
+      <li>Less stable retail deposits: 10-15% run-off</li>
+      <li>SME deposits: 5-10% run-off</li>
+      <li>Non-financial corporate: 25% run-off</li>
+      <li>Financial institution deposits: 100% run-off</li>
+      <li>Unsecured wholesale funding &lt;30 days: 100% run-off</li>
+    </ul>
+
+    <p>For ILAAP's internal stress scenario, the bank typically applies more severe rates than the LCR minimum - especially for uninsured commercial deposits and wholesale funding. Post-SVB, any bank with significant uninsured commercial deposits should be stress-testing at 40-60%+ run-off for that cohort in the adverse case.</p>
+
+    <h2>The survival horizon</h2>
+
+    <p>The survival horizon is the number of days a bank can continue to meet its obligations under the internal stress scenario before the HQLA buffer is exhausted. It's calculated as:</p>
+
+    <pre><code>For each day t:
+  Net_outflows(t) = Outflows(t) - Inflows(t) [based on stressed run-off rates]
+  HQLA_buffer(t) = HQLA_buffer(t-1) - Net_outflows(t)
+
+Survival_horizon = first day t where HQLA_buffer(t) ≤ 0</code></pre>
+
+    <p>The internal minimum is typically 30 days (to match the LCR horizon) but regulators expect banks to target 45-90 days for meaningful headroom. A bank that hits its minimum at exactly 31 days has no margin.</p>
+
+    <h2>HQLA composition and haircuts</h2>
+
+    <p>Not all liquid assets count equally in HQLA. The regulatory haircuts:</p>
+
+    <table>
+      <tr><th>Asset class</th><th>Level</th><th>Haircut</th><th>Cap</th></tr>
+      <tr><td>Cash, central bank reserves</td><td>Level 1</td><td>0%</td><td>None</td></tr>
+      <tr><td>Sovereign / central bank bonds (0% RW)</td><td>Level 1</td><td>0%</td><td>None</td></tr>
+      <tr><td>Non-0% RW sovereign bonds</td><td>Level 2A</td><td>15%</td><td>40% of total HQLA</td></tr>
+      <tr><td>Covered bonds (AA-)</td><td>Level 2A</td><td>15%</td><td>40% of total HQLA</td></tr>
+      <tr><td>Qualifying RMBS, corporate bonds</td><td>Level 2B</td><td>25-50%</td><td>15% of total HQLA</td></tr>
+    </table>
+
+    <p>A bank holding mostly Level 2B assets (e.g., corporate bond portfolio) will find its HQLA meaningfully lower than the face value. This is a common modelling gap - teams count the portfolio at market value without applying the haircut, overstating LCR.</p>
+
+    <h2>Funding structure analysis</h2>
+
+    <p>Beyond the 30-day LCR, ILAAP requires demonstrating that the funding structure is sustainable. The key analysis:</p>
+
+    <p><strong>Maturity mismatch.</strong> What proportion of funding is short-term (&lt;30 days, &lt;3 months, &lt;1 year) vs long-term? A large maturity mismatch means the bank is refinancing frequently - which creates rollover risk if wholesale markets close.</p>
+
+    <p><strong>Funding concentration.</strong> Reliance on a small number of large depositors is an ILAAP weakness. The PRA expects analysis of the top 20 depositors' balances as a percentage of total funding. Single depositors &gt;1% of funding should be individually stress-tested.</p>
+
+    <p><strong>Intraday liquidity.</strong> Under Basel III intraday liquidity rules, ILAAP should also demonstrate the bank can meet intraday payment obligations without relying on incoming payments to fund outflows. This requires real-time payment system data - it's the most data-intensive part of ILAAP.</p>
+
+    <h2>Common ILAAP model failures</h2>
+
+    <ul>
+      <li><strong>Run-off rates not bank-specific.</strong> Using LCR minimum run-off rates as the ILAAP stress rate misses the point. ILAAP should use rates calibrated to your deposit mix, depositor behaviour, and concentration. Post-SVB, regulators expect to see evidence of that calibration.</li>
+      <li><strong>Static funding base in the stress.</strong> The model should project the funding book day-by-day, applying run-off rates and capturing any contractual maturities. A static LCR ratio isn't the same as a dynamic survival horizon.</li>
+      <li><strong>Contingent funding not modelled.</strong> HQLA includes assets that can be monetised in stress - repo facilities, FHLB (US) or central bank standing facilities (UK). These need to be modelled at their stressed availability, not par value. A repo facility with a 10% overcollateralisation requirement only provides 90p of liquidity per £1 of collateral.</li>
+      <li><strong>ILAAP buffer = LCR surplus.</strong> Regulators increasingly view the ILAAP buffer as a separate management buffer above LCR, not just whatever's left after hitting 100% LCR. Framing it as the surplus overstates the actual headroom.</li>
+    </ul>
+
+    <h2>The ILAAP model in Excel</h2>
+
+    <p>An ILAAP model needs to:</p>
+    <ul>
+      <li>Calculate HQLA by asset class with Level 1/2A/2B haircuts applied</li>
+      <li>Project net outflows day-by-day over 30 days using stressed run-off rates by product and depositor type</li>
+      <li>Calculate LCR: HQLA &divide; Net stressed outflows, vs 100% minimum</li>
+      <li>Calculate NSFR: Available Stable Funding &divide; Required Stable Funding, vs 100% minimum</li>
+      <li>Project the survival horizon under the combined stress scenario</li>
+      <li>Show the maturity profile of assets vs liabilities by time bucket</li>
+      <li>Flag concentration risks (top 20 depositors, wholesale &gt;X% of total)</li>
+      <li>Switch between scenarios (Base, Stress, Severe Stress) from a single INPUTS dropdown</li>
+    </ul>
+
+    <div class="blog-cta">
+      <h3>ILAAP Model - Excel Template</h3>
+      <p>Institutional-grade ILAAP model for bank Treasury and ALM teams. Covers LCR (HQLA with haircuts, net stressed outflows), NSFR, survival horizon projection, maturity analysis, and funding concentration. Full scenario switching, open formulas, CHECKS tab.</p>
+      <p><a href="/ilaap-model-excel.html" class="btn btn-primary">View the ILAAP Model &rarr;</a></p>
+    </div>
+
+    <h2>ICAAP and ILAAP: running them together</h2>
+
+    <p>In the SREP cycle, regulators review ICAAP and ILAAP together. The interaction matters: a capital stress that drives losses can deplete HQLA (cash used to absorb losses is HQLA reduced). Conversely, a liquidity stress that requires asset fire-sales can drive capital losses if assets are sold below book value.</p>
+
+    <p>For a complete Pillar 2 submission, you need both. ICAAP covering the capital adequacy question, ILAAP covering the liquidity question, and a section that addresses the interaction between the two. See our <a href="/icaap-model-excel.html">ICAAP model</a> for the capital-side counterpart.</p>
+
+    <p style="color:var(--text-muted); font-size: 0.85rem; margin-top: 3rem;">Published 2026-05-11. SFS Models builds institutional-grade Excel financial models for bank Treasury, ALM, and Capital teams. <a href="/models.html">View all models.</a></p>
+
+    <div class="blog-cta">
+      <h3>Get the SFS Model Catalogue</h3>
+      <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
+      <p><a href="/models.html" class="btn btn-primary">View SFS Model Catalogue</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+    </div>
+
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="/models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="/models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="/models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="/models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="/models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/about.html#methodology">Methodology</a></li>
+          <li><a href="/pricing.html#faq">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="/terms.html">Terms &amp; Conditions</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/scripts.js"></script>
+</body>
+</html>

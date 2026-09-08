@@ -45,6 +45,9 @@
 .blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
 .blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
 </style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -74,19 +77,19 @@
     <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom: 0.5rem;"><a href="/" style="color:var(--text-muted);">Home</a> &middot; <a href="/blog/" style="color:var(--text-muted);">Blog</a></p>
     <h1>LBO Model Debt Sizing: How to Structure the Debt Stack</h1>
     <p class="meta">Published 2026-05-07 &middot; SFS Models</p>
-    <p class="summary">Debt sizing in an LBO model is not a single calculation &mdash; it's an iterative constraint problem with credit ratios, leverage multiples, and coverage tests all biting at once. Here's how PE professionals actually structure the debt stack.</p>
+    <p class="summary">Debt sizing in an LBO model is not a single calculation - it's an iterative constraint problem with credit ratios, leverage multiples, and coverage tests all biting at once. Here's how PE professionals actually structure the debt stack.</p>
 
-    <p>Most LBO model tutorials start with a fixed debt amount and work backwards to returns. In practice, the debt stack is determined by constraints &mdash; and identifying which constraint bites first is the core of the debt sizing exercise.</p>
+    <p>Most LBO model tutorials start with a fixed debt amount and work backwards to returns. In practice, the debt stack is determined by constraints - and identifying which constraint bites first is the core of the debt sizing exercise.</p>
 
 <h2>The four debt sizing constraints</h2>
 
 <p>Every leveraged buyout is constrained by at least one of these four limits. Often two or three bind simultaneously:</p>
 
 <ol>
-<li><strong>Leverage multiple</strong> &mdash; Senior lenders quote a maximum Debt / EBITDA (e.g. 4.5x senior, 6.0x total). This gives you the headline quantum.</li>
-<li><strong>DSCR floor</strong> &mdash; Lenders require minimum debt service coverage (typically 1.10x&ndash;1.25x). In Year 1, stressed EBITDA minus capex must cover P&amp;I payments.</li>
-<li><strong>Fixed charge coverage</strong> &mdash; Similar to DSCR but includes finance leases, rent, and sometimes management fees.</li>
-<li><strong>Equity minimum</strong> &mdash; Most PE deals require 30&ndash;40% equity as a minimum. Regulatory capital (for financial institution targets) can push this higher.</li>
+<li><strong>Leverage multiple</strong> - Senior lenders quote a maximum Debt / EBITDA (e.g. 4.5x senior, 6.0x total). This gives you the headline quantum.</li>
+<li><strong>DSCR floor</strong> - Lenders require minimum debt service coverage (typically 1.10x-1.25x). In Year 1, stressed EBITDA minus capex must cover P&amp;I payments.</li>
+<li><strong>Fixed charge coverage</strong> - Similar to DSCR but includes finance leases, rent, and sometimes management fees.</li>
+<li><strong>Equity minimum</strong> - Most PE deals require 30-40% equity as a minimum. Regulatory capital (for financial institution targets) can push this higher.</li>
 </ol>
 
 <h2>Building the debt schedule in order</h2>
@@ -104,11 +107,11 @@
 
 <h3>Step 2: Revolving credit facility (RCF)</h3>
 
-<p>The RCF sits pari passu with the TLB but is typically excluded from the leverage calculation at close (drawn = 0). Size it as 0.5&ndash;1.0x EBITDA for operational liquidity. The RCF tightens the effective DSCR through its commitment fee, which is a fixed charge regardless of drawdown.</p>
+<p>The RCF sits pari passu with the TLB but is typically excluded from the leverage calculation at close (drawn = 0). Size it as 0.5-1.0x EBITDA for operational liquidity. The RCF tightens the effective DSCR through its commitment fee, which is a fixed charge regardless of drawdown.</p>
 
 <h3>Step 3: Mezzanine / unitranche</h3>
 
-<p>After senior is maxed, test whether adding a mezzanine tranche is feasible. Mezzanine lenders look at total leverage (typically cap at 6.0&ndash;7.0x in today's market) and interest coverage (EBITDA / total interest &ge; 2.0x). PIK mezzanine is tested on cash coverage only (excluding PIK coupon), which is why sponsors prefer it when coverage is tight.</p>
+<p>After senior is maxed, test whether adding a mezzanine tranche is feasible. Mezzanine lenders look at total leverage (typically cap at 6.0-7.0x in today's market) and interest coverage (EBITDA / total interest &ge; 2.0x). PIK mezzanine is tested on cash coverage only (excluding PIK coupon), which is why sponsors prefer it when coverage is tight.</p>
 
 <h3>Step 4: Seller note / PIK toggle</h3>
 
@@ -124,7 +127,7 @@ Cash sweep       = Excess free cash flow above mandatory debt service
 Interest charge  = Opening balance × (rate / 12)
 Closing balance  = Opening + Drawdown - Repayment - Sweep</code></pre>
 
-<p>The cash sweep is where most LBO models get it wrong. The sweep applies to free cash flow after mandatory P&amp;I, before dividends, but after capex and working capital. The sweep rate (50%, 75%, 100%) is negotiated &mdash; build it as a INPUTS parameter, not a hardcode.</p>
+<p>The cash sweep is where most LBO models get it wrong. The sweep applies to free cash flow after mandatory P&amp;I, before dividends, but after capex and working capital. The sweep rate (50%, 75%, 100%) is negotiated - build it as a INPUTS parameter, not a hardcode.</p>
 
 <h2>Covenant headroom testing</h2>
 
@@ -145,9 +148,9 @@ Closing balance  = Opening + Drawdown - Repayment - Sweep</code></pre>
 
 <p>Sensitivity analysis almost always shows the same result: entry multiple and exit multiple dwarf everything else in their impact on IRR. But debt sizing affects the equity cheque, which determines how hard the leverage effect works.</p>
 
-<p>The mechanical relationship: for every 1.0x of additional leverage at entry (holding purchase price constant), equity invested decreases proportionally. On a 5-year hold with flat EBITDA, 1.0x extra leverage adds approximately 300&ndash;500bps to IRR, before interest cost drag.</p>
+<p>The mechanical relationship: for every 1.0x of additional leverage at entry (holding purchase price constant), equity invested decreases proportionally. On a 5-year hold with flat EBITDA, 1.0x extra leverage adds approximately 300-500bps to IRR, before interest cost drag.</p>
 
-<p>Above the DSCR floor, the limit on leverage is almost always the senior lender's leverage cap &mdash; not the economics. The economics almost always want more debt than the credit market will provide.</p>
+<p>Above the DSCR floor, the limit on leverage is almost always the senior lender's leverage cap - not the economics. The economics almost always want more debt than the credit market will provide.</p>
 
 <h2>Building this in Excel</h2>
 
@@ -160,7 +163,7 @@ Closing balance  = Opening + Drawdown - Repayment - Sweep</code></pre>
 <li>Returns tab: equity bridge from entry to exit using debt paydown + EBITDA growth + multiple</li>
 </ol>
 
-<p>Our <a href="/lbo-model-excel.html">LBO Model</a> covers all of this &mdash; senior TLB, RCF, mezzanine, PIK, covenant testing, cash sweep, and equity returns waterfall. Open formulas, no VBA.</p>
+<p>Our <a href="/lbo-model-excel.html">LBO Model</a> covers all of this - senior TLB, RCF, mezzanine, PIK, covenant testing, cash sweep, and equity returns waterfall. Open formulas, no VBA.</p>
 
 
     <div class="blog-cta">

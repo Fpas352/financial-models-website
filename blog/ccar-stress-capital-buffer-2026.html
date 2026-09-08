@@ -45,6 +45,9 @@
 .blog-cta { margin: 3rem 0; padding: 1.5rem; border: 1px solid #C9A84C; border-radius: 8px; }
 .blog-cta h3 { margin-top: 0; font-family: 'DM Serif Display', serif; }
 </style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
 </head>
 <body>
 
@@ -84,7 +87,7 @@
 
 <p>SCB = Maximum projected capital decline + 4 quarters of planned common stock dividends.</p>
 
-<p>That last component &mdash; planned dividends &mdash; is what changed for 2026.</p>
+<p>That last component - planned dividends - is what changed for 2026.</p>
 
 <h2>What changed for 2026</h2>
 
@@ -126,7 +129,7 @@
 
 <p><strong>Under old methodology:</strong> SCB calculation includes $1.2bn dividend addition. Maximum projected CET1 decline (say 250bps over 9 quarters) drives a buffer of, say, 3.5%.</p>
 
-<p><strong>Under new methodology:</strong> at each quarter, the rolling 4-quarter dividend sum is recalculated. If projected stress causes dividend cuts (per MDA), the SCB declines &mdash; but lagging the actual decline. The bank may face a higher SCB during the recovery phase than under the old methodology.</p>
+<p><strong>Under new methodology:</strong> at each quarter, the rolling 4-quarter dividend sum is recalculated. If projected stress causes dividend cuts (per MDA), the SCB declines - but lagging the actual decline. The bank may face a higher SCB during the recovery phase than under the old methodology.</p>
 
 <p>Practical impact: the bank's modelled CET1 decline may now breach the 5.125% AT1 trigger floor when it didn't under the old framework. That's a material capital plan change that needs to land before the 2026 cycle, not during it.</p>
 
@@ -135,14 +138,14 @@
 <ol>
 <li><strong>Audit your current capital plan model.</strong> Search for "SCB" in formulas. If it appears as a static cell on INPUTS, you're on the old methodology.</li>
 <li><strong>Rebuild capital_actions and SCB calculations as quarterly time series.</strong> Don't shortcut to annual.</li>
-<li><strong>Recalibrate PPNR.</strong> Use 2022&ndash;2025 actuals as the base, not 2018&ndash;2019.</li>
-<li><strong>Recalibrate deposit beta.</strong> The 2022&ndash;23 cycle showed actual betas were 2&ndash;3x your old assumptions. See <a href="/blog/deposit-beta-calibration.html">deposit beta calibration</a>.</li>
+<li><strong>Recalibrate PPNR.</strong> Use 2022-2025 actuals as the base, not 2018-2019.</li>
+<li><strong>Recalibrate deposit beta.</strong> The 2022-23 cycle showed actual betas were 2-3x your old assumptions. See <a href="/blog/deposit-beta-calibration.html">deposit beta calibration</a>.</li>
 <li><strong>Run the model end-to-end on the 2025 supervisory severely adverse scenario.</strong> If your output looks materially worse than your 2024 submission, you're calibrated correctly. If it looks the same, something's wrong.</li>
 </ol>
 
 <h2>The model that handles this</h2>
 
-<p>Our <a href="/bank-stress-test-model.html">Bank Stress Test Model</a> is built for the new methodology natively &mdash; quarterly SCB recalculation, dividend-as-input, recalibratable PPNR, MDA feedback loop. Tested against the 2025 supervisory severely adverse scenario.</p>
+<p>Our <a href="/bank-stress-test-model.html">Bank Stress Test Model</a> is built for the new methodology natively - quarterly SCB recalculation, dividend-as-input, recalibratable PPNR, MDA feedback loop. Tested against the 2025 supervisory severely adverse scenario.</p>
 
 
     <div class="blog-cta">
