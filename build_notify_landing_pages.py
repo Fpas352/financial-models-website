@@ -16,6 +16,8 @@ from pathlib import Path
 MODELS = [
     {
         "slug": "icaap-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/e6d9bf1b-702a-4241-a242-279afc63154b",
+        "cta_price": "£399.00",
         "cta_name": "ICAAP Model",
         "title": "ICAAP Model Excel Template",
         "h1": "ICAAP Model Excel Template",
@@ -59,6 +61,8 @@ MODELS = [
     },
     {
         "slug": "project-finance-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/8c53ada3-69ff-43d2-a4f9-7371a5a33df7",
+        "cta_price": "£299.00",
         "cta_name": "Project Finance SPV Model",
         "title": "Project Finance Model Excel Template",
         "h1": "Project Finance Model (SPV) Excel Template",
@@ -101,6 +105,8 @@ MODELS = [
     },
     {
         "slug": "pe-fund-waterfall-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/4cfd01c2-3864-4e43-9c02-974f63323d48",
+        "cta_price": "£299.00",
         "cta_name": "PE Fund Waterfall Model",
         "title": "PE Fund Waterfall Model Excel Template",
         "h1": "Private Equity Fund Waterfall Model",
@@ -143,6 +149,8 @@ MODELS = [
     },
     {
         "slug": "ifrs17-insurance-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/675ee328-b686-44e7-b8e2-59b8ea4854ec",
+        "cta_price": "£299.00",
         "cta_name": "IFRS 17 Insurance Model",
         "title": "IFRS 17 Insurance Model Excel Template",
         "h1": "IFRS 17 Insurance Model Excel Template",
@@ -186,6 +194,8 @@ MODELS = [
     },
     {
         "slug": "ilaap-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/80bee0dc-dfce-4a35-8cf2-41adbd355a03",
+        "cta_price": "£399.00",
         "cta_name": "ILAAP Model",
         "title": "ILAAP Model Excel Template",
         "h1": "ILAAP Model Excel Template",
@@ -229,6 +239,8 @@ MODELS = [
     },
     {
         "slug": "real-estate-fund-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/df0b87ef-5d93-455e-af5f-209f5b3b4d85",
+        "cta_price": "£299.00",
         "cta_name": "Real Estate Fund Model",
         "title": "Real Estate Fund Model Excel Template",
         "h1": "Real Estate Fund Financial Model Excel Template",
@@ -272,6 +284,8 @@ MODELS = [
     },
     {
         "slug": "credit-fund-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/3d27ee73-3255-4fa4-80dc-a3aa7d5edb40",
+        "cta_price": "£299.00",
         "cta_name": "Credit Fund Model",
         "title": "Credit Fund Model Excel Template",
         "h1": "Credit Fund Financial Model Excel Template",
@@ -316,6 +330,8 @@ MODELS = [
     },
     {
         "slug": "merger-consequences-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/a5887094-5be6-4211-a32c-839ff228c468",
+        "cta_price": "£249.00",
         "cta_name": "Merger Consequences Model",
         "title": "Merger Consequences Model Excel Template",
         "h1": "Merger Consequences (Accretion / Dilution) Model",
@@ -359,6 +375,8 @@ MODELS = [
     },
     {
         "slug": "restructuring-model-excel",
+        "cta_url": "https://sfsmodels.lemonsqueezy.com/checkout/buy/75cd5c67-3a34-44da-8619-f4f7daea11ef",
+        "cta_price": "£249.00",
         "cta_name": "Restructuring and Recovery Model",
         "title": "Restructuring & Recovery Financial Model Excel",
         "h1": "Restructuring & Recovery Financial Model",
@@ -544,7 +562,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <div class="container" style="max-width:760px;">
       <h2>About SFS Models</h2>
       <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals. Used by FP&amp;A, Treasury, ALM and Capital teams at US and UK regional banks, by PE firms, and by corporate finance consultancies. Open formulas, no VBA, fully auditable.</p>
-      <p style="margin-top:1rem;"><a href="/contact.html?model={slug}" class="btn btn-primary" data-enquiry-cta="{slug}">Request the {cta_name}</a> <a href="/models.html" class="btn btn-secondary">Browse the live catalogue</a></p>
+      <p style="margin-top:1rem;"><a href="{cta_url}" target="_blank" rel="noopener" class="btn btn-primary" data-model-id="{slug}">Buy the {cta_name} - {cta_price}</a> <a href="/models.html" class="btn btn-secondary">Browse the live catalogue</a></p>
     </div>
   </section>
 
@@ -645,6 +663,8 @@ def main():
             subtitle=m["subtitle"],
             form_name=m["form_name"],
             cta_name=m["cta_name"],
+            cta_url=m["cta_url"],
+            cta_price=m["cta_price"],
             audience=m["audience"],
             tabs_html=render_tabs(m["tabs"]),
             diff_html=render_diff(m["differentiators"]),

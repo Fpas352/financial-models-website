@@ -294,6 +294,132 @@ const LS_PRODUCTS = {
     buyUrl: "PASTE_LS_URL_HERE",
     checkoutEmbed: true,
   },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "basel-iv-rwa": {
+    name: "Basel IV RWA Calculator",
+    price: "£399.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/be65cc2a-e6dc-41bb-b308-35a1bbd52321",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "buy-to-let": {
+    name: "Buy-to-Let Model",
+    price: "£149.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/6e8dc0b8-5342-45bd-87f4-bd0cab93f2be",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "credit-fund": {
+    name: "Credit Fund Model",
+    price: "£299.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/3d27ee73-3255-4fa4-80dc-a3aa7d5edb40",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "icaap": {
+    name: "ICAAP Model",
+    price: "£399.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/e6d9bf1b-702a-4241-a242-279afc63154b",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "ifrs17": {
+    name: "IFRS 17 Insurance Model",
+    price: "£299.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/675ee328-b686-44e7-b8e2-59b8ea4854ec",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "ilaap": {
+    name: "ILAAP Model",
+    price: "£399.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/80bee0dc-dfce-4a35-8cf2-41adbd355a03",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "infra-dcf": {
+    name: "Infrastructure DCF Model",
+    price: "£299.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/f57e7381-1ee7-40eb-88fc-8f0d5bcc082b",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "merger": {
+    name: "Merger Consequences Model",
+    price: "£249.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/a5887094-5be6-4211-a32c-839ff228c468",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "pe-fund": {
+    name: "PE Fund Model",
+    price: "£299.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/4cfd01c2-3864-4e43-9c02-974f63323d48",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "portfolio-attrib": {
+    name: "Portfolio Return Attribution Model",
+    price: "£199.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/452ab53d-caf9-4a1c-b78b-f767d005744a",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "ppp-concession": {
+    name: "PPP / Concession Model",
+    price: "£299.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/925ea5b1-7b5a-4ff7-904f-52dcbc40d641",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "project-finance": {
+    name: "Project Finance SPV Model",
+    price: "£299.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/8c53ada3-69ff-43d2-a4f9-7371a5a33df7",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "re-fund": {
+    name: "Real Estate Fund Model",
+    price: "£299.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/df0b87ef-5d93-455e-af5f-209f5b3b4d85",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
+
+  // Added 9 Sep 2026. Built models that previously had no checkout.
+  "restructuring": {
+    name: "Restructuring and Recovery Model",
+    price: "£249.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/75cd5c67-3a34-44da-8619-f4f7daea11ef",
+    freeUrl: "",
+    checkoutEmbed: true,
+  },
 };
 
 // Make available to ES modules
