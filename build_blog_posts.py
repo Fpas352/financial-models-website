@@ -1624,7 +1624,20 @@ def main():
         print(f"Wrote blog/{p['slug']}.html ({len(html):,} bytes)")
 
     # Build a simple /blog/index.html
+    # Weekly research editions (The UK Banking Market Review) lead the list.
+    # Newest first. Each is a static page under /research/, built outside this
+    # script by the uk-banking-review pipeline; add one entry per edition.
+    RESEARCH = [
+        {"url": "/research/uk-banking-review-2026-w37.html",
+         "title": "The UK Banking Market Review, Week 37 2026",
+         "summary": "Free weekly review. High-LTV lending at a 2008 high, Aldermore's accounts taken apart as bids arrive, the repricing split and bank tax proposals, with last week's calls graded.",
+         "published": "2026-09-13"},
+    ]
     items = []
+    for r in RESEARCH:
+        items.append(
+            f'<li style="margin-bottom:1.5rem;"><a href="{r["url"]}" style="color:#C9A84C; font-size:1.15rem; font-weight:600;">{r["title"]}</a><br><span style="color:var(--text-muted); font-size:0.95rem;">{r["summary"]}</span><br><span style="color:var(--text-muted); font-size:0.85rem;">Published {r["published"]}</span></li>'
+        )
     for p in POSTS:
         items.append(
             f'<li style="margin-bottom:1.5rem;"><a href="/blog/{p["slug"]}.html" style="color:#C9A84C; font-size:1.15rem; font-weight:600;">{p["title"]}</a><br><span style="color:var(--text-muted); font-size:0.95rem;">{p["summary"]}</span><br><span style="color:var(--text-muted); font-size:0.85rem;">Published {p["published"]}</span></li>'
