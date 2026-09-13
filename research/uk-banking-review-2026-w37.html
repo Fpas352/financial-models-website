@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The UK Banking Market Review · Week 37 2026 · SFS Models</title>
+<meta name="description" content="Free weekly UK banking review from SFS Models. Week 37: high-LTV lending at a 2008 high, Aldermore's accounts taken apart as bids arrive, the repricing split and bank tax proposals, with last week's calls graded.">
+<link rel="canonical" href="https://sfsmodels.org/research/uk-banking-review-2026-w37.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SFS Models">
+<meta property="og:title" content="The UK Banking Market Review, Week 37 2026">
+<meta property="og:description" content="High-LTV lending at a 2008 high, Aldermore taken apart as bids arrive, and last week's calls graded. Free every week.">
+<meta property="og:url" content="https://sfsmodels.org/research/uk-banking-review-2026-w37.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Libre+Franklin:wght@400;600;700&display=swap" rel="stylesheet">
+<style>:root{--ink:#1b1b1b;--ink2:#3d3a36;--ink3:#6b665e;--rule:#1b1b1b;--hair:#d9d4c7;--paper:#fdfcf8;--claret:#7a1f2b;--box:#f4f1e8}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:17.5px/1.6 "Source Serif 4",Georgia,"Times New Roman",serif;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
+.doc{max-width:980px;margin:0 auto;padding:26px 40px 64px}
+a{color:var(--claret);text-decoration-thickness:1px;text-underline-offset:2px}
+p{margin:0 0 13px}
+.sans{font-family:"Libre Franklin","Helvetica Neue",Arial,sans-serif}
+
+/* nameplate */
+.plate{text-align:center;border-bottom:3px double var(--rule);padding:6px 0 12px}
+.plate .name{font:700 48px/1.05 "Source Serif 4",Georgia,serif;letter-spacing:-.012em}
+.plate .sub{font:400 13.5px "Libre Franklin",Arial,sans-serif;color:var(--ink3);margin-top:8px}
+.dateline{display:flex;justify-content:space-between;gap:12px;font:600 13px "Libre Franklin",Arial,sans-serif;border-bottom:1px solid var(--rule);padding:7px 0;margin-bottom:28px}
+
+/* front page */
+.front{display:grid;grid-template-columns:2fr 1fr;gap:34px;margin-bottom:8px}
+h1{font:700 42px/1.1 "Source Serif 4",Georgia,serif;letter-spacing:-.015em;margin:0 0 14px}
+.stand{font-style:italic;font-size:20.5px;line-height:1.45;color:var(--ink2);margin:0 0 14px}
+.byline{font:600 13.5px "Libre Franklin",Arial,sans-serif;color:var(--claret)}
+.index{border-left:1px solid var(--rule);padding-left:22px}
+.index h4,aside h4{font:700 15px "Libre Franklin",Arial,sans-serif;border-bottom:2px solid var(--rule);padding-bottom:5px;margin:0 0 6px}
+.toc{list-style:none;margin:0;padding:0;font-size:15.5px;line-height:1.35}
+.toc li{display:grid;grid-template-columns:26px 1fr;padding:5px 0;border-bottom:1px solid var(--hair)}
+.toc li span{font:600 13px "Libre Franklin",Arial,sans-serif;color:var(--claret);padding-top:2px}
+.toc a{color:inherit;text-decoration:none}
+
+/* sections */
+section{margin-top:40px}
+.sh{border-top:2px solid var(--rule);padding-top:8px;margin-bottom:14px}
+.sh .n{display:block;font:600 12.5px "Libre Franklin",Arial,sans-serif;color:var(--claret);margin-bottom:2px}
+.sh h2{margin:0;font:700 30px/1.15 "Source Serif 4",Georgia,serif;letter-spacing:-.01em}
+h3{font:700 23px/1.22 "Source Serif 4",Georgia,serif;margin:30px 0 8px;letter-spacing:-.005em}
+h4{font:700 15px "Libre Franklin",Arial,sans-serif;border-bottom:1px solid var(--rule);padding-bottom:4px;margin:24px 0 8px}
+.lede{font-size:18.5px}
+#s01 .lede::first-letter{float:left;font:700 70px/.8 "Source Serif 4",Georgia,serif;padding:7px 9px 0 0;color:var(--claret)}
+
+/* week in brief: numbered news list */
+.glance{list-style:none;counter-reset:g;margin:0 0 22px;padding:0;columns:2;column-gap:30px;column-rule:1px solid var(--hair)}
+.glance li{counter-increment:g;break-inside:avoid;display:grid;grid-template-columns:24px 1fr;padding:0 0 12px;font-size:16px;line-height:1.45}
+.glance li::before{content:counter(g);font:700 15px "Libre Franklin",Arial,sans-serif;color:var(--claret);padding-top:2px}
+.glance li b{grid-column:2;font-weight:700}
+.glance li span{grid-column:2;color:var(--ink2)}
+
+/* in brief */
+.brief{font:400 14.5px/1.55 "Libre Franklin",Arial,sans-serif;color:var(--ink2);border-top:1px solid var(--rule);border-bottom:1px solid var(--hair);padding:9px 0;margin:0 0 14px}
+.brief .l{font-weight:700;color:var(--ink);margin-right:6px}
+.brief .l::after{content:"."}
+
+/* calls */
+.score{font:400 15px "Libre Franklin",Arial,sans-serif;color:var(--ink2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:8px 0;margin:4px 0 16px;display:flex;flex-wrap:wrap;gap:4px 26px}
+.score b{font:700 22px "Source Serif 4",Georgia,serif;color:var(--ink);margin-right:6px}
+.call{border-bottom:1px solid var(--hair);padding:12px 0 4px}
+.call h5{font:700 19px/1.3 "Source Serif 4",Georgia,serif;margin:0 0 4px}
+.tag{display:block;margin:3px 0 0;font:700 13px "Libre Franklin",Arial,sans-serif}
+.tag::before{content:"Verdict: ";font-weight:400;color:var(--ink3)}
+.tag.c{color:var(--ink)} .tag.k{color:var(--claret)} .tag.o{color:var(--ink3)}
+.said{font-style:italic;font-size:15.5px;color:var(--ink3);margin:0 0 8px}
+
+/* tables */
+.ts{overflow-x:auto;margin:10px 0 8px}
+table{width:100%;border-collapse:collapse;font:400 14.5px/1.45 "Libre Franklin",Arial,sans-serif}
+th{text-align:left;font-weight:700;font-size:13.5px;padding:6px 10px 6px 0;border-bottom:1.5px solid var(--rule);vertical-align:bottom}
+td{padding:8px 10px 8px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+td.d{white-space:nowrap;color:var(--ink3);width:78px}
+table.ledger td:first-child{width:32%;font-weight:600}
+
+.note{font:400 12.5px/1.5 "Libre Franklin",Arial,sans-serif;color:var(--ink3);margin:4px 0 16px}
+.chart{margin:18px 0 0}
+.chart .cap{font:600 13.5px "Libre Franklin",Arial,sans-serif;margin-bottom:2px}
+.chart svg{width:100%;height:auto;display:block}
+.chart + .key,.chart + .note{border-top:1px solid var(--hair);padding-top:5px}
+.key{display:flex;flex-wrap:wrap;gap:4px 18px;font:400 12.5px "Libre Franklin",Arial,sans-serif;color:var(--ink2);margin:0}
+.key + .note{margin-top:2px}
+.key i{display:inline-block;width:16px;height:3px;vertical-align:middle;margin-right:6px}
+
+/* commentary */
+.voice{border-bottom:1px solid var(--hair);padding:10px 0 2px}
+.voice .who{font:400 13.5px "Libre Franklin",Arial,sans-serif;color:var(--ink3);margin-bottom:3px}
+.voice .who b{color:var(--ink);font-weight:700}
+.flag{font:italic 600 13px "Libre Franklin",Arial,sans-serif;color:var(--claret);margin-left:4px}
+.flag.old{color:var(--ink3)}
+
+.about{margin-top:46px;border-top:3px double var(--rule);border-bottom:1px solid var(--rule);padding:14px 0 6px}
+.about h3{margin-top:0}
+.about ul{margin:6px 0 12px;padding-left:20px}
+.fine{font:400 12px/1.5 "Libre Franklin",Arial,sans-serif;color:var(--ink3);margin-top:18px}
+
+/* svg */
+.ct{display:none}
+.cl{font:10.5px "Libre Franklin",Arial,sans-serif;fill:#6b665e}
+.cv{font:600 10px "Libre Franklin",Arial,sans-serif;fill:#3d3a36}
+.cg{stroke:#e5e0d3;stroke-width:1}
+.cz{stroke:#1b1b1b;stroke-width:1}
+
+@page{size:A4;margin:15mm 14mm 17mm}
+@media print{
+  html,body{background:#fff}
+  .doc{max-width:none;padding:0}
+  .call,.voice,.chart,.brief,tr,.glance li{break-inside:avoid}
+  h3,h4,.sh{break-after:avoid}
+  .ts{overflow:visible}
+}
+@media (max-width:700px){
+  .doc{padding:18px 16px 40px}
+  .plate .name{font-size:32px}
+  .dateline{font-size:11.5px;flex-wrap:wrap}
+  .front{grid-template-columns:1fr;gap:18px}
+  .index{border-left:0;padding-left:0}
+  h1{font-size:31px}
+  .stand{font-size:18px}
+  .sh h2{font-size:25px}
+  h3{font-size:21px}
+  .glance{columns:1}
+  body{font-size:17px}
+  table{font-size:13.5px}
+  .ts table.wide{min-width:520px}
+  table.ledger td:first-child{width:40%}
+  #s01 .lede::first-letter{font-size:58px}
+}
+</style></head><body><div class="doc">
+<div class="plate"><div class="name">The UK Banking Market Review</div><div class="sub">Published weekly by SFS Models &middot; Free to read</div></div>
+<div class="dateline"><span>Week 37</span><span>Sunday 13 September 2026</span><span><a href="uk-banking-review-2026-w37.pdf" style="color:inherit">Download PDF</a> &middot; <a href="https://sfsmodels.org" style="color:inherit">sfsmodels.org</a></span></div>
+<div class="front"><div>
+<h1>More high-LTV lending than at any time since 2008, at the thinnest premium in the data</h1>
+<p class="stand">Two Bank of England releases, read together, show lenders writing more first-time buyer risk and charging less for it. Also this week: Aldermore's accounts taken apart as bids arrive, an unusual repricing split, bank tax proposals with prices attached, and last week's calls graded.</p>
+<div class="byline">SFS Models Research &middot; Week to 12 September &middot; 162 items reviewed</div>
+</div><aside class="index"><h4>In this edition</h4><ol class="toc"><li><span>1</span><a href="#s01">The week in brief</a></li><li><span>2</span><a href="#s02">Company in focus: Aldermore</a></li><li><span>3</span><a href="#s03">Last week's calls, graded</a></li><li><span>4</span><a href="#s04">Deep dives</a></li><li><span>5</span><a href="#s05">Pricing and product tracker</a></li><li><span>6</span><a href="#s06">Listed bank valuations</a></li><li><span>7</span><a href="#s07">Regulation, tax and conduct</a></li><li><span>8</span><a href="#s08">Rates and the economy</a></li><li><span>9</span><a href="#s09">What others are saying</a></li><li><span>10</span><a href="#s10">Calls for the weeks ahead</a></li><li><span>11</span><a href="#s11">Dates to watch and worth reading</a></li><li><span>12</span><a href="#s12">How this review is made</a></li></ol></aside></div>
+<section id="s01"><div class="sh"><span class="n">Section 1</span><h2>The week in brief</h2></div>
+
+<ul class="glance">
+ <li><b>High-LTV lending at a 2008 high</b><span>8.4% of gross advances were above 90% LTV in Q2, the highest share since 2008. The rate premium for that risk is the narrowest in 18 months of Bank of England data. Section 4.</span></li>
+ <li><b>Big lenders up, challengers down</b><span>HSBC and NatWest raised fixed rates from 7 September as swaps rose. Atom and Landbay cut on 10 September. Sections 4 and 5.</span></li>
+ <li><b>Aldermore, taken apart</b><span>As bids come in, what a buyer actually gets: two businesses, a changed funding base and a price that needs synergies to work. Section 2.</span></li>
+ <li><b>Bank tax proposals now have prices</b><span>A 38% windfall levy costed at about £19bn; the surcharge back to 8% at about £9bn over four years. No Treasury measure yet. Section 7.</span></li>
+ <li><b>Inflation expectations fell, with a caveat</b><span>The Bank changed survey provider in the same quarter and says the comparison is affected. Section 8.</span></li>
+</ul>
+<p class="lede">The thread running through the week is that the amount of mortgage risk in the UK system rose while the price charged for it fell. Both facts are in Bank of England data published this week, and they were reported separately or not at all. Advances above 90% loan-to-value reached 8.4% of the market in the second quarter. Over the same months, the gap between a two-year fix at 90% LTV and one at 75% narrowed to 24 basis points in August, from 55 in March 2025.</p>
+<p>That happened while funding costs rose. The two-year swap was 4.26% on 3 September, up 20 basis points in a month. The largest lenders did the expected thing and repriced up. The challengers cut. When funding gets dearer and the challengers cut anyway, they are either better hedged or buying share at a thinner margin. The narrowing at the high-LTV end points to the second.</p>
+<p>Two dates now frame the sector's autumn: the MPC decision on 17 September and the Budget on 28 October. John Cronin's view, in Section 9, is that mortgage spreads will not rebuild until the Budget settles the bank tax question.</p>
+
+</section>
+<section id="s02"><div class="sh"><span class="n">Section 2</span><h2>Company in focus: Aldermore</h2></div>
+
+<p class="lede">FirstRand wants out of the UK. It has classed the whole Aldermore Group as held for sale, and non-binding offers are due by the end of September. Aldermore's annual report, published on 10 September, is now the document every bidder is reading. This section reads it the way they will: what the business earns, how it is funded, what its capital can bear, and what the prices analysts have floated would mean.</p>
+
+<div class="brief"><span class="l">In brief</span><span>Year to 30 June 2026. Net loans £18.8bn, up 13%. Deposits £19.1bn, up 12%. Underlying profit before tax £238.9m, down 6%; statutory £51.2m, down 74%, after a £164.8m motor finance redress charge. Net interest margin 3.46%, from 3.78%. CET1 13.6%, from 14.9%. £125m dividend paid to FirstRand. Owner's timetable: non-binding offers end September, binding offers end December.</span></div>
+
+<h4>Scorecard</h4>
+<div class="ts"><table class="wide"><thead><tr><th>Measure</th><th class="r">FY2026</th><th class="r">FY2025</th><th>What moved it</th></tr></thead><tbody>
+<tr><td>Net loans</td><td class="r">£18.8bn</td><td class="r">£16.6bn</td><td>Buy-to-let growth plus £465m Octane book</td></tr>
+<tr><td>Customer deposits</td><td class="r">£19.1bn</td><td class="r">£17.0bn</td><td>Corporate deposits via aggregators up 76%</td></tr>
+<tr><td>Net interest margin</td><td class="r">3.46%</td><td class="r">3.78%</td><td>Lower asset yields, dearer deposits</td></tr>
+<tr><td>Cost:income, underlying</td><td class="r">53.1%</td><td class="r">55.0%</td><td>Underlying costs down 3%</td></tr>
+<tr><td>Cost:income, statutory</td><td class="r">84.2%</td><td class="r">65.1%</td><td>Motor redress, restructuring, sale costs</td></tr>
+<tr><td>Cost of risk</td><td class="r">26bp</td><td class="r">10bp</td><td>Macro assumptions; Motor at 96bp</td></tr>
+<tr><td>Return on equity, statutory</td><td class="r">1.9%</td><td class="r">7.7%</td><td>Exceptional charges</td></tr>
+<tr><td>Return on equity, underlying (est.)</td><td class="r">9.6%</td><td class="r">n/a</td><td>SFS estimate, 27% tax assumed</td></tr>
+<tr><td>CET1 ratio</td><td class="r">13.6%</td><td class="r">14.9%</td><td>Motor redress and Octane</td></tr>
+<tr><td>Leverage ratio</td><td class="r">8.3%</td><td class="r">8.8%</td><td>Balance sheet growth</td></tr>
+<tr><td>Liquidity coverage, 12-month average</td><td class="r">170%</td><td class="r">203%</td><td>£465m final TFSME repayment</td></tr>
+<tr><td>Non-performing loans</td><td class="r">3.0%</td><td class="r">3.4%</td><td>Legacy cases worked out</td></tr>
+<tr><td>Impairment coverage</td><td class="r">1.26%</td><td class="r">1.48%</td><td>Model recalibration</td></tr>
+</tbody></table></div>
+<p class="note">Source: Aldermore Group FY2026 results announcement and Annual Report and Accounts (pages 15 to 21, 101 to 103, 136, 137, 197 to 199). Underlying cost:income and underlying return on equity are SFS Models calculations. Aldermore defines margin on average customer loans, not interest-earning assets, so it is not directly comparable with every peer.</p>
+
+<h3>1. The margin fell less than the hedges did</h3>
+<p>Net interest income rose 1%, to £604.1m, and the headline explanation is loan growth offsetting a lower margin. The income note shows something sharper. Interest received on the swaps that hedge the loan book fell from £140.1m to £34.5m, a £105.6m drop, as the fixed-rate hedges written when rates were higher rolled onto lower rates. Interest on customer loans rose £82.1m and interest paid fell £37.6m. Growth covered the hedging loss almost exactly, with nothing to spare.</p>
+<div class="chart"><div class="cap">Chart 1. Aldermore net interest income bridge, FY2025 to FY2026</div><svg viewBox="0 32 760 258" role="img" aria-label="Aldermore net interest income bridge, FY2025 to FY2026" xmlns="http://www.w3.org/2000/svg">
+<text x="64" y="48" class="ct">Aldermore net interest income bridge, FY2025 to FY2026</text>
+<line x1="64" y1="238.0" x2="742" y2="238.0" class="cg"/>
+<text x="56" y="241.5" class="cl" text-anchor="end">500</text>
+<line x1="64" y1="192.0" x2="742" y2="192.0" class="cg"/>
+<text x="56" y="195.5" class="cl" text-anchor="end">550</text>
+<line x1="64" y1="146.0" x2="742" y2="146.0" class="cg"/>
+<text x="56" y="149.5" class="cl" text-anchor="end">600</text>
+<line x1="64" y1="100.0" x2="742" y2="100.0" class="cg"/>
+<text x="56" y="103.5" class="cl" text-anchor="end">650</text>
+<line x1="64" y1="54.0" x2="742" y2="54.0" class="cg"/>
+<text x="56" y="57.5" class="cl" text-anchor="end">700</text>
+<text x="14" y="146" class="cl" transform="rotate(-90 14 146)" text-anchor="middle">£m</text>
+<rect x="86.6" y="147.9" width="67.8" height="90.1" fill="#2b2b2b" rx="1.5"/>
+<text x="120.5" y="253" class="cl" text-anchor="middle">NII</text>
+<text x="120.5" y="265" class="cl" text-anchor="middle">FY25</text>
+<text x="120.5" y="142.9" class="cv" text-anchor="middle">597.9</text>
+<rect x="199.6" y="72.4" width="67.8" height="75.5" fill="#2b2b2b" rx="1.5"/>
+<text x="233.5" y="253" class="cl" text-anchor="middle">Loan</text>
+<text x="233.5" y="265" class="cl" text-anchor="middle">interest</text>
+<text x="233.5" y="67.4" class="cv" text-anchor="middle">+82.1</text>
+<rect x="312.6" y="72.4" width="67.8" height="97.2" fill="#7a1f2b" rx="1.5"/>
+<text x="346.5" y="253" class="cl" text-anchor="middle">Hedging</text>
+<text x="346.5" y="265" class="cl" text-anchor="middle">income</text>
+<text x="346.5" y="67.4" class="cv" text-anchor="middle">-105.6</text>
+<rect x="425.6" y="169.6" width="67.8" height="7.3" fill="#7a1f2b" rx="1.5"/>
+<text x="459.5" y="253" class="cl" text-anchor="middle">Cash and</text>
+<text x="459.5" y="265" class="cl" text-anchor="middle">securities</text>
+<text x="459.5" y="164.6" class="cv" text-anchor="middle">-7.9</text>
+<rect x="538.6" y="142.2" width="67.8" height="34.6" fill="#2b2b2b" rx="1.5"/>
+<text x="572.5" y="253" class="cl" text-anchor="middle">Interest</text>
+<text x="572.5" y="265" class="cl" text-anchor="middle">expense</text>
+<text x="572.5" y="137.2" class="cv" text-anchor="middle">+37.6</text>
+<rect x="651.6" y="142.2" width="67.8" height="95.8" fill="#2b2b2b" rx="1.5"/>
+<text x="685.5" y="253" class="cl" text-anchor="middle">NII</text>
+<text x="685.5" y="265" class="cl" text-anchor="middle">FY26</text>
+<text x="685.5" y="137.2" class="cv" text-anchor="middle">604.1</text>
+</svg></div><p class="note">Source: Aldermore Annual Report FY2026, note 5 and note 4. Interest income on loans, hedging instruments, and cash and securities; interest expense to external customers.</p>
+<p>The yield on customer loans fell from 6.88% to 6.7% (interest on loans divided by average loans). Aldermore itself says fixed-rate savings stayed expensive relative to swaps. For any buyer the question is how much hedge income is left to roll off, because the FY2027 accounts will not have another £105.6m of it to lose, but they may not have £82.1m of loan growth to replace what remains either.</p>
+
+<h3>2. The funding base has changed character</h3>
+<p>Aldermore still funds itself mostly from deposits, 88% of liabilities, and the loan-to-deposit ratio is 98%. The mix beneath that has moved. Personal savings grew 2%, business savings fell 11%, and corporate deposits raised through deposit aggregators grew 76% to £5.0bn. They were 16.7% of deposits a year ago and are 26.1% now.</p>
+<div class="chart"><div class="cap">Chart 2. Aldermore funding by source, £bn</div><svg viewBox="0 32 760 178" role="img" aria-label="Aldermore funding by source, £bn" xmlns="http://www.w3.org/2000/svg">
+<text x="70" y="32" class="ct">Aldermore funding by source, £bn</text>
+<text x="60" y="72.5" class="cl" text-anchor="end">Jun 2025</text>
+<rect x="70.0" y="50.8" width="316.1" height="35.3" fill="#2b2b2b"/>
+<text x="228.1" y="72.5" class="cv" text-anchor="middle" style="fill:#fff">11.5</text>
+<rect x="386.1" y="50.8" width="75.5" height="35.3" fill="#8a8377"/>
+<text x="423.9" y="72.5" class="cv" text-anchor="middle" style="fill:#fff">2.7</text>
+<rect x="461.6" y="50.8" width="78.4" height="35.3" fill="#7a1f2b"/>
+<text x="500.8" y="72.5" class="cv" text-anchor="middle" style="fill:#fff">2.8</text>
+<rect x="540.0" y="50.8" width="43.6" height="35.3" fill="#b9b2a3"/>
+<text x="561.8" y="72.5" class="cv" text-anchor="middle" style="fill:#1b1b1b">1.6</text>
+<rect x="583.6" y="50.8" width="51.8" height="35.3" fill="#d9d4c7"/>
+<text x="609.5" y="72.5" class="cv" text-anchor="middle" style="fill:#1b1b1b">1.9</text>
+<text x="641.4" y="72.5" class="cv">20.5</text>
+<text x="60" y="129.5" class="cl" text-anchor="end">Jun 2026</text>
+<rect x="70.0" y="107.8" width="322.0" height="35.3" fill="#2b2b2b"/>
+<text x="231.0" y="129.5" class="cv" text-anchor="middle" style="fill:#fff">11.7</text>
+<rect x="392.0" y="107.8" width="67.2" height="35.3" fill="#8a8377"/>
+<text x="425.6" y="129.5" class="cv" text-anchor="middle" style="fill:#fff">2.4</text>
+<rect x="459.3" y="107.8" width="137.6" height="35.3" fill="#7a1f2b"/>
+<text x="528.1" y="129.5" class="cv" text-anchor="middle" style="fill:#fff">5.0</text>
+<rect x="596.9" y="107.8" width="55.5" height="35.3" fill="#b9b2a3"/>
+<text x="624.6" y="129.5" class="cv" text-anchor="middle" style="fill:#1b1b1b">2.0</text>
+<rect x="652.4" y="107.8" width="49.6" height="35.3" fill="#d9d4c7"/>
+<text x="677.2" y="129.5" class="cv" text-anchor="middle" style="fill:#1b1b1b">1.8</text>
+<text x="708.0" y="129.5" class="cv">22.9</text>
+<rect x="70" y="171" width="11" height="11" fill="#2b2b2b"/><text x="86" y="180" class="cl">Personal savings</text>
+<rect x="207.2" y="171" width="11" height="11" fill="#8a8377"/><text x="223.2" y="180" class="cl">Business savings</text>
+<rect x="344.4" y="171" width="11" height="11" fill="#7a1f2b"/><text x="360.4" y="180" class="cl">Corporate deposits</text>
+<rect x="494.0" y="171" width="11" height="11" fill="#b9b2a3"/><text x="510.0" y="180" class="cl">Wholesale</text>
+<rect x="587.8" y="171" width="11" height="11" fill="#d9d4c7"/><text x="603.8" y="180" class="cl">Equity</text>
+</svg></div><p class="note">Source: Aldermore Annual Report FY2026, pages 19 and 20. Other liabilities not shown.</p>
+<p>Two figures show what that means. The share of contractual deposit cash flows due within three months rose from 54.2% to 69.0%, so the funding now reprices much faster. And the balance sheet's rate sensitivity flipped: a 2 point upward shift in the yield curve now costs £3.6m, where a year ago it earned £7.3m. Both are small numbers for a bank this size, but the direction is clear. Aggregator money is quick to raise and quick to leave, and corporate deposits carry higher outflow assumptions in the liquidity ratio, which is part of why average liquidity coverage fell from 203% to 170% alongside the final £465m repayment of Bank of England TFSME funding.</p>
+
+<h3>3. Credit looks clean, with a thinner cushion</h3>
+<p>Cost of risk rose to 26 basis points, which Aldermore calls the lower end of its through-the-cycle range. By division the picture is uneven: Property Finance released provisions (minus 1bp), Business Finance charged 11bp, and Motor Finance charged 96bp. Non-performing loans fell from 3.4% to 3.0%.</p>
+<p>The stock of provisions is the more important number. Expected credit losses fell from £258.0m to £248.6m while gross lending grew 13%, so coverage dropped from 1.48% to 1.26%. Had coverage stayed at last year's 1.48%, provisions would be about £43.6m higher (1.48% × £19,742.6m, less £248.6m). Aldermore attributes the fall to model recalibration and remediation of old cases, and there is no evidence it is wrong. It does mean less cushion than a year ago. Coverage on non-performing loans fell from 25.5% to 22.8%, stage 2 loans stand at £1.2bn (6.4% of gross loans), and forborne loans in stage 3 rose from £104.4m to £151.1m.</p>
+
+<h3>4. Capital: enough, but not much spare</h3>
+<p>CET1 fell 1.3 points to 13.6%. Aldermore's own walk shows 0.5 points generated by profits, 1.1 points lost to motor redress, 0.5 points to the Octane purchase and 0.2 points to other items. The group also paid FirstRand a £125m dividend in the year and issued £300m of Tier 2 debt, which lifted the total capital ratio to 17.4%.</p>
+<div class="chart"><div class="cap">Chart 3. Aldermore CET1 ratio walk, June 2025 to June 2026</div><svg viewBox="0 32 760 248" role="img" aria-label="Aldermore CET1 ratio walk, June 2025 to June 2026" xmlns="http://www.w3.org/2000/svg">
+<text x="64" y="48" class="ct">Aldermore CET1 ratio walk, June 2025 to June 2026</text>
+<line x1="64" y1="228.0" x2="742" y2="228.0" class="cg"/>
+<text x="56" y="231.5" class="cl" text-anchor="end">12</text>
+<line x1="64" y1="206.2" x2="742" y2="206.2" class="cg"/>
+<text x="56" y="209.8" class="cl" text-anchor="end">12.5</text>
+<line x1="64" y1="184.5" x2="742" y2="184.5" class="cg"/>
+<text x="56" y="188.0" class="cl" text-anchor="end">13</text>
+<line x1="64" y1="162.8" x2="742" y2="162.8" class="cg"/>
+<text x="56" y="166.2" class="cl" text-anchor="end">13.5</text>
+<line x1="64" y1="141.0" x2="742" y2="141.0" class="cg"/>
+<text x="56" y="144.5" class="cl" text-anchor="end">14</text>
+<line x1="64" y1="119.2" x2="742" y2="119.2" class="cg"/>
+<text x="56" y="122.8" class="cl" text-anchor="end">14.5</text>
+<line x1="64" y1="97.5" x2="742" y2="97.5" class="cg"/>
+<text x="56" y="101.0" class="cl" text-anchor="end">15</text>
+<line x1="64" y1="75.8" x2="742" y2="75.8" class="cg"/>
+<text x="56" y="79.2" class="cl" text-anchor="end">15.5</text>
+<line x1="64" y1="54.0" x2="742" y2="54.0" class="cg"/>
+<text x="56" y="57.5" class="cl" text-anchor="end">16</text>
+<text x="14" y="141" class="cl" transform="rotate(-90 14 141)" text-anchor="middle">%</text>
+<rect x="86.6" y="101.8" width="67.8" height="126.2" fill="#2b2b2b" rx="1.5"/>
+<text x="120.5" y="243" class="cl" text-anchor="middle">CET1 Jun</text>
+<text x="120.5" y="255" class="cl" text-anchor="middle">2025</text>
+<text x="120.5" y="96.8" class="cv" text-anchor="middle">14.9</text>
+<rect x="199.6" y="80.1" width="67.8" height="21.7" fill="#2b2b2b" rx="1.5"/>
+<text x="233.5" y="243" class="cl" text-anchor="middle">Organic</text>
+<text x="233.5" y="255" class="cl" text-anchor="middle">capital</text>
+<text x="233.5" y="75.1" class="cv" text-anchor="middle">+0.5</text>
+<rect x="312.6" y="80.1" width="67.8" height="47.8" fill="#7a1f2b" rx="1.5"/>
+<text x="346.5" y="243" class="cl" text-anchor="middle">Motor</text>
+<text x="346.5" y="255" class="cl" text-anchor="middle">redress</text>
+<text x="346.5" y="75.1" class="cv" text-anchor="middle">-1.1</text>
+<rect x="425.6" y="127.9" width="67.8" height="21.8" fill="#7a1f2b" rx="1.5"/>
+<text x="459.5" y="243" class="cl" text-anchor="middle">Octane</text>
+<text x="459.5" y="255" class="cl" text-anchor="middle">purchase</text>
+<text x="459.5" y="122.9" class="cv" text-anchor="middle">-0.5</text>
+<rect x="538.6" y="149.7" width="67.8" height="8.7" fill="#7a1f2b" rx="1.5"/>
+<text x="572.5" y="243" class="cl" text-anchor="middle">Other</text>
+<text x="572.5" y="144.7" class="cv" text-anchor="middle">-0.2</text>
+<rect x="651.6" y="158.4" width="67.8" height="69.6" fill="#2b2b2b" rx="1.5"/>
+<text x="685.5" y="243" class="cl" text-anchor="middle">CET1 Jun</text>
+<text x="685.5" y="255" class="cl" text-anchor="middle">2026</text>
+<text x="685.5" y="153.4" class="cv" text-anchor="middle">13.6</text>
+</svg></div><p class="note">Source: Aldermore FY2026 results announcement, page 4. June 2025 on an IFRS 9 transitional basis.</p>
+<p>Basel 3.1 arrives on 1 January 2027. Aldermore expects risk-weighted assets to rise by about £0.5bn, mostly on buy-to-let and SME lending, while its total capital requirement falls from 9.31% to 9.00%, and it has cut its CET1 target to 12% to 13%. On those figures the pro forma ratio is about 13.1% (£1,632.5m ÷ £12,459.8m). That leaves roughly £137m above the bottom of the target range and £75m above its midpoint. A buyer is not acquiring surplus capital; it is acquiring a bank already running near its own target.</p>
+
+<h3>5. Two businesses under one name</h3>
+<div class="ts"><table class="wide"><thead><tr><th>FY2026, £m</th><th class="r">Property</th><th class="r">Motor</th><th class="r">Business</th></tr></thead><tbody>
+<tr><td>Operating income</td><td class="r">174.0</td><td class="r">170.1</td><td class="r">147.1</td></tr>
+<tr><td>Costs</td><td class="r">(95.7)</td><td class="r">(264.9)</td><td class="r">(83.0)</td></tr>
+<tr><td>Impairment</td><td class="r">1.3</td><td class="r">(42.2)</td><td class="r">(4.3)</td></tr>
+<tr><td>Segment result, reported</td><td class="r">79.6</td><td class="r">(137.1)</td><td class="r">59.8</td></tr>
+<tr><td>Motor, before redress charge (est.)</td><td class="r"></td><td class="r">27.7</td><td class="r"></td></tr>
+<tr><td>Assets</td><td class="r">10,397</td><td class="r">4,511</td><td class="r">3,920</td></tr>
+</tbody></table></div>
+<p class="note">Source: Annual Report note 4, page 136. Central functions, which include savings and treasury, reported £48.9m and are not shown. The Motor estimate assumes the £164.8m redress charge sits wholly in Motor costs, which the £99.8m rise in that line supports but does not prove.</p>
+<p>Business Finance earns the most per pound of assets, about 1.53% pre-tax, and Property about 0.77%. Motor, even before the redress charge, earned roughly £27.7m on £4.5bn, about 0.61%, down from about £40.4m a year earlier. It carries the highest credit cost and the whole conduct liability.</p>
+<p>The legal structure makes separation easy. MotoNovo Finance is a sister company of Aldermore Bank, not part of it. £220.3m of the £231.8m motor provision sits in MotoNovo, and during the year Aldermore Group put £80m of preference share capital into MotoNovo to keep it adequately capitalised. Press reports say bidders may be allowed to offer for the bank and MotoNovo separately. A buyer of the bank alone would leave 95% of the provision, and the division with the weakest returns, behind.</p>
+
+<h3>6. What the prices being discussed imply</h3>
+<p>Tangible equity is roughly £1.63bn (ordinary equity of £1,650m less £17.5m of intangibles and valuation deductions). Underlying earnings for ordinary shareholders are about £162.4m, taking underlying profit of £238.9m, tax at 27% (last year's effective rate was 27.1%) and the £12.0m AT1 coupon. That is an underlying return on equity of about 9.6%.</p>
+<div class="ts"><table class="wide"><thead><tr><th>Price for the whole group</th><th class="r">Price / tangible book</th><th class="r">Price / underlying earnings</th><th>Who has floated it</th></tr></thead><tbody>
+<tr><td>£1.35bn</td><td class="r">0.83x</td><td class="r">8.3x</td><td>RBC, low end</td></tr>
+<tr><td>£1.40bn</td><td class="r">0.86x</td><td class="r">8.6x</td><td>RBC, high end</td></tr>
+<tr><td>£1.50bn</td><td class="r">0.92x</td><td class="r">9.2x</td><td>John Cronin, as a floor</td></tr>
+</tbody></table></div>
+<p class="note">SFS Models calculations. For context, listed specialist lenders closed on 11 September at 0.88x (OSB), 1.02x (Paragon) and 0.73x (Secure Trust) tangible book; see Section 6.</p>
+<p>A simple test shows why synergies decide this. A bank worth 0.86 times book, with a 13% cost of equity and 3% long-run growth, needs to earn about 11.6% on equity (0.86 × 10 points, plus 3). Aldermore earns about 9.6% on our estimate. Closing that gap is worth about £34m a year after tax, or £46m before it. The cost of equity and growth rate are assumptions, and different ones move the answer, but the shape holds.</p>
+<p>This is where the funding change in point 2 matters. Every 50 basis points cheaper on the £5.0bn of corporate deposits is £25m a year before tax. A bidder with a large current-account base could replace that money with cheaper funding. A private equity bidder could not. On these numbers a bank bidder can justify a price a financial bidder would struggle to match, which is the logic behind RBC's view, and it is the funding side, not the lending book, that makes it work.</p>
+
+<p class="note">Sources: Aldermore Group PLC, full year results for the year ended 30 June 2026 (10 September 2026) and Annual Report and Accounts FY2026, pages as cited. Sale timetable and the separate-offer option from press reporting of FirstRand's FY2026 results (tier S). Analyst prices from RBC Capital Markets as reported, and John Cronin, Financials Unshackled, 10 September. Figures and workings are kept in the review's company data file so next year's comparison can be rebuilt. This is analysis of public information, not a recommendation.</p>
+
+</section>
+<section id="s03"><div class="sh"><span class="n">Section 3</span><h2>Last week's calls, graded</h2></div>
+
+<p>Every forward call in this review states what would confirm or kill it, and the following week grades it. The four below were published in Week 36. One was wrong, and it leads.</p>
+<div class="score"><span><b>4</b>calls</span><span><b>1</b>confirmed</span><span><b>1</b>killed</span><span><b>2</b>still open</span></div>
+<div class="call"><h5>Specialist buy-to-let lenders reverse their rate cuts within a fortnight <span class="tag k">Killed</span></h5>
+<p class="said">Kill condition: the specialist tier holds its pricing through a second week of elevated swaps.</p>
+<p>Swaps stayed high and the specialists did not hold; they cut further. Atom took 0.10% off Near Prime and most Prime rates on 10 September and Landbay cut core buy-to-let the same day. No named specialist raised rates. <b>We had the swap direction right and the reaction backwards:</b> it was the largest lenders that repriced up, not the specialists. The call's 19 September deadline had not passed, but its kill condition was met first, so it is graded as written.</p></div>
+<div class="call"><h5>Buy-to-let criteria loosening spreads beyond the two lenders that moved <span class="tag c">Confirmed</span></h5>
+<p class="said">Confirm condition: a third lender raises a portfolio limit, drops an experience test or relaxes age criteria within the quarter.</p>
+<p>Confirmed within a week. Marsden simplified expat buy-to-let criteria (7 September), Castle Trust enhanced its HMO range (9 September) and Tipton &amp; Coseley widened complex credit (11 September). Knowledge Bank logged more than 6,800 lender criteria changes in August, with maximum age the most-searched criterion. The confidence level on this call was set too low.</p></div>
+<div class="call"><h5>The Budget measure is a surcharge or levy, not reserves tiering <span class="tag o">Still open</span></h5>
+<p class="said">Resolves 28 October. Interim signal: a costed proposal or a Bank statement on reserve remuneration.</p>
+<p>The interim signal fired on one side only. Costed windfall and surcharge proposals appeared this week (Section 7); nothing at all was said about reserve remuneration.</p></div>
+<div class="call"><h5>Wider hawkish dissent at the September MPC than markets expect <span class="tag o">Still open</span></h5>
+<p class="said">Resolves 17 September: two or more votes for a rise.</p>
+<p>One piece of evidence cut against it: household inflation expectations fell sharply in the Bank's August survey, though part of that fall comes from a change of survey provider (Section 8).</p></div>
+<p class="note">Running record since Week 35: 8 calls, 3 confirmed, 1 killed, 4 open. Published calls are never edited, only graded.</p>
+
+</section>
+<section id="s04"><div class="sh"><span class="n">Section 4</span><h2>Deep dives</h2></div>
+
+<h3>The high-LTV premium halves as volumes reach a 2008 high</h3>
+<div class="brief"><span class="l">In brief</span><span>Bank of England Mortgage Lenders and Administrators Statistics, 2026 Q2, published 8 September. Advances above 90% LTV: 8.4% of the market, up 0.4 points on the quarter and 1.4 on the year, highest since 2008 Q2. Gross advances £77.4bn, up 11.1% on the quarter and 31.7% on the year. Outstanding balances £1,760.6bn, up 0.8% on the quarter and 3.1% on the year. Quoted two-year fix in August: 4.92% at 75% LTV, 5.16% at 90% LTV.</span></div>
+<p><strong>Why now.</strong> The volume data and the price data come from two different Bank of England releases, and put side by side they show one thing: the high-LTV segment is gaining share and losing its risk premium at the same time. The premium for moving from 75% to 90% LTV fell from 55 basis points in March 2025 to 38 in June 2026, 28 in July and 24 in August. In August both rates rose, but the 75% rate rose 13 basis points and the 90% rate only 9. When rising funding costs pass through less to the riskier product, lenders are absorbing them there on purpose.</p>
+<div class="chart"><div class="cap">Chart 4. Quoted 2-year fixed mortgage rates by loan-to-value</div><svg viewBox="0 32 760 268" role="img" aria-label="Quoted 2-year fixed mortgage rates by loan-to-value" xmlns="http://www.w3.org/2000/svg">
+<text x="52" y="48" class="ct">Quoted 2-year fixed mortgage rates by loan-to-value</text>
+<line x1="52" y1="260.0" x2="742" y2="260.0" class="cg"/>
+<text x="44" y="263.5" class="cl" text-anchor="end">3.50</text>
+<line x1="52" y1="208.5" x2="742" y2="208.5" class="cg"/>
+<text x="44" y="212.0" class="cl" text-anchor="end">4.00</text>
+<line x1="52" y1="157.0" x2="742" y2="157.0" class="cg"/>
+<text x="44" y="160.5" class="cl" text-anchor="end">4.50</text>
+<line x1="52" y1="105.5" x2="742" y2="105.5" class="cg"/>
+<text x="44" y="109.0" class="cl" text-anchor="end">5.00</text>
+<line x1="52" y1="54.0" x2="742" y2="54.0" class="cg"/>
+<text x="44" y="57.5" class="cl" text-anchor="end">5.50</text>
+<text x="14" y="157" class="cl" transform="rotate(-90 14 157)" text-anchor="middle">%</text>
+<text x="52.0" y="276" class="cl" text-anchor="middle">Mar 25</text>
+<text x="133.2" y="276" class="cl" text-anchor="middle">May 25</text>
+<text x="214.4" y="276" class="cl" text-anchor="middle">Jul 25</text>
+<text x="295.5" y="276" class="cl" text-anchor="middle">Sep 25</text>
+<text x="376.7" y="276" class="cl" text-anchor="middle">Nov 25</text>
+<text x="457.9" y="276" class="cl" text-anchor="middle">Jan 26</text>
+<text x="539.1" y="276" class="cl" text-anchor="middle">Mar 26</text>
+<text x="620.2" y="276" class="cl" text-anchor="middle">May 26</text>
+<text x="701.4" y="276" class="cl" text-anchor="middle">Jul 26</text>
+<text x="742.0" y="276" class="cl" text-anchor="middle">Aug 26</text>
+<polyline points="52.0,152.9 92.6,165.2 133.2,190.0 173.8,179.7 214.4,186.9 254.9,198.2 295.5,188.9 336.1,187.9 376.7,202.3 417.3,211.6 457.9,215.7 498.5,211.6 539.1,162.1 579.6,91.1 620.2,114.8 660.8,126.1 701.4,127.1 742.0,113.7" fill="none" stroke="#2b2b2b" stroke-width="2.1" stroke-linejoin="round"/>
+<circle cx="52.0" cy="152.9" r="2.4" fill="#2b2b2b"/>
+<circle cx="92.6" cy="165.2" r="2.4" fill="#2b2b2b"/>
+<circle cx="133.2" cy="190.0" r="2.4" fill="#2b2b2b"/>
+<circle cx="173.8" cy="179.7" r="2.4" fill="#2b2b2b"/>
+<circle cx="214.4" cy="186.9" r="2.4" fill="#2b2b2b"/>
+<circle cx="254.9" cy="198.2" r="2.4" fill="#2b2b2b"/>
+<circle cx="295.5" cy="188.9" r="2.4" fill="#2b2b2b"/>
+<circle cx="336.1" cy="187.9" r="2.4" fill="#2b2b2b"/>
+<circle cx="376.7" cy="202.3" r="2.4" fill="#2b2b2b"/>
+<circle cx="417.3" cy="211.6" r="2.4" fill="#2b2b2b"/>
+<circle cx="457.9" cy="215.7" r="2.4" fill="#2b2b2b"/>
+<circle cx="498.5" cy="211.6" r="2.4" fill="#2b2b2b"/>
+<circle cx="539.1" cy="162.1" r="2.4" fill="#2b2b2b"/>
+<circle cx="579.6" cy="91.1" r="2.4" fill="#2b2b2b"/>
+<circle cx="620.2" cy="114.8" r="2.4" fill="#2b2b2b"/>
+<circle cx="660.8" cy="126.1" r="2.4" fill="#2b2b2b"/>
+<circle cx="701.4" cy="127.1" r="2.4" fill="#2b2b2b"/>
+<circle cx="742.0" cy="113.7" r="2.4" fill="#2b2b2b"/>
+<polyline points="52.0,96.2 92.6,109.6 133.2,124.0 173.8,126.1 214.4,144.6 254.9,151.9 295.5,148.8 336.1,149.8 376.7,158.0 417.3,165.2 457.9,171.4 498.5,173.5 539.1,127.1 579.6,58.1 620.2,73.6 660.8,87.0 701.4,98.3 742.0,89.0" fill="none" stroke="#7a1f2b" stroke-width="2.1" stroke-linejoin="round"/>
+<circle cx="52.0" cy="96.2" r="2.4" fill="#7a1f2b"/>
+<circle cx="92.6" cy="109.6" r="2.4" fill="#7a1f2b"/>
+<circle cx="133.2" cy="124.0" r="2.4" fill="#7a1f2b"/>
+<circle cx="173.8" cy="126.1" r="2.4" fill="#7a1f2b"/>
+<circle cx="214.4" cy="144.6" r="2.4" fill="#7a1f2b"/>
+<circle cx="254.9" cy="151.9" r="2.4" fill="#7a1f2b"/>
+<circle cx="295.5" cy="148.8" r="2.4" fill="#7a1f2b"/>
+<circle cx="336.1" cy="149.8" r="2.4" fill="#7a1f2b"/>
+<circle cx="376.7" cy="158.0" r="2.4" fill="#7a1f2b"/>
+<circle cx="417.3" cy="165.2" r="2.4" fill="#7a1f2b"/>
+<circle cx="457.9" cy="171.4" r="2.4" fill="#7a1f2b"/>
+<circle cx="498.5" cy="173.5" r="2.4" fill="#7a1f2b"/>
+<circle cx="539.1" cy="127.1" r="2.4" fill="#7a1f2b"/>
+<circle cx="579.6" cy="58.1" r="2.4" fill="#7a1f2b"/>
+<circle cx="620.2" cy="73.6" r="2.4" fill="#7a1f2b"/>
+<circle cx="660.8" cy="87.0" r="2.4" fill="#7a1f2b"/>
+<circle cx="701.4" cy="98.3" r="2.4" fill="#7a1f2b"/>
+<circle cx="742.0" cy="89.0" r="2.4" fill="#7a1f2b"/>
+</svg></div><div class="key"><span><i style="background:#2b2b2b"></i>2-year fix, 75% LTV</span><span><i style="background:#7a1f2b"></i>2-year fix, 90% LTV</span></div><p class="note">Source: Bank of England IADB, series IUMBV34 and IUMB482, monthly, not seasonally adjusted. Series descriptions checked against the Bank's catalogue.</p>
+<p><strong>Why it matters.</strong> High-LTV borrowers are mostly first-time buyers, and first-time buyers are where a lender wins the current account, savings and remortgage that follow. That makes it the most expensive place to compete. On £1bn of 90% LTV lending, a premium falling from 55 to 24 basis points is about £3.1m a year no longer charged for the extra risk (31bp × £1bn), before any capital or expected-loss difference.</p>
+<div class="chart"><div class="cap">Chart 5. Premium for 90% LTV over 75% LTV</div><svg viewBox="0 32 760 238" role="img" aria-label="Premium for 90% LTV over 75% LTV" xmlns="http://www.w3.org/2000/svg">
+<text x="56" y="48" class="ct">Premium for 90% LTV over 75% LTV</text>
+<line x1="56" y1="226.0" x2="742" y2="226.0" class="cg"/>
+<text x="48" y="229.5" class="cl" text-anchor="end">0</text>
+<line x1="56" y1="183.0" x2="742" y2="183.0" class="cg"/>
+<text x="48" y="186.5" class="cl" text-anchor="end">20</text>
+<line x1="56" y1="140.0" x2="742" y2="140.0" class="cg"/>
+<text x="48" y="143.5" class="cl" text-anchor="end">40</text>
+<line x1="56" y1="97.0" x2="742" y2="97.0" class="cg"/>
+<text x="48" y="100.5" class="cl" text-anchor="end">60</text>
+<line x1="56" y1="54.0" x2="742" y2="54.0" class="cg"/>
+<text x="48" y="57.5" class="cl" text-anchor="end">80</text>
+<text x="14" y="140" class="cl" transform="rotate(-90 14 140)" text-anchor="middle">basis points</text>
+<rect x="63.2" y="107.8" width="23.6" height="118.2" fill="#b9b2a3" rx="1.5"/>
+<text x="75.1" y="242" class="cl" text-anchor="middle">Mar 25</text>
+<text x="75.1" y="102.8" class="cv" text-anchor="middle">55</text>
+<rect x="101.4" y="109.9" width="23.6" height="116.1" fill="#b9b2a3" rx="1.5"/>
+<text x="113.2" y="242" class="cl" text-anchor="middle">Apr 25</text>
+<text x="113.2" y="104.9" class="cv" text-anchor="middle">54</text>
+<rect x="139.5" y="88.4" width="23.6" height="137.6" fill="#b9b2a3" rx="1.5"/>
+<text x="151.3" y="242" class="cl" text-anchor="middle">May 25</text>
+<text x="151.3" y="83.4" class="cv" text-anchor="middle">64</text>
+<rect x="177.6" y="114.2" width="23.6" height="111.8" fill="#b9b2a3" rx="1.5"/>
+<text x="189.4" y="242" class="cl" text-anchor="middle">Jun 25</text>
+<text x="189.4" y="109.2" class="cv" text-anchor="middle">52</text>
+<rect x="215.7" y="137.9" width="23.6" height="88.1" fill="#b9b2a3" rx="1.5"/>
+<text x="227.5" y="242" class="cl" text-anchor="middle">Jul 25</text>
+<text x="227.5" y="132.9" class="cv" text-anchor="middle">41</text>
+<rect x="253.8" y="129.2" width="23.6" height="96.8" fill="#b9b2a3" rx="1.5"/>
+<text x="265.6" y="242" class="cl" text-anchor="middle">Aug 25</text>
+<text x="265.6" y="124.2" class="cv" text-anchor="middle">45</text>
+<rect x="291.9" y="142.2" width="23.6" height="83.8" fill="#b9b2a3" rx="1.5"/>
+<text x="303.7" y="242" class="cl" text-anchor="middle">Sep 25</text>
+<text x="303.7" y="137.2" class="cv" text-anchor="middle">39</text>
+<rect x="330.0" y="146.4" width="23.6" height="79.6" fill="#b9b2a3" rx="1.5"/>
+<text x="341.8" y="242" class="cl" text-anchor="middle">Oct 25</text>
+<text x="341.8" y="141.4" class="cv" text-anchor="middle">37</text>
+<rect x="368.1" y="133.6" width="23.6" height="92.4" fill="#b9b2a3" rx="1.5"/>
+<text x="379.9" y="242" class="cl" text-anchor="middle">Nov 25</text>
+<text x="379.9" y="128.6" class="cv" text-anchor="middle">43</text>
+<rect x="406.2" y="129.2" width="23.6" height="96.8" fill="#b9b2a3" rx="1.5"/>
+<text x="418.1" y="242" class="cl" text-anchor="middle">Dec 25</text>
+<text x="418.1" y="124.2" class="cv" text-anchor="middle">45</text>
+<rect x="444.4" y="133.6" width="23.6" height="92.4" fill="#b9b2a3" rx="1.5"/>
+<text x="456.2" y="242" class="cl" text-anchor="middle">Jan 26</text>
+<text x="456.2" y="128.6" class="cv" text-anchor="middle">43</text>
+<rect x="482.5" y="146.4" width="23.6" height="79.6" fill="#b9b2a3" rx="1.5"/>
+<text x="494.3" y="242" class="cl" text-anchor="middle">Feb 26</text>
+<text x="494.3" y="141.4" class="cv" text-anchor="middle">37</text>
+<rect x="520.6" y="152.9" width="23.6" height="73.1" fill="#b9b2a3" rx="1.5"/>
+<text x="532.4" y="242" class="cl" text-anchor="middle">Mar 26</text>
+<text x="532.4" y="147.9" class="cv" text-anchor="middle">34</text>
+<rect x="558.7" y="157.2" width="23.6" height="68.8" fill="#b9b2a3" rx="1.5"/>
+<text x="570.5" y="242" class="cl" text-anchor="middle">Apr 26</text>
+<text x="570.5" y="152.2" class="cv" text-anchor="middle">32</text>
+<rect x="596.8" y="140.0" width="23.6" height="86.0" fill="#b9b2a3" rx="1.5"/>
+<text x="608.6" y="242" class="cl" text-anchor="middle">May 26</text>
+<text x="608.6" y="135.0" class="cv" text-anchor="middle">40</text>
+<rect x="634.9" y="144.3" width="23.6" height="81.7" fill="#b9b2a3" rx="1.5"/>
+<text x="646.7" y="242" class="cl" text-anchor="middle">Jun 26</text>
+<text x="646.7" y="139.3" class="cv" text-anchor="middle">38</text>
+<rect x="673.0" y="165.8" width="23.6" height="60.2" fill="#b9b2a3" rx="1.5"/>
+<text x="684.8" y="242" class="cl" text-anchor="middle">Jul 26</text>
+<text x="684.8" y="160.8" class="cv" text-anchor="middle">28</text>
+<rect x="711.1" y="174.4" width="23.6" height="51.6" fill="#7a1f2b" rx="1.5"/>
+<text x="722.9" y="242" class="cl" text-anchor="middle">Aug 26</text>
+<text x="722.9" y="169.4" class="cv" text-anchor="middle">24</text>
+</svg></div><p class="note">Source: Bank of England. 90% LTV rate less 75% LTV rate, August 2026 highlighted; the difference of two published figures.</p>
+<p>Three limits on this reading. These are quoted rates, not rates on completed loans. A narrower premium can mean better-quality borrowers as well as keener pricing, and the data cannot separate the two. And the same release shows the share of loans priced within 2 points of Bank Rate fell to 94.5%, the lowest since 2023, so more lending is being written at wider absolute margins. A trade headline put outstanding mortgage debt at a "record £1.73trn"; the Bank's figure is £1,760.6bn. Also indexed late and carried with its real date: Coventry raised its first-time buyer income multiple to 6.5 times on 1 September.</p>
+
+<h3>The largest lenders raised rates; the challengers cut</h3>
+<div class="brief"><span class="l">In brief</span><span>Two-year swap 4.26% on 3 September, from 4.06% a month earlier (Moneyfacts). HSBC and NatWest raised fixed rates from 7 September. Atom cut Near Prime and most Prime rates by 0.10%, from 5.19%, on 10 September. Landbay cut core buy-to-let on 10 September. Few products withdrawn, unlike March 2026.</span></div>
+<p><strong>Why now.</strong> Moneyfacts noted that in late February the cheapest high-street deals sat about 29 basis points over the two-year swap. A 20 basis point rise in the swap takes most of that margin unless it is passed on, and the largest lenders passed it on. The specialist and digital lenders went the other way in the same week, which is exactly what our Week 36 call got wrong.</p>
+<p><strong>Why it matters.</strong> Moneyfacts puts the borrower cost of a 25 basis point rise on a £250,000, 25-year loan at about £38 a month. There are two readings of the challenger cuts. Either they hedged earlier and can hold price until those hedges roll off, or they are buying volume at a thinner margin while the big lenders step back. Low product withdrawals point to the second: when swaps spiked in March, lenders pulled products quickly; this time they priced through. A 9 September headline reported HSBC cutting; it conflicts with Moneyfacts and could not be tied to a dated HSBC announcement, so it is left out.</p>
+
+<h3>Coventry's prize-draw saver: a 5% headline on a £150 ceiling</h3>
+<div class="brief"><span class="l">In brief</span><span>Sunny Day Saver 3, launched 8 September for a limited period. 5% on a regular saver, up to £150 a month, open from £1. Adding at least £10 in a month enters a draw for ten prizes (one £500, three £200, six £50). Savers in all eleven monthly draws enter a further draw with a £5,000 top prize.</span></div>
+<p><strong>Why now.</strong> Prize-linked savings are rare outside NS&amp;I Premium Bonds. The design caps the cost of a headline rate: prizes total £1,600 a month, about £26,000 over the product's life including the final draw, however many accounts open. With deposits capped at £150 a month, the maximum balance after a year is £1,800.</p>
+<p><strong>Why it matters.</strong> That ceiling makes this an acquisition tool, not a funding one. It arrived in a week when fixed savings rates rose, with best buys up to 5.02%, while instant-access rates are expected to fall. The cause is the same swap curve pushing fixed mortgage rates up: term money costs more to hedge. Lenders face both sides of it, with dearer term deposits and instant-access balances easier for a rival to poach with a headline rate.</p>
+
+<h3>Halifax's app closure gets a date</h3>
+<div class="brief"><span class="l">In brief</span><span>Reported 11 September: the Halifax app closure process starts 5 October and the app closes on 31 October 2026, with customers moving to the Lloyds app. Background, not new this week: on 1 July Lloyds announced it would retire the 173-year-old Halifax brand, rebranding or merging its 190 branches through 2027.</span></div>
+<p><strong>Why now.</strong> The brand decision is ten weeks old. What is new is an operational date, and it is close. Retiring a brand is a strategy announcement; closing an app is when millions of customers have to act. Lloyds says sort codes and account numbers stay the same, Halifax is no longer opening new accounts, Bank of Scotland remains the lead brand in Scotland, and the change brings no extra branch closures or job losses.</p>
+<p><strong>Why it matters.</strong> Halifax is the UK's largest mortgage brand, so this is the biggest brand migration in UK retail banking in a generation, on a public timetable. 5 to 31 October is when Halifax customers are most likely to reconsider where they bank. It is also the first large test of how much value a heritage brand carries when its owner removes it but keeps the customer. Fourth-quarter switching data will show the answer.</p>
+
+<h3>Also this week</h3>
+<p><strong>Funding Circle lifts guidance, and its chief executive plans to leave.</strong> H1 2026 revenue rose 50% to £138.2m and profit before tax to £24.1m from £6.0m (8 September). Guidance for 2026 is now revenue above £255m and profit above £40m, with a further buyback of up to £25m. Chief executive Lisa Jacobs intends to step down by the end of September 2027, and the shares fell on the day. A day earlier Funding Circle announced a £500m lending commitment from Castlelake (single-sourced). SME lending funded by institutional money rather than deposits is growing fast outside the banking system, and the banks compete with it for the same borrowers.</p>
+<p><strong>Remortgaging carries the market.</strong> Twenty7tec recorded 1,556,758 mortgage searches in August, 13% down on July and 1% up on a year earlier, with remortgage searches up 11% year on year (11 September). With the FCA data in Section 7 showing 880,635 early lock-ins in the first half, the market's activity is increasingly existing borrowers refinancing rather than new purchases, so retention pricing matters more.</p>
+<p><strong>Digital challengers hire and move upmarket.</strong> Revolut was reported to be targeting FTSE 250 companies for UK business banking (9 September), and Zopa added former NatWest and Aldermore executives to its board (10 September). Both reported by headline; neither was checked against a company statement.</p>
+<p><strong>A building society buys a fintech's mortgages.</strong> Market Harborough Building Society bought a £120m mortgage portfolio from Gen H (7 September). Smaller mutuals with surplus liquidity are buying loans as well as originating them.</p>
+<p><strong>Payments reform: support, but little confidence.</strong> A survey reported by Finextra (11 September) found more than four in five UK industry leaders back the government's National Payments Vision, but fewer than a third are very confident in how it will work. Single-sourced.</p>
+<p><strong>Specialists keep growing.</strong> Scottish Building Society expanded its broker lending across England and Wales (9 September), Shawbrook reported more than £250m of financial sponsors lending in the first half (10 September), and Secure Trust Bank started the second tranche of its buyback (7 September).</p>
+
+</section>
+<section id="s05"><div class="sh"><span class="n">Section 5</span><h2>Pricing and product tracker</h2></div>
+
+<h4>Rate movements</h4>
+<div class="ts"><table class="wide"><thead><tr><th>Date</th><th>Lender</th><th>Move</th><th>Direction</th></tr></thead><tbody>
+<tr><td class="d">7 Sep</td><td>HSBC UK</td><td>Fixed residential and buy-to-let rates raised</td><td>Up</td></tr>
+<tr><td class="d">7 Sep</td><td>NatWest</td><td>Fixed rates raised since start of September</td><td>Up</td></tr>
+<tr><td class="d">8 Sep</td><td>Coventry BS</td><td>5% prize-draw regular saver launched</td><td>Savings</td></tr>
+<tr><td class="d">10 Sep</td><td>Atom bank</td><td>Near Prime and most Prime residential cut 0.10%, from 5.19%</td><td>Down</td></tr>
+<tr><td class="d">10 Sep</td><td>Landbay</td><td>Core buy-to-let range cut</td><td>Down</td></tr>
+<tr><td class="d">10 Sep</td><td>Market</td><td>Fixed ISA and fixed savings rates rise; best buys to 5.02%</td><td>Savings</td></tr>
+</tbody></table></div>
+<h4>Criteria, products and deals</h4>
+<div class="ts"><table class="wide"><thead><tr><th>Date</th><th>Lender</th><th>Development</th></tr></thead><tbody>
+<tr><td class="d">1 Sep (late)</td><td>Coventry BS</td><td>First-time buyer limit raised to 6.5 times income</td></tr>
+<tr><td class="d">7 Sep</td><td>Marsden BS</td><td>Expat buy-to-let criteria simplified</td></tr>
+<tr><td class="d">7 Sep</td><td>Market Harborough BS</td><td>£120m Gen H mortgage portfolio acquired</td></tr>
+<tr><td class="d">9 Sep</td><td>Castle Trust Bank</td><td>HMO range enhanced</td></tr>
+<tr><td class="d">9 Sep</td><td>Scottish BS</td><td>Expands nationwide through brokers</td></tr>
+<tr><td class="d">10 Sep</td><td>Pepper Money</td><td>Record month as second-charge lending grows</td></tr>
+<tr><td class="d">11 Sep</td><td>Tipton &amp; Coseley BS</td><td>Complex-credit range widened; second Credit Plus tier</td></tr>
+<tr><td class="d">11 Sep</td><td>Lloyds / Halifax</td><td>Halifax app closes 31 October</td></tr>
+</tbody></table></div>
+<p class="note">Left out: a 9 September report of HSBC cutting, which conflicts with Moneyfacts, and a 10 September report of a Coventry mortgage cut that could only be traced to August.</p>
+<p><strong>What the two tables say together.</strong> On price, the largest lenders are protecting margin and the challengers are buying volume. On criteria, loosening is broad but led by smaller lenders in niches such as expat, HMO and complex credit, where standardised underwriting at the big banks rarely follows. Lenders are competing on criteria where they cannot afford to compete on rate.</p>
+
+</section>
+<section id="s06"><div class="sh"><span class="n">Section 6</span><h2>Listed bank valuations</h2></div>
+
+<div class="ts"><table class="wide"><thead><tr><th>Bank</th><th class="r">Close 11 Sep</th><th class="r">Week</th><th class="r">Tangible book / share</th><th class="r">Price / TBV</th></tr></thead><tbody><tr><td>Lloyds Banking Group</td><td class="r">111.1p</td><td class="r">-1.3%</td><td class="r">57p</td><td class="r">1.95x</td></tr><tr><td>NatWest Group</td><td class="r">697.8p</td><td class="r">-0.3%</td><td class="r">359p</td><td class="r">1.94x</td></tr><tr><td>Barclays</td><td class="r">493.8p</td><td class="r">-0.6%</td><td class="r">423p</td><td class="r">1.17x</td></tr><tr><td>Metro Bank</td><td class="r">182.8p</td><td class="r">+2.5%</td><td class="r">166p</td><td class="r">1.10x</td></tr><tr><td>Paragon Banking</td><td class="r">776.0p</td><td class="r">-5.3%</td><td class="r">758p</td><td class="r">1.02x</td></tr><tr><td>OSB Group</td><td class="r">513.0p</td><td class="r">-0.6%</td><td class="r">584p</td><td class="r">0.88x</td></tr><tr><td>Close Brothers</td><td class="r">398.8p</td><td class="r">-6.6%</td><td class="r">870p</td><td class="r">0.46x</td></tr><tr><td>Secure Trust Bank</td><td class="r">1,492.0p</td><td class="r">-0.4%</td><td class="r">2,045p</td><td class="r">0.73x</td></tr></tbody></table></div>
+<p class="note">Closing prices for 11 September 2026 confirmed against public price pages; 4 September closes are from a market-data feed and were not independently confirmed. Tangible book value from each bank's latest published results; Paragon and Secure Trust figures are from secondary summaries, and Close Brothers' from its January 2026 half-year.</p>
+<div class="chart"><div class="cap">Chart 6. Share price change, week to 11 September</div><svg viewBox="0 32 760 238" role="img" aria-label="Share price change, week to 11 September" xmlns="http://www.w3.org/2000/svg">
+<text x="56" y="48" class="ct">Share price change, week to 11 September</text>
+<line x1="56" y1="226.0" x2="742" y2="226.0" class="cg"/>
+<text x="48" y="229.5" class="cl" text-anchor="end">-7.5</text>
+<line x1="56" y1="191.6" x2="742" y2="191.6" class="cg"/>
+<text x="48" y="195.1" class="cl" text-anchor="end">-5</text>
+<line x1="56" y1="157.2" x2="742" y2="157.2" class="cg"/>
+<text x="48" y="160.7" class="cl" text-anchor="end">-2.5</text>
+<line x1="56" y1="122.8" x2="742" y2="122.8" class="cg"/>
+<text x="48" y="126.3" class="cl" text-anchor="end">0</text>
+<line x1="56" y1="88.4" x2="742" y2="88.4" class="cg"/>
+<text x="48" y="91.9" class="cl" text-anchor="end">2.5</text>
+<line x1="56" y1="54.0" x2="742" y2="54.0" class="cg"/>
+<text x="48" y="57.5" class="cl" text-anchor="end">5</text>
+<text x="14" y="140" class="cl" transform="rotate(-90 14 140)" text-anchor="middle">%</text>
+<line x1="56" y1="122.8" x2="742" y2="122.8" class="cz"/>
+<rect x="72.3" y="122.8" width="53.2" height="17.7" fill="#7a1f2b" rx="1.5"/>
+<text x="98.9" y="242" class="cl" text-anchor="middle">Lloyds</text>
+<text x="98.9" y="153.5" class="cv" text-anchor="middle">-1.3</text>
+<rect x="158.0" y="122.8" width="53.2" height="3.9" fill="#7a1f2b" rx="1.5"/>
+<text x="184.6" y="242" class="cl" text-anchor="middle">NatWest</text>
+<text x="184.6" y="139.7" class="cv" text-anchor="middle">-0.3</text>
+<rect x="243.8" y="122.8" width="53.2" height="8.0" fill="#7a1f2b" rx="1.5"/>
+<text x="270.4" y="242" class="cl" text-anchor="middle">Barclays</text>
+<text x="270.4" y="143.8" class="cv" text-anchor="middle">-0.6</text>
+<rect x="329.5" y="88.9" width="53.2" height="33.9" fill="#2b2b2b" rx="1.5"/>
+<text x="356.1" y="242" class="cl" text-anchor="middle">Metro</text>
+<text x="356.1" y="83.9" class="cv" text-anchor="middle">+2.5</text>
+<rect x="415.3" y="122.8" width="53.2" height="72.2" fill="#7a1f2b" rx="1.5"/>
+<text x="441.9" y="242" class="cl" text-anchor="middle">Paragon</text>
+<text x="441.9" y="208.0" class="cv" text-anchor="middle">-5.3</text>
+<rect x="501.0" y="122.8" width="53.2" height="8.0" fill="#7a1f2b" rx="1.5"/>
+<text x="527.6" y="242" class="cl" text-anchor="middle">OSB</text>
+<text x="527.6" y="143.8" class="cv" text-anchor="middle">-0.6</text>
+<rect x="586.8" y="122.8" width="53.2" height="90.9" fill="#7a1f2b" rx="1.5"/>
+<text x="613.4" y="242" class="cl" text-anchor="middle">Close Bros</text>
+<text x="613.4" y="226.7" class="cv" text-anchor="middle">-6.6</text>
+<rect x="672.5" y="122.8" width="53.2" height="5.5" fill="#7a1f2b" rx="1.5"/>
+<text x="699.1" y="242" class="cl" text-anchor="middle">Secure Trust</text>
+<text x="699.1" y="141.3" class="cv" text-anchor="middle">-0.4</text>
+</svg></div><p class="note">Source: closing prices, 4 and 11 September 2026.</p>
+<p><strong>What the spread means.</strong> The listed sector sits in two groups. Lloyds and NatWest trade at about 1.9 times tangible book, a premium for cheap, sticky current-account funding. Everyone else sits between 0.46 and 1.17 times. The week's two big moves were specialists: Close Brothers fell 6.6% and Paragon 5.3%. Both have motor finance or buy-to-let exposure, in a week when Aldermore put £231.8m on motor redress and swaps kept rising. That fits, but it is not proven: neither company appears in this week's 186-item sweep, so no announcement we captured explains the move. Close Brothers at 0.46 times book is priced as if its book value is not fully recoverable, which is what an unresolved liability does.</p>
+<div class="chart"><div class="cap">Chart 7. Price to tangible book value, 11 September</div><svg viewBox="0 32 760 238" role="img" aria-label="Price to tangible book value, 11 September" xmlns="http://www.w3.org/2000/svg">
+<text x="56" y="48" class="ct">Price to tangible book value, 11 September</text>
+<line x1="56" y1="226.0" x2="742" y2="226.0" class="cg"/>
+<text x="48" y="229.5" class="cl" text-anchor="end">0</text>
+<line x1="56" y1="191.6" x2="742" y2="191.6" class="cg"/>
+<text x="48" y="195.1" class="cl" text-anchor="end">0.5</text>
+<line x1="56" y1="157.2" x2="742" y2="157.2" class="cg"/>
+<text x="48" y="160.7" class="cl" text-anchor="end">1</text>
+<line x1="56" y1="122.8" x2="742" y2="122.8" class="cg"/>
+<text x="48" y="126.3" class="cl" text-anchor="end">1.5</text>
+<line x1="56" y1="88.4" x2="742" y2="88.4" class="cg"/>
+<text x="48" y="91.9" class="cl" text-anchor="end">2</text>
+<line x1="56" y1="54.0" x2="742" y2="54.0" class="cg"/>
+<text x="48" y="57.5" class="cl" text-anchor="end">2.5</text>
+<text x="14" y="140" class="cl" transform="rotate(-90 14 140)" text-anchor="middle">x</text>
+<rect x="72.3" y="91.8" width="53.2" height="134.2" fill="#2b2b2b" rx="1.5"/>
+<text x="98.9" y="242" class="cl" text-anchor="middle">Lloyds</text>
+<text x="98.9" y="86.8" class="cv" text-anchor="middle">1.95</text>
+<rect x="158.0" y="92.3" width="53.2" height="133.7" fill="#2b2b2b" rx="1.5"/>
+<text x="184.6" y="242" class="cl" text-anchor="middle">NatWest</text>
+<text x="184.6" y="87.3" class="cv" text-anchor="middle">1.94</text>
+<rect x="243.8" y="145.7" width="53.2" height="80.3" fill="#2b2b2b" rx="1.5"/>
+<text x="270.4" y="242" class="cl" text-anchor="middle">Barclays</text>
+<text x="270.4" y="140.7" class="cv" text-anchor="middle">1.17</text>
+<rect x="329.5" y="150.2" width="53.2" height="75.8" fill="#b9b2a3" rx="1.5"/>
+<text x="356.1" y="242" class="cl" text-anchor="middle">Metro</text>
+<text x="356.1" y="145.2" class="cv" text-anchor="middle">1.10</text>
+<rect x="415.3" y="155.6" width="53.2" height="70.4" fill="#b9b2a3" rx="1.5"/>
+<text x="441.9" y="242" class="cl" text-anchor="middle">Paragon</text>
+<text x="441.9" y="150.6" class="cv" text-anchor="middle">1.02</text>
+<rect x="501.0" y="165.6" width="53.2" height="60.4" fill="#b9b2a3" rx="1.5"/>
+<text x="527.6" y="242" class="cl" text-anchor="middle">OSB</text>
+<text x="527.6" y="160.6" class="cv" text-anchor="middle">0.88</text>
+<rect x="586.8" y="194.5" width="53.2" height="31.5" fill="#b9b2a3" rx="1.5"/>
+<text x="613.4" y="242" class="cl" text-anchor="middle">Close Bros</text>
+<text x="613.4" y="189.5" class="cv" text-anchor="middle">0.46</text>
+<rect x="672.5" y="175.8" width="53.2" height="50.2" fill="#b9b2a3" rx="1.5"/>
+<text x="699.1" y="242" class="cl" text-anchor="middle">Secure Trust</text>
+<text x="699.1" y="170.8" class="cv" text-anchor="middle">0.73</text>
+</svg></div><p class="note">Source: closing prices and latest published tangible book value. Lloyds, NatWest and Barclays shaded dark.</p>
+<p>This gap also explains the Aldermore process (Section 2). A buyer at 1.9 times book can buy a specialist near book value and add to earnings immediately, which is the logic behind RBC's "very compelling". The premium multiple is the currency, so the natural bidders are the big banks, not the specialists. This is week three of the price series; a trend needs more weeks before it means much.</p>
+
+</section>
+<section id="s07"><div class="sh"><span class="n">Section 7</span><h2>Regulation, tax and conduct</h2></div>
+
+<h3>Bank tax: the proposals now have prices</h3>
+<div class="ts"><table class="wide"><thead><tr><th>Element</th><th>Position or proposal</th><th>Status</th></tr></thead><tbody>
+<tr><td>Corporation tax</td><td>25%</td><td>In force</td></tr>
+<tr><td>Bank surcharge</td><td>3% on profits above the allowance</td><td>In force</td></tr>
+<tr><td>Bank levy</td><td>0.05% to 0.1% of balance sheet</td><td>In force</td></tr>
+<tr><td>Windfall levy</td><td>One year at 38% on the big four's UK profits; about £19bn (Positive Money)</td><td>Campaign proposal</td></tr>
+<tr><td>Surcharge increase</td><td>3% back to 8%; about £9bn over four years (TUC)</td><td>Union proposal</td></tr>
+<tr><td>Reserves remuneration</td><td>Paying below Bank Rate on part of banks' reserves</td><td>Nothing said in window</td></tr>
+</tbody></table></div>
+<p class="note">Current rates and the Positive Money estimate from CNBC and Financial News, 11 September. The TUC figure is cited by RegPulseUK only and is not corroborated elsewhere.</p>
+<p>JPMorgan's Jamie Dimon met the Chancellor, John Healey, at Downing Street on 9 September and was reported to have warned against raising bank taxes, citing finance job losses in New York, and was reported to have met the Prime Minister, Andy Burnham, the same day. Campaigners have tied a windfall levy to the government's cost of living agenda. That is lobbying and campaigning; the Treasury has published no measure or costing. UK Finance puts the sector's total tax rate at 46.4% in 2025.</p>
+<p><strong>How the options differ.</strong> A surcharge is permanent and scales with future profits: each point costs £10m a year per £1bn of taxable profit above the allowance. A one-year windfall levy hits a past period and leaves future returns alone, but at 38% it is several times larger in its single year. Reserves tiering is not a tax at all. It falls on reserve balances rather than profits, so it lands differently on banks that hold different amounts of reserves. This week the profit-based options gained numbers; tiering gained nothing. RegPulseUK reports the Chancellor's fiscal headroom falling from £24bn in March to about £17bn, which makes a revenue measure more likely; that figure is single-sourced.</p>
+
+<h3>Conduct and enforcement</h3>
+<p><strong>Motor finance redress is reaching the accounts.</strong> Aldermore's £164.8m charge is the clearest measure yet of what the FCA's proposed scheme costs a mid-sized lender (Section 2). On 8 September the FCA published Mortgage Charter uptake data. Headlines said the FCA now "allows" borrowers to lock in a deal six months early; that has been in the Charter since it began. What is new is scale: 880,635 mortgages were locked in up to six months early in the first half of 2026, 381,364 of them in the second quarter. Early lock-in moves retention decisions, and the hedging that goes with them, months forward.</p>
+<p>Also this week: the advertising regulator banned a Lloyds social housing advert as misleading (8 September), and the government said it would "think about consumer redress" after a failure at ATC (10 September), reported here by headline only. Indexed late from the previous week: an FCA ban and £742,700 fine for a pension transfer adviser (3 September), and a reported court finding that no statutory time limit applies to unfair lending claims (3 September). We read the report, not the judgment, so we make no claim about its reach.</p>
+
+<h3>Capital and prudential</h3>
+<p>No firm-level or sector capital, buffer or stress-test development appeared in the Bank of England and FCA feeds for 7 to 12 September. This check is partial: the PRA's publications listing did not load for direct review. Commercial funding deals picked up by the sweep, such as Funding Circle's £500m Castlelake facility, are not capital stories.</p>
+
+<h3>International</h3>
+<p>Revolut won conditional approval toward a US national bank charter (reported 8 and 9 September) and was reported to be targeting FTSE 250 companies for UK business banking. A group building a US bank while pushing into UK mid-market corporates is widening its front, not narrowing it. US regulators proposed third-party risk guidelines on 11 September; we did not review the text and make no comparison with the UK regime. US bank mergers this week (EverBank and WaFd, Chime and Stride) have no clear UK read-across.</p>
+<p class="note">Checked, nothing material: credit ratings (two buy-to-let RMBS ratings, not lender actions); deposit protection (FSCS limit £120,000); climate and ESG; the Bank of England balance sheet. Operational resilience: no reported firm-level incident at a UK lender, though no public feed covers this fully.</p>
+
+</section>
+<section id="s08"><div class="sh"><span class="n">Section 8</span><h2>Rates and the economy</h2></div>
+
+<p><strong>Rates.</strong> Bank Rate is 3.75%, unchanged all year; SONIA was 3.73% on 9 September. The 10-year gilt par yield rose from 5.07% on 4 September to 5.19% on 9 September, above its 2 September high. RegPulseUK notes the 10-year reached 5.23%, last seen in June 2008.</p>
+<div class="chart"><div class="cap">Chart 8. UK 10-year gilt yields, daily</div><svg viewBox="0 32 760 248" role="img" aria-label="UK 10-year gilt yields, daily" xmlns="http://www.w3.org/2000/svg">
+<text x="52" y="48" class="ct">UK 10-year gilt yields, daily</text>
+<line x1="52" y1="240.0" x2="742" y2="240.0" class="cg"/>
+<text x="44" y="243.5" class="cl" text-anchor="end">4.90</text>
+<line x1="52" y1="193.5" x2="742" y2="193.5" class="cg"/>
+<text x="44" y="197.0" class="cl" text-anchor="end">5.00</text>
+<line x1="52" y1="147.0" x2="742" y2="147.0" class="cg"/>
+<text x="44" y="150.5" class="cl" text-anchor="end">5.10</text>
+<line x1="52" y1="100.5" x2="742" y2="100.5" class="cg"/>
+<text x="44" y="104.0" class="cl" text-anchor="end">5.20</text>
+<line x1="52" y1="54.0" x2="742" y2="54.0" class="cg"/>
+<text x="44" y="57.5" class="cl" text-anchor="end">5.30</text>
+<text x="14" y="147" class="cl" transform="rotate(-90 14 147)" text-anchor="middle">%</text>
+<text x="52.0" y="256" class="cl" text-anchor="middle">18 Aug</text>
+<text x="144.0" y="256" class="cl" text-anchor="middle">20 Aug</text>
+<text x="236.0" y="256" class="cl" text-anchor="middle">24 Aug</text>
+<text x="328.0" y="256" class="cl" text-anchor="middle">26 Aug</text>
+<text x="420.0" y="256" class="cl" text-anchor="middle">28 Aug</text>
+<text x="512.0" y="256" class="cl" text-anchor="middle">2 Sep</text>
+<text x="604.0" y="256" class="cl" text-anchor="middle">4 Sep</text>
+<text x="696.0" y="256" class="cl" text-anchor="middle">8 Sep</text>
+<text x="742.0" y="256" class="cl" text-anchor="middle">9 Sep</text>
+<polyline points="52.0,123.1 98.0,136.0 144.0,134.2 190.0,131.2 236.0,132.2 282.0,157.5 328.0,150.3 374.0,144.4 420.0,127.9 466.0,97.3 512.0,81.2 558.0,120.3 604.0,127.2 650.0,111.0 696.0,117.9 742.0,77.6" fill="none" stroke="#2b2b2b" stroke-width="2.1" stroke-linejoin="round"/>
+<circle cx="52.0" cy="123.1" r="2.4" fill="#2b2b2b"/>
+<circle cx="98.0" cy="136.0" r="2.4" fill="#2b2b2b"/>
+<circle cx="144.0" cy="134.2" r="2.4" fill="#2b2b2b"/>
+<circle cx="190.0" cy="131.2" r="2.4" fill="#2b2b2b"/>
+<circle cx="236.0" cy="132.2" r="2.4" fill="#2b2b2b"/>
+<circle cx="282.0" cy="157.5" r="2.4" fill="#2b2b2b"/>
+<circle cx="328.0" cy="150.3" r="2.4" fill="#2b2b2b"/>
+<circle cx="374.0" cy="144.4" r="2.4" fill="#2b2b2b"/>
+<circle cx="420.0" cy="127.9" r="2.4" fill="#2b2b2b"/>
+<circle cx="466.0" cy="97.3" r="2.4" fill="#2b2b2b"/>
+<circle cx="512.0" cy="81.2" r="2.4" fill="#2b2b2b"/>
+<circle cx="558.0" cy="120.3" r="2.4" fill="#2b2b2b"/>
+<circle cx="604.0" cy="127.2" r="2.4" fill="#2b2b2b"/>
+<circle cx="650.0" cy="111.0" r="2.4" fill="#2b2b2b"/>
+<circle cx="696.0" cy="117.9" r="2.4" fill="#2b2b2b"/>
+<circle cx="742.0" cy="77.6" r="2.4" fill="#2b2b2b"/>
+<polyline points="52.0,162.1 98.0,174.9 144.0,171.3 190.0,170.0 236.0,169.6 282.0,195.4 328.0,187.9 374.0,181.7 420.0,164.2 466.0,131.5 512.0,114.0 558.0,154.3 604.0,159.2 650.0,143.3 696.0,148.0 742.0,104.1" fill="none" stroke="#b9b2a3" stroke-width="2.1" stroke-linejoin="round"/>
+<circle cx="52.0" cy="162.1" r="2.4" fill="#b9b2a3"/>
+<circle cx="98.0" cy="174.9" r="2.4" fill="#b9b2a3"/>
+<circle cx="144.0" cy="171.3" r="2.4" fill="#b9b2a3"/>
+<circle cx="190.0" cy="170.0" r="2.4" fill="#b9b2a3"/>
+<circle cx="236.0" cy="169.6" r="2.4" fill="#b9b2a3"/>
+<circle cx="282.0" cy="195.4" r="2.4" fill="#b9b2a3"/>
+<circle cx="328.0" cy="187.9" r="2.4" fill="#b9b2a3"/>
+<circle cx="374.0" cy="181.7" r="2.4" fill="#b9b2a3"/>
+<circle cx="420.0" cy="164.2" r="2.4" fill="#b9b2a3"/>
+<circle cx="466.0" cy="131.5" r="2.4" fill="#b9b2a3"/>
+<circle cx="512.0" cy="114.0" r="2.4" fill="#b9b2a3"/>
+<circle cx="558.0" cy="154.3" r="2.4" fill="#b9b2a3"/>
+<circle cx="604.0" cy="159.2" r="2.4" fill="#b9b2a3"/>
+<circle cx="650.0" cy="143.3" r="2.4" fill="#b9b2a3"/>
+<circle cx="696.0" cy="148.0" r="2.4" fill="#b9b2a3"/>
+<circle cx="742.0" cy="104.1" r="2.4" fill="#b9b2a3"/>
+</svg></div><div class="key"><span><i style="background:#2b2b2b"></i>10-year nominal zero coupon</span><span><i style="background:#b9b2a3"></i>10-year nominal par yield</span></div><p class="note">Source: Bank of England IADB, series IUDMNZC and IUDMNPY, daily.</p>
+<p><strong>Growth.</strong> The economy grew 0.4% in July (ONS, 11 September), after 0.3% in June and zero in May, against forecasts of no growth. Services rose 0.4%, production 0.2% and construction 0.1%. Over three months GDP grew 0.4%, but production and construction each fell 0.5%.</p>
+<p><strong>Business conditions.</strong> The Bank's September Agents' summary is softer than the GDP figure. Consumer spending is "moderate and mainly price driven": supermarket shoppers are trading down and big-ticket demand is weak, though new car sales are recovering. Banks "are prepared to lend across all sizes of firm but prefer larger, existing clients", while firms remain cautious about borrowing. "The property market has softened further." Larger firms are paying down pandemic-era loans, and construction and hospitality firms find lenders less willing. Housebuilders are leaning on bulk sales and incentives as new-build demand weakens. Average 2026 pay settlements are 3.6%, up from 3.5%, and the Agents expect 2027 settlements to be broadly similar or slightly lower. More credit supply than demand, and a softening housing market, is exactly the setting in which lenders cut price for a smaller pool of borrowers, as Section 4 shows.</p>
+<p><strong>Inflation expectations: read the footnote first.</strong> The Bank's August survey shows households expecting 3.2% inflation over the next year (4.0% in May), 2.9% at two years (3.5%) and 3.2% at five years (3.9%). But the survey moved from Ipsos to Savanta in August, a parallel run found Savanta gives lower readings at every horizon, and the Bank itself says the comparison needs caution. Some of that 0.8 point fall is methodology, not a real change. Read at face value, it would overstate how much room the MPC has to hold on 17 September.</p>
+<p><strong>Housing and credit.</strong> The HM Land Registry index has England's average price at £293,262 in June, up 1.8% on the year; the index runs about two months behind. A more current index reported a 0.4% fall in August. Cronin reports mortgage approvals down about 2,000 on the month to 56,053. Commercial real estate is not covered by this review's sweep.</p>
+
+</section>
+<section id="s09"><div class="sh"><span class="n">Section 9</span><h2>What others are saying</h2></div>
+
+<p>Independent analysts are checked from their archives every week. Official items are marked <span class="flag">New</span> if published in the window or <span class="flag old">Carried</span> with their date.</p>
+<div class="voice"><div class="who"><b>John Cronin</b>, Financials Unshackled &middot; 8 September <span class="flag">New</span></div>
+<p>Estimates mainstream mortgage spreads in the low 60s of basis points and expects them to drift toward the high 60s, then hold until the Budget, rising above 70 if bank taxes go up. He cites Rightmove data putting two-year spreads at 51 basis points and five-year at 43 on 5 September, and notes rates rose 4 basis points in the week while swaps rose 3. He is clear that this is "by no means a perfect science", and names HSBC's appetite for aggressive pricing as the main risk to the view. <a href="https://croninj.substack.com/p/financials-unshackled-after-the-noise-cdb">Read</a></p></div>
+<div class="voice"><div class="who"><b>John Cronin</b>, "Who will buy Aldermore?" &middot; 10 September <span class="flag">New</span></div>
+<p>Names nine possible buyers and, unlike RBC, puts Barclays first because of its Kensington platform. He expects NatWest to make an indicative offer this month excluding the MotoNovo motor business, rates Skipton's capital (27.9% CET1) as strong but unlikely to win on price, and says Paragon and Shawbrook would face an MREL "cliff edge" taking on the £18.8bn loan book. Suggests a valuation floor around £1.5bn. <a href="https://croninj.substack.com/p/financials-unshackled-after-the-noise-790">Read</a></p></div>
+<div class="voice"><div class="who"><b>RegPulseUK</b>, "Land of Hope and Gilts" &middot; 12 September <span class="flag">New</span></div>
+<p>Points to the 30-year gilt at 5.89% on 1 September, its highest since March 1998, and July borrowing £2.3bn above the OBR forecast. Argues high gilt yields leave the Chancellor choosing between higher taxes, banks included, and higher borrowing costs. Also notes Revolut's UK deposits carry the same £120,000 FSCS protection as any UK bank's. <a href="https://regpulseuk.substack.com/p/land-of-hope-and-gilts">Read</a></p></div>
+<div class="voice"><div class="who"><b>Bank Underground</b>, "Monetary policy transmission: it's all in the curve" &middot; 3 September <span class="flag old">Carried</span></div>
+<p>Bank of England staff (not official policy) on how moves along the yield curve, not just Bank Rate, reach borrowing costs. Directly relevant to this week's repricing. <a href="https://bankunderground.co.uk/2026/09/03/monetary-policy-transmission-its-all-in-the-curve/">Read</a></p></div>
+<div class="voice"><div class="who"><b>Bank of England</b>, Agents' summary and Inflation Attitudes Survey &middot; 11 September <span class="flag">New</span></div>
+<p>Covered in Section 8. The Governor's interview transcript (announced 10 September) and three Treasury speeches (7, 8 and 10 September) were published but not reviewed for this edition, so nothing is attributed to them.</p></div>
+
+</section>
+<section id="s10"><div class="sh"><span class="n">Section 10</span><h2>Calls for the weeks ahead</h2></div>
+
+<p>Four calls. Each will be graded, whatever happens.</p>
+<div class="ts"><table class="wide"><thead><tr><th>Call</th><th>Why it matters</th><th>What settles it</th><th>Confidence</th></tr></thead><tbody>
+<tr><td><b>The big lenders reprice up again before the challengers do.</b></td><td>If so, the challengers' cuts are a deliberate volume strategy, not a timing gap, and the big lenders are giving up share at the price-sensitive end.</td><td>Confirmed if HSBC, NatWest, Barclays or Lloyds raises fixed rates again before 2 October while Atom and Landbay have not. Killed if Atom or Landbay raises first.</td><td>Credible</td></tr>
+<tr><td><b>At least one big UK bank bids for Aldermore.</b></td><td>A big-bank owner would fund Aldermore at current-account cost and price the specialist market harder. Only private equity and specialists bidding would suggest the motor liability is putting banks off.</td><td>Confirmed by credible reports by 10 October of a non-binding offer from Barclays, Lloyds or NatWest. Killed if only private equity or specialists are named, or the deadline slips.</td><td>Likely</td></tr>
+<tr><td><b>The high-LTV premium narrows again in September.</b></td><td>Another narrowing would show sustained share-buying at the first-time buyer end, not a one-month blip. Widening would show lenders repricing high-LTV risk as funding bites.</td><td>Confirmed if the Bank's September data puts the 90% less 75% LTV gap below 24bp. Killed if it widens to 30bp or more.</td><td>Speculation</td></tr>
+<tr><td><b>Aldermore's bank and MotoNovo end up with different buyers, or MotoNovo is left unsold.</b></td><td>95% of the motor provision and the weakest returns sit in MotoNovo, a separate company. A bank buyer gains most by taking the bank alone (Section 2).</td><td>Confirmed if reporting by 31 December says binding offers were made for the bank without MotoNovo. Killed if a single binding offer for the whole group is accepted.</td><td>Credible</td></tr>
+</tbody></table></div>
+
+</section>
+<section id="s11"><div class="sh"><span class="n">Section 11</span><h2>Dates to watch and worth reading</h2></div>
+
+<div class="ts"><table><tbody>
+<tr><td class="d">17 Sep</td><td><b>Bank of England MPC decision</b></td></tr>
+<tr><td class="d">End Sep</td><td><b>Aldermore non-binding offers due</b></td></tr>
+<tr><td class="d">1 Oct</td><td>Bank of England Future of Money conference</td></tr>
+<tr><td class="d">5 Oct</td><td>Halifax app closure process begins</td></tr>
+<tr><td class="d">28 Oct</td><td><b>Budget</b></td></tr>
+<tr><td class="d">31 Oct</td><td>Halifax app closes</td></tr>
+<tr><td class="d">Dec</td><td>Aldermore binding offers due</td></tr>
+</tbody></table></div>
+<p class="note">Industry webinars in the period: Finextra on digital money (15 Sep), consumer payments (17 Sep), AI in lending (23 Sep), deposits and stablecoins (8 Oct) and AI in payments (21 Oct).</p>
+<h4>Worth reading</h4>
+<div class="ts"><table><tbody>
+<tr><td><a href="https://www.bankofengland.co.uk/statistics/mortgage-lenders-and-administrators/2026/2026-q2">Bank of England: Mortgage Lenders and Administrators Statistics, 2026 Q2</a></td><td class="d">8 Sep</td></tr>
+<tr><td><a href="https://www.bankofengland.co.uk/agents-summary/2026/september-2026">Bank of England: Agents' summary of business conditions, September 2026</a></td><td class="d">11 Sep</td></tr>
+<tr><td><a href="https://www.bankofengland.co.uk/inflation-attitudes-survey/2026/august-2026">Bank of England/Savanta: Inflation Attitudes Survey, August 2026</a></td><td class="d">11 Sep</td></tr>
+<tr><td><a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/gdpmonthlyestimateuk/july2026">ONS: GDP monthly estimate, July 2026</a></td><td class="d">11 Sep</td></tr>
+<tr><td><a href="https://www.fca.org.uk/data/mortgage-charter-uptake">FCA: Mortgage Charter uptake data</a></td><td class="d">8 Sep</td></tr>
+<tr><td><a href="https://www.mortgagesolutions.co.uk/mortgage-news/2026/09/07/higher-mortgage-rates-inevitable-as-swap-rates-rise-moneyfacts/">Moneyfacts: higher mortgage rates "inevitable" as swaps rise</a></td><td class="d">7 Sep</td></tr>
+</tbody></table></div>
+
+</section>
+<section id="s12"><div class="sh"><span class="n">Section 12</span><h2>How this review is made</h2></div>
+
+<p>One sweep of UK banking news, regulators and data for Monday 7 to Saturday 12 September 2026, a six-day window so it never overlaps the previous week. 203 items were collected and 162 fell in the window. The sweep looks back 14 days to catch items indexed late; 24 were found and the material ones are included with their real dates. Every date is checked before use. Figures come from the issuing body where one exists (Bank of England, ONS, FCA). Company results and analyst views come from press reports and are labelled as such, and anything with a single source says so where it is used. Every chart is drawn directly from published figures, and share prices carry their as-at date. Nothing in this review is estimated unless it says so and shows the arithmetic.</p>
+<h4>Caught before publication</h4>
+<div class="ts"><table class="ledger"><tbody>
+<tr><td>Wrong figure in the press</td><td>"Record £1.73trn" mortgage debt; the Bank of England figure is £1,760.6bn</td></tr>
+<tr><td>Period not stated</td><td>The reported 11% rise in advances is quarter-on-quarter; the annual rise is 31.7%</td></tr>
+<tr><td>Old policy reported as new</td><td>The Mortgage Charter's six-month lock-in is not new; the FCA published uptake data</td></tr>
+<tr><td>Old story reported as new</td><td>The Halifax brand retirement dates from 1 July; only the app dates are new</td></tr>
+<tr><td>One event, two headlines</td><td>Aldermore's £10bn lending and 74% profit fall are the same results</td></tr>
+<tr><td>Conflicting reports</td><td>HSBC reported as both raising and cutting; an unconfirmed Coventry cut. Both left out</td></tr>
+<tr><td>Survey method change</td><td>Inflation expectations fall partly due to a new survey provider</td></tr>
+</tbody></table></div>
+<h4>Coverage checked every week</h4>
+<div class="ts"><table class="ledger"><tbody>
+<tr><td>Pricing and product</td><td>Six rate and savings moves, eight criteria and product developments</td></tr>
+<tr><td>M&amp;A and corporate actions</td><td>Aldermore sale; Market Harborough portfolio deal; Halifax migration</td></tr>
+<tr><td>Capital and prudential</td><td>Nothing material in BoE and FCA feeds. Partial: PRA listing not reached</td></tr>
+<tr><td>Conduct and enforcement</td><td>Motor redress provision; Mortgage Charter data; FCA ban and fine; ASA ruling</td></tr>
+<tr><td>Credit ratings</td><td>No lender rating actions</td></tr>
+<tr><td>Monetary policy and macro</td><td>Bank Rate, SONIA, gilts, GDP, Agents' summary, inflation expectations</td></tr>
+<tr><td>BoE balance sheet</td><td>Nothing on reserve remuneration</td></tr>
+<tr><td>Bank tax</td><td>Costed windfall and surcharge proposals; no Treasury measure</td></tr>
+<tr><td>Capital returns</td><td>Secure Trust Bank buyback second tranche (7 Sep)</td></tr>
+<tr><td>Deposit protection</td><td>No change</td></tr>
+<tr><td>Payments and digital money</td><td>Revolut US charter and UK business push; National Payments Vision survey</td></tr>
+<tr><td>Technology and AI</td><td>Lloyds fintech programme; Mortgage Brain AI governance framework</td></tr>
+<tr><td>Operational resilience</td><td>No reported incident; coverage partial</td></tr>
+<tr><td>Credit risk</td><td>High-LTV share; housing softening. Commercial real estate not covered</td></tr>
+<tr><td>Leadership</td><td>Aldermore senior departure; Funding Circle CEO to step down by September 2027; Zopa board hires</td></tr>
+<tr><td>Climate and ESG</td><td>Nothing material</td></tr>
+<tr><td>Official commentary</td><td>Two Bank of England releases read; Governor transcript and Treasury speeches not reviewed</td></tr>
+<tr><td>Independent commentary</td><td>Cronin, RegPulseUK, Bank Underground used; Net Interest checked, nothing new on UK banks</td></tr>
+<tr><td>International</td><td>Revolut; US third-party risk proposal (text not reviewed)</td></tr>
+<tr><td>Forward calendar</td><td>Section 11</td></tr>
+</tbody></table></div>
+
+</section>
+<div class="about">
+<h3>About this review</h3>
+<p>The UK Banking Market Review is written by SFS Models, founded by a former senior FP&amp;A professional at a large UK bank. It is free, it is published every week, and every forward call it makes is graded in public.</p>
+<p>SFS Models builds institutional-grade Excel models for banks and finance teams, 49 of them available to buy, including:</p>
+<ul>
+<li><a href="https://sfsmodels.org/icaap-model-excel.html">ICAAP model</a> and <a href="https://sfsmodels.org/ilaap-model-excel.html">ILAAP model</a></li>
+<li><a href="https://sfsmodels.org/bank-stress-test-model.html">Bank stress test model</a> and <a href="https://sfsmodels.org/bank-financial-model.html">integrated bank financial model</a></li>
+<li><a href="https://sfsmodels.org/free-samples.html">Free sample models</a> to download</li>
+</ul>
+<p>Company-specific editions of this review, built around one institution's peers and market, are available on request. <a href="https://sfsmodels.org">sfsmodels.org</a></p>
+</div>
+<p class="fine">Compiled entirely from publicly available information. It uses no confidential or internal information from any institution. This is market research, not investment, legal, tax or regulatory advice, and nothing in it is a recommendation about any security. Analyst views belong to their authors.</p>
+</div></body></html>
