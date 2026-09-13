@@ -282,6 +282,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <li><a href="models.html">Models</a></li>
         <li><a href="previews.html">Preview Models</a></li>
         <li><a href="free-samples.html">Free Samples</a></li>
+        <li><a href="/research/">Research</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>

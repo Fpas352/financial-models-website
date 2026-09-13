@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+"""Build /research/index.html from research/editions.json (newest first).
+
+Add one entry to editions.json per weekly UK Banking Market Review edition,
+copy the edition HTML and PDF into research/, then run this script.
+"""
+import json, html
+from pathlib import Path
+HERE = Path(__file__).parent
+eds = sorted(json.loads((HERE / "research" / "editions.json").read_text()), key=lambda e: e["date"], reverse=True)
+latest = eds[0]
+
+def card(e, lead=False):
+    h = html.escape
+    return f'''
+    <article class="research-item{' research-item--lead' if lead else ''}">
+      <div class="research-meta">{h(e["week"])} &middot; {h(e["date_label"])}</div>
+      <h2><a href="{h(e["url"])}">{h(e["headline"])}</a></h2>
+      <p class="research-focus">{h(e["focus"])}</p>
+      <p>{h(e["summary"])}</p>
+      <p class="research-links"><a href="{h(e["url"])}">Read the edition</a> &middot; <a href="{h(e["pdf"])}">Download PDF</a></p>
+    </article>'''
+
+items = card(latest, lead=True) + "".join(card(e) for e in eds[1:])
+page = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research: The UK Banking Market Review | SFS Models</title>
+<meta name="description" content="The UK Banking Market Review: a free weekly analysis of UK banking from SFS Models, with a company deep dive every week and every forward call graded in public.">
+<link rel="canonical" href="https://sfsmodels.org/research/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .research-wrap {{ max-width: 780px; }}
+  .research-item {{ border-top: 1px solid rgba(201,168,76,0.25); padding: 2rem 0; }}
+  .research-item h2 {{ font-family: "DM Serif Display", Georgia, serif; font-size: 1.6rem; line-height: 1.25; margin: 0.35rem 0 0.6rem; }}
+  .research-item--lead h2 {{ font-size: 2.1rem; }}
+  .research-item h2 a {{ color: var(--text, #E8E6E0); text-decoration: none; }}
+  .research-item h2 a:hover {{ color: #C9A84C; }}
+  .research-meta {{ color: #C9A84C; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em; }}
+  .research-focus {{ color: #C9A84C; font-weight: 600; margin-bottom: 0.4rem; }}
+  .research-item p {{ color: var(--text-muted, #8A8880); }}
+  .research-links a {{ color: #C9A84C; font-weight: 600; }}
+  .research-about {{ color: var(--text-muted, #8A8880); font-size: 0.95rem; border-top: 1px solid rgba(201,168,76,0.25); padding-top: 1.5rem; }}
+</style>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "7852444a13cc4cc78cdb4162c284e1de"}}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="/index.html" class="logo">SFS Models</a>
+        <ul class="nav-links">
+          <li><a href="/models.html">Models</a></li>
+          <li><a href="/previews.html">Preview Models</a></li>
+          <li><a href="/free-samples.html">Free Samples</a></li>
+          <li><a href="/research/" class="active">Research</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="/contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+        </div>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+<main id="main-content">
+<section class="page-hero"><div class="container"><h1>Research</h1><p>The UK Banking Market Review. Free every week: one bank's accounts taken apart, the week's market moves, and every forward call graded in public.</p></div></section>
+<section class="section"><div class="container research-wrap">
+{items}
+  <div class="research-about">
+    <p>Compiled entirely from public information by SFS Models, founded by a former senior FP&amp;A professional at a large UK bank. Market research, not investment advice.</p>
+    <p>Want the same analysis built around your own institution and peers? <a href="/contact.html" style="color:#C9A84C;font-weight:600;">Ask about a company-specific edition</a>.</p>
+  </div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container"><div class="footer-bottom"><span>&copy; 2026 SFS Models. All rights reserved.</span><span><a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span></div></div></footer>
+<script src="/js/scripts.js"></script>
+</body>
+</html>
+'''
+(HERE / "research" / "index.html").write_text(page, encoding="utf-8")
+print(f"Wrote research/index.html ({len(eds)} edition(s))")

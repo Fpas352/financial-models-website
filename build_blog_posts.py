@@ -1544,6 +1544,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <li><a href="/models.html">Models</a></li>
         <li><a href="/previews.html">Preview Models</a></li>
         <li><a href="/free-samples.html">Free Samples</a></li>
+        <li><a href="/research/">Research</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/contact.html">Contact</a></li>
       </ul>
@@ -1662,7 +1663,7 @@ def main():
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<header class="site-header"><div class="container"><nav class="nav-inner"><a href="/index.html" class="logo">SFS Models</a><ul class="nav-links"><li><a href="/models.html">Models</a></li><li><a href="/previews.html">Preview Models</a></li><li><a href="/free-samples.html">Free Samples</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav></div></header>
+<header class="site-header"><div class="container"><nav class="nav-inner"><a href="/index.html" class="logo">SFS Models</a><ul class="nav-links"><li><a href="/models.html">Models</a></li><li><a href="/previews.html">Preview Models</a></li><li><a href="/free-samples.html">Free Samples</a></li><li><a href="/research/">Research</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav></div></header>
 <main id="main-content">
 <section class="page-hero"><div class="container"><h1>Blog</h1><p>Banking, finance, and modelling articles. New posts weekly.</p></div></section>
 <section class="section"><div class="container" style="max-width:760px;"><ul style="list-style:none; padding:0;">
