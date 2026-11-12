@@ -291,7 +291,15 @@ const LS_PRODUCTS = {
   "full-library": {
     name: "Full Model Library Bundle",
     price: "£2,999",
-    buyUrl: "PASTE_LS_URL_HERE",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/ae56cbd0-da6c-4434-982d-674618c9f359",
+    checkoutEmbed: true,
+  },
+
+  "nim-budget-tracking": {
+    name: "NIM Budget Tracking Model",
+    price: "£249.00",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/794e6d35-ab3a-4030-a72c-264d99f7d507",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/f25ee67c-3bd1-426d-b8c2-9124170a5d8f",
     checkoutEmbed: true,
   },
 
@@ -300,7 +308,7 @@ const LS_PRODUCTS = {
     name: "Basel IV RWA Calculator",
     price: "£399.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/be65cc2a-e6dc-41bb-b308-35a1bbd52321",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/841200d5-e13f-4576-933d-b3ae366f0896",
     checkoutEmbed: true,
   },
 
@@ -309,7 +317,7 @@ const LS_PRODUCTS = {
     name: "Buy-to-Let Model",
     price: "£149.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/6e8dc0b8-5342-45bd-87f4-bd0cab93f2be",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/2f0ca316-fa38-478d-96c7-9d465363f093",
     checkoutEmbed: true,
   },
 
@@ -318,7 +326,7 @@ const LS_PRODUCTS = {
     name: "Credit Fund Model",
     price: "£299.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/3d27ee73-3255-4fa4-80dc-a3aa7d5edb40",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/fde2863d-d9cf-49de-8a66-714c0ee4bf61",
     checkoutEmbed: true,
   },
 
@@ -327,7 +335,7 @@ const LS_PRODUCTS = {
     name: "ICAAP Model",
     price: "£399.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/e6d9bf1b-702a-4241-a242-279afc63154b",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/9b24360d-7dd7-461f-a33e-722e4084e940",
     checkoutEmbed: true,
   },
 
@@ -336,7 +344,7 @@ const LS_PRODUCTS = {
     name: "IFRS 17 Insurance Model",
     price: "£299.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/675ee328-b686-44e7-b8e2-59b8ea4854ec",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/99c55469-b608-4dd8-8db3-1f34fe7d2729",
     checkoutEmbed: true,
   },
 
@@ -345,7 +353,7 @@ const LS_PRODUCTS = {
     name: "ILAAP Model",
     price: "£399.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/80bee0dc-dfce-4a35-8cf2-41adbd355a03",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/d392be17-e6ac-478d-ab7b-4ffa964c79a3",
     checkoutEmbed: true,
   },
 
@@ -354,7 +362,7 @@ const LS_PRODUCTS = {
     name: "Infrastructure DCF Model",
     price: "£299.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/f57e7381-1ee7-40eb-88fc-8f0d5bcc082b",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/cce5d37d-32e5-40ee-a3be-b98afd781e99",
     checkoutEmbed: true,
   },
 
@@ -363,7 +371,7 @@ const LS_PRODUCTS = {
     name: "Merger Consequences Model",
     price: "£249.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/a5887094-5be6-4211-a32c-839ff228c468",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/ea7da304-24b3-4c40-90b3-00fa5d769b7b",
     checkoutEmbed: true,
   },
 
@@ -372,7 +380,7 @@ const LS_PRODUCTS = {
     name: "PE Fund Model",
     price: "£299.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/4cfd01c2-3864-4e43-9c02-974f63323d48",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/cfe6f507-ef28-4922-a350-e1893be89792",
     checkoutEmbed: true,
   },
 
@@ -381,7 +389,7 @@ const LS_PRODUCTS = {
     name: "Portfolio Return Attribution Model",
     price: "£199.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/452ab53d-caf9-4a1c-b78b-f767d005744a",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/0e3723c5-e7e0-4e2e-98cb-f153760fdced",
     checkoutEmbed: true,
   },
 
@@ -390,7 +398,7 @@ const LS_PRODUCTS = {
     name: "PPP / Concession Model",
     price: "£299.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/925ea5b1-7b5a-4ff7-904f-52dcbc40d641",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/46d24467-f5fa-4ce1-b1ac-439816dbc94c",
     checkoutEmbed: true,
   },
 
@@ -399,7 +407,7 @@ const LS_PRODUCTS = {
     name: "Project Finance SPV Model",
     price: "£299.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/8c53ada3-69ff-43d2-a4f9-7371a5a33df7",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/ba39042b-d172-48b3-b8a0-408c6ce52cfc",
     checkoutEmbed: true,
   },
 
@@ -408,7 +416,7 @@ const LS_PRODUCTS = {
     name: "Real Estate Fund Model",
     price: "£299.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/df0b87ef-5d93-455e-af5f-209f5b3b4d85",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/e040279c-7ebf-474c-960f-7698c5831b10",
     checkoutEmbed: true,
   },
 
@@ -417,7 +425,7 @@ const LS_PRODUCTS = {
     name: "Restructuring and Recovery Model",
     price: "£249.00",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/75cd5c67-3a34-44da-8619-f4f7daea11ef",
-    freeUrl: "",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/fdda00aa-d833-4547-8add-754d42a3436c",
     checkoutEmbed: true,
   },
 };
