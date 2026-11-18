@@ -1,14 +1,14 @@
 """
-Build landing pages for the five November 2026 models.
+Build per-model SEO landing pages for sfsmodels.org.
 
 Each page targets one search phrase, describes what is actually in the
 workbook (taken from each model's COVER and tab structure, Nov 2026), and
 links to its own Lemon Squeezy checkout and its own free sample.
 
 Run:
-    cd financial-models-website && python3 build_november_model_pages.py
+    cd financial-models-website && python3 build_model_landing_pages.py
 
-Output: five .html files in the website root. Prices and checkout URLs are
+Output: one .html file per entry in MODELS, in the website root. Prices and checkout URLs are
 read from ls-config.js so they cannot drift from what the catalogue sells.
 """
 
@@ -279,6 +279,262 @@ MODELS = [
             ("Blog: Excel financial model best practices", "/blog/excel-financial-model-best-practices.html"),
         ],
     },
+    # ════════════════════════════════════════════════════════════════════
+    # Batch 2 (18 Nov 2026): banking and regulatory models with no page.
+    # Content from each workbook's COVER, INSTRUCTIONS and NOTES tabs.
+    # ════════════════════════════════════════════════════════════════════
+    # ── Basel IV RWA ────────────────────────────────────────────────────
+    {
+        "id": "basel-iv-rwa",
+        "slug": "basel-iv-rwa-model-excel",
+        "title": "Basel IV RWA Calculator in Excel: SA, IRB, Output Floor",
+        "h1": "Basel IV RWA Calculator",
+        "meta": "Basel IV RWA model in Excel. Standardised and IRB credit RWA, output floor, FRTB market risk, SMA operational risk and CVA, 20 quarters, four scenarios.",
+        "keywords": "basel iv rwa calculator excel, basel 3.1 rwa model, output floor calculation excel, irb rwa formula excel, risk weighted assets model",
+        "hero": "Risk-weighted assets under the Basel III final reforms in one workbook: credit RWA under the standardised and IRB approaches, the output floor, market, operational and CVA risk, projected over 20 quarters under four scenarios.",
+        "problem": [
+            "The Basel III final reforms (Basel IV, or Basel 3.1 in the UK) change almost every RWA calculation at once: a new standardised approach, constraints on IRB, the output floor, the SMA for operational risk and a revised CVA framework. Most banks need to see the combined effect on their ratios before the rules bite, not one component at a time.",
+            "This calculator brings all of it into one place, so you can see where the floor binds, what moving a portfolio from SA to IRB is worth, and how the capital ratios respond.",
+        ],
+        "who": "Capital management and regulatory reporting teams preparing for Basel 3.1 and CRR3. Banks on or moving to IRB that need to understand the output floor. Consultants and analysts sizing the RWA impact of the reforms.",
+        "tabs": [
+            ("INSTRUCTIONS", "Methodology, scenario definitions and how to run the model."),
+            ("INPUTS", "Every assumption, with a scenario selector across Base, Upside, Downside and Stress, and the output floor percentage set by quarter."),
+            ("CREDIT_RWA_SA", "Standardised approach across 12 exposure classes, from sovereigns and banks to corporates, retail and real estate: EAD, risk weight, RWA, density and capital requirement."),
+            ("CREDIT_RWA_IRB", "IRB capital requirement using the full Vasicek single-factor formula with asset correlation and maturity adjustment."),
+            ("OUTPUT_FLOOR", "Floored RWA = MAX(IRB RWA, SA RWA x floor %), in total and by exposure class, with whether the floor binds and its add-on."),
+            ("MARKET_RWA", "Sensitivities-based method under FRTB across GIRR, credit spread, equity, commodity and FX risk classes."),
+            ("OP_RISK_RWA", "Standardised Measurement Approach: business indicator component with marginal coefficients and the internal loss multiplier."),
+            ("CVA_RWA", "Basic CVA approach with systematic and idiosyncratic components."),
+            ("RWA_SUMMARY", "Consolidated RWA across all risk types."),
+            ("CAPITAL_RATIOS", "Capital adequacy ratios against regulatory minimums."),
+            ("MIGRATION", "SA to IRB migration impact analysis."),
+            ("DASHBOARD", "Charts and executive summary."),
+            ("SENSITIVITY", "Two-way sensitivity tables."),
+            ("CHECKS", "66 integrity checks with automated PASS / FAIL."),
+        ],
+        "diffs": [
+            ("The output floor, class by class", "The floor is calculated in total and for each exposure class, so you can see which portfolios drive the add-on rather than just its size."),
+            ("A phase-in you control", "The floor percentage is an input for each of the 20 quarters, so you can follow the Basel timetable or your own regulator's transitional path."),
+            ("The real IRB formula", "IRB capital uses the Vasicek single-factor model with asset correlation, the 99.9% confidence level and the maturity adjustment, not a lookup of indicative risk weights."),
+            ("SA to IRB migration", "MIGRATION shows the RWA effect of moving exposure classes between approaches, once the floor is taken into account."),
+            ("All four risk types together", "Credit, market, operational and CVA RWA roll into one summary and one set of ratios, under four scenarios."),
+        ],
+        "faqs": [
+            ("Is this Basel 3.1 / CRR3?", "It implements the Basel III final reforms as published by the Basel Committee in December 2017, which Basel 3.1 in the UK and CRR3 in the EU are based on. Local variations, such as specific risk weights and the transitional floor path, are inputs you can align to your rules."),
+            ("What does it not cover?", "Securitisation exposures and counterparty credit risk under SA-CCR are not included. CVA uses the basic approach only, and the market risk standardised approach uses simplified risk weights."),
+            ("How is it different from the Capital / Regulatory Model?", "The Capital Model plans the capital base, buffers, Pillar 2 and the five-year capital plan on the current rules. This calculator goes deep on RWA under the final reforms: the new standardised approach, IRB, the output floor, FRTB, SMA and CVA."),
+            ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
+            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+        ],
+        "spec": "Excel (.xlsx) &middot; 17 tabs &middot; 12 exposure classes &middot; 20 quarters &times; 4 scenarios &middot; 66 integrity checks &middot; no macros &middot; instant download",
+        "related": [
+            ("Capital / Regulatory Model", "/bank-capital-model-excel.html"),
+            ("ICAAP Model", "/icaap-model-excel.html"),
+            ("Credit Stress Test &amp; Capital Model", "/credit-stress-test-model-excel.html"),
+        ],
+    },
+    # ── LCR / NSFR ──────────────────────────────────────────────────────
+    {
+        "id": "lcr",
+        "slug": "lcr-model-excel",
+        "title": "LCR and NSFR Model in Excel: Liquidity Stress Testing",
+        "h1": "LCR Model: Liquidity Coverage and NSFR",
+        "meta": "LCR model in Excel. HQLA levels, haircuts and caps, outflows, inflow cap, NSFR, three liquidity stress scenarios with 90-day survival, 60-month projection.",
+        "keywords": "lcr model excel, liquidity coverage ratio calculation excel, nsfr calculation excel, hqla calculation, liquidity stress test model",
+        "hero": "The liquidity coverage ratio and the net stable funding ratio, projected monthly for five years. HQLA by level with haircuts and caps, outflows and inflows by category, three stress scenarios with 90-day survival, and a maturity ladder.",
+        "problem": [
+            "The LCR itself is one division. Getting it right is not: Level 2 and 2B caps applied after haircuts, the 75% inflow cap, the right run-off rate for each deposit class, and a projection that shows where the ratio is heading, not just where it stands today.",
+            "This model handles those mechanics and extends them into what liquidity teams need for an ILAAP and for ALCO: the NSFR, idiosyncratic and market-wide stress, a maturity ladder, a funding plan and intraday monitoring.",
+        ],
+        "who": "Treasury and liquidity risk teams at banks and building societies. Teams preparing an ILAAP or the liquidity section of an ALCO pack. Finance and risk professionals who need to model the LCR effect of balance sheet plans.",
+        "tabs": [
+            ("INSTRUCTIONS", "Methodology and regulatory references: CRR2, BCBS 238, EBA GL/2017/01 and PRA SS24/15."),
+            ("INPUTS", "Every assumption, with a scenario selector across Base, Stress, Severe and Custom."),
+            ("HQLA", "High quality liquid assets by Level 1, 2A and 2B, with haircuts and the 40% and 15% caps, over 60 months."),
+            ("OUTFLOWS", "Cash outflows by category: stable and less stable retail, operational and non-operational wholesale, secured funding, facilities."),
+            ("INFLOWS", "Cash inflows by category, capped at 75% of gross outflows."),
+            ("LCR_CALC", "The LCR and compliance against the 100% minimum, month by month."),
+            ("NSFR", "Available and required stable funding with ASF and RSF factors."),
+            ("STRESS_TEST", "Idiosyncratic, market-wide and combined scenarios with 90-day survival analysis."),
+            ("MATURITY_LADDER", "Asset and liability maturity mismatch and cumulative gap."),
+            ("FUNDING_PLAN", "12-month funding plan and issuance schedule."),
+            ("INTRADAY", "Intraday liquidity monitoring."),
+            ("DASHBOARD", "Executive dashboard with six charts."),
+            ("SENSITIVITY", "Two-way sensitivity analysis."),
+            ("CHECKS", "57 integrity checks."),
+        ],
+        "diffs": [
+            ("Caps applied correctly", "Level 2 assets capped at 40% and Level 2B at 15% of HQLA after haircuts, and inflows capped at 75% of outflows. These are where hand-built LCR spreadsheets most often go wrong."),
+            ("Projected, not just measured", "Five years of monthly HQLA, outflows and inflows, so you can see the ratio respond to growth plans, deposit mix changes and maturing funding."),
+            ("Three stress scenarios with survival", "Idiosyncratic, market-wide and combined stress, each with a 90-day survival horizon. Parameters are inputs."),
+            ("LCR and NSFR together", "Short-term and structural liquidity in one workbook, from the same balance sheet."),
+            ("Built for ILAAP and ALCO", "Maturity ladder, funding plan and intraday monitoring alongside the ratios, with a one-page dashboard."),
+        ],
+        "faqs": [
+            ("Which rules does it follow?", "CRR2 and the Basel III LCR (BCBS 238), with HQLA haircuts and caps per the Delegated Regulation, NSFR factors per CRR2, and references to PRA SS24/15. Run-off rates are set at regulatory minimums; calibrate higher where your experience shows it."),
+            ("Can I use it for regulatory submissions?", "It is a projection and planning model. Regulatory returns need counterparty-level data and validation against your own systems; this model shows where the numbers are heading and why."),
+            ("How is it different from the ILAAP Model?", "The ILAAP Model frames the full internal liquidity adequacy assessment. This model is the calculation engine for the LCR and NSFR, with stress testing and a maturity ladder."),
+            ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
+            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+        ],
+        "spec": "Excel (.xlsx) &middot; 17 tabs &middot; 60-month projection &middot; 3 stress scenarios &middot; 57 integrity checks &middot; no macros &middot; instant download",
+        "related": [
+            ("ILAAP Model", "/ilaap-model-excel.html"),
+            ("Bank Deposits Model", "/bank-deposits-model-excel.html"),
+            ("Blog: Building an ILAAP liquidity model", "/blog/ilaap-liquidity-model.html"),
+        ],
+    },
+    # ── Capital / Regulatory ────────────────────────────────────────────
+    {
+        "id": "capital",
+        "slug": "bank-capital-model-excel",
+        "title": "Bank Capital Model in Excel: CET1, Buffers, Pillar 2",
+        "h1": "Capital &amp; Regulatory Model",
+        "meta": "Bank capital model in Excel. CET1, AT1 and Tier 2 with deductions, RWA, buffers and MDA trigger, Pillar 2A and 2B, stress and a five-year capital plan.",
+        "keywords": "bank capital model excel, capital adequacy model, cet1 ratio calculation excel, capital planning model bank, mda trigger calculation",
+        "hero": "The capital stack, risk-weighted assets, buffers and Pillar 2 in one model, projected monthly for five years. See the CET1 ratio against the MDA trigger under base and stress, and plan the capital that keeps you above it.",
+        "problem": [
+            "Capital adequacy is a chain: instruments less deductions give CET1, RWA set the denominator, Pillar 1, Pillar 2A and the combined buffer stack up to the MDA trigger. A break anywhere in that chain is how a bank ends up surprised by its own headroom.",
+            "This model sets the whole chain out on separate, traceable tabs and projects it forward, so capital planning, stress and the board view all come from the same numbers.",
+        ],
+        "who": "Capital management, finance and treasury teams at banks and building societies. Teams preparing the ICAAP capital plan or board capital papers. Analysts and consultants assessing a bank's capital position.",
+        "tabs": [
+            ("INSTRUCTIONS", "How to run the model, step by step."),
+            ("INPUTS", "Every assumption, with a scenario selector across Base, Upside, Downside and Severe."),
+            ("CAPITAL_BASE", "CET1, AT1 and Tier 2 over 60 months, with deductions: goodwill, intangibles, deferred tax assets, significant investments, pension deficit, own credit and prudent valuation."),
+            ("CREDIT_RWA", "Credit RWA under the standardised approach across 10 exposure classes."),
+            ("MARKET_RWA", "Market risk capital charge from VaR inputs."),
+            ("OP_RISK_RWA", "Operational risk RWA under the Basic Indicator Approach."),
+            ("TOTAL_RWA", "Consolidated RWA summary."),
+            ("RATIOS", "CET1, Tier 1 and total capital ratios against regulatory minimums."),
+            ("BUFFERS", "Capital conservation, countercyclical and systemic buffers, and the MDA trigger."),
+            ("PILLAR2", "Pillar 2A and 2B and the ICAAP surplus."),
+            ("STRESS", "Three stress scenarios over 60 months: losses after tax and RWA uplift, and the stressed CET1 ratio."),
+            ("CAPITAL_PLAN", "Five-year capital plan."),
+            ("DASHBOARD", "Executive dashboard with six charts."),
+            ("SENSITIVITY", "Two-way sensitivity analysis."),
+            ("CHECKS", "65 integrity checks."),
+        ],
+        "diffs": [
+            ("Deductions done properly", "CET1 is built from qualifying instruments less the full list of regulatory deductions, each on its own line, so the capital number can be traced to the balance sheet."),
+            ("The MDA trigger, explicit", "Pillar 1 CET1, Pillar 2A CET1 and the combined buffer requirement add up to the MDA trigger, shown against the projected CET1 ratio month by month."),
+            ("Pillar 2 and the ICAAP surplus", "Pillar 2A and 2B sit in the stack, so the surplus over total requirement is visible, not just the surplus over Pillar 1."),
+            ("Stress on both sides of the ratio", "Each stress scenario applies after-tax losses to capital and an uplift to RWA, so the ratio is hit from both directions."),
+            ("Plan and board view from one source", "The five-year capital plan and the dashboard read from the same engine as the ratios."),
+        ],
+        "faqs": [
+            ("Which rules is it based on?", "The Basel III capital framework as applied by the PRA in the UK, with references to the PRA Rulebook and the onshored CRR. Rates such as buffers and Pillar 2A are inputs."),
+            ("What does it not do?", "Risk weights are static, with no credit migration. Operational risk uses the Basic Indicator Approach. Counterparty credit risk under SA-CCR and MREL are not included. For the Basel 3.1 RWA changes, see the Basel IV RWA Calculator."),
+            ("How does it relate to the ICAAP Model?", "The ICAAP Model frames the whole internal capital adequacy assessment. This model is the capital engine: the stack, RWA, buffers, Pillar 2, stress and the capital plan."),
+            ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
+            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+        ],
+        "spec": "Excel (.xlsx) &middot; 18 tabs &middot; 60-month projection &middot; 10 exposure classes &middot; 65 integrity checks &middot; no macros &middot; instant download",
+        "related": [
+            ("Basel IV RWA Calculator", "/basel-iv-rwa-model-excel.html"),
+            ("ICAAP Model", "/icaap-model-excel.html"),
+            ("Bank Stress Test Model", "/bank-stress-test-model.html"),
+            ("Blog: Reverse stress testing for banks", "/blog/reverse-stress-testing-bank.html"),
+        ],
+    },
+    # ── Lending ─────────────────────────────────────────────────────────
+    {
+        "id": "lending",
+        "slug": "loan-portfolio-model-excel",
+        "title": "Bank Lending Model in Excel: Loan Portfolio and NIM",
+        "h1": "Lending Model",
+        "meta": "Bank lending model in Excel. Eight loan products, rate-locked vintage engine, prepayment and default, P&L, IFRS 9 staging, RWA and NIM analytics.",
+        "keywords": "bank lending model excel, loan portfolio model excel, vintage analysis excel, nim model bank, loan book projection",
+        "hero": "Project a loan book of eight products month by month: originations, repayments, prepayments, defaults and recoveries, with interest earned on rate-locked vintages. Out come the P&amp;L, IFRS 9 provisions, RWA and a NIM you can explain.",
+        "problem": [
+            "A lending budget that applies today's rate to the whole book gets NIM wrong in any rate cycle. Existing loans keep the rate they were written at; only new business reprices. The gap between front book and back book is where margin forecasts fail.",
+            "This model tracks every origination month as its own vintage with its rate locked, so the NIM path reflects how the book actually reprices, and links it through to provisions and capital.",
+        ],
+        "who": "FP&amp;A and finance teams at banks, building societies and specialist lenders building the lending budget or plan. Treasury and ALM teams forecasting NIM. Lending heads who need volume, margin, losses and capital in one view.",
+        "tabs": [
+            ("INSTRUCTIONS", "How to run the model and common uses: budget, stress, board reporting, ICAAP support."),
+            ("INPUTS", "Opening balances, origination volumes, contract rates and rate trajectory, prepayment and default rates, LGD, stage allocations, risk weights, funding costs, opex and tax, with a Base, Upside and Downside selector."),
+            ("ENGINE", "Monthly roll-forward for eight products: residential, buy-to-let, CRE, SME, corporate, consumer unsecured, cards and government-guaranteed lending."),
+            ("VINTAGES", "Cohort matrix: each origination month locks its rate and amortises on its own."),
+            ("INCOME", "Monthly P&amp;L from interest through cost of funds, fees, opex and provisions to net profit."),
+            ("ECL", "IFRS 9 Stage 1, 2 and 3 provisions, coverage ratios and cost of risk."),
+            ("RWA", "Standardised credit RWA by product and operational RWA."),
+            ("ANALYTICS", "NIM decomposition, portfolio mix, asset quality and yield waterfall."),
+            ("SENSITIVITY", "Two-way tables for NIM and net profit against rates, default and prepayment."),
+            ("OUTPUTS", "Executive dashboard with charts."),
+            ("CHECKS", "16 integrity checks, including vintage interest tying to the engine and stage allocations summing to 100%."),
+        ],
+        "diffs": [
+            ("Rate-locked vintages", "Interest is calculated on each vintage at the rate it was originated, so a rising or falling rate trajectory flows through to new business while the back book holds its rate."),
+            ("A full roll-forward per product", "Opening, originations, scheduled repayment, prepayment, default, recovery, closing. Prepayment and default use annual CPR and CDR converted to monthly rates."),
+            ("From volume to capital", "Balances drive the P&amp;L, the IFRS 9 provision and standardised RWA, so a change in origination plans shows up in margin, losses and capital together."),
+            ("NIM you can explain", "ANALYTICS breaks NIM down into yield, funding cost and mix, so you can tell the board why it moved."),
+            ("Eight UK-style products", "Residential and buy-to-let mortgages, CRE, SME, corporate, unsecured, cards and government-guaranteed schemes, each with its own assumptions."),
+        ],
+        "faqs": [
+            ("How detailed is the IFRS 9 calculation?", "Stage allocations are percentages by product, with ECL as balance times PD times LGD and a lifetime approximation for Stage 2. For loan-by-loan staging, see the IFRS 9 ECL Model: Loan-Level Edition."),
+            ("Can I change the products?", "Every volume, rate and risk assumption is set per product on INPUTS, and the eight rows can be relabelled for the lending products you run."),
+            ("Does it handle changing interest rates?", "Yes. A rate trajectory sets the rate on new originations year by year, and each vintage keeps its own rate."),
+            ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
+            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+        ],
+        "spec": "Excel (.xlsx) &middot; 14 tabs &middot; 8 lending products &middot; 60 months, vintage engine &middot; 16 integrity checks &middot; no macros &middot; instant download",
+        "related": [
+            ("Bank Deposits Model", "/bank-deposits-model-excel.html"),
+            ("IFRS 9 ECL Model: Loan-Level Edition", "/ifrs9-loan-level-ecl-model-excel.html"),
+            ("Bank Long-Term Plan Model", "/bank-financial-model.html"),
+        ],
+    },
+    # ── Deposits ────────────────────────────────────────────────────────
+    {
+        "id": "deposits",
+        "slug": "bank-deposits-model-excel",
+        "title": "Bank Deposits Model in Excel: Pricing, Beta, FTP",
+        "h1": "Deposits Model",
+        "meta": "Bank deposits model in Excel. Seven products, deposit beta with lag, cost of funds, FTP margin, behavioural maturity, LCR and NSFR contribution.",
+        "keywords": "bank deposits model excel, deposit beta model, deposit pricing model excel, cost of funds model, ftp model bank",
+        "hero": "Model a deposit book of seven products over 60 months: balances, rates with deposit beta and lag, cost of funds, FTP margin, behavioural maturity and the book's contribution to the LCR and NSFR.",
+        "problem": [
+            "Deposit pricing decides most of a bank's margin, and it rarely moves one for one with the base rate. How much of each rate change you pass on, and how quickly, is the assumption behind every NIM forecast and every ALCO pricing decision.",
+            "This model makes that assumption explicit per product, with a beta, a lag and a floor, and follows it through to cost of funds, FTP margin, liquidity value and P&amp;L contribution.",
+        ],
+        "who": "Treasury, ALM and finance teams at banks and building societies. Savings and deposit product teams setting rates. ALCO members who need the margin and liquidity effect of a pricing decision in one place.",
+        "tabs": [
+            ("INSTRUCTIONS", "Step-by-step guide and common uses: board reporting, stress, product launch, rate sensitivity, ALCO pack."),
+            ("INPUTS", "Base rate path, FTP rate, opening balances and flow rates, floors, betas and lags for each product, with a Base, Upside and Downside selector."),
+            ("BOOK", "Monthly balances for current accounts, instant access, 30 and 90-day notice, one and two-year fixed, and ISAs."),
+            ("PRICING", "Effective product rates from the floor, beta and lagged base rate, and interest expense on average balances."),
+            ("BEHAVIOURAL", "Behavioural maturity using stickiness, core deposits and decay rates."),
+            ("LIQUIDITY", "Each product's LCR outflows and NSFR available stable funding."),
+            ("FTP", "Funds transfer pricing credit and margin by product."),
+            ("PL", "Deposit book P&amp;L contribution."),
+            ("SENSITIVITY", "NIM and contribution sensitivities."),
+            ("OUTPUTS", "Eight KPIs and six charts, board-ready."),
+            ("CHECKS", "27 integrity checks."),
+        ],
+        "diffs": [
+            ("Beta, lag and floor per product", "Effective rate = MAX(floor, floor + beta x (lagged base rate - floor base)). Each product has its own beta and its own lag in months, so instant access and fixed-term deposits respond differently."),
+            ("Margin through FTP", "Each product is credited at the FTP rate, so you can see which products earn their keep and which cost more than they are worth."),
+            ("Liquidity value alongside margin", "LCR outflow rates and NSFR ASF factors per product show what each pound of deposits is worth for liquidity, not just what it costs."),
+            ("Behavioural maturity", "Stickiness and core deposit assumptions shift contractual maturities to behavioural ones."),
+            ("No circularity", "Interest uses average balances, so the model calculates cleanly without iterative calculation switched on."),
+        ],
+        "faqs": [
+            ("How is it different from the Deposit Pricing &amp; NII Model?", "The Deposit Pricing &amp; NII Model focuses on pricing and net interest income. This model covers the whole deposit book: balances, pricing, behavioural maturity, liquidity value, FTP and P&amp;L contribution."),
+            ("Can I add or rename products?", "Every balance, flow and pricing assumption is set per product on INPUTS, and the seven rows can be relabelled for your own range. Adding a product means extending the formulas on BOOK."),
+            ("Which liquidity rules does it use?", "Basel III LCR outflow rates and NSFR available stable funding factors as defaults, editable if your regulator sets different add-ons."),
+            ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
+            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+        ],
+        "spec": "Excel (.xlsx) &middot; 14 tabs &middot; 7 deposit products &middot; 60-month projection &middot; 27 integrity checks &middot; no macros &middot; instant download",
+        "related": [
+            ("Lending Model", "/loan-portfolio-model-excel.html"),
+            ("LCR Model", "/lcr-model-excel.html"),
+            ("IRRBB Model", "/irrbb-model-excel.html"),
+            ("Blog: Calibrating deposit beta", "/blog/deposit-beta-calibration.html"),
+        ],
+    },
 ]
 
 
@@ -543,6 +799,7 @@ def render(m):
 def main():
     ls = load_ls_config()
     for m in MODELS:
+        assert len(m["meta"]) <= 155, (m["id"], len(m["meta"]))
         p = ls[m["id"]]
         m["price"] = p["price"].replace("£", "").replace(".00", "")
         m["buy"] = p["buyUrl"]
