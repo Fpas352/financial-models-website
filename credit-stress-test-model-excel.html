@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Stress Test Model in Excel: Loans to CET1 | SFS Models</title>
+<meta name="description" content="Loan-level credit stress test in Excel. Three scenarios over three years: stressed transition matrices, provisions, RWA, CET1 path, reverse stress test.">
+<meta name="keywords" content="credit stress test model excel, bank stress test excel, icaap stress test model, cet1 stress test, reverse stress test model">
+<link rel="canonical" href="https://sfsmodels.org/credit-stress-test-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Credit Stress Test Model in Excel: Loans to CET1 | SFS Models">
+<meta property="og:description" content="Loan-level credit stress test in Excel. Three scenarios over three years: stressed transition matrices, provisions, RWA, CET1 path, reverse stress test.">
+<meta property="og:url" content="https://sfsmodels.org/credit-stress-test-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Credit Stress Test Model in Excel: Loans to CET1 | SFS Models">
+<meta name="twitter:description" content="Loan-level credit stress test in Excel. Three scenarios over three years: stressed transition matrices, provisions, RWA, CET1 path, reverse stress test.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Credit Stress Test & Capital Model",
+  "description": "Loan-level credit stress test in Excel. Three scenarios over three years: stressed transition matrices, provisions, RWA, CET1 path, reverse stress test.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "599",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/credit-stress-test-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which capital approach does it use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standardised risk weights, with loan-to-value bands for mortgage segments. It does not calculate IRB risk weights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does it relate to the Stress Testing Model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Stress Testing Model works at portfolio level across the whole income statement. This model starts from the loan tape and gives a granular credit view with its own capital plan. They can be used together, or this one on its own for a credit-led stress."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it not do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Annual steps over three years, expected values rather than simulated paths. No cures from default and no write-offs, so Stage 3 only grows. Tax losses are not carried forward. Under the static balance sheet option, maturing loans are replaced like for like."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many loans can it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 1,000 rows. Paste over the demo tape; blank rows return zero."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Credit Stress Test &amp; Capital Model</h1>
+      <p>Takes a loan tape of up to 1,000 loans from macro shock to impairments, risk-weighted assets and the CET1 ratio. Three years, three scenarios: baseline, adverse and severely adverse.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/2167486a-7de5-40fc-8a2c-13bb59039215" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="credit-stress-test">Buy Now - &pound;599</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/d40cba07-521d-4700-a679-685ef23f2a18" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="credit-stress-test">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Many credit stress tests apply a stressed loss rate to each segment and stop there. The supervisor's questions go further: how the loss arises, what the downgrades do to RWA as well as to capital, where the low point falls and how far it sits from the hurdle.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model answers those from your own loan book. The stress moves every loan through a stressed transition matrix, so Stage 2 balances, provisions and risk weights all respond, and the results flow into an income statement and a capital plan.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Capital planning and stress testing teams at smaller banks and building societies preparing an ICAAP. CFOs and CROs who need a stress they can defend on their own book. Consultants and reviewers supporting ICAAP and supervisory review.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">Severity dial, staging rules, starting capital, RWA outside the tape, income run-rate, hurdle rates and management actions.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SEGMENTS</h4><p style="margin:0; color:var(--text-muted);">Five segments with credit conversion factor, macro sensitivity, LGD parameters and standardised risk weights, including loan-to-value bands for mortgages.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SCENARIOS</h4><p style="margin:0; color:var(--text-muted);">Macro paths, the credit cycle index, collateral value paths and bank-level shocks for each scenario.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">TM</h4><p style="margin:0; color:var(--text-muted);">Rating scale, transition matrix and the SICR matrix.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">LIFETIME</h4><p style="margin:0; color:var(--text-muted);">Through-the-cycle cumulative PD by grade and horizon.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">STRESSED</h4><p style="margin:0; color:var(--text-muted);">Stressed transition matrices by segment, scenario and year.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DIST</h4><p style="margin:0; color:var(--text-muted);">Grade distributions after one, two and three years.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">FWD</h4><p style="margin:0; color:var(--text-muted);">Forward 12-month PD and lifetime uplift at each year-end.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">LOANS</h4><p style="margin:0; color:var(--text-muted);">The loan tape (columns A to M) and the loan-level engine: probability of performing, Stage 2 and default, stressed LGD, provisions and RWA per loan.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CREDIT</h4><p style="margin:0; color:var(--text-muted);">Tape results by scenario, year and segment.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">PNL</h4><p style="margin:0; color:var(--text-muted);">Income statement by scenario, without and with management actions.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CAPITAL</h4><p style="margin:0; color:var(--text-muted);">CET1, RWA, ratios and headroom by scenario.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">BRIDGE</h4><p style="margin:0; color:var(--text-muted);">What moved the CET1 ratio over the three years.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">REVERSE</h4><p style="margin:0; color:var(--text-muted);">Reverse stress test: how much more loss the capital position can absorb before the hurdle.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">OUTPUTS</h4><p style="margin:0; color:var(--text-muted);">One-page summary and charts.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">43 integrity checks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">The stress moves the whole matrix</h3><p style="margin:0; line-height:1.7;">Macro paths become a credit cycle index that shifts the transition matrix separately for each segment. Downgrades and defaults both rise, so Stage 2 migration and RWA inflation come through, not just losses.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Collateral drives LGD and risk weights</h3><p style="margin:0; line-height:1.7;">Collateral values follow their own path. Falling prices raise loss given default and push mortgages into higher loan-to-value risk-weight bands.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">From loans to the CET1 ratio</h3><p style="margin:0; line-height:1.7;">Loan results feed an income statement and a capital plan: the CET1 ratio path, the low point against the hurdle, with and without management actions.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">A bridge and a reverse stress test</h3><p style="margin:0; line-height:1.7;">BRIDGE shows what moved the ratio. REVERSE shows how many times larger losses could be before the hurdle is reached, and the cumulative loss rate that would get there.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">A severity dial</h3><p style="margin:0; line-height:1.7;">One selector scales the adverse scenarios' credit cycle index and collateral falls, so you can show the board how sensitive capital is to the depth of the stress.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 17 tabs &middot; up to 1,000 loans &middot; 3 scenarios &times; 3 years &middot; 43 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/2167486a-7de5-40fc-8a2c-13bb59039215" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="credit-stress-test">Buy Now - &pound;599</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/d40cba07-521d-4700-a679-685ef23f2a18" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="credit-stress-test">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">Which capital approach does it use?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Standardised risk weights, with loan-to-value bands for mortgage segments. It does not calculate IRB risk weights.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">How does it relate to the Stress Testing Model?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">The Stress Testing Model works at portfolio level across the whole income statement. This model starts from the loan tape and gives a granular credit view with its own capital plan. They can be used together, or this one on its own for a credit-led stress.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">What does it not do?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Annual steps over three years, expected values rather than simulated paths. No cures from default and no write-offs, so Stage 3 only grows. Tax losses are not carried forward. Under the static balance sheet option, maturing loans are replaced like for like.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">How many loans can it take?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Up to 1,000 rows. Paste over the demo tape; blank rows return zero.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/bank-stress-test-model.html" style="color:#C9A84C;">&rarr; Bank Stress Test Model (portfolio level)</a></li>
+        <li><a href="/ifrs9-loan-level-ecl-model-excel.html" style="color:#C9A84C;">&rarr; IFRS 9 ECL Model: Loan-Level Edition</a></li>
+        <li><a href="/icaap-model-excel.html" style="color:#C9A84C;">&rarr; ICAAP Model</a></li>
+        <li><a href="/blog/reverse-stress-testing-bank.html" style="color:#C9A84C;">&rarr; Blog: Reverse stress testing for banks</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

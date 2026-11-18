@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan-Level IFRS 9 ECL Model in Excel | SFS Models</title>
+<meta name="description" content="Loan-level IFRS 9 ECL model in Excel. Stages up to 1,000 loans on five SICR triggers, four macro scenarios, collateral-aware LGD and IFRS 7 tables.">
+<meta name="keywords" content="ifrs 9 ecl model excel, loan level ecl model, ifrs 9 staging model, sicr model excel, expected credit loss excel">
+<link rel="canonical" href="https://sfsmodels.org/ifrs9-loan-level-ecl-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Loan-Level IFRS 9 ECL Model in Excel | SFS Models">
+<meta property="og:description" content="Loan-level IFRS 9 ECL model in Excel. Stages up to 1,000 loans on five SICR triggers, four macro scenarios, collateral-aware LGD and IFRS 7 tables.">
+<meta property="og:url" content="https://sfsmodels.org/ifrs9-loan-level-ecl-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Loan-Level IFRS 9 ECL Model in Excel | SFS Models">
+<meta name="twitter:description" content="Loan-level IFRS 9 ECL model in Excel. Stages up to 1,000 loans on five SICR triggers, four macro scenarios, collateral-aware LGD and IFRS 7 tables.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "IFRS 9 ECL Model: Loan-Level Edition",
+  "description": "Loan-level IFRS 9 ECL model in Excel. Stages up to 1,000 loans on five SICR triggers, four macro scenarios, collateral-aware LGD and IFRS 7 tables.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "499",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/ifrs9-loan-level-ecl-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many loans can it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 1,000 rows on the LOANS tab. Paste your tape over the demo loans; blank rows return zero. For a larger book, run it by portfolio or group similar loans into representative rows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from the £299 IFRS 9 / CECL model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That model works at segment level and switches between IFRS 9 and CECL. This one works loan by loan, with five staging triggers per loan, transition-matrix PD curves and IFRS 7 disclosure tables. Choose this one when you need to explain individual exposures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it not do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It runs in annual steps over a 20-year horizon. Exposure is bullet or straight-line amortising, LGD is constant over a loan's life within a scenario, and there is no cure or prepayment modelling. Prior-period stage and ECL are inputs, used for the movement table."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA, no hidden sheets. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live. The only difference is that inputs are locked, so you evaluate it on the demo loan book rather than your own."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>IFRS 9 ECL Model: Loan-Level Edition</h1>
+      <p>Paste a loan tape of up to 1,000 loans. Every loan is staged on five triggers, given a 12-month and a lifetime expected credit loss under four probability-weighted macro scenarios, and rolled up into the movement table and the IFRS 7 disclosures.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/04d458a9-0750-42e6-a1b4-c491861c97bb" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="ifrs9-loan-level">Buy Now - &pound;499</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/8f2d2469-d028-4068-bd95-bf5cf19068aa" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="ifrs9-loan-level">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Segment-level ECL models average away the loans that drive the allowance. When the auditor asks why one exposure moved to Stage 2, or why the allowance rose this quarter, a pool model cannot answer at loan level.</p>
+      <p style="line-height:1.7; margin-top:1rem;">Enterprise IFRS 9 engines can answer, but they take months to implement and cost far more than a smaller lender needs to spend. This model sits between the two: loan-by-loan staging and measurement in a workbook your team can open, trace and defend.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Credit risk and impairment teams at smaller banks, building societies and specialist lenders. Finance teams producing IFRS 9 numbers without an enterprise engine. Auditors, advisors and model validators who need an independent loan-level benchmark.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">Scenario weights (three sets on a selector), staging rules, SICR thresholds and sensitivity settings.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SEGMENTS</h4><p style="margin:0; color:var(--text-muted);">Five segments: residential mortgages, SME, corporate, consumer loans and credit cards. Credit conversion factor, macro sensitivity, unsecured loss rate, collateral haircut and time to sale, LGD floor and management overlay for each.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">MACRO</h4><p style="margin:0; color:var(--text-muted);">Macroeconomic paths for four scenarios, combined into a credit cycle index per scenario and year.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">TM</h4><p style="margin:0; color:var(--text-muted);">Rating grades and the annual through-the-cycle transition matrix.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">PD_CURVES</h4><p style="margin:0; color:var(--text-muted);">Cumulative PDs from compounding the matrix year after year, converted to hazard rates, then shifted for each scenario by the credit cycle index.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">LOANS</h4><p style="margin:0; color:var(--text-muted);">The loan tape (columns A to O) and the loan-level engine: stage, 12-month and lifetime ECL per loan per scenario, probability-weighted.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">STAGING</h4><p style="margin:0; color:var(--text-muted);">Stage mix, which trigger moved each loan, and past-due analysis.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">ECL</h4><p style="margin:0; color:var(--text-muted);">Allowance by segment, by rating grade and by stage, with coverage ratios.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SCENARIOS</h4><p style="margin:0; color:var(--text-muted);">ECL under each scenario on its own and under each weighting set.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">MOVEMENT</h4><p style="margin:0; color:var(--text-muted);">Stage transfers and the reconciliation of the opening to the closing allowance.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DISCLOSURE</h4><p style="margin:0; color:var(--text-muted);">IFRS 7 credit quality and loss allowance tables.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Allowance against the SICR threshold, staging bounds and overlays.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">OUTPUTS</h4><p style="margin:0; color:var(--text-muted);">One-page summary and charts.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">37 integrity checks that turn red if anything stops reconciling.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Five staging triggers, loan by loan</h3><p style="margin:0; line-height:1.7;">Stage 3 on days past due or a default grade. Stage 2 on the past-due backstop, a relative and absolute rise in lifetime PD since origination, a downgrade of a set number of notches, watchlist, or forbearance. Loans at or better than the low-credit-risk grade are exempt from the PD test. STAGING shows which trigger fired.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">PD curves you can trace</h3><p style="margin:0; line-height:1.7;">Lifetime PDs come from the transition matrix, not a typed-in table. A neutral economy (credit cycle index of zero) returns the through-the-cycle curve exactly, so the forward-looking adjustment is visible and separable.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Four scenarios, probability-weighted</h3><p style="margin:0; line-height:1.7;">Every loan is measured under each scenario and weighted. Switch between three weight sets to see how much of the allowance is driven by the downside.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Collateral-aware LGD</h3><p style="margin:0; line-height:1.7;">LGD applies a forced-sale haircut and time to sale to the collateral, a loss rate to the uncovered part, and a floor. Set per segment.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Built for the year-end pack</h3><p style="margin:0; line-height:1.7;">The movement table and IFRS 7 tables come straight from the loan-level results, so the disclosure ties to the engine without a manual bridge.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 15 tabs &middot; up to 1,000 loans &middot; 37 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/04d458a9-0750-42e6-a1b4-c491861c97bb" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="ifrs9-loan-level">Buy Now - &pound;499</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/8f2d2469-d028-4068-bd95-bf5cf19068aa" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="ifrs9-loan-level">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">How many loans can it take?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Up to 1,000 rows on the LOANS tab. Paste your tape over the demo loans; blank rows return zero. For a larger book, run it by portfolio or group similar loans into representative rows.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">How is this different from the £299 IFRS 9 / CECL model?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">That model works at segment level and switches between IFRS 9 and CECL. This one works loan by loan, with five staging triggers per loan, transition-matrix PD curves and IFRS 7 disclosure tables. Choose this one when you need to explain individual exposures.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">What does it not do?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">It runs in annual steps over a 20-year horizon. Exposure is bullet or straight-line amortising, LGD is constant over a loan's life within a scenario, and there is no cure or prepayment modelling. Prior-period stage and ECL are inputs, used for the movement table.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA, no hidden sheets. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live. The only difference is that inputs are locked, so you evaluate it on the demo loan book rather than your own.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/ifrs9-cecl-model-excel.html" style="color:#C9A84C;">&rarr; IFRS 9 / CECL Expected Credit Loss Model (segment level)</a></li>
+        <li><a href="/credit-stress-test-model-excel.html" style="color:#C9A84C;">&rarr; Credit Stress Test &amp; Capital Model</a></li>
+        <li><a href="/blog/ifrs9-staging-sicr.html" style="color:#C9A84C;">&rarr; Blog: IFRS 9 staging and SICR in practice</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

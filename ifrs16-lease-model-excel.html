@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IFRS 16 Lease Model in Excel for a Lease Portfolio | SFS Models</title>
+<meta name="description" content="IFRS 16 lessee model in Excel for a lease portfolio. Liability, right-of-use asset, monthly ten-year schedule, maturity analysis, disclosures, journals.">
+<meta name="keywords" content="ifrs 16 lease model excel, ifrs 16 template excel, lease liability calculation excel, right of use asset excel, ifrs 16 disclosure">
+<link rel="canonical" href="https://sfsmodels.org/ifrs16-lease-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="IFRS 16 Lease Model in Excel for a Lease Portfolio | SFS Models">
+<meta property="og:description" content="IFRS 16 lessee model in Excel for a lease portfolio. Liability, right-of-use asset, monthly ten-year schedule, maturity analysis, disclosures, journals.">
+<meta property="og:url" content="https://sfsmodels.org/ifrs16-lease-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IFRS 16 Lease Model in Excel for a Lease Portfolio | SFS Models">
+<meta name="twitter:description" content="IFRS 16 lessee model in Excel for a lease portfolio. Liability, right-of-use asset, monthly ten-year schedule, maturity analysis, disclosures, journals.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "IFRS 16 Lease Model",
+  "description": "IFRS 16 lessee model in Excel for a lease portfolio. Liability, right-of-use asset, monthly ten-year schedule, maturity analysis, disclosures, journals.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/ifrs16-lease-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Lessee or lessor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lessee accounting only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many leases?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ten rows, each a separate lease. For a larger estate, run a copy per entity or group leases of the same class and terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it handle index-linked payments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Payments linked to an index are measured at the commencement rate, as IFRS 16 requires, so only fixed uplifts are projected. Remeasurements and modifications are not modelled."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Monthly or annual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monthly. A lease that commences mid-month is treated as starting on the first of that month. Every lease must end within the 120-month horizon; CHECKS tests this."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>IFRS 16 Lease Model</h1>
+      <p>Measure up to ten leases at commencement and run each one month by month for ten years: interest unwind, payments and depreciation. Rolled up into the P&amp;L, balance sheet, cash flow, IFRS 16 disclosures and journals.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/ba45e116-9188-4c3d-840d-da9ddccd5392" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="ifrs16-lease">Buy Now - &pound;199</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c5b0e09e-8b6d-42b5-9fe6-419c49b55939" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="ifrs16-lease">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Most IFRS 16 templates calculate one lease. Year-end needs the whole portfolio: a maturity analysis, right-of-use assets by class, the journals, and an answer on the two judgements auditors challenge most, extension options and the incremental borrowing rate.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model runs the portfolio in one workbook and puts both judgements on a scenario selector, so you can show what each one does to the balance sheet.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Financial controllers and group reporting teams with a set of property, vehicle and IT leases. Bank finance teams accounting for a branch estate. Accountants preparing year-end files for clients.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">Scenario, model start date, reporting year and the two judgements.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">LEASES</h4><p style="margin:0; color:var(--text-muted);">Lease register: commencement, term, extension option, monthly payment, in advance or arrears, fixed annual uplift, incremental borrowing rate, initial direct costs, incentives and restoration costs. Measurement at commencement.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SCHEDULE</h4><p style="margin:0; color:var(--text-muted);">The monthly engine: payments, liability, interest, depreciation and right-of-use asset.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">ANNUAL</h4><p style="margin:0; color:var(--text-muted);">Ten-year P&amp;L, balance sheet, cash flow and roll-forwards.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DISCLOSURE</h4><p style="margin:0; color:var(--text-muted);">Maturity analysis and right-of-use assets by asset class.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">JOURNALS</h4><p style="margin:0; color:var(--text-muted);">Initial recognition and reporting-year journal entries.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Lease liability under shifted discount rates.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">OUTPUTS</h4><p style="margin:0; color:var(--text-muted);">One-page summary and charts.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">20 integrity checks, including that every lease ends within the horizon.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">A portfolio, not one lease</h3><p style="margin:0; line-height:1.7;">Ten leases across property, vehicles, IT and equipment, each with its own dates, payments and rate, summed into one set of accounts.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">The details that move the numbers</h3><p style="margin:0; line-height:1.7;">Payments in advance or in arrears, fixed annual uplifts, initial direct costs, lease incentives and restoration costs all feed the right-of-use asset at commencement.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Disclosures and journals included</h3><p style="margin:0; line-height:1.7;">The maturity analysis, the right-of-use table by class and the journal entries come from the same schedule, so they tie without rework.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">The two judgements on a switch</h3><p style="margin:0; line-height:1.7;">Flex whether extension options are reasonably certain and the incremental borrowing rate, and see the effect on liability, asset and P&amp;L.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Existing leases handled</h3><p style="margin:0; line-height:1.7;">For a lease already running at the model start date, enter the start date and the remaining term: the modified retrospective measurement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 10 tabs &middot; up to 10 leases &middot; monthly over 10 years &middot; 20 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/ba45e116-9188-4c3d-840d-da9ddccd5392" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="ifrs16-lease">Buy Now - &pound;199</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c5b0e09e-8b6d-42b5-9fe6-419c49b55939" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="ifrs16-lease">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">Lessee or lessor?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Lessee accounting only.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">How many leases?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Ten rows, each a separate lease. For a larger estate, run a copy per entity or group leases of the same class and terms.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Does it handle index-linked payments?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Payments linked to an index are measured at the commencement rate, as IFRS 16 requires, so only fixed uplifts are projected. Remeasurements and modifications are not modelled.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Monthly or annual?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Monthly. A lease that commences mid-month is treated as starting on the first of that month. Every lease must end within the 120-month horizon; CHECKS tests this.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/models.html#accounting-fixed-assets" style="color:#C9A84C;">&rarr; Full Model Catalogue: Accounting &amp; Fixed Assets</a></li>
+        <li><a href="/blog/excel-financial-model-best-practices.html" style="color:#C9A84C;">&rarr; Blog: Excel financial model best practices</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>
