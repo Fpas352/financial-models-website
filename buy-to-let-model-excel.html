@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buy-to-Let Model in Excel: Portfolio Returns and Tax | SFS Models</title>
+<meta name="description" content="Buy-to-let model in Excel. 10 UK properties: SDLT, monthly mortgages, cash flow, Section 24, personal vs company tax, equity build-up and yields.">
+<meta name="keywords" content="buy to let model excel, buy to let calculator excel, property investment model excel, section 24 calculator, rental yield calculator excel">
+<link rel="canonical" href="https://sfsmodels.org/buy-to-let-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Buy-to-Let Model in Excel: Portfolio Returns and Tax | SFS Models">
+<meta property="og:description" content="Buy-to-let model in Excel. 10 UK properties: SDLT, monthly mortgages, cash flow, Section 24, personal vs company tax, equity build-up and yields.">
+<meta property="og:url" content="https://sfsmodels.org/buy-to-let-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Buy-to-Let Model in Excel: Portfolio Returns and Tax | SFS Models">
+<meta name="twitter:description" content="Buy-to-let model in Excel. 10 UK properties: SDLT, monthly mortgages, cash flow, Section 24, personal vs company tax, equity build-up and yields.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Buy-to-Let Property Investment Model",
+  "description": "Buy-to-let model in Excel. 10 UK properties: SDLT, monthly mortgages, cash flow, Section 24, personal vs company tax, equity build-up and yields.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "149",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/buy-to-let-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which mortgage type does it model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Repayment mortgages on the annuity method. Refinancing and remortgaging are not modelled in this version."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it not do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stamp duty uses the SDLT bands on SDLT_CALCULATOR for every property, so Scottish LBTT and Welsh LTT are not calculated. Service charges and insurance rise at a fixed 3% a year, ground rent is held flat, and the company route assumes all profit is extracted as dividends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Buy-to-Let Property Investment Model</h1>
+      <p>Ten rental properties in one workbook: acquisition costs and stamp duty, a monthly mortgage schedule for each, annual P&amp;L and cash flow, value and equity growth, yields and equity multiples, and a side-by-side of owning personally or through a limited company.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/6e8dc0b8-5342-45bd-87f4-bd0cab93f2be" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="buy-to-let">Buy Now - &pound;149</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/2f0ca316-fa38-478d-96c7-9d465363f093" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="buy-to-let">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Since Section 24, the same rent can leave a higher-rate landlord with much less than a company owner keeps, and a portfolio spread across cities is hard to judge property by property on the back of an envelope.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model runs each property from purchase price and rent to net cash flow and equity, then compares personal ownership, with mortgage interest relieved by a 20% tax credit, against a company paying corporation tax and dividend tax on extraction.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Landlords and property investors, with one property or a portfolio. Mortgage brokers and property advisers modelling options for clients. Accountants comparing personal and company ownership.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">Income tax, CGT, corporation tax, allowances and dividend rates; acquisition fees and the additional property surcharge; and for each of ten properties: price, deposit, mortgage rate and term, rent, voids, agent fee, service charge, ground rent, insurance, maintenance, house price growth and rental growth. Base, Upside, Downside and Stress scenarios.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">ACQUISITION_COSTS</h4><p style="margin:0; color:var(--text-muted);">Deposit, mortgage, stamp duty, legal, survey, broker and valuation fees, total equity required and LTV per property.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SDLT_CALCULATOR</h4><p style="margin:0; color:var(--text-muted);">Stamp duty band by band for each property, plus the additional property surcharge and the effective rate.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">MORTGAGE_SCHEDULE</h4><p style="margin:0; color:var(--text-muted);">Monthly repayment schedule for all ten mortgages: payment, interest, principal and balance.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">ANNUAL_PL</h4><p style="margin:0; color:var(--text-muted);">Rent less voids and agent fees, mortgage interest and running costs, with the Section 24 credit and tax, per property.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CASH_FLOW</h4><p style="margin:0; color:var(--text-muted);">Annual cash in and out per property, cumulative cash flow and cash yield on equity.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">VALUATION</h4><p style="margin:0; color:var(--text-muted);">Value with house price growth, mortgage outstanding, equity, LTV, gross yield and cumulative capital gain.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">RETURNS</h4><p style="margin:0; color:var(--text-muted);">Gross and net yield, cash-on-cash, total return and equity multiple at 5, 10 and 25 years, per property.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">TAX_OPTIMISATION</h4><p style="margin:0; color:var(--text-muted);">Personal ownership against a limited company for the portfolio: Section 24, personal allowance and bands, corporation tax and dividend tax on extraction.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">PORTFOLIO_SUMMARY</h4><p style="margin:0; color:var(--text-muted);">All ten properties in one view, with weighted LTV, regions, flats against houses, and total value, equity and rent.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">Chart data for equity build-up, cash flow, value against debt, yields, mortgage balances and the tax comparison.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Five-year return by house price growth and yield, mortgage payment by rate and LTV, and net cash flow by void rate and mortgage rate.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">62 integrity checks, including each mortgage repaid to zero at term and total principal repaid equal to the original loan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Section 24 built in</h3><p style="margin:0; line-height:1.7;">For personal ownership, mortgage interest is not deducted from rental profit; relief comes as a 20% tax credit, property by property and for the portfolio.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Personal or company, side by side</h3><p style="margin:0; line-height:1.7;">The same portfolio taxed both ways: income tax with Section 24 against corporation tax and dividend tax on extracting the profit, with the annual difference.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Stamp duty by band</h3><p style="margin:0; line-height:1.7;">Each band calculated separately, with the additional property surcharge as an input.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">A mortgage schedule for every property</h3><p style="margin:0; line-height:1.7;">Monthly repayment schedules on the annuity method, with interest on the prior month's balance.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Returns over three horizons</h3><p style="margin:0; line-height:1.7;">Yield, cash-on-cash, total return and equity multiple at 5, 10 and 25 years, so near-term cash flow and long-term equity are both visible.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 17 tabs &middot; 10 properties &middot; 30-year horizon &middot; 62 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/6e8dc0b8-5342-45bd-87f4-bd0cab93f2be" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="buy-to-let">Buy Now - &pound;149</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/2f0ca316-fa38-478d-96c7-9d465363f093" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="buy-to-let">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">Which mortgage type does it model?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Repayment mortgages on the annuity method. Refinancing and remortgaging are not modelled in this version.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">What does it not do?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Stamp duty uses the SDLT bands on SDLT_CALCULATOR for every property, so Scottish LBTT and Welsh LTT are not calculated. Service charges and insurance rise at a fixed 3% a year, ground rent is held flat, and the company route assumes all profit is extracted as dividends.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/real-estate-fund-model-excel.html" style="color:#C9A84C;">&rarr; Real Estate Fund Model</a></li>
+        <li><a href="/debt-amortisation-model-excel.html" style="color:#C9A84C;">&rarr; Debt Amortisation Model</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+          <!-- SFS-LINKEDIN --><p class="footer-follow" style="margin-top:0.75rem;"><a href="https://www.linkedin.com/company/sfs-models/" target="_blank" rel="noopener" style="color:#C9A84C;">Follow SFS Models on LinkedIn &rarr;</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

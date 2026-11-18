@@ -2554,6 +2554,92 @@ MODELS = [
      'related': [('Project Finance Model', '/project-finance-model-excel.html'),
                  ('Infrastructure DCF Model', '/infrastructure-dcf-model-excel.html'),
                  ('Debt Schedule Model', '/debt-schedule-model-excel.html')]},
+    {'id': 'buy-to-let',
+     'slug': 'buy-to-let-model-excel',
+     'title': 'Buy-to-Let Model in Excel: Portfolio Returns and Tax',
+     'h1': 'Buy-to-Let Property Investment Model',
+     'meta': 'Buy-to-let model in Excel. 10 UK properties: SDLT, monthly mortgages, cash flow, Section 24, '
+             'personal vs company tax, equity build-up and yields.',
+     'keywords': 'buy to let model excel, buy to let calculator excel, property investment model excel, section '
+                 '24 calculator, rental yield calculator excel',
+     'hero': 'Ten rental properties in one workbook: acquisition costs and stamp duty, a monthly mortgage '
+             'schedule for each, annual P&amp;L and cash flow, value and equity growth, yields and equity '
+             'multiples, and a side-by-side of owning personally or through a limited company.',
+     'problem': ['Since Section 24, the same rent can leave a higher-rate landlord with much less than a company '
+                 'owner keeps, and a portfolio spread across cities is hard to judge property by property on the '
+                 'back of an envelope.',
+                 'This model runs each property from purchase price and rent to net cash flow and equity, then '
+                 'compares personal ownership, with mortgage interest relieved by a 20% tax credit, against a '
+                 'company paying corporation tax and dividend tax on extraction.'],
+     'who': 'Landlords and property investors, with one property or a portfolio. Mortgage brokers and property '
+            'advisers modelling options for clients. Accountants comparing personal and company ownership.',
+     'tabs': [('INPUTS',
+               'Income tax, CGT, corporation tax, allowances and dividend rates; acquisition fees and the '
+               'additional property surcharge; and for each of ten properties: price, deposit, mortgage rate and '
+               'term, rent, voids, agent fee, service charge, ground rent, insurance, maintenance, house price '
+               'growth and rental growth. Base, Upside, Downside and Stress scenarios.'),
+              ('ACQUISITION_COSTS',
+               'Deposit, mortgage, stamp duty, legal, survey, broker and valuation fees, total equity required '
+               'and LTV per property.'),
+              ('SDLT_CALCULATOR',
+               'Stamp duty band by band for each property, plus the additional property surcharge and the '
+               'effective rate.'),
+              ('MORTGAGE_SCHEDULE',
+               'Monthly repayment schedule for all ten mortgages: payment, interest, principal and balance.'),
+              ('ANNUAL_PL',
+               'Rent less voids and agent fees, mortgage interest and running costs, with the Section 24 credit '
+               'and tax, per property.'),
+              ('CASH_FLOW',
+               'Annual cash in and out per property, cumulative cash flow and cash yield on equity.'),
+              ('VALUATION',
+               'Value with house price growth, mortgage outstanding, equity, LTV, gross yield and cumulative '
+               'capital gain.'),
+              ('RETURNS',
+               'Gross and net yield, cash-on-cash, total return and equity multiple at 5, 10 and 25 years, per '
+               'property.'),
+              ('TAX_OPTIMISATION',
+               'Personal ownership against a limited company for the portfolio: Section 24, personal allowance '
+               'and bands, corporation tax and dividend tax on extraction.'),
+              ('PORTFOLIO_SUMMARY',
+               'All ten properties in one view, with weighted LTV, regions, flats against houses, and total '
+               'value, equity and rent.'),
+              ('DASHBOARD',
+               'Chart data for equity build-up, cash flow, value against debt, yields, mortgage balances and the '
+               'tax comparison.'),
+              ('SENSITIVITY',
+               'Five-year return by house price growth and yield, mortgage payment by rate and LTV, and net cash '
+               'flow by void rate and mortgage rate.'),
+              ('CHECKS',
+               '62 integrity checks, including each mortgage repaid to zero at term and total principal repaid '
+               'equal to the original loan.')],
+     'diffs': [('Section 24 built in',
+                'For personal ownership, mortgage interest is not deducted from rental profit; relief comes as a '
+                '20% tax credit, property by property and for the portfolio.'),
+               ('Personal or company, side by side',
+                'The same portfolio taxed both ways: income tax with Section 24 against corporation tax and '
+                'dividend tax on extracting the profit, with the annual difference.'),
+               ('Stamp duty by band',
+                'Each band calculated separately, with the additional property surcharge as an input.'),
+               ('A mortgage schedule for every property',
+                "Monthly repayment schedules on the annuity method, with interest on the prior month's balance."),
+               ('Returns over three horizons',
+                'Yield, cash-on-cash, total return and equity multiple at 5, 10 and 25 years, so near-term cash '
+                'flow and long-term equity are both visible.')],
+     'faqs': [('Which mortgage type does it model?',
+               'Repayment mortgages on the annuity method. Refinancing and remortgaging are not modelled in this '
+               'version.'),
+              ('What does it not do?',
+               'Stamp duty uses the SDLT bands on SDLT_CALCULATOR for every property, so Scottish LBTT and Welsh '
+               'LTT are not calculated. Service charges and insurance rise at a fixed 3% a year, ground rent is '
+               'held flat, and the company route assumes all profit is extracted as dividends.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo portfolio.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 10 properties &middot; 30-year horizon &middot; 62 '
+             'integrity checks &middot; no macros &middot; instant download',
+     'related': [('Real Estate Fund Model', '/real-estate-fund-model-excel.html'),
+                 ('Debt Amortisation Model', '/debt-amortisation-model-excel.html')]},
 ]
 
 
