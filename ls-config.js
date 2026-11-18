@@ -283,7 +283,7 @@ const LS_PRODUCTS = {
     name: "Complete LTP Model",
     price: "£999",
     buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/82b900e2-1410-44b6-a317-c77276d70af1",
-    freeUrl: null,
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/2a9f0c8b-6674-47e0-9a5c-4c5437bb90b2",
     checkoutEmbed: true,
   },
 
