@@ -428,6 +428,47 @@ const LS_PRODUCTS = {
     freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/fdda00aa-d833-4547-8add-754d42a3436c",
     checkoutEmbed: true,
   },
+
+  // Added 18 Nov 2026. The five November models.
+  "ifrs9-loan-level": {
+    name: "IFRS 9 ECL Model: Loan-Level Edition",
+    price: "£499",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/04d458a9-0750-42e6-a1b4-c491861c97bb",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/8f2d2469-d028-4068-bd95-bf5cf19068aa",
+    checkoutEmbed: true,
+  },
+
+  "cecl": {
+    name: "CECL Model (ASC 326)",
+    price: "£299",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/deb7ef02-876a-47a0-bfd3-85f0b500b003",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/feeb7269-d4a3-4b42-a29e-d711ad07ab52",
+    checkoutEmbed: true,
+  },
+
+  "irrbb": {
+    name: "IRRBB Model",
+    price: "£399",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/e9352c63-0d71-4b6a-aac1-cc6c1d2136d9",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/1f27ba0c-4b05-4997-a5f2-4e5a289c7ea1",
+    checkoutEmbed: true,
+  },
+
+  "credit-stress-test": {
+    name: "Credit Stress Test & Capital Model",
+    price: "£599",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/2167486a-7de5-40fc-8a2c-13bb59039215",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/d40cba07-521d-4700-a679-685ef23f2a18",
+    checkoutEmbed: true,
+  },
+
+  "ifrs16-lease": {
+    name: "IFRS 16 Lease Model",
+    price: "£199",
+    buyUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/ba45e116-9188-4c3d-840d-da9ddccd5392",
+    freeUrl: "https://sfsmodels.lemonsqueezy.com/checkout/buy/c5b0e09e-8b6d-42b5-9fe6-419c49b55939",
+    checkoutEmbed: true,
+  },
 };
 
 // Make available to ES modules
