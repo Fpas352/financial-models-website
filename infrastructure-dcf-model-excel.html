@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrastructure DCF Model in Excel: Toll Road, Wind, Water | SFS Models</title>
+<meta name="description" content="Infrastructure DCF model in Excel. Toll road, wind farm and water utility over 30 years: RAB roll-forward, DSCR debt sizing, covenants, FCFF and NPV.">
+<meta name="keywords" content="infrastructure dcf model excel, infrastructure valuation model, rab model excel, wind farm financial model excel, toll road model excel">
+<link rel="canonical" href="https://sfsmodels.org/infrastructure-dcf-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Infrastructure DCF Model in Excel: Toll Road, Wind, Water | SFS Models">
+<meta property="og:description" content="Infrastructure DCF model in Excel. Toll road, wind farm and water utility over 30 years: RAB roll-forward, DSCR debt sizing, covenants, FCFF and NPV.">
+<meta property="og:url" content="https://sfsmodels.org/infrastructure-dcf-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Infrastructure DCF Model in Excel: Toll Road, Wind, Water | SFS Models">
+<meta name="twitter:description" content="Infrastructure DCF model in Excel. Toll road, wind farm and water utility over 30 years: RAB roll-forward, DSCR debt sizing, covenants, FCFF and NPV.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Infrastructure DCF Model",
+  "description": "Infrastructure DCF model in Excel. Toll road, wind farm and water utility over 30 years: RAB roll-forward, DSCR debt sizing, covenants, FCFF and NPV.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "299",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/infrastructure-dcf-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which currency is it in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The demo is in US dollars, millions. All values are inputs, so any currency works if you are consistent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it not do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no construction phase: operation is assumed from the start. LLCR and PLCR are DSCR-based approximations, tax depreciation uses a 150% accelerated proxy, and working capital is a percentage of the change in revenue. Returns are reported as NPV, equity multiple and payback rather than IRR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Infrastructure DCF Model</h1>
+      <p>Value three infrastructure assets on their own revenue logic over 30 years: a toll road on traffic and tariff, a wind farm on capacity, availability and power price, and a water utility on its regulated asset base. Then size the debt to a target DSCR and test the covenants each year.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/f57e7381-1ee7-40eb-88fc-8f0d5bcc082b" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="infra-dcf">Buy Now - &pound;299</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/cce5d37d-32e5-40ee-a3be-b98afd781e99" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="infra-dcf">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Infrastructure assets do not earn money the same way. A toll road carries volume risk, a wind farm carries resource and price risk, and a regulated utility earns a return on its asset base. A generic DCF treats them alike and misses what drives each one.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model gives each asset its own revenue build, then runs common schedules for opex, capex and RAB, debt, tax and free cash flow, so the three can be compared on one basis.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Infrastructure investors and fund analysts. Project finance and infrastructure lending teams sizing debt. Corporate finance advisers and students learning how regulated and contracted assets are valued.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">WACC, risk-free rate, inflation, tax and concession period; for each asset its capex, operating assumptions, revenue drivers, senior debt, rate, tenor and target DSCR. Base, Upside, Downside and Stress scenarios.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">REVENUE_MODEL</h4><p style="margin:0; color:var(--text-muted);">30-year revenue: toll traffic and tariff; wind capacity, capacity factor with degradation, availability, curtailment and power price; water RAB-based allowed revenue plus connections.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">OPERATING_COSTS</h4><p style="margin:0; color:var(--text-muted);">Fixed and variable opex, insurance, management fees and lifecycle maintenance by asset, with EBITDA and margin.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CAPEX_RAB</h4><p style="margin:0; color:var(--text-muted);">Capex and the RAB roll-forward for each asset: opening, additions, depreciation and closing, with the return on RAB.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DEBT_SCHEDULE</h4><p style="margin:0; color:var(--text-muted);">Senior debt by asset: interest, amortisation, debt service, DSCR, LLCR, PLCR and DSRA, plus interest cover, leverage and debt to RAB.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">TAX</h4><p style="margin:0; color:var(--text-muted);">Taxable income after tax depreciation and interest, losses carried forward, tax paid and the tax shield from debt.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">FREE_CASH_FLOW</h4><p style="margin:0; color:var(--text-muted);">Pre-debt FCFF and post-debt FCFE by asset, with yields and cash-on-cash returns.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">RETURNS_ANALYSIS</h4><p style="margin:0; color:var(--text-muted);">FCFF and FCFE totals, NPV at WACC, equity multiple, payback, average DSCR and gearing, and NPV at discount rates from 5% to 12%.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DEBT_SIZING</h4><p style="margin:0; color:var(--text-muted);">Maximum debt from CFADS and the target DSCR, headroom against the debt assumed, and a gearing table for the toll road from 50% to 80%.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">COVENANT_DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">DSCR, LLCR and PLCR against their minimums each year, the distribution lock-up test and distributions.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SCENARIO_ANALYSIS</h4><p style="margin:0; color:var(--text-muted);">All four scenarios for each asset side by side, with variance against the base case.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">Portfolio NPV, equity multiple and average DSCR, with chart data for revenue, DSCR, FCFE, RAB and capital structure.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Seven two-way tables, including portfolio NPV by volume growth and discount rate, and wind farm NPV by capacity factor and power price.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">64 integrity checks, including the RAB and debt roll-forwards and cross-sheet consistency of revenue, EBITDA, debt service and capex for each asset.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Revenue built the way each asset earns</h3><p style="margin:0; line-height:1.7;">Traffic times tariff, generation times price after availability and curtailment, and allowed return on RAB plus depreciation for the utility.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Debt sized to cash flow</h3><p style="margin:0; line-height:1.7;">Maximum debt comes from CFADS and a target DSCR using an annuity formula, with headroom shown against the debt assumed.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Covenants every year</h3><p style="margin:0; line-height:1.7;">DSCR minimum 1.20x, LLCR 1.10x, PLCR 1.15x and a distribution lock-up below 1.15x DSCR, tested across the projection.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Tax that carries losses</h3><p style="margin:0; line-height:1.7;">Tax depreciation, interest deductibility and losses carried forward, so early-year tax reflects the capital structure.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Seven sensitivity tables</h3><p style="margin:0; line-height:1.7;">From discount rate and volume growth to capacity factor and power price, and DSCR target against interest rate for debt capacity.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 18 tabs &middot; 3 assets &times; 30 years &middot; 4 scenarios &middot; 64 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/f57e7381-1ee7-40eb-88fc-8f0d5bcc082b" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="infra-dcf">Buy Now - &pound;299</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/cce5d37d-32e5-40ee-a3be-b98afd781e99" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="infra-dcf">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">Which currency is it in?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">The demo is in US dollars, millions. All values are inputs, so any currency works if you are consistent.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">What does it not do?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">There is no construction phase: operation is assumed from the start. LLCR and PLCR are DSCR-based approximations, tax depreciation uses a 150% accelerated proxy, and working capital is a percentage of the change in revenue. Returns are reported as NPV, equity multiple and payback rather than IRR.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/project-finance-model-excel.html" style="color:#C9A84C;">&rarr; Project Finance Model</a></li>
+        <li><a href="/ppp-concession-model-excel.html" style="color:#C9A84C;">&rarr; PPP / Concession Model</a></li>
+        <li><a href="/dcf-model-excel.html" style="color:#C9A84C;">&rarr; DCF Model</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+          <!-- SFS-LINKEDIN --><p class="footer-follow" style="margin-top:0.75rem;"><a href="https://www.linkedin.com/company/sfs-models/" target="_blank" rel="noopener" style="color:#C9A84C;">Follow SFS Models on LinkedIn &rarr;</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bond Pricing and Yield Model in Excel: 30-Bond Portfolio | SFS Models</title>
+<meta name="description" content="Bond pricing model in Excel. Clean and dirty price, duration, DV01 and convexity for 30 bonds, spread breakdown, 9 rate and credit scenarios, total return.">
+<meta name="keywords" content="bond pricing model excel, bond yield calculator excel, bond portfolio analysis excel, dv01 convexity excel, fixed income model excel">
+<link rel="canonical" href="https://sfsmodels.org/bond-pricing-yield-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Bond Pricing and Yield Model in Excel: 30-Bond Portfolio | SFS Models">
+<meta property="og:description" content="Bond pricing model in Excel. Clean and dirty price, duration, DV01 and convexity for 30 bonds, spread breakdown, 9 rate and credit scenarios, total return.">
+<meta property="og:url" content="https://sfsmodels.org/bond-pricing-yield-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bond Pricing and Yield Model in Excel: 30-Bond Portfolio | SFS Models">
+<meta name="twitter:description" content="Bond pricing model in Excel. Clean and dirty price, duration, DV01 and convexity for 30 bonds, spread breakdown, 9 rate and credit scenarios, total return.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Bond Pricing & Yield Model",
+  "description": "Bond pricing model in Excel. Clean and dirty price, duration, DV01 and convexity for 30 bonds, spread breakdown, 9 rate and credit scenarios, total return.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "249",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/bond-pricing-yield-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does it not do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each bond is discounted at a single flat yield, not off a zero curve, and portfolio yields are estimated from coupon and market price rather than solved. Scenarios use the duration and convexity approximation, total return assumes constant yields and reinvestment rates, and the default case applies one recovery rate to every bond."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I load my own portfolio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The portfolio table on INPUTS holds 30 bonds: replace the names, ISINs, terms, sectors, ratings and prices with your own holdings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which currency is it in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The demo is a sterling portfolio of gilts and UK credit. Prices and terms are all inputs, so any currency works if you are consistent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Bond Pricing &amp; Yield Model</h1>
+      <p>Price a reference bond from its cash flows, then run a 30-bond portfolio of gilts, corporates, covered bonds and ABS through duration, DV01, convexity, a yield breakdown, nine rate and credit scenarios and a ten-year total return projection.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/6f29ee62-1b49-4945-a1cd-8fcba0a2805c" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="bond-pricing">Buy Now - &pound;249</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/304b09b8-accd-4952-a1c5-1fbd10720866" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="bond-pricing">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">A bond portfolio is easy to list and harder to explain. Which positions carry the rate risk, how much of the yield is credit, and what a 100 basis point move or a spread widening does to the book are questions that usually get answered one bond at a time.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model answers them across the whole portfolio at once. Every bond's duration, DV01 and convexity feed a scenario engine that reprices all 30 positions under parallel shifts, a steepener, a flattener, a credit spread widening and a default case, and totals the P&amp;L by scenario.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Fixed income analysts and portfolio managers. Treasury and investment teams at banks, building societies and insurers holding gilt and credit portfolios. Students and graduates learning bond maths on a realistic book.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">The reference bond's terms, a 13-point benchmark curve and a swap curve, the 30-bond portfolio (par, coupon, frequency, maturity, sector, rating and market price) and stress parameters.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">BOND_PRICING</h4><p style="margin:0; color:var(--text-muted);">Reference bond engine: cash flow schedule up to 60 semi-annual periods, clean price, accrued interest, dirty price, current yield, spread to benchmark and a price-yield table.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">YIELD_ANALYSIS</h4><p style="margin:0; color:var(--text-muted);">Each bond's yield split into risk-free rate, credit spread, I-spread, liquidity premium, carry and roll-down.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DURATION</h4><p style="margin:0; color:var(--text-muted);">Macaulay and modified duration, DV01 and convexity for every bond, with a period-by-period workings block for each.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">PORTFOLIO</h4><p style="margin:0; color:var(--text-muted);">Market value, weights and contributions to yield, duration and convexity; sector, rating and maturity breakdowns; aggregate portfolio cash flows.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">TOTAL_RETURN</h4><p style="margin:0; color:var(--text-muted);">Ten-year projection of income, price and reinvestment return by bond and for the portfolio, against a benchmark return.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SCENARIOS</h4><p style="margin:0; color:var(--text-muted);">Nine scenarios across all 30 bonds: parallel +50, +100, +200, -50 and -100 bp, steepener, flattener, credit spread +100 bp and a default case at the assumed recovery rate.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">Key portfolio metrics and seven charts.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Portfolio value for yield shifts from -200 to +200 bp, each bond's impact from a +100 bp shift, and a credit spread by duration grid.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">15 integrity checks, including clean price plus accrued equal to dirty price, weights summing to 100% and modified duration below Macaulay for every bond.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Every bond, not just one</h3><p style="margin:0; line-height:1.7;">Duration, DV01 and convexity are calculated for all 30 positions and rolled up into portfolio contributions, so you can see which holdings carry the risk.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Nine scenarios on the full book</h3><p style="margin:0; line-height:1.7;">Rate shifts, curve twists, a credit spread widening and a default case, each with P&amp;L by bond and a portfolio total.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Where the yield comes from</h3><p style="margin:0; line-height:1.7;">Yield split into risk-free rate, credit spread, liquidity premium, carry and roll-down for every bond.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Five sectors, AAA to CCC</h3><p style="margin:0; line-height:1.7;">Government, corporate, financial, covered and ABS positions, with sector, rating and maturity bucket breakdowns.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Total return over ten years</h3><p style="margin:0; line-height:1.7;">Income, price and reinvestment return projected by bond and compared with a benchmark.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 14 tabs &middot; 30 bonds &middot; 9 scenarios &middot; 15 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/6f29ee62-1b49-4945-a1cd-8fcba0a2805c" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="bond-pricing">Buy Now - &pound;249</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/304b09b8-accd-4952-a1c5-1fbd10720866" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="bond-pricing">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">What does it not do?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Each bond is discounted at a single flat yield, not off a zero curve, and portfolio yields are estimated from coupon and market price rather than solved. Scenarios use the duration and convexity approximation, total return assumes constant yields and reinvestment rates, and the default case applies one recovery rate to every bond.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I load my own portfolio?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The portfolio table on INPUTS holds 30 bonds: replace the names, ISINs, terms, sectors, ratings and prices with your own holdings.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Which currency is it in?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">The demo is a sterling portfolio of gilts and UK credit. Prices and terms are all inputs, so any currency works if you are consistent.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/duration-rate-sensitivity-model-excel.html" style="color:#C9A84C;">&rarr; Duration &amp; Rate Sensitivity Model</a></li>
+        <li><a href="/irrbb-model-excel.html" style="color:#C9A84C;">&rarr; IRRBB Model</a></li>
+        <li><a href="/interest-rate-swap-model-excel.html" style="color:#C9A84C;">&rarr; Treasury / Interest Rate Swap Model</a></li>
+        <li><a href="/var-model-excel.html" style="color:#C9A84C;">&rarr; Value at Risk (VaR) Model</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+          <!-- SFS-LINKEDIN --><p class="footer-follow" style="margin-top:0.75rem;"><a href="https://www.linkedin.com/company/sfs-models/" target="_blank" rel="noopener" style="color:#C9A84C;">Follow SFS Models on LinkedIn &rarr;</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

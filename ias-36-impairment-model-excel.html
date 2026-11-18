@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAS 36 Impairment Model in Excel: CGU Goodwill Testing | SFS Models</title>
+<meta name="description" content="IAS 36 impairment model in Excel. 8 CGUs, 10-year value in use DCF, fair value less costs to sell, goodwill-first loss allocation, headroom and breakevens.">
+<meta name="keywords" content="ias 36 impairment model excel, goodwill impairment test excel, value in use calculation, cgu impairment model, impairment headroom analysis">
+<link rel="canonical" href="https://sfsmodels.org/ias-36-impairment-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="IAS 36 Impairment Model in Excel: CGU Goodwill Testing | SFS Models">
+<meta property="og:description" content="IAS 36 impairment model in Excel. 8 CGUs, 10-year value in use DCF, fair value less costs to sell, goodwill-first loss allocation, headroom and breakevens.">
+<meta property="og:url" content="https://sfsmodels.org/ias-36-impairment-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IAS 36 Impairment Model in Excel: CGU Goodwill Testing | SFS Models">
+<meta name="twitter:description" content="IAS 36 impairment model in Excel. 8 CGUs, 10-year value in use DCF, fair value less costs to sell, goodwill-first loss allocation, headroom and breakevens.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Impairment Testing Model (IAS 36)",
+  "description": "IAS 36 impairment model in Excel. 8 CGUs, 10-year value in use DCF, fair value less costs to sell, goodwill-first loss allocation, headroom and breakevens.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "99",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/ias-36-impairment-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many CGUs can it test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eight. The demo uses banking segments, from retail and corporate banking to insurance and an international unit. Names and every assumption are inputs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it handle reversals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for assets other than goodwill. REVERSAL_TRACKING tests whether recoverable amount exceeds carrying amount and caps the reversal at the carrying amount there would have been without the impairment. Goodwill reversals are blocked."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it not do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Value in use is discounted at a post-tax WACC used as a proxy for the pre-tax rate, and the projection runs ten years where IAS 36 expects five unless a longer period can be justified. Breakeven WACC, growth and margin on HEADROOM are closed-form approximations, not goal-seek results. Fair value is based on multiples."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo company."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Impairment Testing Model (IAS 36)</h1>
+      <p>Test goodwill and other assets across eight cash-generating units: indicator assessment, a ten-year value in use DCF with a WACC build-up, fair value less costs to sell, the recoverable amount, the loss allocated goodwill first, and the headroom and sensitivity the disclosure needs.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/11f2f980-dbdd-442f-921d-a5353d4f970d" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="impairment">Buy Now - &pound;99</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/52356a4c-c170-4b3b-b540-dd019afb3164" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="impairment">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">The annual goodwill test is often a DCF someone built years ago, with a discount rate nobody can rebuild and a sensitivity note written by hand. Auditors ask how far the WACC or the growth rate has to move before headroom disappears, and the model does not say.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model calculates value in use and fair value less costs to sell for each CGU, takes the higher as recoverable amount, and shows the headroom with breakeven WACC, terminal growth and EBITDA margin beside it.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Technical accounting and group reporting teams running the annual goodwill test. Financial controllers at groups with acquired businesses. Valuation advisers and auditors who need a transparent benchmark for a client's test.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">Reporting date, tax rate, risk-free rate, equity and debt risk premiums, long-term growth and cost to sell; then for each CGU the carrying amounts of goodwill, intangibles, PP&amp;E and other assets, revenue, growth, margins, capex, working capital, beta, gearing, size and country premiums, and trading and transaction multiples. Base, Upside, Downside and Stress scenarios.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INDICATOR_ASSESSMENT</h4><p style="margin:0; color:var(--text-muted);">Sixteen external and internal indicators per CGU, from a fall in market value to operating losses, with a summary of whether a test is required.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">GOODWILL_ALLOCATION</h4><p style="margin:0; color:var(--text-muted);">Goodwill by CGU, months since the last test, carrying amounts by asset type and a five-year goodwill movement schedule.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">VIU_DCF</h4><p style="margin:0; color:var(--text-muted);">Ten-year free cash flow per CGU from revenue and margin, discounted at a WACC built from CAPM and the cost of debt, with a Gordon growth terminal value.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">FVLCTS</h4><p style="margin:0; color:var(--text-muted);">Fair value from a trading multiple and a transaction multiple, weighted 60/40, less costs to sell, with sensitivity to the multiple.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">RECOVERABLE_AMOUNT</h4><p style="margin:0; color:var(--text-muted);">The higher of VIU and FVLCTS, which one it was, headroom or impairment, and the loss amount.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">IMPAIRMENT_CALC</h4><p style="margin:0; color:var(--text-muted);">The loss allocated to goodwill first, then pro rata across intangibles, PP&amp;E and other assets, with post-impairment carrying amounts.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">REVERSAL_TRACKING</h4><p style="margin:0; color:var(--text-muted);">Monthly monitoring of reversal indicators per CGU, capped at the carrying amount there would have been without the impairment, with goodwill reversal blocked.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Headroom against WACC, terminal growth and EBITDA margin for each CGU, and a two-way grid of WACC against growth.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">HEADROOM</h4><p style="margin:0; color:var(--text-muted);">Headroom, breakeven WACC, growth and margin with the cushion on each, a risk rating, and a five-year carrying amount projection.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DISCLOSURE</h4><p style="margin:0; color:var(--text-muted);">Key assumptions and sensitivity items under IAS 36.134, impairment losses under IAS 36.130, and the IAS 36.135 items, by CGU.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">Carrying against recoverable amount, headroom by CGU, goodwill allocation, VIU composition and breakeven WACC against actual.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">MONTHLY_TRACKING</h4><p style="margin:0; color:var(--text-muted);">Monthly P&amp;L and free cash flow by CGU, with revenue against budget.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SCENARIO_COMPARISON</h4><p style="margin:0; color:var(--text-muted);">Key assumptions, WACC and an estimated VIU and headroom under all four scenarios side by side.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">EXTENDED_SENS</h4><p style="margin:0; color:var(--text-muted);">A supplementary grid flexing reference values by a row shock and a column factor.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">54 integrity checks, including recoverable amount equal to the higher of VIU and FVLCTS, and post-impairment carrying amounts reconciling for every CGU.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Both measures of recoverable amount</h3><p style="margin:0; line-height:1.7;">Value in use from a ten-year DCF and fair value less costs to sell from market multiples, calculated side by side for every CGU, with the basis shown.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">A WACC you can rebuild</h3><p style="margin:0; line-height:1.7;">Cost of equity from the risk-free rate, beta, equity risk premium, size premium and country risk premium; cost of debt from the risk-free rate plus a credit spread; weighted by your gearing.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Allocation in the right order</h3><p style="margin:0; line-height:1.7;">A loss reduces goodwill first, then the other assets pro rata to their carrying amounts, with a check that post-impairment amounts reconcile.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Headroom with breakevens</h3><p style="margin:0; line-height:1.7;">For each CGU: how far WACC can rise, or terminal growth and EBITDA margin fall, before headroom reaches zero, with a LOW, MEDIUM or HIGH risk rating.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">The disclosure items laid out</h3><p style="margin:0; line-height:1.7;">Key assumptions, headroom and the change in each assumption that would eliminate it, set out by CGU under the IAS 36.134 headings.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 20 tabs &middot; 8 CGUs &middot; 10-year DCF &middot; 54 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/11f2f980-dbdd-442f-921d-a5353d4f970d" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="impairment">Buy Now - &pound;99</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/52356a4c-c170-4b3b-b540-dd019afb3164" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="impairment">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">How many CGUs can it test?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Eight. The demo uses banking segments, from retail and corporate banking to insurance and an international unit. Names and every assumption are inputs.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Does it handle reversals?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes, for assets other than goodwill. REVERSAL_TRACKING tests whether recoverable amount exceeds carrying amount and caps the reversal at the carrying amount there would have been without the impairment. Goodwill reversals are blocked.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">What does it not do?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Value in use is discounted at a post-tax WACC used as a proxy for the pre-tax rate, and the projection runs ten years where IAS 36 expects five unless a longer period can be justified. Breakeven WACC, growth and margin on HEADROOM are closed-form approximations, not goal-seek results. Fair value is based on multiples.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo company.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/ias-38-capitalisation-model-excel.html" style="color:#C9A84C;">&rarr; IAS 38 Capitalisation Model</a></li>
+        <li><a href="/dcf-model-excel.html" style="color:#C9A84C;">&rarr; DCF Model</a></li>
+        <li><a href="/blog/wacc-calculation-banking.html" style="color:#C9A84C;">&rarr; Blog: WACC calculation in banking</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+          <!-- SFS-LINKEDIN --><p class="footer-follow" style="margin-top:0.75rem;"><a href="https://www.linkedin.com/company/sfs-models/" target="_blank" rel="noopener" style="color:#C9A84C;">Follow SFS Models on LinkedIn &rarr;</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

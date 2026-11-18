@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAS 16 PPE Model in Excel: Fixed Asset Roll-Forward | SFS Models</title>
+<meta name="description" content="IAS 16 PP&amp;E model in Excel. 120-asset register in 6 classes, 60-month cost and depreciation roll-forward, disposals, revaluation, capex plan, disclosure.">
+<meta name="keywords" content="ias 16 model excel, fixed asset register excel, ppe roll forward excel, depreciation schedule excel, fixed asset model">
+<link rel="canonical" href="https://sfsmodels.org/ias-16-ppe-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="IAS 16 PPE Model in Excel: Fixed Asset Roll-Forward | SFS Models">
+<meta property="og:description" content="IAS 16 PP&amp;E model in Excel. 120-asset register in 6 classes, 60-month cost and depreciation roll-forward, disposals, revaluation, capex plan, disclosure.">
+<meta property="og:url" content="https://sfsmodels.org/ias-16-ppe-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IAS 16 PPE Model in Excel: Fixed Asset Roll-Forward | SFS Models">
+<meta name="twitter:description" content="IAS 16 PP&amp;E model in Excel. 120-asset register in 6 classes, 60-month cost and depreciation roll-forward, disposals, revaluation, capex plan, disclosure.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "PP&E / Fixed Assets Model (IAS 16)",
+  "description": "IAS 16 PP&E model in Excel. 120-asset register in 6 classes, 60-month cost and depreciation roll-forward, disposals, revaluation, capex plan, disclosure.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "99",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/ias-16-ppe-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which asset classes does it cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Six: land, buildings, plant and machinery, vehicles, fixtures and fittings, and IT equipment, with 20 assets in each on the register. Land is not depreciated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it monthly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. 60 monthly periods, with annual totals on CAPEX_PLAN, DISCLOSURE and DASHBOARD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it not do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The monthly class schedules depreciate on a straight line. Revaluation is calculated on REVALUATION and shown as a memo line in the reconciliation, applied after the period close; it does not feed back into the depreciation charge. Impairment is an annual rate per class, not a recoverable amount test: for that, see the IAS 36 Impairment Model."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo company."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>PP&amp;E / Fixed Assets Model (IAS 16)</h1>
+      <p>A fixed asset register of 120 assets across six classes, with gross cost, accumulated depreciation and net book value rolled forward month by month for five years. Disposals with their gain or loss, a revaluation schedule, a five-year capex plan and the carrying amount reconciliation for the accounts.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c1a8ea06-0eb2-45e2-b379-274d30e4a9eb" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="ppe">Buy Now - &pound;99</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/1c5af6b9-da7b-4e67-9f76-0dd3e0b3bf01" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="ppe">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">The fixed asset note is often built once a year from a register in one place and a depreciation run in another. When the auditor asks why closing NBV does not equal opening plus movements, the answer takes days.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model keeps cost, depreciation, impairment and disposals in one monthly roll-forward per class, and DISCLOSURE checks that closing equals opening plus movements for every class, every year.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Financial controllers and fixed asset accountants. Finance teams preparing the PP&amp;E note or a capex budget. FP&amp;A teams who need depreciation and capex for a plan.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">Start date, 60-month horizon, tax and inflation rates; then for each of six classes: useful life, method, residual value, annual capex budget, disposal rate, revaluation frequency and adjustment, and annual impairment rate. Disposal proceeds as a percentage of NBV. Base, Upside, Downside and Stress scenarios.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">ASSET_REGISTER</h4><p style="margin:0; color:var(--text-muted);">120 assets, 20 in each class, with acquisition date, cost, life, method, residual value, accumulated depreciation, NBV, location and status.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">COST_ROLL</h4><p style="margin:0; color:var(--text-muted);">Monthly gross cost by class: opening, additions, reclassifications, disposals at cost, write-offs and closing, plus capital commitments.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DEPRECIATION</h4><p style="margin:0; color:var(--text-muted);">Monthly charge by class on cost less residual value over useful life, depreciation released on disposals, and impairment. Land is not depreciated.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">NBV_SCHEDULE</h4><p style="margin:0; color:var(--text-muted);">Gross cost, accumulated depreciation, cumulative impairment and NBV by class, with NBV as a share of cost, average age and remaining useful life.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">REVALUATION</h4><p style="margin:0; color:var(--text-muted);">Revaluation adjustment by class on year-end NBV, the surplus to reserve, and an annual revaluation schedule.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DISPOSALS</h4><p style="margin:0; color:var(--text-muted);">Cost and depreciation disposed, NBV at disposal, proceeds, gain or loss, and tax on the gain or loss, by class and month.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CAPEX_PLAN</h4><p style="margin:0; color:var(--text-muted);">Five-year capex by class, split into maintenance and growth, set against depreciation, and committed against uncommitted.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">PL_IMPACT</h4><p style="margin:0; color:var(--text-muted);">Depreciation, impairment and disposal gains and losses by class, monthly: the EBITDA to EBIT bridge.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DISCLOSURE</h4><p style="margin:0; color:var(--text-muted);">Carrying amount reconciliation by class for each year, depreciation methods and useful lives, and capital commitments contracted and authorised.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">NBV by class, depreciation trend, capex against depreciation, asset age, disposal gains and losses, and an NBV waterfall.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Useful life moved by up to three years either way, residual value flexed, and a two-way grid of life against residual value.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">53 integrity checks, including NBV equal to cost less depreciation, and depreciation and disposal results tying to the P&amp;L, for every class.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">One roll-forward, every class</h3><p style="margin:0; line-height:1.7;">Cost, accumulated depreciation and NBV move month by month for land, buildings, plant and machinery, vehicles, fixtures and fittings, and IT equipment.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Disposals with the gain or loss</h3><p style="margin:0; line-height:1.7;">Proceeds are set as a percentage of NBV, so each disposal produces a gain or loss and the tax on it, and both flow to PL_IMPACT.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Capex against depreciation</h3><p style="margin:0; line-height:1.7;">The capex plan splits spend into maintenance and growth and sets it against the depreciation charge, so you can see whether the asset base is being replaced.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">The note reconciles itself</h3><p style="margin:0; line-height:1.7;">DISCLOSURE builds the carrying amount reconciliation for each year and checks that closing equals opening plus movements.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Scenarios on the judgement calls</h3><p style="margin:0; line-height:1.7;">Useful lives, residual values, capex budgets and impairment rates all move with the scenario selector.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 17 tabs &middot; 6 asset classes &middot; 120 assets &times; 60 months &middot; 53 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c1a8ea06-0eb2-45e2-b379-274d30e4a9eb" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="ppe">Buy Now - &pound;99</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/1c5af6b9-da7b-4e67-9f76-0dd3e0b3bf01" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="ppe">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">Which asset classes does it cover?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Six: land, buildings, plant and machinery, vehicles, fixtures and fittings, and IT equipment, with 20 assets in each on the register. Land is not depreciated.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Is it monthly?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. 60 monthly periods, with annual totals on CAPEX_PLAN, DISCLOSURE and DASHBOARD.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">What does it not do?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">The monthly class schedules depreciate on a straight line. Revaluation is calculated on REVALUATION and shown as a memo line in the reconciliation, applied after the period close; it does not feed back into the depreciation charge. Impairment is an annual rate per class, not a recoverable amount test: for that, see the IAS 36 Impairment Model.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo company.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/capex-model-excel.html" style="color:#C9A84C;">&rarr; Capex Model</a></li>
+        <li><a href="/ias-38-capitalisation-model-excel.html" style="color:#C9A84C;">&rarr; IAS 38 Capitalisation Model</a></li>
+        <li><a href="/ias-36-impairment-model-excel.html" style="color:#C9A84C;">&rarr; IAS 36 Impairment Model</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+          <!-- SFS-LINKEDIN --><p class="footer-follow" style="margin-top:0.75rem;"><a href="https://www.linkedin.com/company/sfs-models/" target="_blank" rel="noopener" style="color:#C9A84C;">Follow SFS Models on LinkedIn &rarr;</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1134,6 +1134,1426 @@ MODELS = [
             ("Blog: Excel financial model best practices", "/blog/excel-financial-model-best-practices.html"),
         ],
     },
+
+    # ════ Batch 5 (18 Nov 2026): treasury, FP&A, accounting, debt, infra. Drafted by agents, fact-checked. ════
+    {'id': 'bond-pricing',
+     'slug': 'bond-pricing-yield-model-excel',
+     'title': 'Bond Pricing and Yield Model in Excel: 30-Bond Portfolio',
+     'h1': 'Bond Pricing &amp; Yield Model',
+     'meta': 'Bond pricing model in Excel. Clean and dirty price, duration, DV01 and convexity for 30 bonds, '
+             'spread breakdown, 9 rate and credit scenarios, total return.',
+     'keywords': 'bond pricing model excel, bond yield calculator excel, bond portfolio analysis excel, dv01 '
+                 'convexity excel, fixed income model excel',
+     'hero': 'Price a reference bond from its cash flows, then run a 30-bond portfolio of gilts, corporates, '
+             'covered bonds and ABS through duration, DV01, convexity, a yield breakdown, nine rate and credit '
+             'scenarios and a ten-year total return projection.',
+     'problem': ['A bond portfolio is easy to list and harder to explain. Which positions carry the rate risk, '
+                 'how much of the yield is credit, and what a 100 basis point move or a spread widening does to '
+                 'the book are questions that usually get answered one bond at a time.',
+                 "This model answers them across the whole portfolio at once. Every bond's duration, DV01 and "
+                 'convexity feed a scenario engine that reprices all 30 positions under parallel shifts, a '
+                 'steepener, a flattener, a credit spread widening and a default case, and totals the P&amp;L by '
+                 'scenario.'],
+     'who': 'Fixed income analysts and portfolio managers. Treasury and investment teams at banks, building '
+            'societies and insurers holding gilt and credit portfolios. Students and graduates learning bond '
+            'maths on a realistic book.',
+     'tabs': [('INPUTS',
+               "The reference bond's terms, a 13-point benchmark curve and a swap curve, the 30-bond portfolio "
+               '(par, coupon, frequency, maturity, sector, rating and market price) and stress parameters.'),
+              ('BOND_PRICING',
+               'Reference bond engine: cash flow schedule up to 60 semi-annual periods, clean price, accrued '
+               'interest, dirty price, current yield, spread to benchmark and a price-yield table.'),
+              ('YIELD_ANALYSIS',
+               "Each bond's yield split into risk-free rate, credit spread, I-spread, liquidity premium, carry "
+               'and roll-down.'),
+              ('DURATION',
+               'Macaulay and modified duration, DV01 and convexity for every bond, with a period-by-period '
+               'workings block for each.'),
+              ('PORTFOLIO',
+               'Market value, weights and contributions to yield, duration and convexity; sector, rating and '
+               'maturity breakdowns; aggregate portfolio cash flows.'),
+              ('TOTAL_RETURN',
+               'Ten-year projection of income, price and reinvestment return by bond and for the portfolio, '
+               'against a benchmark return.'),
+              ('SCENARIOS',
+               'Nine scenarios across all 30 bonds: parallel +50, +100, +200, -50 and -100 bp, steepener, '
+               'flattener, credit spread +100 bp and a default case at the assumed recovery rate.'),
+              ('DASHBOARD', 'Key portfolio metrics and seven charts.'),
+              ('SENSITIVITY',
+               "Portfolio value for yield shifts from -200 to +200 bp, each bond's impact from a +100 bp shift, "
+               'and a credit spread by duration grid.'),
+              ('CHECKS',
+               '15 integrity checks, including clean price plus accrued equal to dirty price, weights summing to '
+               '100% and modified duration below Macaulay for every bond.')],
+     'diffs': [('Every bond, not just one',
+                'Duration, DV01 and convexity are calculated for all 30 positions and rolled up into portfolio '
+                'contributions, so you can see which holdings carry the risk.'),
+               ('Nine scenarios on the full book',
+                'Rate shifts, curve twists, a credit spread widening and a default case, each with P&amp;L by '
+                'bond and a portfolio total.'),
+               ('Where the yield comes from',
+                'Yield split into risk-free rate, credit spread, liquidity premium, carry and roll-down for '
+                'every bond.'),
+               ('Five sectors, AAA to CCC',
+                'Government, corporate, financial, covered and ABS positions, with sector, rating and maturity '
+                'bucket breakdowns.'),
+               ('Total return over ten years',
+                'Income, price and reinvestment return projected by bond and compared with a benchmark.')],
+     'faqs': [('What does it not do?',
+               'Each bond is discounted at a single flat yield, not off a zero curve, and portfolio yields are '
+               'estimated from coupon and market price rather than solved. Scenarios use the duration and '
+               'convexity approximation, total return assumes constant yields and reinvestment rates, and the '
+               'default case applies one recovery rate to every bond.'),
+              ('Can I load my own portfolio?',
+               'Yes. The portfolio table on INPUTS holds 30 bonds: replace the names, ISINs, terms, sectors, '
+               'ratings and prices with your own holdings.'),
+              ('Which currency is it in?',
+               'The demo is a sterling portfolio of gilts and UK credit. Prices and terms are all inputs, so any '
+               'currency works if you are consistent.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo portfolio.')],
+     'spec': 'Excel (.xlsx) &middot; 14 tabs &middot; 30 bonds &middot; 9 scenarios &middot; 15 integrity checks '
+             '&middot; no macros &middot; instant download',
+     'related': [('Duration &amp; Rate Sensitivity Model', '/duration-rate-sensitivity-model-excel.html'),
+                 ('IRRBB Model', '/irrbb-model-excel.html'),
+                 ('Treasury / Interest Rate Swap Model', '/interest-rate-swap-model-excel.html'),
+                 ('Value at Risk (VaR) Model', '/var-model-excel.html')]},
+    {'id': 'duration',
+     'slug': 'duration-rate-sensitivity-model-excel',
+     'title': 'Duration and Rate Sensitivity Model in Excel: DV01, EVE',
+     'h1': 'Duration &amp; Rate Sensitivity Model',
+     'meta': 'Duration model in Excel. Macaulay and modified duration, DV01, convexity and key-rate duration for '
+             '20 bonds, duration gap, NII and EVE under rate shocks.',
+     'keywords': 'duration model excel, modified duration calculator excel, dv01 excel, key rate duration excel, '
+                 'duration gap analysis',
+     'hero': 'Measure interest rate risk on a 20-bond portfolio and the funding behind it: a bootstrapped zero '
+             'curve, Macaulay and modified duration, DV01, convexity and key-rate duration, repricing across 17 '
+             'shocks, a duration gap against six liability lines, NII by repricing bucket and EVE under six '
+             'shock scenarios.',
+     'problem': ['Duration is the first number anyone asks for on a fixed income book and the one most often '
+                 'quoted without its context. A portfolio duration means little without the liabilities it '
+                 'funds, the convexity that bends it, and the point on the curve where the exposure sits.',
+                 'This model puts those together: duration and convexity bond by bond, key-rate durations across '
+                 'eight tenors, a duration and BPV gap against the liability profile, and the effect of the same '
+                 'rate moves on net interest income and economic value of equity.'],
+     'who': 'ALM, treasury and market risk teams at banks and building societies. Investment teams managing bond '
+            'portfolios against liabilities. CFA and FRM candidates and finance students who want duration and '
+            'convexity worked through on real cash flows.',
+     'tabs': [('INPUTS',
+               'Scenario selector, a 20-bond portfolio (face value, coupon, maturity, frequency, yield and '
+               'spread), a 15-point par yield curve by scenario, shock levels, key-rate tenors, a six-line '
+               'liability profile and the NII repricing profile.'),
+              ('YIELD_CURVE',
+               'Zero rates bootstrapped from par yields, discount factors, forward rates and an interpolated '
+               'quarterly curve.'),
+              ('BOND_VALUATION',
+               'Cash flow discounting for each of the 20 bonds, with clean price and accrued interest.'),
+              ('MACAULAY_DURATION',
+               'Period-by-period PV weights and Macaulay duration per bond, and the portfolio total.'),
+              ('MODIFIED_DURATION',
+               'Modified duration, dollar duration and DV01 per bond, and by maturity bucket.'),
+              ('CONVEXITY', 'Convexity per bond from the full cash flow schedule, and the portfolio figure.'),
+              ('KEY_RATE_DURATION',
+               'Duration allocated across eight key rates from 6 months to 30 years, by bond and for the '
+               'portfolio.'),
+              ('PRICE_SENSITIVITY',
+               'Value change for each bond and the portfolio across 17 shocks from -200 to +200 bp, with the '
+               'estimate from duration alone beside the estimate including convexity.'),
+              ('NII_SENSITIVITY',
+               'Repricing gap across nine buckets from overnight to over five years, and the NII impact of eight '
+               'parallel shocks plus a steepener and a flattener.'),
+              ('IMMUNISATION',
+               'Asset and liability duration, BPV and convexity, the duration and BPV gaps, equity at risk at '
+               '+100 and +200 bp, and the adjustment needed to close the gap.'),
+              ('EVE',
+               'Economic value of equity under parallel +200 and -200 bp, steepener, flattener, short up and '
+               'short down, with the worst case and the contribution by bond.'),
+              ('DASHBOARD', 'Key risk metrics and six charts.'),
+              ('SENSITIVITY',
+               'Grids of price change by duration and yield move, convexity benefit for a +200 bp shock, and NII '
+               'impact by gap size and shock.'),
+              ('CHECKS',
+               '55 integrity checks, including discount factors decreasing, modified duration below Macaulay for '
+               'every bond and key-rate durations summing to total duration.')],
+     'diffs': [('Assets and liabilities together',
+                'A six-line liability profile sits beside the bond portfolio, so the model measures the duration '
+                'gap, BPV gap and equity at risk, not just portfolio duration.'),
+               ('Key-rate duration',
+                'Exposure split across eight tenors from 6 months to 30 years shows where on the curve the risk '
+                'sits.'),
+               ('Convexity shown, not assumed away',
+                'PRICE_SENSITIVITY sets the estimate from duration alone beside the estimate including convexity '
+                'across 17 shocks, so you can see where the straight-line estimate breaks down.'),
+               ('Earnings and value',
+                'The same rate moves run through NII by repricing bucket and through EVE under six shock shapes, '
+                'so the earnings view and the economic value view sit in one workbook.'),
+               ('A bootstrapped zero curve',
+                'Zero rates are bootstrapped from 15 par yields, with forward rates derived from them.')],
+     'faqs': [('What does it not do?',
+               'Each bond is discounted at its own yield to maturity rather than off the zero curve. Key-rate '
+               'durations are allocated in proportion to maturity proximity rather than by bumping each tenor, '
+               'and price and EVE changes use the duration and convexity approximation rather than full '
+               'repricing.'),
+              ('How is it different from the IRRBB Model?',
+               'The IRRBB Model implements the regulatory framework: 19 Basel buckets, the six prescribed '
+               'shocks, deposit slotting and the outlier tests. This model measures duration, convexity and rate '
+               'sensitivity for a bond portfolio and its funding.'),
+              ('Can I use my own portfolio?',
+               'Yes. The 20 positions, the par yield curve and the liability profile are all inputs on INPUTS.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo portfolio.')],
+     'spec': 'Excel (.xlsx) &middot; 18 tabs &middot; 20 bonds &middot; 17 rate shocks &middot; 55 integrity '
+             'checks &middot; no macros &middot; instant download',
+     'related': [('IRRBB Model', '/irrbb-model-excel.html'),
+                 ('Bond Pricing &amp; Yield Model', '/bond-pricing-yield-model-excel.html'),
+                 ('Treasury / Interest Rate Swap Model', '/interest-rate-swap-model-excel.html'),
+                 ('Deposit Pricing &amp; NII Model', '/deposit-pricing-nii-model-excel.html')]},
+    {'id': 'fx-hedging',
+     'slug': 'fx-hedging-model-excel',
+     'title': 'FX Hedging Model in Excel: Forwards, Swaps and FX VaR',
+     'h1': 'FX Hedging &amp; Currency Risk Model',
+     'meta': 'FX hedging model in Excel. Six currency pairs over 60 months, 10 forwards and 5 cross-currency '
+             'swaps, MTM, effectiveness tests, OCI reserve and FX VaR.',
+     'keywords': 'fx hedging model excel, currency risk model excel, fx forward valuation excel, hedge '
+                 'effectiveness test excel, fx var excel',
+     'hero': "Manage a sterling company's exposure to six currencies over 60 months: net exposure by currency, "
+             'forward curves, ten FX forwards and five cross-currency swaps marked to market, effectiveness '
+             'testing, the P&amp;L and OCI impact, a hedge ratio recommendation and FX value at risk.',
+     'problem': ['Foreign currency revenue and costs rarely net off neatly, and the hedge book built against '
+                 "them drifts as exposures change. Treasury teams end up answering the board's questions (how "
+                 'much is hedged, what it is worth today, whether it still qualifies, what risk is left) from '
+                 'separate spreadsheets.',
+                 'This model holds the exposure, the hedges and the answers in one place. Each forward and swap '
+                 "is valued against its currency's forward curve every month, tested against the 80% to 125% "
+                 'dollar-offset range, and its mark-to-market is split between P&amp;L and the OCI reserve.'],
+     'who': 'Corporate treasury teams and group finance at companies with foreign currency revenue or costs. '
+            'Finance directors who report hedge positions to the board or audit committee. Treasury analysts and '
+            'students learning how a hedge programme is valued and tested.',
+     'tabs': [('INPUTS',
+               'Scenario selector, spot rates, monthly forward points and volatilities for six pairs, monthly '
+               'revenue and cost exposures, hedge policy limits, interest rate differentials and VaR '
+               'parameters.'),
+              ('EXPOSURE',
+               'Revenue, cost and net exposure by currency for 60 months, with translation exposure and the '
+               'cumulative position.'),
+              ('FORWARD_CURVES',
+               'Outright forward rates built from spot plus cumulative forward points, with discount factors, '
+               'for each pair.'),
+              ('HEDGE_PORTFOLIO',
+               'Ten FX forwards: notional, contracted and current forward rate, mark-to-market, settlement '
+               'P&amp;L and hedge ratio contribution.'),
+              ('SWAP_PORTFOLIO',
+               'Five cross-currency swaps with quarterly leg payments, net settlement, NPV and principal '
+               'exchange at maturity.'),
+              ('EFFECTIVENESS',
+               'Prospective and retrospective dollar-offset tests for all 15 instruments, with a pass rate.'),
+              ('MTM_VALUATION',
+               'Combined mark-to-market of forwards and swaps by month, split into realised and unrealised.'),
+              ('PL_IMPACT',
+               'Unhedged FX gains and losses, the effective portion to OCI, the ineffective portion to P&amp;L, '
+               'and the OCI reserve roll-forward.'),
+              ('HEDGE_STRATEGY',
+               'For each currency, expected P&amp;L, volatility and cost of hedging at hedge ratios from 0% to '
+               '100%, and the recommended ratio beside the policy minimum and maximum.'),
+              ('VaR_FX',
+               'Parametric VaR at 95% and 99% over a 10-day holding period by currency, undiversified and '
+               "diversified totals, VaR after hedging and each currency's contribution."),
+              ('DASHBOARD',
+               'Key metrics and chart data for exposure, hedge ratios, MTM, P&amp;L, effectiveness and VaR.'),
+              ('SENSITIVITY',
+               'Four two-way tables: P&amp;L by spot shock and hedge ratio, VaR by volatility and exposure, '
+               'hedging cost by forward points and tenor.'),
+              ('CHECKS',
+               '70 integrity checks, including forward equal to spot plus points for each pair and the OCI '
+               'reserve roll-forward.')],
+     'diffs': [('Exposure and hedges side by side',
+                'Net exposure by currency and month sits next to the forwards and swaps placed against it, so '
+                'the hedge ratio is measured against the real position.'),
+               ('Forwards and cross-currency swaps',
+                'Ten forwards and five swaps, each valued monthly over the 60-month horizon.'),
+               ('Every instrument tested',
+                'Prospective and retrospective dollar-offset tests against the 80% to 125% range, instrument by '
+                'instrument, with a pass rate.'),
+               ('OCI and P&amp;L separated',
+                'Hedge MTM is split into the effective portion for the OCI reserve and the ineffective portion '
+                'for P&amp;L, and the reserve rolls forward each month.'),
+               ('A hedge ratio you can defend',
+                'For each currency, volatility reduction against cost of hedging at five hedge ratios, with the '
+                'ratio that gives the highest net benefit.')],
+     'faqs': [('What does it not do?',
+               'It does not model counterparty credit risk, margin requirements or basis risk. VaR is '
+               'parametric, forwards are assumed to be physically settled and swaps net settled.'),
+              ('Which currencies are covered?',
+               'Sterling against USD, EUR, JPY, CHF, AUD and CNY. Spot rates, forward points, volatilities and '
+               'exposures are all inputs, so you can replace the demo values with your own.'),
+              ('What do the scenarios change?',
+               'The market and exposure inputs carry Base, Upside, Downside and Stress values, switched from one '
+               'selector on INPUTS.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo company.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 6 currency pairs &times; 60 months &middot; 15 hedge '
+             'instruments &middot; 70 integrity checks &middot; no macros &middot; instant download',
+     'related': [('Value at Risk (VaR) Model', '/var-model-excel.html'),
+                 ('Treasury / Interest Rate Swap Model', '/interest-rate-swap-model-excel.html'),
+                 ('Working Capital Optimisation Model', '/working-capital-model-excel.html')]},
+    {'id': 'budget-variance',
+     'slug': 'budget-vs-actual-variance-model-excel',
+     'title': 'Budget vs Actual Variance Model in Excel',
+     'h1': 'Budget vs Actual Variance Model',
+     'meta': 'Budget vs actual variance model in Excel. 8 departments, 40 lines each, 12 months: variance in GBP '
+             'and percent, YTD run-rate, prior year and EBITDA bridge.',
+     'keywords': 'budget vs actual model excel, variance analysis excel, budget variance report template, '
+                 'monthly variance analysis, ebitda bridge excel',
+     'hero': 'Monthly budget against actual for eight departments and 40 revenue and cost lines each: variance '
+             'in pounds and percent, a consolidated P&amp;L, year-to-date and run-rate views, prior-year '
+             'comparison, trends and an EBITDA bridge from budget to actual.',
+     'problem': ['Month-end variance reporting is mostly mechanics: line up budget and actual, work out which '
+                 'way is favourable for revenue and for cost, total it by department and explain the bridge. '
+                 'Done by hand each month, the sign conventions slip and the totals stop tying.',
+                 'This model fixes the mechanics once. Enter actuals on one tab and every variance, in pounds '
+                 'and percent, is signed so that positive always means favourable, rolled up by department and '
+                 'group, and bridged from budget EBITDA to actual.'],
+     'who': 'FP&amp;A teams and management accountants running monthly variance reporting. Department heads and '
+            'finance business partners who need a line-by-line view. Finance students learning how a variance '
+            'pack is built.',
+     'tabs': [('INPUTS',
+               'Fiscal year, the monthly budget and the prior-year figures for every line in every department.'),
+              ('BUDGET', 'Approved budget by department and line, monthly, with year to date and full year.'),
+              ('ACTUALS', 'Where actual results are entered, in the same layout as the budget.'),
+              ('VARIANCE_ABS', 'Variance in pounds, signed so positive is favourable for both revenue and cost.'),
+              ('VARIANCE_PCT', 'The same variances as a percentage of budget.'),
+              ('PRIOR_YEAR', 'Actual against prior year for every line.'),
+              ('CONSOLIDATED',
+               'Group P&amp;L across all departments: budget, actual, variance and variance percent by month.'),
+              ('YTD_ANALYSIS',
+               'Year-to-date budget, actual and variance, full-year budget, a run-rate full-year projection and '
+               'completion percentage.'),
+              ('TREND',
+               'Twelve-month trends by department with 3-month rolling averages and a seasonality index.'),
+              ('WATERFALL',
+               "EBITDA bridge from group budget to actual through each department's revenue and cost variance, "
+               'and a department EBITDA comparison.'),
+              ('DASHBOARD', 'Six charts.'),
+              ('SENSITIVITY',
+               'Group EBITDA under revenue and cost changes by department, and a two-way revenue by cost grid.'),
+              ('CHECKS',
+               '70 integrity checks, including department totals tying to the budget and EBITDA equal to revenue '
+               'less costs in both budget and actuals.')],
+     'diffs': [('One sign convention',
+                'Positive always means favourable: revenue above budget or cost below it. No mental flipping '
+                'between revenue and cost lines.'),
+               ('Line-level detail, group-level answer',
+                'Eight departments with 15 revenue and 25 cost lines each roll up to a consolidated P&amp;L and '
+                'a group EBITDA.'),
+               ('The bridge, built for you',
+                "WATERFALL walks budget EBITDA to actual through each department's revenue and cost variance."),
+               ('Year to date and full year',
+                'YTD variance, full-year budget and a run-rate projection show where the year is heading, not '
+                'just where the month landed.'),
+               ('Prior year as well as budget', 'Every line is compared with last year as well as with plan.')],
+     'faqs': [('What does it not do?',
+               'Actuals are entered by hand on ACTUALS; there is no ledger import. It covers one fiscal year of '
+               '12 months, and the run-rate projection annualises year-to-date actuals by the current calendar '
+               'month, so it assumes a January to December year.'),
+              ('Can I use it outside banking?',
+               'Yes. The demo is a bank with departments such as Retail Banking and Treasury, but the structure '
+               'is departments and line items. Rename them to match your own chart of accounts.'),
+              ('How is it different from the Budget &amp; Forecast Model?',
+               'That model builds the annual budget from revenue, cost, headcount and capex assumptions. This '
+               'one takes a budget as given and tracks actual results against it every month.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo bank.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 8 departments &times; 40 lines &times; 12 months &middot; '
+             '70 integrity checks &middot; no macros &middot; instant download',
+     'related': [('Budget &amp; Forecast Model', '/budget-vs-forecast-model-excel.html'),
+                 ('Management Accounts &amp; Monthly Reporting Pack', '/management-accounts-pack-excel.html'),
+                 ('NIM Budget Tracking Model', '/nim-variance-model-excel.html')]},
+    {'id': 'budget-forecast',
+     'slug': 'budget-vs-forecast-model-excel',
+     'title': 'Budget and Forecast Model in Excel: Annual Department Budget',
+     'h1': 'Budget &amp; Forecast Model',
+     'meta': 'Budget and forecast model in Excel. 10 departments over 12 months: revenue, costs, headcount, '
+             'capex and depreciation, profit and loss and the cash budget.',
+     'keywords': 'budget forecast model excel, annual budget template excel, departmental budget model, '
+                 'headcount budget excel, cash budget template',
+     'hero': 'Build a full-year budget for ten departments month by month: revenue across eight streams, '
+             'operating costs across 20 categories, headcount with hires and leavers, capex and depreciation, '
+             'then a consolidated P&amp;L, a monthly cash budget and a departmental comparison, under four '
+             'scenarios from one selector.',
+     'problem': ['Budget season means pulling revenue, cost, headcount and capex plans from every department '
+                 'into one P&amp;L, then redoing it when the growth or inflation assumption moves. The '
+                 'consolidation is where errors creep in: a department missing from a total, a quarter that does '
+                 'not add to the year.',
+                 'This model builds the budget from department assumptions and consolidates it automatically. '
+                 'Revenue growth, cost and salary inflation, headcount and capex each carry Base, Upside, '
+                 'Downside and Stress values, and one selector moves the whole budget between them.'],
+     'who': 'FP&amp;A teams and budget owners preparing the annual budget. Finance directors who need the '
+            'P&amp;L, cash and headcount plans to agree. Analysts and students learning how a departmental '
+            'budget consolidates.',
+     'tabs': [('INPUTS',
+               'Scenario selector, growth, inflation, tax, bonus, benefits and working capital assumptions, '
+               'annual revenue by department and stream, headcount and salary per head by department, and capex '
+               'by category with useful lives.'),
+              ('REVENUE_BUDGET', 'Monthly revenue by department and stream, with quarters and full year.'),
+              ('COST_BUDGET', 'Monthly operating costs by department across 20 categories.'),
+              ('HEADCOUNT',
+               'Opening headcount, hires, leavers, closing and average headcount, salary, bonus and benefits by '
+               'department.'),
+              ('CAPEX_PLAN',
+               'Monthly capex across six asset categories, straight-line depreciation by useful life, and net '
+               'book value.'),
+              ('PL_BUDGET',
+               'Consolidated P&amp;L from revenue to net income, monthly with quarters and full year.'),
+              ('CASH_BUDGET',
+               'Operating cash flow with receivable and payable movements from days assumptions, capex, '
+               'financing and the closing cash balance.'),
+              ('DEPARTMENTAL',
+               'P&amp;L by department to EBIT, contribution margin, revenue per FTE, and monthly revenue, cost '
+               'and contribution by department.'),
+              ('PHASING',
+               "Each department's monthly revenue and cost as a share of the year, and cumulative phasing."),
+              ('VARIANCE',
+               'Budget against prior year by department and month. The prior-year rows are a placeholder set at '
+               '95% of budget: replace them with your actuals.'),
+              ('DASHBOARD',
+               'Chart data for revenue by department, cost structure, cash flow, headcount, margins and capex.'),
+              ('SENSITIVITY',
+               'EBITDA by revenue growth and cost inflation, and people cost by headcount change and salary '
+               'inflation.'),
+              ('CHECKS',
+               '47 integrity checks, including monthly P&amp;L revenue agreeing to the revenue budget, quarters '
+               'summing to the year, and the headcount roll-forward by department.')],
+     'diffs': [('Four scenarios, one selector',
+                'Growth, inflation, headcount, salary, bonus and capex assumptions each carry Base, Upside, '
+                'Downside and Stress values. Change the selector and every department, the P&amp;L and the cash '
+                'budget move together.'),
+               ('Headcount that rolls forward',
+                'Opening headcount plus hires less leavers gives closing headcount every month, and people cost '
+                'follows from salary per head, bonus and benefits.'),
+               ('Capex with its depreciation',
+                'Six asset categories, each depreciated straight-line over its own useful life, feeding D&amp;A '
+                'in the P&amp;L and capex in the cash budget.'),
+               ('Cash, not just profit',
+                'Receivable and payable movements from days assumptions turn the P&amp;L into a monthly cash '
+                'budget with a closing balance.'),
+               ('Totals that are checked',
+                'Every month of P&amp;L revenue is checked against the revenue budget, and quarters against the '
+                'year.')],
+     'faqs': [('What does it not do?',
+               'It is a single-year monthly budget. Cost of goods sold is set at 30% of revenue, revenue and '
+               'costs are spread evenly across the months, interest is charged on a fixed debt balance, and the '
+               "prior-year comparison is a placeholder until you enter last year's figures."),
+              ('Does it compare budget with forecast?',
+               'It builds the budget and the forecast cash position behind it. To track actuals against the '
+               'budget through the year, see the Budget vs Actual Variance Model; to keep an 18-month forward '
+               'view, see the Rolling Forecast Model.'),
+              ('Is it built for banks?',
+               "The demo departments are a bank's, from Retail Banking to Human Resources, but the structure is "
+               'generic: departments, revenue streams, cost categories, headcount and capex.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo bank.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 10 departments &times; 12 months &middot; 4 scenarios '
+             '&middot; 47 integrity checks &middot; no macros &middot; instant download',
+     'related': [('Budget vs Actual Variance Model', '/budget-vs-actual-variance-model-excel.html'),
+                 ('Capital Expenditure Planning Model', '/capex-model-excel.html')]},
+    {'id': 'management-accounts',
+     'slug': 'management-accounts-pack-excel',
+     'title': 'Management Accounts Pack in Excel: Monthly Reporting',
+     'h1': 'Management Accounts &amp; Monthly Reporting Pack',
+     'meta': 'Management accounts pack in Excel. Month and YTD results vs budget and prior year, six divisions, '
+             'balance sheet, cash flow, 20 KPIs and an EBITDA bridge.',
+     'keywords': 'management accounts template excel, monthly reporting pack excel, board pack template, kpi '
+                 'scorecard excel, month end reporting template',
+     'hero': 'A monthly reporting pack for a six-division group: P&amp;L for the month and year to date against '
+             'budget and prior year, divisional drill-downs, balance sheet, cash flow, revenue analysis, a '
+             '20-KPI scorecard with RAG status, an EBITDA bridge and a full-year forecast.',
+     'problem': ['The monthly pack is the same job every month: pull actuals, line them up against budget and '
+                 'last year, explain the bridge, refresh the KPIs and get it to the board on time. Rebuilding it '
+                 'each month is where the errors and the late nights come from.',
+                 'This model gives the pack a fixed structure. Set the reporting month once and every budget and '
+                 'prior-year comparison picks up that month, year-to-date totals accumulate to it, and the '
+                 'full-year forecast combines the actual months with the budget for the rest.'],
+     'who': 'Financial controllers and management accountants producing the monthly pack. FP&amp;A teams '
+            'reporting to ExCo and the board. Finance directors who want a consistent structure month after '
+            'month.',
+     'tabs': [('INPUTS',
+               'Reporting year and month, general assumptions, monthly budget and prior year by division and '
+               'line, the balance sheet budget, and KPI targets and RAG thresholds.'),
+              ('PL_MONTH',
+               'Consolidated P&amp;L for the month: actual, budget and prior year, with variances in pounds and '
+               'percent.'),
+              ('PL_YTD',
+               'Year-to-date P&amp;L against budget and prior year, full-year budget and forecast, and a monthly '
+               'trend for every revenue line by division.'),
+              ('BALANCE_SHEET',
+               'Balance sheet against budget and prior year, with a balance check, working capital and net '
+               'debt.'),
+              ('CASHFLOW',
+               'Operating, investing and financing cash flows against budget and prior year, the cash bridge and '
+               'monthly detail.'),
+              ('DIVISIONAL',
+               'P&amp;L for each of six divisions, actual against budget, with contribution by division and cost '
+               'by line and division.'),
+              ('REVENUE_ANALYSIS',
+               'Revenue by product, customer segment and geography, volume and price decomposition, pipeline and '
+               'a 12-month trend.'),
+              ('KPI_SCORECARD',
+               '20 financial, operational and strategic KPIs against target and prior year, with trend and RAG '
+               'status.'),
+              ('WATERFALL',
+               'EBITDA bridge from budget to actual by revenue and cost line, for the month and year to date.'),
+              ('FORECAST',
+               'Each month flagged actual or forecast from the reporting month, with the full-year forecast '
+               'against budget and divisional detail.'),
+              ('DASHBOARD',
+               'Chart data for the P&amp;L trend, divisional contribution, the EBITDA bridge, cash flow, key '
+               'ratios and headcount.'),
+              ('SENSITIVITY',
+               'Full-year EBITDA by revenue growth and margin, net income by interest and tax rate, named stress '
+               'cases, and divisional EBITDA sensitivity.'),
+              ('CHECKS',
+               '50 integrity checks, including the balance sheet balancing, the cash bridge closing, and the '
+               'full-year forecast equal to actual plus remaining budget.')],
+     'diffs': [('Set the month once',
+                'The reporting month on INPUTS drives every budget and prior-year comparison, the YTD totals and '
+                'the actual or forecast flag on each month.'),
+               ('Six divisions to one group',
+                'Divisional actuals roll up to the consolidated monthly P&amp;L, with contribution by division '
+                'alongside.'),
+               ('A KPI scorecard with RAG',
+                'Twenty KPIs, from cost to income and ROE to CET1, LCR and NPS, each against target and prior '
+                'year with green, amber or red status.'),
+               ('Board-ready layout',
+                'Every tab is set up for A4 landscape printing, so the pack prints as it reads on screen.'),
+               ('Forecast from actuals',
+                'The full-year forecast takes actual months to date and budget for the remainder, so the '
+                'year-end view moves every month.')],
+     'faqs': [('What does it not do?',
+               'The full-year forecast is year-to-date actuals plus the remaining budget, not a driver-based '
+               'reforecast. Balance sheet, cash flow, revenue analysis, KPI actuals and the EBITDA bridge are '
+               'entered on their own tabs rather than derived from the P&amp;L, and the pack reports one month '
+               'at a time.'),
+              ('Is it set up for a bank?',
+               'The demo is a financial services group with six divisions, from Retail Banking to Digital '
+               'Services, and banking KPIs such as NIM, CET1 and LCR. The P&amp;L structure of revenue, direct '
+               'costs and operating expenses works for other businesses if you relabel the lines.'),
+              ('How is it different from the Budget vs Actual Variance Model?',
+               'That model goes line by line through 40 revenue and cost lines in eight departments for the '
+               'whole year. This one is the monthly pack: P&amp;L, balance sheet, cash flow, KPIs and the bridge '
+               'for one reporting month.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo bank.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 6 divisions &middot; 20 KPIs &middot; 50 integrity checks '
+             '&middot; no macros &middot; instant download',
+     'related': [('Budget vs Actual Variance Model', '/budget-vs-actual-variance-model-excel.html'),
+                 ('3-Statement Integrated Model', '/three-statement-model-excel.html')]},
+    {'id': 'working-capital',
+     'slug': 'working-capital-model-excel',
+     'title': 'Working Capital Model in Excel: DSO, DIO, DPO and Cash',
+     'h1': 'Working Capital Optimisation Model',
+     'meta': 'Working capital model in Excel. 5 segments over 60 months: DSO, DIO, DPO, cash conversion cycle, '
+             'aging, seasonal swings, financing options, cash release.',
+     'keywords': 'working capital model excel, cash conversion cycle excel, dso dio dpo calculator, receivables '
+                 'aging excel, working capital optimisation',
+     'hero': 'Project and improve working capital for five business segments over 60 months: receivables with '
+             'aging and bad debt, inventory by stage, payables, the cash conversion cycle, seasonal financing '
+             'need, three financing options and the cash released by shorter collection or longer payment terms.',
+     'problem': ['Working capital is where profitable businesses run short of cash. Receivables stretch, '
+                 'inventory builds ahead of the season, and finance is asked how much cash a ten-day improvement '
+                 'in collections would free up, and whether factoring would cost less than the overdraft.',
+                 'This model answers both. It builds receivables, inventory and payables from days assumptions '
+                 'for each segment, prices each improvement in cash released and interest saved, and compares '
+                 'the overdraft, factoring and supply chain finance on cost.'],
+     'who': 'CFOs, treasurers and FP&amp;A teams at companies carrying receivables and inventory. Working '
+            "capital and transformation consultants. Lenders and analysts assessing a borrower's cash cycle. "
+            'Students learning the cash conversion cycle.',
+     'tabs': [('INPUTS',
+               'Scenario selector and multipliers, base rate, tax and WACC, and for each of five segments: '
+               'revenue, growth, COGS and purchases ratios, target DSO, DIO and DPO, provision rates, an aging '
+               'profile and monthly seasonal factors.'),
+              ('RECEIVABLES',
+               'Gross and net receivables, bad debt provision, five aging buckets, DSO, collection efficiency '
+               'and overdue share by segment.'),
+              ('INVENTORY',
+               'Raw materials, work in progress and finished goods, obsolescence provision, DIO, turnover and '
+               'carrying cost by segment.'),
+              ('PAYABLES',
+               'Trade payables, accruals and other payables, DPO, early payment discount and payables aging by '
+               'segment.'),
+              ('NWC_SUMMARY',
+               'Net working capital, change in NWC, NWC days and financing need by segment and consolidated.'),
+              ('CASH_CONVERSION',
+               'DSO, DIO, DPO, cash conversion cycle, cash tied up and its financing cost by segment and '
+               'blended.'),
+              ('SEASONAL',
+               'Seasonal revenue and NWC by month, peak and trough flags, and the seasonal financing need or '
+               'surplus.'),
+              ('FINANCING',
+               'Overdraft, receivables factoring and supply chain finance compared on monthly cost.'),
+              ('OPTIMISATION',
+               'Cash release, new NWC and interest saving for 5, 10 and 15-day improvements in DSO, DIO and DPO, '
+               'and a combined case.'),
+              ('AGING_DETAIL',
+               'Receivables aging and expected loss by customer tier, payables by supplier category, and '
+               'concentration measures including a Herfindahl index.'),
+              ('DASHBOARD', 'KPIs and six charts.'),
+              ('SENSITIVITY',
+               'NWC days by DSO and DPO change, cash impact by revenue growth and NWC days, and CCC by DSO and '
+               'DIO change.'),
+              ('CHECKS',
+               '64 integrity checks, including NWC equal to receivables plus inventory less payables, and CCC '
+               'equal to DSO plus DIO less DPO, for every segment.')],
+     'diffs': [('Days turned into cash',
+                'Every improvement is priced: a 5, 10 or 15-day change in DSO, DIO or DPO shows the cash '
+                'released, the new NWC and the interest saved.'),
+               ('Five segments, one consolidated view',
+                'Manufacturing, retail, technology, services and healthcare segments, each with its own drivers, '
+                'roll up to blended DSO, DIO, DPO and CCC.'),
+               ('Seasonality made visible',
+                'Monthly seasonal factors drive revenue, so the model flags the peak and trough working capital '
+                'months and the financing the peak needs.'),
+               ('Financing options compared',
+                'Overdraft, factoring and supply chain finance costed side by side against the same financing '
+                'need.'),
+               ('Aging and concentration',
+                'Five aging buckets with loss rates that rise with age, customer tiers, supplier categories and '
+                'a Herfindahl concentration index.')],
+     'faqs': [('What does it not do?',
+               'Inventory is split 40% raw materials, 25% work in progress and 35% finished goods, accruals and '
+               'other payables are set as shares of COGS, and factoring and supply chain finance use fixed '
+               'eligibility and advance rates. Days are calculated on a 30-day month, and interest saving is '
+               'cash released times the base rate.'),
+              ('What do the scenarios change?',
+               'Base, Upside, Downside and Stress adjust revenue, costs, DSO and DPO together. In the demo, '
+               'Stress takes revenue down 30%, costs up 15%, DSO out 10 days and DPO in 10 days.'),
+              ('Which currency is it in?',
+               'The demo is in US dollars. All values are inputs, so any currency works if you are consistent.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo company.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 5 segments &times; 60 months &middot; 64 integrity checks '
+             '&middot; no macros &middot; instant download',
+     'related': [('3-Statement Integrated Model', '/three-statement-model-excel.html'),
+                 ('Debt Schedule Model', '/debt-schedule-model-excel.html'),
+                 ('FX Hedging &amp; Currency Risk Model', '/fx-hedging-model-excel.html'),
+                 ('DCF Model', '/dcf-model-excel.html')]},
+    {'id': 'capex',
+     'slug': 'capex-model-excel',
+     'title': 'Capex Model in Excel: Project Portfolio, NPV and Tracking',
+     'h1': 'Capital Expenditure Planning Model',
+     'meta': 'Capex model in Excel. 20 projects over 60 months: spend profile, budget vs actual with CPI, '
+             'depreciation, NPV and payback, funding gap and approvals.',
+     'keywords': 'capex model excel, capital expenditure planning template, capex tracking excel, project npv '
+                 'payback excel, capex budget template',
+     'hero': 'Plan, approve and track a portfolio of 20 capital projects over 60 months: monthly planned and '
+             'actual spend, budget tracking with cost performance, straight-line depreciation, NPV and payback '
+             'by project, a funding gap analysis, an approval tracker and a post-completion review.',
+     'problem': ['A capital programme is approved project by project and then reported as a portfolio, and the '
+                 'two views rarely agree. By the second year nobody can say which projects are over budget, when '
+                 'depreciation will hit the P&amp;L, or whether the programme is still funded.',
+                 "This model holds both views in one place. Each project's budget, start month, duration, useful "
+                 'life and benefit rate drive its spend, its depreciation and its return, and the portfolio, '
+                 'funding and dashboard tabs add them up.'],
+     'who': 'Finance and capital planning teams. PMO and change teams reporting on a capital programme. CFOs and '
+            'investment committees approving projects. FP&amp;A analysts forecasting depreciation.',
+     'tabs': [('INPUTS',
+               'Scenario selector, start date, tax rate, WACC, inflation, contingency and funding assumptions, '
+               'and for each of 20 projects: category, budget, start month, duration, useful life, annual '
+               'benefit rate and hurdle rate, each with Base, Upside, Downside and Stress values.'),
+              ('PROJECT_REGISTER',
+               'All 20 projects with sponsor, category, status, budget, actual to date, completion and RAG.'),
+              ('SPEND_PROFILE',
+               'Monthly planned and actual spend by project, cumulative and percent complete, and portfolio '
+               'totals.'),
+              ('BUDGET_TRACKING',
+               'Original and revised budget, committed, actual, remaining, estimate at completion and CPI by '
+               'project and month.'),
+              ('DEPRECIATION',
+               'Capitalised amount, monthly straight-line depreciation, accumulated depreciation and net book '
+               'value by project, starting after completion.'),
+              ('PROJECT_RETURNS',
+               'Investment, annual benefit and operating cost, NPV at the WACC, an IRR proxy, payback and '
+               'profitability index, with five-year cash flows by project.'),
+              ('PORTFOLIO', 'Capex by category, year and status, and the growth against maintenance split.'),
+              ('FUNDING',
+               'Internal cash, debt, equity and disposals against the capex programme and interest, with the '
+               'annual and cumulative funding position.'),
+              ('APPROVAL',
+               "Approval tracker: each project's IRR proxy against the WACC and payback against five years, "
+               'giving approve, review or reject.'),
+              ('POST_COMPLETION',
+               'Budget against actual cost and expected against actual benefit for each project, with expected '
+               'and actual ROI.'),
+              ('DASHBOARD',
+               'KPIs and chart data for spend by category and year, project returns against hurdle, and '
+               'cumulative spend.'),
+              ('SENSITIVITY',
+               'Portfolio NPV by cost overrun and benefit shortfall, and grids on hurdle rate and budget.'),
+              ('CHECKS',
+               "72 integrity checks, including portfolio totals equal to the sum of projects and each project's "
+               'variance equal to budget less actual.')],
+     'diffs': [('Project to portfolio',
+                'Twenty projects, each with its own budget, timing, useful life and benefit rate, roll up to '
+                'portfolio views by category, year and status.'),
+               ('Depreciation that follows delivery',
+                'Each project is capitalised when it completes and depreciated straight-line over its useful '
+                'life, so the depreciation profile follows the delivery plan.'),
+               ('Budget tracking with CPI',
+                'Original and revised budget, commitments, actuals, estimate at completion and a cost '
+                'performance index for every project.'),
+               ('A funding check',
+                'Sources of funding against the capex programme and interest each year, with the cumulative '
+                'surplus or gap.'),
+               ('From approval to review',
+                'An approval rule on the IRR proxy and payback, and a post-completion review of cost and benefit '
+                'against the business case.')],
+     'faqs': [('What does it not do?',
+               "Planned spend is spread evenly over each project's duration. Depreciation is straight-line with "
+               'no residual value. The IRR column is a proxy (annual net benefit over investment), payback is '
+               'simple, internal cash generation is constant each year, and interest is charged on the full debt '
+               'facility, which is conservative.'),
+              ('Where do I enter actual spend?',
+               'On SPEND_PROFILE, one actual row per project per month. Budget tracking, CPI, the register and '
+               'the dashboard update from there.'),
+              ('What do the scenarios change?',
+               'Every project assumption and the global rates carry Base, Upside, Downside and Stress values, '
+               'switched from one selector. The SENSITIVITY tables run independently of the selector.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo bank.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 20 projects &times; 60 months &middot; 72 integrity checks '
+             '&middot; no macros &middot; instant download',
+     'related': [('IAS 16 PP&amp;E Model', '/ias-16-ppe-model-excel.html'),
+                 ('IAS 38 Capitalisation Model', '/ias-38-capitalisation-model-excel.html'),
+                 ('Budget &amp; Forecast Model', '/budget-vs-forecast-model-excel.html'),
+                 ('DCF Model', '/dcf-model-excel.html')]},
+    {'id': 'capitalisation',
+     'slug': 'ias-38-capitalisation-model-excel',
+     'title': 'IAS 38 Capitalisation Model in Excel: Intangible Assets',
+     'h1': 'Capitalisation &amp; Intangible Assets Model (IAS 38)',
+     'meta': 'IAS 38 capitalisation model in Excel. Six-criteria test for 40 projects, 120-asset register in 8 '
+             'categories, monthly amortisation, R&D split, disclosure.',
+     'keywords': 'ias 38 model excel, intangible assets model excel, capitalisation model excel, development '
+                 'cost capitalisation, intangible asset amortisation schedule',
+     'hero': 'Test development spend against the six IAS 38 criteria, carry 120 intangible assets across eight '
+             'categories, and roll cost, amortisation, impairment and net book value forward month by month for '
+             'five years, ending in the year-by-year reconciliation for the accounts.',
+     'problem': ['Whether development spend can be capitalised is a judgement auditors challenge every year, and '
+                 'the evidence for it often sits in emails and a spreadsheet that one person understands.',
+                 'This model puts the assessment on one tab: each project is scored Yes or No against the six '
+                 'criteria, from technical feasibility to reliable measurement, and passes when all six are met. '
+                 'Research spend is expensed, development spend is split between capitalised and expensed at a '
+                 'rate you set, and the schedules roll cost, amortisation and impairment forward to a closing '
+                 'net book value.'],
+     'who': 'Technical accounting teams and financial controllers at companies with material software, '
+            'development or acquired intangibles. Finance teams preparing the intangible assets note for audit. '
+            "Auditors and advisers who want a transparent benchmark for a client's capitalisation policy.",
+     'tabs': [('INPUTS',
+               'Start date, 60-month horizon, impairment discount rate, tax rate and capitalisation threshold; '
+               'then useful life, method, residual value, additions, disposals and impairment trigger for each '
+               'of eight categories; plus R&amp;D spend, research share and the development capitalisation rate. '
+               'Base, Upside, Downside and Stress scenarios.'),
+              ('CAPITALISATION_TEST',
+               '40 projects scored against the six IAS 38 criteria: technical feasibility, intention to '
+               'complete, ability to use or sell, probable future economic benefits, adequate resources and '
+               'reliable measurement. PASS needs all six.'),
+              ('ASSET_REGISTER',
+               '120 assets, 15 in each category, with cost, useful life, method, accumulated amortisation, net '
+               'book value and status: active, near end or fully amortised.'),
+              ('COST_ROLL',
+               'Monthly gross cost by category: opening, additions, reclassifications, disposals and closing.'),
+              ('AMORTISATION',
+               'Monthly charge by category on cost less residual value over useful life, with amortisation '
+               'released on disposals. Goodwill is not amortised.'),
+              ('NBV_SCHEDULE',
+               'Gross cost less accumulated amortisation and accumulated impairment, by category and month, with '
+               'NBV as a percentage of cost.'),
+              ('RD_ANALYSIS',
+               'Total R&amp;D spend split into research (expensed), development capitalised and development '
+               'expensed, with the capitalisation rate and cumulative totals.'),
+              ('IMPAIRMENT',
+               'Annual test by category: carrying amount against recoverable amount, the higher of fair value '
+               'less costs to sell and value in use.'),
+              ('PL_IMPACT',
+               'Amortisation, impairment and R&amp;D expense through to EBIT, monthly and as an annual summary.'),
+              ('DISCLOSURE',
+               'Reconciliation of opening to closing NBV by category for each of the five years, plus a table of '
+               'methods, useful lives, residual values and rates.'),
+              ('DASHBOARD',
+               'KPIs and chart data: NBV by category, amortisation trend, R&amp;D capitalisation, asset age '
+               'profile and an NBV waterfall.'),
+              ('SENSITIVITY',
+               'Useful life moved by up to three years either way, the R&amp;D capitalisation rate flexed, and a '
+               'two-way grid of useful life against impairment trigger.'),
+              ('CHECKS',
+               "53 integrity checks, including that goodwill amortisation is zero and that each category's NBV "
+               'equals cost less amortisation and impairment.')],
+     'diffs': [('The six criteria, documented',
+                'Each project is assessed criterion by criterion, so the file shows why an item was capitalised, '
+                'not just that it was.'),
+               ('Research and development separated',
+                'Research spend goes to the P&amp;L. Development spend is split between capitalised and expensed '
+                'at a rate you set, and the split is visible every month.'),
+               ('Goodwill treated as goodwill',
+                'An indefinite life, no amortisation, an annual impairment test, and a check on CHECKS that its '
+                'amortisation stays at zero.'),
+               ('The note, already reconciled',
+                'DISCLOSURE reconciles opening to closing NBV for each year and category: additions, disposals, '
+                'amortisation, impairment and reversals.'),
+               ('Sensitivity on the judgement calls',
+                'Useful lives and the capitalisation rate are the assumptions auditors challenge. SENSITIVITY '
+                'shows what moving each one does to the charge.')],
+     'faqs': [('Which categories does it cover?',
+               'Eight: software, patents, trademarks, licences, customer relationships, brand, R&amp;D projects '
+               'and goodwill. Each has its own useful life, residual value, additions, disposals and impairment '
+               'trigger.'),
+              ('Is it monthly?',
+               'Yes. 60 monthly periods from the start date on INPUTS, with annual totals for the disclosure '
+               'note and the dashboard.'),
+              ('What does it not do?',
+               'The category schedules amortise on a straight line; declining balance is available per asset on '
+               'the register. Impairment here is a simplified annual test driven by a trigger percentage per '
+               'category, not a cash-flow forecast. For a full CGU test with value in use, see the IAS 36 '
+               'Impairment Model.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo company.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 8 categories &middot; 120 assets &times; 60 months '
+             '&middot; 53 integrity checks &middot; no macros &middot; instant download',
+     'related': [('IAS 36 Impairment Model', '/ias-36-impairment-model-excel.html'),
+                 ('IAS 16 PP&amp;E Model', '/ias-16-ppe-model-excel.html'),
+                 ('Capex Model', '/capex-model-excel.html')]},
+    {'id': 'ppe',
+     'slug': 'ias-16-ppe-model-excel',
+     'title': 'IAS 16 PPE Model in Excel: Fixed Asset Roll-Forward',
+     'h1': 'PP&amp;E / Fixed Assets Model (IAS 16)',
+     'meta': 'IAS 16 PP&E model in Excel. 120-asset register in 6 classes, 60-month cost and depreciation '
+             'roll-forward, disposals, revaluation, capex plan, disclosure.',
+     'keywords': 'ias 16 model excel, fixed asset register excel, ppe roll forward excel, depreciation schedule '
+                 'excel, fixed asset model',
+     'hero': 'A fixed asset register of 120 assets across six classes, with gross cost, accumulated depreciation '
+             'and net book value rolled forward month by month for five years. Disposals with their gain or '
+             'loss, a revaluation schedule, a five-year capex plan and the carrying amount reconciliation for '
+             'the accounts.',
+     'problem': ['The fixed asset note is often built once a year from a register in one place and a '
+                 'depreciation run in another. When the auditor asks why closing NBV does not equal opening plus '
+                 'movements, the answer takes days.',
+                 'This model keeps cost, depreciation, impairment and disposals in one monthly roll-forward per '
+                 'class, and DISCLOSURE checks that closing equals opening plus movements for every class, every '
+                 'year.'],
+     'who': 'Financial controllers and fixed asset accountants. Finance teams preparing the PP&amp;E note or a '
+            'capex budget. FP&amp;A teams who need depreciation and capex for a plan.',
+     'tabs': [('INPUTS',
+               'Start date, 60-month horizon, tax and inflation rates; then for each of six classes: useful '
+               'life, method, residual value, annual capex budget, disposal rate, revaluation frequency and '
+               'adjustment, and annual impairment rate. Disposal proceeds as a percentage of NBV. Base, Upside, '
+               'Downside and Stress scenarios.'),
+              ('ASSET_REGISTER',
+               '120 assets, 20 in each class, with acquisition date, cost, life, method, residual value, '
+               'accumulated depreciation, NBV, location and status.'),
+              ('COST_ROLL',
+               'Monthly gross cost by class: opening, additions, reclassifications, disposals at cost, '
+               'write-offs and closing, plus capital commitments.'),
+              ('DEPRECIATION',
+               'Monthly charge by class on cost less residual value over useful life, depreciation released on '
+               'disposals, and impairment. Land is not depreciated.'),
+              ('NBV_SCHEDULE',
+               'Gross cost, accumulated depreciation, cumulative impairment and NBV by class, with NBV as a '
+               'share of cost, average age and remaining useful life.'),
+              ('REVALUATION',
+               'Revaluation adjustment by class on year-end NBV, the surplus to reserve, and an annual '
+               'revaluation schedule.'),
+              ('DISPOSALS',
+               'Cost and depreciation disposed, NBV at disposal, proceeds, gain or loss, and tax on the gain or '
+               'loss, by class and month.'),
+              ('CAPEX_PLAN',
+               'Five-year capex by class, split into maintenance and growth, set against depreciation, and '
+               'committed against uncommitted.'),
+              ('PL_IMPACT',
+               'Depreciation, impairment and disposal gains and losses by class, monthly: the EBITDA to EBIT '
+               'bridge.'),
+              ('DISCLOSURE',
+               'Carrying amount reconciliation by class for each year, depreciation methods and useful lives, '
+               'and capital commitments contracted and authorised.'),
+              ('DASHBOARD',
+               'NBV by class, depreciation trend, capex against depreciation, asset age, disposal gains and '
+               'losses, and an NBV waterfall.'),
+              ('SENSITIVITY',
+               'Useful life moved by up to three years either way, residual value flexed, and a two-way grid of '
+               'life against residual value.'),
+              ('CHECKS',
+               '53 integrity checks, including NBV equal to cost less depreciation, and depreciation and '
+               'disposal results tying to the P&amp;L, for every class.')],
+     'diffs': [('One roll-forward, every class',
+                'Cost, accumulated depreciation and NBV move month by month for land, buildings, plant and '
+                'machinery, vehicles, fixtures and fittings, and IT equipment.'),
+               ('Disposals with the gain or loss',
+                'Proceeds are set as a percentage of NBV, so each disposal produces a gain or loss and the tax '
+                'on it, and both flow to PL_IMPACT.'),
+               ('Capex against depreciation',
+                'The capex plan splits spend into maintenance and growth and sets it against the depreciation '
+                'charge, so you can see whether the asset base is being replaced.'),
+               ('The note reconciles itself',
+                'DISCLOSURE builds the carrying amount reconciliation for each year and checks that closing '
+                'equals opening plus movements.'),
+               ('Scenarios on the judgement calls',
+                'Useful lives, residual values, capex budgets and impairment rates all move with the scenario '
+                'selector.')],
+     'faqs': [('Which asset classes does it cover?',
+               'Six: land, buildings, plant and machinery, vehicles, fixtures and fittings, and IT equipment, '
+               'with 20 assets in each on the register. Land is not depreciated.'),
+              ('Is it monthly?',
+               'Yes. 60 monthly periods, with annual totals on CAPEX_PLAN, DISCLOSURE and DASHBOARD.'),
+              ('What does it not do?',
+               'The monthly class schedules depreciate on a straight line. Revaluation is calculated on '
+               'REVALUATION and shown as a memo line in the reconciliation, applied after the period close; it '
+               'does not feed back into the depreciation charge. Impairment is an annual rate per class, not a '
+               'recoverable amount test: for that, see the IAS 36 Impairment Model.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo company.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 6 asset classes &middot; 120 assets &times; 60 months '
+             '&middot; 53 integrity checks &middot; no macros &middot; instant download',
+     'related': [('Capex Model', '/capex-model-excel.html'),
+                 ('IAS 38 Capitalisation Model', '/ias-38-capitalisation-model-excel.html'),
+                 ('IAS 36 Impairment Model', '/ias-36-impairment-model-excel.html')]},
+    {'id': 'impairment',
+     'slug': 'ias-36-impairment-model-excel',
+     'title': 'IAS 36 Impairment Model in Excel: CGU Goodwill Testing',
+     'h1': 'Impairment Testing Model (IAS 36)',
+     'meta': 'IAS 36 impairment model in Excel. 8 CGUs, 10-year value in use DCF, fair value less costs to sell, '
+             'goodwill-first loss allocation, headroom and breakevens.',
+     'keywords': 'ias 36 impairment model excel, goodwill impairment test excel, value in use calculation, cgu '
+                 'impairment model, impairment headroom analysis',
+     'hero': 'Test goodwill and other assets across eight cash-generating units: indicator assessment, a '
+             'ten-year value in use DCF with a WACC build-up, fair value less costs to sell, the recoverable '
+             'amount, the loss allocated goodwill first, and the headroom and sensitivity the disclosure needs.',
+     'problem': ['The annual goodwill test is often a DCF someone built years ago, with a discount rate nobody '
+                 'can rebuild and a sensitivity note written by hand. Auditors ask how far the WACC or the '
+                 'growth rate has to move before headroom disappears, and the model does not say.',
+                 'This model calculates value in use and fair value less costs to sell for each CGU, takes the '
+                 'higher as recoverable amount, and shows the headroom with breakeven WACC, terminal growth and '
+                 'EBITDA margin beside it.'],
+     'who': 'Technical accounting and group reporting teams running the annual goodwill test. Financial '
+            'controllers at groups with acquired businesses. Valuation advisers and auditors who need a '
+            "transparent benchmark for a client's test.",
+     'tabs': [('INPUTS',
+               'Reporting date, tax rate, risk-free rate, equity and debt risk premiums, long-term growth and '
+               'cost to sell; then for each CGU the carrying amounts of goodwill, intangibles, PP&amp;E and '
+               'other assets, revenue, growth, margins, capex, working capital, beta, gearing, size and country '
+               'premiums, and trading and transaction multiples. Base, Upside, Downside and Stress scenarios.'),
+              ('INDICATOR_ASSESSMENT',
+               'Sixteen external and internal indicators per CGU, from a fall in market value to operating '
+               'losses, with a summary of whether a test is required.'),
+              ('GOODWILL_ALLOCATION',
+               'Goodwill by CGU, months since the last test, carrying amounts by asset type and a five-year '
+               'goodwill movement schedule.'),
+              ('VIU_DCF',
+               'Ten-year free cash flow per CGU from revenue and margin, discounted at a WACC built from CAPM '
+               'and the cost of debt, with a Gordon growth terminal value.'),
+              ('FVLCTS',
+               'Fair value from a trading multiple and a transaction multiple, weighted 60/40, less costs to '
+               'sell, with sensitivity to the multiple.'),
+              ('RECOVERABLE_AMOUNT',
+               'The higher of VIU and FVLCTS, which one it was, headroom or impairment, and the loss amount.'),
+              ('IMPAIRMENT_CALC',
+               'The loss allocated to goodwill first, then pro rata across intangibles, PP&amp;E and other '
+               'assets, with post-impairment carrying amounts.'),
+              ('REVERSAL_TRACKING',
+               'Monthly monitoring of reversal indicators per CGU, capped at the carrying amount there would '
+               'have been without the impairment, with goodwill reversal blocked.'),
+              ('SENSITIVITY',
+               'Headroom against WACC, terminal growth and EBITDA margin for each CGU, and a two-way grid of '
+               'WACC against growth.'),
+              ('HEADROOM',
+               'Headroom, breakeven WACC, growth and margin with the cushion on each, a risk rating, and a '
+               'five-year carrying amount projection.'),
+              ('DISCLOSURE',
+               'Key assumptions and sensitivity items under IAS 36.134, impairment losses under IAS 36.130, and '
+               'the IAS 36.135 items, by CGU.'),
+              ('DASHBOARD',
+               'Carrying against recoverable amount, headroom by CGU, goodwill allocation, VIU composition and '
+               'breakeven WACC against actual.'),
+              ('MONTHLY_TRACKING', 'Monthly P&amp;L and free cash flow by CGU, with revenue against budget.'),
+              ('SCENARIO_COMPARISON',
+               'Key assumptions, WACC and an estimated VIU and headroom under all four scenarios side by side.'),
+              ('EXTENDED_SENS',
+               'A supplementary grid flexing reference values by a row shock and a column factor.'),
+              ('CHECKS',
+               '54 integrity checks, including recoverable amount equal to the higher of VIU and FVLCTS, and '
+               'post-impairment carrying amounts reconciling for every CGU.')],
+     'diffs': [('Both measures of recoverable amount',
+                'Value in use from a ten-year DCF and fair value less costs to sell from market multiples, '
+                'calculated side by side for every CGU, with the basis shown.'),
+               ('A WACC you can rebuild',
+                'Cost of equity from the risk-free rate, beta, equity risk premium, size premium and country '
+                'risk premium; cost of debt from the risk-free rate plus a credit spread; weighted by your '
+                'gearing.'),
+               ('Allocation in the right order',
+                'A loss reduces goodwill first, then the other assets pro rata to their carrying amounts, with a '
+                'check that post-impairment amounts reconcile.'),
+               ('Headroom with breakevens',
+                'For each CGU: how far WACC can rise, or terminal growth and EBITDA margin fall, before headroom '
+                'reaches zero, with a LOW, MEDIUM or HIGH risk rating.'),
+               ('The disclosure items laid out',
+                'Key assumptions, headroom and the change in each assumption that would eliminate it, set out by '
+                'CGU under the IAS 36.134 headings.')],
+     'faqs': [('How many CGUs can it test?',
+               'Eight. The demo uses banking segments, from retail and corporate banking to insurance and an '
+               'international unit. Names and every assumption are inputs.'),
+              ('Does it handle reversals?',
+               'Yes, for assets other than goodwill. REVERSAL_TRACKING tests whether recoverable amount exceeds '
+               'carrying amount and caps the reversal at the carrying amount there would have been without the '
+               'impairment. Goodwill reversals are blocked.'),
+              ('What does it not do?',
+               'Value in use is discounted at a post-tax WACC used as a proxy for the pre-tax rate, and the '
+               'projection runs ten years where IAS 36 expects five unless a longer period can be justified. '
+               'Breakeven WACC, growth and margin on HEADROOM are closed-form approximations, not goal-seek '
+               'results. Fair value is based on multiples.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo company.')],
+     'spec': 'Excel (.xlsx) &middot; 20 tabs &middot; 8 CGUs &middot; 10-year DCF &middot; 54 integrity checks '
+             '&middot; no macros &middot; instant download',
+     'related': [('IAS 38 Capitalisation Model', '/ias-38-capitalisation-model-excel.html'),
+                 ('DCF Model', '/dcf-model-excel.html'),
+                 ('Blog: WACC calculation in banking', '/blog/wacc-calculation-banking.html')]},
+    {'id': 'debt-schedule',
+     'slug': 'debt-schedule-model-excel',
+     'title': 'Debt Schedule Model in Excel: 8 Facilities and Covenants',
+     'h1': 'Debt Schedule &amp; Facility Management Model',
+     'meta': 'Debt schedule model in Excel. 8 facilities over 60 months, fixed and floating interest, fees, five '
+             'covenants with headroom, maturity ladder, refinancing.',
+     'keywords': 'debt schedule model excel, debt schedule template, covenant compliance model excel, revolving '
+                 'credit facility model, multi facility debt model',
+     'hero': 'Eight facilities, from a term loan and revolver to mezzanine, subordinated notes, leases and a '
+             'shareholder loan, each on its own monthly schedule for five years. Consolidated into net debt and '
+             'the weighted average cost of debt, with five covenants tested every month.',
+     'problem': ["A borrower's debt rarely sits in one instrument. Term loans amortise, the revolver is drawn "
+                 'and repaid, the bond is fixed and the mezzanine is not, and the covenant certificate needs all '
+                 'of it on one LTM basis every quarter.',
+                 "This model gives every facility its own schedule, with interest on the prior month's closing "
+                 'balance so there is no circularity, then consolidates them and tests leverage, interest cover, '
+                 'DSCR, minimum liquidity and gearing against their limits each month.'],
+     'who': 'Treasury and corporate finance teams managing a multi-facility capital structure. Finance directors '
+            'preparing covenant compliance. Leveraged finance and private credit analysts monitoring a borrower.',
+     'tabs': [('INPUTS',
+               'EBITDA and growth, opening cash, tax, a five-year base rate path, capex, working capital and '
+               'covenant limits; for each facility: commitment, drawn amount, fixed or floating, spread or fixed '
+               'rate, amortising or bullet, maturity, commitment and arrangement fees, prepayments and '
+               'drawdowns. Base, Upside, Downside and Stress scenarios.'),
+              ('FACILITY_1 to FACILITY_8',
+               'One monthly schedule per facility: drawdowns, scheduled repayment, voluntary prepayment, '
+               'interest, commitment and arrangement fees, all-in cost, utilisation and effective rate.'),
+              ('CONSOLIDATED',
+               'All eight facilities combined: balances, interest, fees, debt service, net debt, weighted '
+               'average cost of debt, weighted average maturity and utilisation.'),
+              ('COVENANTS',
+               'Leverage, interest cover, DSCR, minimum liquidity and gearing each month on an LTM basis, with '
+               'headroom and a status for each.'),
+              ('MATURITY_PROFILE',
+               'Maturity ladder by facility, 12 and 24-month refinancing need, refinancing capacity and '
+               'coverage, concentration and the maturity wall year.'),
+              ('INTEREST_ANALYSIS',
+               'Fixed against floating interest, effective rates, and the annual impact of base rate moves from '
+               '-100 to +200 bps.'),
+              ('REFINANCING',
+               'Extend, reprice or replace the term loan and the revolver, with break costs, fees and the NPV '
+               'saving of each option.'),
+              ('DASHBOARD',
+               'Headline KPIs and chart data for balances by facility and quarterly interest and fees.'),
+              ('SENSITIVITY',
+               'Interest cover by base rate and EBITDA, total interest by prepayment size and timing, and '
+               'leverage by EBITDA growth and repayment rate.'),
+              ('CHECKS',
+               '100 integrity checks, including closing balance within commitment, no negative balances and the '
+               'roll-forward on every facility.')],
+     'diffs': [('Eight instruments, one structure',
+                'Senior term loan, revolver, secured bond, bilateral loan, mezzanine, subordinated notes, lease '
+                'obligations and shareholder loan, each with its own rate basis, profile and fees.'),
+               ('No circularity',
+                "Interest runs on the prior month's closing balance, so the model needs no iterative "
+                'calculation.'),
+               ('Five covenants, every month',
+                'Leverage, interest cover, DSCR, liquidity and gearing are tested on rolling 12-month figures, '
+                'with headroom shown against each limit.'),
+               ('All-in cost, not just coupon',
+                "Commitment and arrangement fees sit beside interest, so each facility's effective rate and the "
+                'weighted average cost of debt include them.'),
+               ('Refinancing with numbers',
+                'Three options for the term loan and the revolver, compared on total cost and NPV, before the '
+                'maturity wall arrives.')],
+     'faqs': [('Which repayment profiles does it support?',
+               'Amortising, with equal quarterly principal repayments over the term, and bullet. Sculpted '
+               'repayment is not implemented in this version.'),
+              ('Can I change the facility mix?',
+               "Yes. Each facility's commitment, rate basis, spread, profile, maturity and fees are inputs, so "
+               'the eight slots can carry your own instruments.'),
+              ('What does it not do?',
+               'Day count is approximated as monthly twelfths for fixed and floating facilities. EBITDA grows at '
+               'a constant rate, capex and working capital are held constant, and the cash flow is simplified. '
+               'Refinancing options cover the term loan and the revolver.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo company.')],
+     'spec': 'Excel (.xlsx) &middot; 21 tabs &middot; 8 facilities &times; 60 months &middot; 5 covenants '
+             '&middot; 100 integrity checks &middot; no macros &middot; instant download',
+     'related': [('Debt Amortisation Model', '/debt-amortisation-model-excel.html'),
+                 ('LBO Model', '/lbo-model-excel.html'),
+                 ('Blog: Debt sizing in an LBO model', '/blog/lbo-model-debt-sizing.html')]},
+    {'id': 'debt-amortisation',
+     'slug': 'debt-amortisation-model-excel',
+     'title': 'Debt Amortisation Model in Excel: Six Repayment Profiles',
+     'h1': 'Debt Amortisation &amp; Repayment Model',
+     'meta': 'Debt amortisation model in Excel. Six tranches: equal payment, equal principal, bullet, balloon '
+             'and sculpted, with prepayment, refinancing and all-in cost.',
+     'keywords': 'debt amortisation model excel, loan amortisation schedule excel, balloon payment calculator '
+                 'excel, bullet loan schedule, loan refinancing calculator excel',
+     'hero': 'Six tranches on six repayment profiles, month by month: two 30-year equal-payment loans, equal '
+             'principal, bullet, balloon and a stepped sculpted profile. Compare them side by side, test a '
+             'prepayment, price a refinancing and see the all-in cost once fees are counted.',
+     'problem': ['The same headline rate can cost very different amounts depending on how the loan repays. '
+                 'Borrowers comparing offers, and lenders explaining them, need the full schedule, not just the '
+                 'monthly payment.',
+                 'This model runs every profile from the same inputs and puts total interest, weighted average '
+                 'life and the effective rate including fees next to each other, so the comparison is like for '
+                 'like.'],
+     'who': 'Corporate treasury and finance teams comparing facility offers. Lenders and brokers explaining '
+            'repayment structures. Property investors and finance students learning how amortisation works.',
+     'tabs': [('INPUTS',
+               'For each tranche: principal, rate, term, frequency, start date, arrangement fee and annual fee; '
+               'plus the balloon percentage, prepayment month and amount, and refinancing terms. Base, Upside, '
+               'Downside and Stress scenarios.'),
+              ('TRANCHE_1 to TRANCHE_6',
+               'Monthly schedule per tranche: opening balance, payment, interest, principal, closing balance, '
+               'cumulative interest and principal, and percentage repaid.'),
+              ('COMPARISON',
+               'All six side by side: total interest, total payments, interest to principal, weighted average '
+               'life, a simple effective rate, and outstanding balance at annual snapshots.'),
+              ('PREPAYMENT',
+               'A lump-sum prepayment on the first mortgage tranche, the estimated interest saving, and a grid '
+               'of savings by amount and timing.'),
+              ('REFINANCING',
+               'Existing against new terms at a chosen month: payment saving, break cost and new fee, net saving '
+               'and payback period, with 60 months of monthly comparison.'),
+              ('EFFECTIVE_RATE',
+               'All-in cost of borrowing by tranche, including arrangement and annual fees, with an annual cash '
+               'flow summary for the IRR approximation.'),
+              ('DASHBOARD', 'Portfolio KPIs and chart data, including balance decline year by year.'),
+              ('SENSITIVITY',
+               'Total interest by rate and term, and interest saved by prepayment amount and timing.'),
+              ('CHECKS', '75 integrity checks.')],
+     'diffs': [('Six profiles, one set of inputs',
+                'Equal payment, equal principal, bullet, balloon and sculpted, so the difference you see is the '
+                'structure, not the assumptions.'),
+               ('Sculpting you can read',
+                'The sculpted tranche repays 0.5% of the balance a month for the first 40% of the term, 1% up to '
+                '70%, then 2%, with the remainder at maturity.'),
+               ('Fees in the rate',
+                'EFFECTIVE_RATE adds arrangement and annual fees to interest, so the all-in cost of each tranche '
+                'can be set against its nominal rate.'),
+               ('Prepay or refinance',
+                'Interest saved by a lump-sum prepayment, by amount and timing, and the payback period of a '
+                'refinancing once break costs and new fees are paid.'),
+               ('No circularity', "Interest is calculated on the prior period's closing balance.")],
+     'faqs': [('How is it different from the Debt Schedule Model?',
+               'This model compares repayment structures for individual loans. The Debt Schedule Model runs a '
+               "borrower's whole capital structure of eight facilities, consolidates them and tests covenants."),
+              ('What does it not do?',
+               'Day count is 30/360 on monthly periods, with payments at month end. Prepayment savings are '
+               'approximations, the sculpted tranche uses a stepped formula rather than a link to a cash flow '
+               'forecast, and the IRR approximation on EFFECTIVE_RATE uses annual cash flows. Payment holidays, '
+               'grace periods and tax effects are not modelled.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo portfolio.')],
+     'spec': 'Excel (.xlsx) &middot; 18 tabs &middot; 6 tranches &middot; up to 360 months &middot; 75 integrity '
+             'checks &middot; no macros &middot; instant download',
+     'related': [('Debt Schedule Model', '/debt-schedule-model-excel.html'),
+                 ('LBO Model', '/lbo-model-excel.html')]},
+    {'id': 'portfolio-attrib',
+     'slug': 'portfolio-return-attribution-model-excel',
+     'title': 'Portfolio Return Attribution Model in Excel: Brinson',
+     'h1': 'Portfolio Return Attribution Model',
+     'meta': 'Portfolio return attribution model in Excel. Brinson allocation, selection and interaction, '
+             'Fama-French 5-factor, sector and region views, TE, IR and VaR.',
+     'keywords': 'portfolio attribution model excel, brinson attribution excel, performance attribution model, '
+                 'fama french five factor excel, tracking error information ratio excel',
+     'hero': "Explain where a portfolio's active return came from: Brinson-Hood-Beebower allocation, selection "
+             'and interaction for 40 securities over 12 months, a Fama-French five-factor decomposition, sector '
+             'and regional attribution, and the risk statistics that go with it.',
+     'problem': ['Clients and investment committees do not stop at whether the portfolio beat the benchmark. '
+                 'They ask whether it was the sector bets or the stock picks, and whether the excess return was '
+                 'paid for with excess risk.',
+                 'This model breaks active return into allocation, selection and interaction for every security '
+                 'and month, rolls it up by sector and region, and puts tracking error, information ratio, '
+                 'Sharpe, Sortino and VaR beside it.'],
+     'who': 'Portfolio managers and performance analysts at asset and wealth managers. Investment consultants '
+            'and fund selectors reviewing a manager. CFA candidates and students learning performance '
+            'attribution.',
+     'tabs': [('INPUTS',
+               'Scenario, risk-free rate, management fee and a scenario return multiplier; 40 holdings with '
+               'sector, region, portfolio and benchmark weights; monthly portfolio, benchmark and factor '
+               'returns.'),
+              ('PORTFOLIO_HOLDINGS', '40 securities by 12 months: weights, price returns and dividend returns.'),
+              ('BENCHMARK', 'Benchmark weights, returns and contributions for the same 40 securities.'),
+              ('BRINSON_ATTRIBUTION', 'Allocation, selection and interaction for every security and month.'),
+              ('FACTOR_ATTRIBUTION',
+               'Market, size, value, profitability and investment factor contributions by month, and '
+               'cumulative.'),
+              ('RISK_ANALYTICS',
+               'Returns, excess returns and the building blocks of volatility for each security and month.'),
+              ('SECTOR_ATTRIBUTION',
+               'Portfolio and benchmark weights, over and underweights and returns by sector and month.'),
+              ('GEOGRAPHIC_ATTRIBUTION', 'The same view across six regions.'),
+              ('PERFORMANCE_SUMMARY',
+               'Monthly gross and net returns against benchmark, then annualised alpha, tracking error, '
+               'information ratio, Sharpe, Sortino, volatility, maximum drawdown and VaR at 95% and 99%.'),
+              ('RISK_DECOMPOSITION',
+               'Systematic against idiosyncratic risk by security, from beta and volatility.'),
+              ('DASHBOARD',
+               'Headline returns and ratios, monthly attribution, sector weights and factor exposures.'),
+              ('SENSITIVITY',
+               'Information ratio by alpha and tracking error, return by beta and market move, and allocation '
+               'effect by weight deviation and return spread.'),
+              ('CHECKS',
+               '75 integrity checks, including portfolio and benchmark weights summing to 100% every month and '
+               'the Brinson effects summing to the total.')],
+     'diffs': [('Brinson at security level',
+                'Allocation = (wp - wb) &times; (rb - Rb), selection = wb &times; (rp - rb), interaction = (wp - '
+                'wb) &times; (rp - rb), for each of 40 securities in each of 12 months.'),
+               ('Factors as well as bets',
+                'The Fama-French five-factor view separates return earned from market, size, value, '
+                'profitability and investment exposure.'),
+               ('Sector and region roll-ups',
+                'The same decomposition aggregated by sector and across six regions, so the committee sees the '
+                'bets it recognises.'),
+               ('Gross and net of fees',
+                'The management fee is applied monthly, so alpha is shown before and after it.'),
+               ('Risk next to return',
+                'Tracking error, information ratio, Sharpe, Sortino, maximum drawdown and VaR, so excess return '
+                'is judged against the risk taken.')],
+     'faqs': [('Can I load my own portfolio?',
+               'Yes. Replace the 40 holdings, their weights and the monthly portfolio, benchmark and factor '
+               'returns on INPUTS. The demo returns are simulated for illustration.'),
+              ('Which attribution methods does it use?',
+               'Brinson-Hood-Beebower (1986) for allocation, selection and interaction, and the Fama and French '
+               '(2015) five-factor model.'),
+              ('What does it not do?',
+               'Factor loadings are estimated, not regression-based. VaR assumes normally distributed returns, '
+               'the risk decomposition is a linear approximation and currency effects are approximated from '
+               'input rates. It covers 40 securities over 12 monthly periods.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo portfolio.')],
+     'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 40 securities &times; 12 months &middot; 5 factors '
+             '&middot; 75 integrity checks &middot; no macros &middot; instant download',
+     'related': [('PE Fund Waterfall Model', '/pe-fund-waterfall-model-excel.html'),
+                 ('Credit Fund Model', '/credit-fund-model-excel.html'),
+                 ('Multi-Method Valuations Model', '/multi-method-valuation-model-excel.html')]},
+    {'id': 'infra-dcf',
+     'slug': 'infrastructure-dcf-model-excel',
+     'title': 'Infrastructure DCF Model in Excel: Toll Road, Wind, Water',
+     'h1': 'Infrastructure DCF Model',
+     'meta': 'Infrastructure DCF model in Excel. Toll road, wind farm and water utility over 30 years: RAB '
+             'roll-forward, DSCR debt sizing, covenants, FCFF and NPV.',
+     'keywords': 'infrastructure dcf model excel, infrastructure valuation model, rab model excel, wind farm '
+                 'financial model excel, toll road model excel',
+     'hero': 'Value three infrastructure assets on their own revenue logic over 30 years: a toll road on traffic '
+             'and tariff, a wind farm on capacity, availability and power price, and a water utility on its '
+             'regulated asset base. Then size the debt to a target DSCR and test the covenants each year.',
+     'problem': ['Infrastructure assets do not earn money the same way. A toll road carries volume risk, a wind '
+                 'farm carries resource and price risk, and a regulated utility earns a return on its asset '
+                 'base. A generic DCF treats them alike and misses what drives each one.',
+                 'This model gives each asset its own revenue build, then runs common schedules for opex, capex '
+                 'and RAB, debt, tax and free cash flow, so the three can be compared on one basis.'],
+     'who': 'Infrastructure investors and fund analysts. Project finance and infrastructure lending teams sizing '
+            'debt. Corporate finance advisers and students learning how regulated and contracted assets are '
+            'valued.',
+     'tabs': [('INPUTS',
+               'WACC, risk-free rate, inflation, tax and concession period; for each asset its capex, operating '
+               'assumptions, revenue drivers, senior debt, rate, tenor and target DSCR. Base, Upside, Downside '
+               'and Stress scenarios.'),
+              ('REVENUE_MODEL',
+               '30-year revenue: toll traffic and tariff; wind capacity, capacity factor with degradation, '
+               'availability, curtailment and power price; water RAB-based allowed revenue plus connections.'),
+              ('OPERATING_COSTS',
+               'Fixed and variable opex, insurance, management fees and lifecycle maintenance by asset, with '
+               'EBITDA and margin.'),
+              ('CAPEX_RAB',
+               'Capex and the RAB roll-forward for each asset: opening, additions, depreciation and closing, '
+               'with the return on RAB.'),
+              ('DEBT_SCHEDULE',
+               'Senior debt by asset: interest, amortisation, debt service, DSCR, LLCR, PLCR and DSRA, plus '
+               'interest cover, leverage and debt to RAB.'),
+              ('TAX',
+               'Taxable income after tax depreciation and interest, losses carried forward, tax paid and the tax '
+               'shield from debt.'),
+              ('FREE_CASH_FLOW',
+               'Pre-debt FCFF and post-debt FCFE by asset, with yields and cash-on-cash returns.'),
+              ('RETURNS_ANALYSIS',
+               'FCFF and FCFE totals, NPV at WACC, equity multiple, payback, average DSCR and gearing, and NPV '
+               'at discount rates from 5% to 12%.'),
+              ('DEBT_SIZING',
+               'Maximum debt from CFADS and the target DSCR, headroom against the debt assumed, and a gearing '
+               'table for the toll road from 50% to 80%.'),
+              ('COVENANT_DASHBOARD',
+               'DSCR, LLCR and PLCR against their minimums each year, the distribution lock-up test and '
+               'distributions.'),
+              ('SCENARIO_ANALYSIS',
+               'All four scenarios for each asset side by side, with variance against the base case.'),
+              ('DASHBOARD',
+               'Portfolio NPV, equity multiple and average DSCR, with chart data for revenue, DSCR, FCFE, RAB '
+               'and capital structure.'),
+              ('SENSITIVITY',
+               'Seven two-way tables, including portfolio NPV by volume growth and discount rate, and wind farm '
+               'NPV by capacity factor and power price.'),
+              ('CHECKS',
+               '64 integrity checks, including the RAB and debt roll-forwards and cross-sheet consistency of '
+               'revenue, EBITDA, debt service and capex for each asset.')],
+     'diffs': [('Revenue built the way each asset earns',
+                'Traffic times tariff, generation times price after availability and curtailment, and allowed '
+                'return on RAB plus depreciation for the utility.'),
+               ('Debt sized to cash flow',
+                'Maximum debt comes from CFADS and a target DSCR using an annuity formula, with headroom shown '
+                'against the debt assumed.'),
+               ('Covenants every year',
+                'DSCR minimum 1.20x, LLCR 1.10x, PLCR 1.15x and a distribution lock-up below 1.15x DSCR, tested '
+                'across the projection.'),
+               ('Tax that carries losses',
+                'Tax depreciation, interest deductibility and losses carried forward, so early-year tax reflects '
+                'the capital structure.'),
+               ('Seven sensitivity tables',
+                'From discount rate and volume growth to capacity factor and power price, and DSCR target '
+                'against interest rate for debt capacity.')],
+     'faqs': [('Which currency is it in?',
+               'The demo is in US dollars, millions. All values are inputs, so any currency works if you are '
+               'consistent.'),
+              ('What does it not do?',
+               'There is no construction phase: operation is assumed from the start. LLCR and PLCR are '
+               'DSCR-based approximations, tax depreciation uses a 150% accelerated proxy, and working capital '
+               'is a percentage of the change in revenue. Returns are reported as NPV, equity multiple and '
+               'payback rather than IRR.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo portfolio.')],
+     'spec': 'Excel (.xlsx) &middot; 18 tabs &middot; 3 assets &times; 30 years &middot; 4 scenarios &middot; 64 '
+             'integrity checks &middot; no macros &middot; instant download',
+     'related': [('Project Finance Model', '/project-finance-model-excel.html'),
+                 ('PPP / Concession Model', '/ppp-concession-model-excel.html'),
+                 ('DCF Model', '/dcf-model-excel.html')]},
+    {'id': 'ppp-concession',
+     'slug': 'ppp-concession-model-excel',
+     'title': 'PPP Concession Model in Excel: PFI, VfM and PSC',
+     'h1': 'PPP / Concession Model',
+     'meta': 'PPP concession model in Excel. Hospital, road and school projects: availability payments, '
+             'deductions, PSC, value for money, debt service, DSRA and returns.',
+     'keywords': 'ppp model excel, pfi financial model, concession model excel, public sector comparator model, '
+                 'value for money analysis ppp',
+     'hero': 'Three PPP projects over a 30-year concession: a hospital PFI, a shadow toll road and a schools '
+             'project. Model the payment mechanism with deductions, build the public sector comparator, test '
+             'value for money, and run the cash flow waterfall, debt service and equity returns.',
+     'problem': ['A PPP has two audiences who read the same model differently. The authority wants to know '
+                 'whether the deal beats public procurement. Investors and lenders want to know whether the '
+                 'unitary charge covers debt service with room for a dividend.',
+                 'This model answers both from one set of inputs: a public sector comparator with optimism bias '
+                 'and risk adjustments against the PPP cost to the authority, and a project cash flow waterfall '
+                 'with DSCR, a debt service reserve and a dividend lock-up test.'],
+     'who': 'Project finance and infrastructure teams at sponsors, lenders and advisers. Public sector finance '
+            'teams assessing value for money. Infrastructure investors reviewing a PPP portfolio, and students '
+            'of project finance.',
+     'tabs': [('INPUTS',
+               'PSC discount rate, inflation, tax, base rate, CAPM inputs, deduction rate, demand growth and '
+               'cost overrun factor; for each project its construction cost, concession, availability payment, '
+               'opex, lifecycle, debt and equity, demand base, third-party income, DSRA and lock-up DSCR; and '
+               'the PSC risk and optimism bias percentages. Base, Upside, Downside and Stress scenarios.'),
+              ('PSC_BENCHMARK',
+               'Public sector comparator per project: raw cost, optimism bias, retained, transferred and '
+               'transferable risk, competitive neutrality, and its NPV.'),
+              ('CONCESSION_STRUCT',
+               'The payment mechanism: availability payment by component, performance deductions, shadow toll or '
+               'demand payment, third-party income and inflation uplift.'),
+              ('REVENUE_FORECAST', '60-period revenue per project, in real and nominal terms.'),
+              ('LIFECYCLE_CAPEX',
+               'Annual lifecycle budget, five-year major maintenance and a reserve fund with contributions, '
+               'drawdowns and interest.'),
+              ('FINANCING_STRUCT',
+               'Senior and mezzanine debt, equity, gearing, blended cost of debt, CAPM cost of equity, WACC, '
+               'tenor, DSRA months and the interest rate hedge.'),
+              ('CASH_FLOWS',
+               'The waterfall per project: revenue, opex, lifecycle, debt service, tax, DSRA, the lock-up test, '
+               'dividends and cash balance.'),
+              ('DEBT_SERVICE', 'Drawdown, interest, repayment, DSCR, approximate LLCR and the DSRA per project.'),
+              ('VFM_ANALYSIS',
+               'PSC NPV against PPP NPV, the value for money saving, a breakeven discount rate and sensitivity '
+               'to the discount rate.'),
+              ('RISK_MATRIX',
+               '15 risk types allocated between the public and private sectors, with the mitigant for each and '
+               'quantified values per project.'),
+              ('RETURNS',
+               'Equity multiple, nominal and real equity IRR, NPV at cost of equity, payback, dividend yield, '
+               'average and minimum DSCR, and LLCR.'),
+              ('DASHBOARD',
+               'Value for money, equity IRR, MOIC, minimum DSCR, gearing and dividend yield, with chart data for '
+               'VfM and the DSCR profile.'),
+              ('SENSITIVITY',
+               'VfM by discount rate and deduction rate, equity IRR by availability payment and inflation, and '
+               'NPV by cost overrun and demand growth.'),
+              ('CHECKS',
+               '59 integrity checks, including equity plus debt equal to total sources, debt repaid by maturity '
+               'and non-negative cash and lifecycle reserves for every project.')],
+     'diffs': [('Quarterly where it matters',
+                'Forty quarterly periods for the first ten years, through construction and early operations, '
+                'then twenty annual periods to year 30.'),
+               ('Value for money from both sides',
+                'PSC with optimism bias, risk adjustments and competitive neutrality against the PPP cost to the '
+                'authority, with the saving and its sensitivity to the discount rate.'),
+               ('A real payment mechanism',
+                'Availability payment less performance deductions, plus demand or shadow toll payments and '
+                'third-party income, indexed to inflation.'),
+               ('Lender protections modelled',
+                'A six-month debt service reserve, a lifecycle reserve fund and a dividend lock-up when DSCR '
+                'falls below the covenant.'),
+               ('Risk allocation on one page',
+                'Fifteen risks, from construction overrun to refinancing, allocated public, private or shared, '
+                'with the contractual mitigant for each.')],
+     'faqs': [('Which projects are in the demo?',
+               'A hospital PFI, a road on shadow tolls and a schools project, in sterling. Every assumption is '
+               'an input, so each slot can carry your own project.'),
+              ('What does it not do?',
+               "Interest is not calculated on exact dates. Equity IRR uses Excel's IRR on annual cash flows "
+               'rather than date-based XIRR, LLCR is approximated from DSCR, construction cost is spread evenly, '
+               'and one inflation rate applies throughout; sector-specific indices are not modelled.'),
+              ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
+              ('Can I see it before I buy?',
+               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
+               'so you evaluate it on the demo portfolio.')],
+     'spec': 'Excel (.xlsx) &middot; 18 tabs &middot; 3 projects &middot; 40 quarters + 20 years &middot; 59 '
+             'integrity checks &middot; no macros &middot; instant download',
+     'related': [('Project Finance Model', '/project-finance-model-excel.html'),
+                 ('Infrastructure DCF Model', '/infrastructure-dcf-model-excel.html'),
+                 ('Debt Schedule Model', '/debt-schedule-model-excel.html')]},
 ]
 
 

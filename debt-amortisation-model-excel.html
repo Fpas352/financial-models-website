@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debt Amortisation Model in Excel: Six Repayment Profiles | SFS Models</title>
+<meta name="description" content="Debt amortisation model in Excel. Six tranches: equal payment, equal principal, bullet, balloon and sculpted, with prepayment, refinancing and all-in cost.">
+<meta name="keywords" content="debt amortisation model excel, loan amortisation schedule excel, balloon payment calculator excel, bullet loan schedule, loan refinancing calculator excel">
+<link rel="canonical" href="https://sfsmodels.org/debt-amortisation-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Debt Amortisation Model in Excel: Six Repayment Profiles | SFS Models">
+<meta property="og:description" content="Debt amortisation model in Excel. Six tranches: equal payment, equal principal, bullet, balloon and sculpted, with prepayment, refinancing and all-in cost.">
+<meta property="og:url" content="https://sfsmodels.org/debt-amortisation-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Debt Amortisation Model in Excel: Six Repayment Profiles | SFS Models">
+<meta name="twitter:description" content="Debt amortisation model in Excel. Six tranches: equal payment, equal principal, bullet, balloon and sculpted, with prepayment, refinancing and all-in cost.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Debt Amortisation & Repayment Model",
+  "description": "Debt amortisation model in Excel. Six tranches: equal payment, equal principal, bullet, balloon and sculpted, with prepayment, refinancing and all-in cost.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "149",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/debt-amortisation-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is it different from the Debt Schedule Model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This model compares repayment structures for individual loans. The Debt Schedule Model runs a borrower's whole capital structure of eight facilities, consolidates them and tests covenants."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it not do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Day count is 30/360 on monthly periods, with payments at month end. Prepayment savings are approximations, the sculpted tranche uses a stepped formula rather than a link to a cash flow forecast, and the IRR approximation on EFFECTIVE_RATE uses annual cash flows. Payment holidays, grace periods and tax effects are not modelled."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Debt Amortisation &amp; Repayment Model</h1>
+      <p>Six tranches on six repayment profiles, month by month: two 30-year equal-payment loans, equal principal, bullet, balloon and a stepped sculpted profile. Compare them side by side, test a prepayment, price a refinancing and see the all-in cost once fees are counted.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/22cb6fa8-5566-444a-ab58-578d82e3c095" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="debt-amortisation">Buy Now - &pound;149</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/538bf92e-6626-4fab-9430-bfce8636c252" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="debt-amortisation">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">The same headline rate can cost very different amounts depending on how the loan repays. Borrowers comparing offers, and lenders explaining them, need the full schedule, not just the monthly payment.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model runs every profile from the same inputs and puts total interest, weighted average life and the effective rate including fees next to each other, so the comparison is like for like.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Corporate treasury and finance teams comparing facility offers. Lenders and brokers explaining repayment structures. Property investors and finance students learning how amortisation works.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">For each tranche: principal, rate, term, frequency, start date, arrangement fee and annual fee; plus the balloon percentage, prepayment month and amount, and refinancing terms. Base, Upside, Downside and Stress scenarios.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">TRANCHE_1 to TRANCHE_6</h4><p style="margin:0; color:var(--text-muted);">Monthly schedule per tranche: opening balance, payment, interest, principal, closing balance, cumulative interest and principal, and percentage repaid.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">COMPARISON</h4><p style="margin:0; color:var(--text-muted);">All six side by side: total interest, total payments, interest to principal, weighted average life, a simple effective rate, and outstanding balance at annual snapshots.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">PREPAYMENT</h4><p style="margin:0; color:var(--text-muted);">A lump-sum prepayment on the first mortgage tranche, the estimated interest saving, and a grid of savings by amount and timing.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">REFINANCING</h4><p style="margin:0; color:var(--text-muted);">Existing against new terms at a chosen month: payment saving, break cost and new fee, net saving and payback period, with 60 months of monthly comparison.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">EFFECTIVE_RATE</h4><p style="margin:0; color:var(--text-muted);">All-in cost of borrowing by tranche, including arrangement and annual fees, with an annual cash flow summary for the IRR approximation.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">Portfolio KPIs and chart data, including balance decline year by year.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Total interest by rate and term, and interest saved by prepayment amount and timing.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">75 integrity checks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Six profiles, one set of inputs</h3><p style="margin:0; line-height:1.7;">Equal payment, equal principal, bullet, balloon and sculpted, so the difference you see is the structure, not the assumptions.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Sculpting you can read</h3><p style="margin:0; line-height:1.7;">The sculpted tranche repays 0.5% of the balance a month for the first 40% of the term, 1% up to 70%, then 2%, with the remainder at maturity.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Fees in the rate</h3><p style="margin:0; line-height:1.7;">EFFECTIVE_RATE adds arrangement and annual fees to interest, so the all-in cost of each tranche can be set against its nominal rate.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Prepay or refinance</h3><p style="margin:0; line-height:1.7;">Interest saved by a lump-sum prepayment, by amount and timing, and the payback period of a refinancing once break costs and new fees are paid.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">No circularity</h3><p style="margin:0; line-height:1.7;">Interest is calculated on the prior period's closing balance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 18 tabs &middot; 6 tranches &middot; up to 360 months &middot; 75 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/22cb6fa8-5566-444a-ab58-578d82e3c095" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="debt-amortisation">Buy Now - &pound;149</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/538bf92e-6626-4fab-9430-bfce8636c252" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="debt-amortisation">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">How is it different from the Debt Schedule Model?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">This model compares repayment structures for individual loans. The Debt Schedule Model runs a borrower's whole capital structure of eight facilities, consolidates them and tests covenants.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">What does it not do?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Day count is 30/360 on monthly periods, with payments at month end. Prepayment savings are approximations, the sculpted tranche uses a stepped formula rather than a link to a cash flow forecast, and the IRR approximation on EFFECTIVE_RATE uses annual cash flows. Payment holidays, grace periods and tax effects are not modelled.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/debt-schedule-model-excel.html" style="color:#C9A84C;">&rarr; Debt Schedule Model</a></li>
+        <li><a href="/lbo-model-excel.html" style="color:#C9A84C;">&rarr; LBO Model</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+          <!-- SFS-LINKEDIN --><p class="footer-follow" style="margin-top:0.75rem;"><a href="https://www.linkedin.com/company/sfs-models/" target="_blank" rel="noopener" style="color:#C9A84C;">Follow SFS Models on LinkedIn &rarr;</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>
