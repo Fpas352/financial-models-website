@@ -45,7 +45,7 @@ MODELS = [
             ("Does it include industry-specific variants?", "No - this is the generalist model. Industry-specific variants (banks, insurance, REITs, project finance) are available as separate models in the catalogue."),
             ("Can I customise it?", "Yes - fully open formulas. You own the file outright once purchased."),
             ("Will it work in Google Sheets?", "Yes, with minor adjustments. Array formulas behave differently and conditional formatting may need to be re-applied. Around 80% works out of the box."),
-            ("Refund policy?", "14-day money-back guarantee, no questions asked, if it doesn't fit your need."),
+            ("Refund policy?", "All sales are final once the download link has been delivered, so try the free sample first: it is the full workbook with inputs locked."),
         ],
         "spec": "Excel (.xlsx) &middot; 7 tabs &middot; ~600 formula cells &middot; print-ready (A4 landscape, fit-to-page) &middot; file size &lt;500 KB &middot; same-day delivery",
         "related": [
@@ -88,7 +88,7 @@ MODELS = [
             ("Does it support add-on acquisitions?", "Yes - a separate add-on transaction tab adds new sources/uses and consolidates into the operating model."),
             ("Can it model a take-private?", "Yes - built for both private and take-private LBOs. Toggle on the INPUTS tab."),
             ("Does it cover continuation funds or GP-led secondaries?", "Not in v1. Available as a custom build - contact us."),
-            ("Refund policy?", "14-day money-back guarantee, no questions asked."),
+            ("Refund policy?", "All sales are final once the download link has been delivered, so try the free sample first: it is the full workbook with inputs locked."),
         ],
         "spec": "Excel (.xlsx) &middot; 9 tabs &middot; ~1,500 formula cells &middot; print-ready &middot; file size ~800 KB &middot; same-day delivery",
         "related": [
@@ -130,7 +130,7 @@ MODELS = [
             ("Does it cover CECL or IFRS 9?", "ECL methodology lives in our separate IFRS 9 / CECL model. The stress test takes ECL output as an input."),
             ("Will it work for Category I/II US BHCs?", "It's calibrated for Category III/IV. For Category I/II requiring tailored portfolio segmentation or non-standard PPNR builds, contact us for a custom build."),
             ("Does it support both CCAR and DFAST?", "Yes - both use the same supervisory scenarios. The model serves both."),
-            ("Refund policy?", "14-day money-back guarantee."),
+            ("Refund policy?", "All sales are final once the download link has been delivered, so try the free sample first: it is the full workbook with inputs locked."),
         ],
         "spec": "Excel (.xlsx) &middot; ~14 tabs &middot; ~4,000 formula cells &middot; file size ~3 MB &middot; same-day delivery &middot; includes 1 hour of email support",
         "related": [
@@ -173,7 +173,7 @@ MODELS = [
             ("Does it support DCF methodology in addition to PD/LGD?", "PD/LGD/EAD is the default. DCF methodology variant available as a custom build - contact us."),
             ("Will the output map to my call report schedule?", "Yes - for US institutions, output aligns to FFIEC Schedule RI-C. For European institutions, output aligns to IFRS 9 financial statement disclosures."),
             ("Does it handle dual-reporting (IFRS 9 + CECL)?", "Yes - common for US subsidiaries of European banks. Run both methodologies side-by-side and compare."),
-            ("Refund policy?", "14-day money-back guarantee."),
+            ("Refund policy?", "All sales are final once the download link has been delivered, so try the free sample first: it is the full workbook with inputs locked."),
         ],
         "spec": "Excel (.xlsx) &middot; 11 tabs &middot; fully labelled &middot; same-day delivery &middot; includes 1 hour of email support",
         "related": [
@@ -214,7 +214,7 @@ MODELS = [
             ("How long to set up the first run?", "Around two to four hours to populate INPUTS with your bank's data. Two hours of email support included to help with the first run."),
             ("Does it cover stress testing?", "High-level scenario flexing yes (the ten toggles on the Integrated module). For full ICAAP/CCAR-grade stress testing, see our separate Bank Stress Test Model."),
             ("Does it cover ECL / provisions?", "Provision rate is a flexible input. For full PD/LGD/EAD or stage migration, see our separate IFRS 9 / CECL model."),
-            ("Refund policy?", "14-day money-back guarantee."),
+            ("Refund policy?", "All sales are final once the download link has been delivered, so try the free sample first: it is the full workbook with inputs locked."),
         ],
         "spec": "Excel (.xlsx) &middot; 18+ tabs &middot; ~6,000 formula cells &middot; same-day delivery &middot; includes 2 hours of email support",
         "related": [
@@ -345,7 +345,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <p style="margin-top:2rem;">
         <a href="{checkout}" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-model-id="{data_model_id}">Buy Now - &pound;{price_gbp}</a>
       </p>
-      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">14-day money-back guarantee &middot; same-day delivery &middot; secure checkout via Lemon Squeezy</p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">Free sample available &middot; same-day delivery &middot; secure checkout via Lemon Squeezy</p>
     </div>
   </section>
 

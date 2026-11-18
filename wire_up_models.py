@@ -22,7 +22,7 @@ def buy_block(slug, price, url, tabs):
       <h2>Get the model</h2>
       <p style="margin-bottom:1.5rem;">Excel (.xlsx) &middot; {tabs} tabs &middot; open formulas, no VBA &middot; same-day delivery</p>
       <a href="{url}" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; justify-content:center;">Buy Model - &pound;{price:,}</a>
-      <p style="color:var(--text-muted); font-size:0.85rem; margin-top:1rem;">14-day money-back guarantee &middot; one-time purchase, no subscription &middot; questions to sfsmodels362@gmail.com</p>
+      <p style="color:var(--text-muted); font-size:0.85rem; margin-top:1rem;">Free sample available &middot; one-time purchase, no subscription &middot; questions to sfsmodels362@gmail.com</p>
     </div>
   </section>'''
 
