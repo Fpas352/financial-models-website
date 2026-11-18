@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sum-of-the-Parts (SOTP) Valuation Model in Excel | SFS Models</title>
+<meta name="description" content="SOTP valuation model in Excel. Eight segments each valued by DCF, comps and precedents, a blended value, conglomerate discount and a football field.">
+<meta name="keywords" content="sotp valuation model excel, sum of the parts valuation, conglomerate discount, segment valuation excel, break-up valuation">
+<link rel="canonical" href="https://sfsmodels.org/sotp-valuation-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Sum-of-the-Parts (SOTP) Valuation Model in Excel | SFS Models">
+<meta property="og:description" content="SOTP valuation model in Excel. Eight segments each valued by DCF, comps and precedents, a blended value, conglomerate discount and a football field.">
+<meta property="og:url" content="https://sfsmodels.org/sotp-valuation-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sum-of-the-Parts (SOTP) Valuation Model in Excel | SFS Models">
+<meta name="twitter:description" content="SOTP valuation model in Excel. Eight segments each valued by DCF, comps and precedents, a blended value, conglomerate discount and a football field.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Sum-of-the-Parts (SOTP) Valuation Model",
+  "description": "SOTP valuation model in Excel. Eight segments each valued by DCF, comps and precedents, a blended value, conglomerate discount and a football field.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/sotp-valuation-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it only for banks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The demo segments are a diversified financial group, but every segment's name and assumptions are inputs, so it works for any multi-division business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use fewer than eight segments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Set unused segments to zero and they drop out of the total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it not capture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Optionality and synergy values are not modelled, and terminal value usually makes up a large share of each segment's DCF, as with any DCF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo group."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Sum-of-the-Parts (SOTP) Valuation Model</h1>
+      <p>Value a group one division at a time. Eight segments, each with its own ten-year DCF, comparable multiples and precedent transactions, blended into a group value, then compared with the market to measure the conglomerate discount.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/bcf5a945-2cdb-48d4-87af-661b7f6b2003" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="sotp">Buy Now - &pound;199</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/0c7e382e-5ae8-4520-bd7c-2604a27f2f14" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="sotp">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">A diversified group rarely trades at the sum of its parts. Analysts, activists and boards all ask the same question: what is each business worth on its own, and how large is the discount the market applies to the whole?</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model answers it segment by segment, with three methods per segment so no single assumption carries the answer, and benchmarks the implied discount against peers.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Equity research analysts covering diversified groups. Corporate development and strategy teams assessing disposals or spin-offs. Bank and financial services analysts valuing multi-line institutions.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">Segment revenue, margins, growth, WACC and multiples, with Base, Upside, Downside and Stress scenarios.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SEGMENT_1 to SEGMENT_8</h4><p style="margin:0; color:var(--text-muted);">Eight segments, each with a ten-year P&amp;L, free cash flow build and DCF. The demo is set up as a diversified financial group: consumer, corporate and investment banking, wealth and asset management, insurance, treasury and markets, and digital.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">COMP_MULTIPLES</h4><p style="margin:0; color:var(--text-muted);">Comparable company and precedent transaction valuations per segment.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SOTP_SUMMARY</h4><p style="margin:0; color:var(--text-muted);">Blended enterprise value per segment and in total, and equity value per share.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CONGLOMERATE</h4><p style="margin:0; color:var(--text-muted);">Implied conglomerate discount against peer groups.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">FOOTBALL_FIELD</h4><p style="margin:0; color:var(--text-muted);">Valuation ranges across all methods.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">Six charts for board presentations.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Two-way tables for the main value drivers, plus extended sensitivities.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">63 integrity checks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Three methods per segment</h3><p style="margin:0; line-height:1.7;">DCF, comparable companies and precedent transactions for every segment, blended 50 / 30 / 20 by default, with the weights as inputs.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">A real DCF per segment</h3><p style="margin:0; line-height:1.7;">Ten-year explicit forecast, mid-year discounting, segment-specific WACC from CAPM and a Gordon growth terminal value capped below WACC.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">The conglomerate discount, measured</h3><p style="margin:0; line-height:1.7;">The gap between the sum of the parts and the group's market value, benchmarked against peer conglomerates.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">A proper equity bridge</h3><p style="margin:0; line-height:1.7;">Enterprise value less net debt, minorities and pension deficit, plus associates.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Board-ready output</h3><p style="margin:0; line-height:1.7;">A football field and six charts showing where each segment's value comes from.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 21 tabs &middot; 8 segments &times; 3 methods &middot; 10-year DCF &middot; 63 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/bcf5a945-2cdb-48d4-87af-661b7f6b2003" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="sotp">Buy Now - &pound;199</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/0c7e382e-5ae8-4520-bd7c-2604a27f2f14" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="sotp">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">Is it only for banks?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. The demo segments are a diversified financial group, but every segment's name and assumptions are inputs, so it works for any multi-division business.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I use fewer than eight segments?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. Set unused segments to zero and they drop out of the total.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">What does it not capture?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Optionality and synergy values are not modelled, and terminal value usually makes up a large share of each segment's DCF, as with any DCF.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo group.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/dcf-model-excel.html" style="color:#C9A84C;">&rarr; DCF Model</a></li>
+        <li><a href="/trading-comps-model-excel.html" style="color:#C9A84C;">&rarr; Trading Comparables Model</a></li>
+        <li><a href="/blog/mid-year-discounting-dcf.html" style="color:#C9A84C;">&rarr; Blog: Mid-year discounting in a DCF</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+          <!-- SFS-LINKEDIN --><p class="footer-follow" style="margin-top:0.75rem;"><a href="https://www.linkedin.com/company/sfs-models/" target="_blank" rel="noopener" style="color:#C9A84C;">Follow SFS Models on LinkedIn &rarr;</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dividend Discount Model in Excel: Bank Valuation | SFS Models</title>
+<meta name="description" content="Dividend discount model in Excel. Gordon growth, two-stage, H-model, FCFE and residual income for a 10-company peer group, with payout and yield analysis.">
+<meta name="keywords" content="dividend discount model excel, ddm excel template, h model valuation, residual income model excel, bank valuation model">
+<link rel="canonical" href="https://sfsmodels.org/dividend-discount-model-excel.html">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="product">
+<meta property="og:title" content="Dividend Discount Model in Excel: Bank Valuation | SFS Models">
+<meta property="og:description" content="Dividend discount model in Excel. Gordon growth, two-stage, H-model, FCFE and residual income for a 10-company peer group, with payout and yield analysis.">
+<meta property="og:url" content="https://sfsmodels.org/dividend-discount-model-excel.html">
+<meta property="og:site_name" content="SFS Models">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dividend Discount Model in Excel: Bank Valuation | SFS Models">
+<meta name="twitter:description" content="Dividend discount model in Excel. Gordon growth, two-stage, H-model, FCFE and residual income for a 10-company peer group, with payout and yield analysis.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Dividend Discount Model (DDM)",
+  "description": "Dividend discount model in Excel. Gordon growth, two-stage, H-model, FCFE and residual income for a 10-company peer group, with payout and yield analysis.",
+  "brand": {
+    "@type": "Brand",
+    "name": "SFS Models"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://sfsmodels.org/dividend-discount-model-excel.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use it outside banking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Company names and every assumption are inputs. The notes flag where bank-specific features, such as residual income persisting in perpetuity, need adjusting for other sectors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the cost of equity set?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CAPM: risk-free rate plus beta times the equity risk premium, per company."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long is the projection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twenty years of dividends, with growth transitioning between stages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Open formulas, no VBA. Every number traces back to an input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see it before I buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo peer group."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">SFS Models</a>
+      <ul class="nav-links">
+        <li><a href="models.html">Models</a></li>
+        <li><a href="previews.html">Preview Models</a></li>
+        <li><a href="free-samples.html">Free Samples</a></li>
+          <li><a href="/research/">Research</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary btn-sm">Get a Custom Model</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Dividend Discount Model (DDM)</h1>
+      <p>Value dividend-paying companies five ways at once: Gordon growth, two-stage, H-model, free cash flow to equity and residual income, across a peer group of ten, with payout and yield analysis and a summary against the market price.</p>
+      <p style="margin-top:1.5rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/bfb02fd8-ea6d-4dc2-9dfd-cec2c999ef72" target="_blank" rel="noopener" class="btn btn-primary ls-buy-btn" data-model-id="ddm">Buy Now - &pound;199</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/4710d473-b486-4159-a681-510f6f898b67" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="ddm">Download the Free Sample</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>The problem it solves</h2>
+      <p style="line-height:1.7; margin-top:1rem;">For banks and other financial institutions, enterprise value and EBITDA mean little, so equity is valued from what shareholders receive. But a single-stage DDM is very sensitive to the growth assumption, and one method alone rarely convinces an investment committee.</p>
+      <p style="line-height:1.7; margin-top:1rem;">This model runs four DDM variants and residual income side by side for ten companies, so you can see where the methods agree, where they diverge and why.</p>
+      <h2 style="margin-top:2.5rem;">Who it's for</h2>
+      <p style="line-height:1.7; margin-top:1rem;">Equity analysts covering banks, insurers and other dividend payers. Investors screening income stocks. Students and candidates preparing for bank equity research and valuation interviews.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE MODEL -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:900px;">
+      <h2>What's in the model</h2>
+      <p style="color:var(--text-muted); margin-top:0.75rem;">Every workbook opens on a COVER tab with instructions and a linked tab index. Then:</p>
+      <div style="display:grid; gap:1.25rem; margin-top:2rem;">
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">INPUTS</h4><p style="margin:0; color:var(--text-muted);">Per-company assumptions and cost of equity from CAPM, with Base, Upside, Downside and Stress scenarios.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DIVIDEND_PROJ</h4><p style="margin:0; color:var(--text-muted);">Twenty-year dividend projections for all ten companies.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">GORDON_GROWTH</h4><p style="margin:0; color:var(--text-muted);">Single-stage value = DPS1 / (ke - g).</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">TWO_STAGE</h4><p style="margin:0; color:var(--text-muted);">A high-growth period followed by a Gordon terminal value.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">H_MODEL</h4><p style="margin:0; color:var(--text-muted);">Growth declining linearly from the high rate to the stable rate.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">FCFE_MODEL</h4><p style="margin:0; color:var(--text-muted);">Equity valued on cash available to shareholders, not just dividends paid.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">RESIDUAL_INCOME</h4><p style="margin:0; color:var(--text-muted);">Book value plus the present value of returns above the cost of equity.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">PAYOUT_ANALYSIS</h4><p style="margin:0; color:var(--text-muted);">Payout ratios moving towards a steady state.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">YIELD_ANALYSIS</h4><p style="margin:0; color:var(--text-muted);">Dividend yield and dividend quality, including the Chowder number.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">VALUATION_SUMMARY</h4><p style="margin:0; color:var(--text-muted);">All methods compared, with the premium or discount to market price.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">DASHBOARD</h4><p style="margin:0; color:var(--text-muted);">Charts and visual summaries.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">SENSITIVITY</h4><p style="margin:0; color:var(--text-muted);">Two-way tables for the main value drivers.</p></div>
+        <div style="border-left:3px solid #C9A84C; padding-left:1rem;"><h4 style="margin:0 0 0.4rem; font-family: 'DM Serif Display', serif;">CHECKS</h4><p style="margin:0; color:var(--text-muted);">80 integrity checks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <h2>What makes it different</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Five methods, one peer group</h3><p style="margin:0; line-height:1.7;">Gordon growth, two-stage, H-model, FCFE and residual income for ten companies, compared on one summary tab.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Built for financial institutions</h3><p style="margin:0; line-height:1.7;">The demo peer group is ten financial institutions, where dividend-based and residual income valuation are standard.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Guard rails on growth</h3><p style="margin:0; line-height:1.7;">Terminal growth must stay below the cost of equity, and the model checks it.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">Dividend quality, not just value</h3><p style="margin:0; line-height:1.7;">Payout path, yield and the Chowder number alongside intrinsic value.</p></div>
+        <div><h3 style="margin:0 0 0.4rem; color:#C9A84C;">A signal against the market</h3><p style="margin:0; line-height:1.7;">Intrinsic value per share against market price for every company and method.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC + CTA -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Specifications</h2>
+      <p style="font-size:1.05rem; line-height:1.7; margin:1.5rem 0;">Excel (.xlsx) &middot; 17 tabs &middot; 10 companies &times; 5 methods &middot; 20-year projection &middot; 80 integrity checks &middot; no macros &middot; instant download</p>
+      <p style="margin-top:2rem;">
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/bfb02fd8-ea6d-4dc2-9dfd-cec2c999ef72" target="_blank" rel="noopener" class="btn btn-primary btn-lg ls-buy-btn" data-model-id="ddm">Buy Now - &pound;199</a>
+        &nbsp;&nbsp;
+        <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/4710d473-b486-4159-a681-510f6f898b67" target="_blank" rel="noopener" class="btn btn-secondary btn-lg ls-free-btn" data-model-id="ddm">Download the Free Sample</a>
+      </p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>Frequently asked questions</h2>
+      <div style="display:grid; gap:1.5rem; margin-top:2rem;">
+        <div><h4 style="margin:0 0 0.5rem;">Can I use it outside banking?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. Company names and every assumption are inputs. The notes flag where bank-specific features, such as residual income persisting in perpetuity, need adjusting for other sectors.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">How is the cost of equity set?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">CAPM: risk-free rate plus beta times the equity risk premium, per company.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">How long is the projection?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Twenty years of dividends, with growth transitioning between stages.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Are there macros?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">No. Open formulas, no VBA. Every number traces back to an input.</p></div>
+        <div><h4 style="margin:0 0 0.5rem;">Can I see it before I buy?</h4><p style="margin:0; color:var(--text-muted); line-height:1.7;">Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo peer group.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section" style="background:var(--bg-alt, #0f1117);">
+    <div class="container" style="max-width:760px;">
+      <h2>Related</h2>
+      <ul style="list-style:none; padding:0; margin-top:1.5rem; display:grid; gap:0.75rem;">
+        <li><a href="/multi-method-valuation-model-excel.html" style="color:#C9A84C;">&rarr; Multi-Method Valuations Model</a></li>
+        <li><a href="/bank-financial-model.html" style="color:#C9A84C;">&rarr; Bank Long-Term Plan Model</a></li>
+        <li><a href="/blog/wacc-calculation-banking.html" style="color:#C9A84C;">&rarr; Blog: WACC calculation for banking</a></li>
+        <li><a href="/models.html" style="color:#C9A84C;">&rarr; Full Model Catalogue</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <h2>About SFS Models</h2>
+      <p>SFS Models builds institutional-grade Excel financial models for banking and finance professionals, built by a banking practitioner. Open formulas, no VBA, every number traceable to an input, and a CHECKS tab in every workbook.</p>
+      <p style="margin-top:1rem;"><a href="/models.html" class="btn btn-secondary">Browse the full catalogue</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">SFS Models</a>
+        <p>Institutional-grade financial models for banks, fintechs, and advisory firms. Pre-built or custom.</p>
+          <!-- SFS-LINKEDIN --><p class="footer-follow" style="margin-top:0.75rem;"><a href="https://www.linkedin.com/company/sfs-models/" target="_blank" rel="noopener" style="color:#C9A84C;">Follow SFS Models on LinkedIn &rarr;</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Models</h4>
+        <ul>
+          <li><a href="models.html#banking-lending">Banking &amp; Lending</a></li>
+          <li><a href="models.html#treasury-capital-markets">Treasury</a></li>
+          <li><a href="models.html#risk-regulatory">Risk &amp; Regulatory</a></li>
+          <li><a href="models.html#valuation-corporate-finance">Valuation</a></li>
+          <li><a href="models.html#fpa-management-reporting">FP&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#methodology">Methodology</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 SFS Models. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; London, UK &middot; sfsmodels362@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>
