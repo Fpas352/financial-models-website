@@ -2,241 +2,253 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sfsmodels.org/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/models.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/pricing.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/about.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/contact.html</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/free-samples.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sfsmodels.org/previews.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sfsmodels.org/research/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://sfsmodels.org/dcf-model-excel.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/lbo-model-excel.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/bank-stress-test-model.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/ifrs9-cecl-model-excel.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/bank-financial-model.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/mid-year-discounting-dcf.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/deposit-beta-calibration.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/stop-using-indirect-excel.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/ccar-stress-capital-buffer-2026.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/cecl-methodology-drift.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/python-openpyxl-financial-model.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/icaap-model-excel.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/project-finance-model-excel.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/pe-fund-waterfall-model-excel.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/ifrs17-insurance-model-excel.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/ilaap-model-excel.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/real-estate-fund-model-excel.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/credit-fund-model-excel.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/merger-consequences-model-excel.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/restructuring-model-excel.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/lbo-model-debt-sizing.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/wacc-calculation-banking.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/excel-financial-model-best-practices.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/thankyou.html</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/terms.html</loc>
-    <lastmod>2026-04-18</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/privacy.html</loc>
-    <lastmod>2026-04-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/icaap-model-guide.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/pe-fund-waterfall-model.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/ilaap-liquidity-model.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/ifrs9-staging-sicr.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/ifrs9-ecl-model-excel-build.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/blog/reverse-stress-testing-bank.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sfsmodels.org/research/uk-banking-review-2026-w37.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://sfsmodels.org/ifrs9-loan-level-ecl-model-excel.html</loc>
