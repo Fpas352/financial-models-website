@@ -81,6 +81,42 @@
     </div>
   </section>
 
+  <!-- SFS-WALKTHROUGH -->
+  <section class="section" id="walkthrough">
+    <div class="container" style="max-width:860px;">
+      <h2>Watch the walkthrough</h2>
+      <p style="line-height:1.7; margin-top:0.5rem;">The IFRS 9 ECL Model, tab by tab, in about 2.5 minutes: what each tab does, one assumption changed live, and the integrity checks.</p>
+      <div class="sfs-video" data-yt="g8JKyZK0i2M" role="button" tabindex="0" aria-label="Play the IFRS 9 ECL Model walkthrough video"
+           style="position:relative; margin-top:1.25rem; aspect-ratio:16/9; border-radius:10px; overflow:hidden; cursor:pointer; background:#0f1117 url('https://i.ytimg.com/vi/g8JKyZK0i2M/hqdefault.jpg') center/cover no-repeat; box-shadow:0 8px 30px rgba(0,0,0,0.35);">
+        <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+          <span style="width:76px; height:76px; border-radius:50%; background:#C9A84C; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.4);">
+            <span style="display:block; width:0; height:0; margin-left:6px; border-left:24px solid #0f1117; border-top:15px solid transparent; border-bottom:15px solid transparent;"></span>
+          </span>
+        </span>
+      </div>
+      <p style="margin-top:0.75rem; font-size:0.9rem; opacity:0.75;">Plays from YouTube. <a href="https://youtu.be/g8JKyZK0i2M" target="_blank" rel="noopener" style="color:#C9A84C;">Open on YouTube &rarr;</a></p>
+    </div>
+  </section>
+  <script>
+  document.querySelectorAll('.sfs-video').forEach(function (el) {
+    function play() {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.yt + '?autoplay=1&rel=0&cc_load_policy=0';
+      f.title = el.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      f.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; border:0;';
+      el.innerHTML = '';
+      el.appendChild(f);
+    }
+    el.addEventListener('click', play, { once: true });
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); } });
+  });
+  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "IFRS 9 ECL Model: walkthrough", "description": "The IFRS 9 ECL Model, tab by tab, in Excel.", "thumbnailUrl": "https://i.ytimg.com/vi/g8JKyZK0i2M/hqdefault.jpg", "uploadDate": "2026-11-20", "embedUrl": "https://www.youtube-nocookie.com/embed/g8JKyZK0i2M", "contentUrl": "https://www.youtube.com/watch?v=g8JKyZK0i2M"}</script>
+  <!-- /SFS-WALKTHROUGH -->
+
+
   <!-- WHO IT'S FOR -->
   <section class="section">
     <div class="container" style="max-width:760px;">
