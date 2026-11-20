@@ -413,6 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
       errorMsg.style.display = 'none';
 
       if (!isValidEmail(emailInput.value)) {
+        errorMsg.textContent = 'Please enter a valid email address';
         errorMsg.style.display = 'block';
         return;
       }
@@ -423,10 +424,12 @@ document.addEventListener('DOMContentLoaded', () => {
           notifyForm.style.display = 'none';
           successMsg.style.display = 'block';
         })
-        .catch(() => {
-          // On error, still show success — this is a low-stakes notify signup
-          notifyForm.style.display = 'none';
-          successMsg.style.display = 'block';
+        .catch((err) => {
+          // Say so if the signup did not reach Netlify, rather than
+          // telling someone they are on a list they are not on.
+          console.error('Notify signup failed:', err);
+          errorMsg.textContent = 'Sorry, that did not go through. Please try again, or email sfsmodels362@gmail.com.';
+          errorMsg.style.display = 'block';
         });
     });
   }
