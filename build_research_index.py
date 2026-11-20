@@ -23,7 +23,7 @@ def card(n):
       <h2><a href="{h(n["pdf"])}">{h(n["title"])}</a></h2>
       <p>{h(n["summary"])}</p>
       <p class="note-links"><a href="{h(n["pdf"])}" class="btn btn-primary btn-sm">Download PDF</a>
-        <a href="/{h(n["model_url"])}" class="note-model">Related model: {h(n["model_name"])}</a></p>
+        <a href="/{h(n["model_url"])}" class="note-model">{"Applies to: the full model catalogue" if n["model_url"] == "models.html" else "Related model: " + h(n["model_name"])}</a></p>
     </article>'''
 
 

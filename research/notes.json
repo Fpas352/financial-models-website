@@ -34,5 +34,41 @@
     "model_name": "Credit Stress Test & Capital Model",
     "model_url": "credit-stress-test-model-excel.html",
     "pdf": "/research/notes/credit-stress-test-capital.pdf"
+  },
+  {
+    "slug": "nmd-slotting-delta-eve",
+    "no": 4,
+    "topic": "IRRBB",
+    "date_label": "November 2026",
+    "title": "Non-maturity deposits in IRRBB: core balances, slotting and their effect on \u0394EVE",
+    "dek": "How the core deposit assumption is built under the Basel standardised framework, and how far it moves the economic value and earnings measures",
+    "summary": "How the core deposit split is built under the Basel standardised framework, and how the same balance sheet moves from an EVE outlier to an NII outlier as the core assumption changes.",
+    "model_name": "IRRBB Model",
+    "model_url": "irrbb-model-excel.html",
+    "pdf": "/research/notes/nmd-slotting-delta-eve.pdf"
+  },
+  {
+    "slug": "irrbb-standardised-measurement",
+    "no": 5,
+    "topic": "IRRBB",
+    "date_label": "November 2026",
+    "title": "Measuring IRRBB under the standardised framework: shocks, outlier tests and where the risk sits",
+    "dek": "Slotting repricing cash flows, constructing the six supervisory shocks, and reading \u0394EVE, \u0394NII and key-rate sensitivities together",
+    "summary": "Building the six supervisory shocks, the EVE and NII outlier tests, and key-rate PV01s on the demo bank, and why its economic value and earnings move in opposite directions.",
+    "model_name": "IRRBB Model",
+    "model_url": "irrbb-model-excel.html",
+    "pdf": "/research/notes/irrbb-standardised-measurement.pdf"
+  },
+  {
+    "slug": "bank-model-build-standards",
+    "no": 6,
+    "topic": "Model build",
+    "date_label": "November 2026",
+    "title": "Building a bank model that will stand up to review",
+    "dek": "The structure, formula conventions and integrity checks that internal validation, auditors and supervisors look for, with examples from three models",
+    "summary": "The structure, formula conventions and integrity checks that make a spreadsheet model reviewable, with examples from the IFRS 9, stress testing and IRRBB models.",
+    "model_name": "the SFS Models catalogue",
+    "model_url": "models.html",
+    "pdf": "/research/notes/bank-model-build-standards.pdf"
   }
 ]

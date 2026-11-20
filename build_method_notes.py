@@ -47,8 +47,9 @@ def hbar_svg(rows, unit="", width=640, bar_h=22, gap=12, label_w=170):
     return "".join(out)
 
 
-def line_svg(series, xlabels, ymax, yfmt=lambda v: f"{v:.0f}%", width=640, height=260, yticks=4):
-    """series = [(name, [values], colour, dashed_bool)]."""
+def line_svg(series, xlabels, ymax, yfmt=lambda v: f"{v:.0f}%", width=640, height=260, yticks=4,
+             hlines=(), markers=False):
+    """series = [(name, [values], colour, dashed_bool)]. hlines = [(value, label)] reference lines."""
     L, R, T, B = 48, 16, 12, 44
     pw, ph = width - L - R, height - T - B
     n = len(xlabels)
@@ -61,6 +62,17 @@ def line_svg(series, xlabels, ymax, yfmt=lambda v: f"{v:.0f}%", width=640, heigh
         out.append(f'<line x1="{L}" x2="{width - R}" y1="{y(v):.1f}" y2="{y(v):.1f}" stroke="{LIGHT}"/>')
         out.append(f'<text x="{L - 8}" y="{y(v) + 4:.1f}" text-anchor="end" fill="{GREY}">{yfmt(v)}</text>')
     out.append(f'<line x1="{L}" x2="{width - R}" y1="{y(0):.1f}" y2="{y(0):.1f}" stroke="#555"/>')
+    for hl in hlines:
+        v, lab = hl[0], hl[1]
+        left = len(hl) > 2 and hl[2] == "left"
+        out.append(f'<line x1="{L}" x2="{width - R}" y1="{y(v):.1f}" y2="{y(v):.1f}" stroke="#333" '
+                   f'stroke-width="1" stroke-dasharray="4 3"/>')
+        tx, anc = (L + 6, "start") if left else (width - R - 2, "end")
+        out.append(f'<text x="{tx}" y="{y(v) - 4:.1f}" text-anchor="{anc}" fill="#333">{lab}</text>')
+    if markers:
+        for name, vals, col, dashed in series:
+            for i, v in enumerate(vals):
+                out.append(f'<circle cx="{x(i):.1f}" cy="{y(v):.1f}" r="3" fill="{col}"/>')
     for i, lab in enumerate(xlabels):
         out.append(f'<text x="{x(i):.1f}" y="{height - B + 18}" text-anchor="middle" fill="{GREY}">{lab}</text>')
     lx = L
@@ -71,6 +83,32 @@ def line_svg(series, xlabels, ymax, yfmt=lambda v: f"{v:.0f}%", width=640, heigh
         out.append(f'<line x1="{lx}" x2="{lx + 24}" y1="{height - 8}" y2="{height - 8}" stroke="{col}" stroke-width="2"{dash}/>')
         out.append(f'<text x="{lx + 30}" y="{height - 4}" fill="#222">{name}</text>')
         lx += 30 + 6.6 * len(name) + 26
+    out.append("</svg>")
+    return "".join(out)
+
+
+def divbar_svg(rows, vmin, vmax, width=640, bar_h=13, gap=5, label_w=92, step=20, fmt=lambda v: f"{v:+.1f}"):
+    """Diverging horizontal bars around zero. rows = [(label, value)]."""
+    L, R = label_w, 46
+    pw = width - L - R
+    x = lambda v: L + pw * (v - vmin) / (vmax - vmin)
+    h = len(rows) * (bar_h + gap) + 30
+    out = [f'<svg viewBox="0 0 {width} {h}" width="100%" xmlns="http://www.w3.org/2000/svg" '
+           f'font-family="{FONT}" font-size="11">']
+    for k in range(int(vmin), int(vmax) + 1, step):
+        out.append(f'<line x1="{x(k):.1f}" x2="{x(k):.1f}" y1="0" y2="{h - 22}" stroke="{LIGHT}"/>')
+        out.append(f'<text x="{x(k):.1f}" y="{h - 8}" text-anchor="middle" fill="{GREY}">{k}</text>')
+    out.append(f'<line x1="{x(0):.1f}" x2="{x(0):.1f}" y1="0" y2="{h - 22}" stroke="#555"/>')
+    for i, (lab, v) in enumerate(rows):
+        yy = 2 + i * (bar_h + gap)
+        x0, x1 = sorted((x(0), x(v)))
+        col = NEG if v < 0 else MID
+        out.append(f'<text x="{L - 8}" y="{yy + bar_h * 0.8}" text-anchor="end" fill="#222">{lab}</text>')
+        out.append(f'<rect x="{x0:.1f}" y="{yy}" width="{max(0.8, x1 - x0):.1f}" height="{bar_h}" fill="{col}"/>')
+        if abs(v) >= 0.05:
+            tx, anc = (x1 + 4, "start") if v >= 0 else (x0 - 4, "end")
+            out.append(f'<text x="{tx:.1f}" y="{yy + bar_h * 0.8}" text-anchor="{anc}" fill="#222">'
+                       f'{fmt(v).replace("-", chr(8722))}</text>')
     out.append("</svg>")
     return "".join(out)
 
@@ -145,6 +183,8 @@ td { padding: 3px 6px; text-align: right; font-variant-numeric: tabular-nums; }
 th:first-child, td:first-child { text-align: left; padding-left: 0; }
 th:last-child, td:last-child { padding-right: 0; }
 tr.tot td { border-top: 0.6pt solid #1A1A1A; font-weight: 600; }
+table.pair th:nth-child(3), table.pair td:nth-child(3) { text-align: left; padding-left: 28px; }
+table.text th, table.text td { text-align: left; padding-right: 10px; vertical-align: top; }
 .src { font-size: 7.8pt; color: #555; margin: 0 0 12px; }
 .fig { break-inside: avoid; }
 .eq { font-family: 'Source Sans 3', Arial, sans-serif; font-size: 9.2pt; margin: 6px 0 10px 18px; line-height: 1.7;
@@ -157,7 +197,7 @@ a { color: #1F3864; text-decoration: none; hyphens: manual; white-space: nowrap;
 
 
 def page(note):
-    body = re.sub(r'(<div class="cap">[^<]*<span>[^<]*</span></div>\s*<table>.*?</table>\s*<p class="src">.*?</p>)',
+    body = re.sub(r'(<div class="cap">[^<]*<span>[^<]*</span></div>\s*<table[^>]*>.*?</table>\s*<p class="src">.*?</p>)',
                   r'<div class="fig">\1</div>', note['body'], flags=re.S)
     refs = "".join(f"<p>[{i}] {r}</p>" for i, r in enumerate(note.get("refs", []), 1))
     refs_block = f'<h2>References</h2><div class="refs">{refs}</div>' if refs else ""
@@ -168,11 +208,11 @@ def page(note):
 <div class="runhead"><span><b>SFS Models</b>&nbsp;&nbsp;Method Note {note['no']}</span><span>{note['topic']}&nbsp;&nbsp;|&nbsp;&nbsp;{note['date_label']}</span></div>
 <h1>{note['title']}</h1>
 <p class="sub">{note['dek']}</p>
-<p class="meta">Related model: {note['model_name']}<br>Figures: demo data supplied with the model</p>
+<p class="meta">{note.get('meta', 'Related model: ' + note['model_name'] + '<br>Figures: demo data supplied with the model')}</p>
 <div class="abstract"><div class="label">Summary</div><p>{note['abstract']}</p></div>
 {body}
-<h2>The model</h2>
-<p style="text-align:left">{note['model_para']} The free sample, with inputs locked, runs on the same demo data used in this note:
+<h2>{note.get('close_heading', 'The model')}</h2>
+<p style="text-align:left">{note['model_para']} {note.get('sample_line', 'The free sample shows the model&#39;s results on the same demo data used in this note, so the figures here can be compared with it:')}
 <a href="{SITE}/{note['model_url']}">sfsmodels.org/{note['model_url']}</a>.</p>
 {refs_block}
 <p class="legal">This note describes general modelling methodology. The figures relate to illustrative demo data and not to any
@@ -564,7 +604,373 @@ reported both before and after them.</p>
 </ol>
 """)
 
-NOTES = [NOTE1, NOTE2, NOTE3]
+# ── NOTE 4: NMD slotting and delta EVE ───────────────────────────────────────
+# Figures: irrbb-model-v5.xlsx demo (Base) plus four copies re-run in desktop
+# Excel on 20 Nov 2026 (Upside and Downside selectors; all stable shares set
+# to zero; stable share 100%, pass-through 0, lives at the Basel caps). Every
+# copy passed all 17 checks.
+n4_line = line_svg([
+    ("Worst ΔEVE, % of Tier 1", [33.07, 19.34, 8.85, 5.15, 8.32], NAVY, False),
+    ("Worst ΔNII, % of Tier 1", [0.78, 1.05, 3.83, 4.86, 5.01], MID, True)],
+    ["0", "723", "1,017", "1,155", "1,390"], ymax=35, yticks=7, markers=True,
+    hlines=[(15, "EVE threshold 15%"), (5, "NII threshold 5%", "left")])
+
+NOTE4 = dict(
+    slug="nmd-slotting-delta-eve", no=4, topic="IRRBB", date_label="November 2026",
+    title="Non-maturity deposits in IRRBB: core balances, slotting and their effect on ΔEVE",
+    dek="How the core deposit assumption is built under the Basel standardised framework, and how far it moves the "
+        "economic value and earnings measures",
+    model_name="IRRBB Model", model_url="irrbb-model-excel.html",
+    summary="How the core deposit split is built under the Basel standardised framework, and how the same balance "
+            "sheet moves from an EVE outlier to an NII outlier as the core assumption changes.",
+    abstract="Non-maturity deposits have no contractual maturity, so the interest rate risk they carry depends on a "
+             "behavioural assumption. This note sets out how core and non-core balances are derived and slotted under "
+             "the Basel standardised framework, then re-runs the demo bank with five sets of deposit assumptions. With "
+             "no core balance, the worst ΔEVE is 33.1% of Tier 1, well beyond the 15% outlier threshold. At the "
+             "base assumptions it is 8.9%. With core balances at the Basel caps the EVE result is within limits, but the "
+             "12-month NII measure reaches 5.01% of Tier 1 and breaches its own 5% threshold. The assumption moves risk "
+             "between the two measures as well as changing its size.",
+    model_para="The IRRBB Model derives the core split from the stable share and pass-through rate for each deposit "
+               "category, applies the Basel caps, slots the balances and runs all six shocks. Its scenario selector "
+               "switches between three sets of deposit assumptions, which produced the Base, Upside and Downside rows "
+               "of Table 3.",
+    refs=["Basel Committee on Banking Supervision, <i>Interest rate risk in the banking book</i>, April 2016 (d368).",
+          "European Banking Authority, Regulatory Technical Standards specifying supervisory outlier tests, 2022."],
+    body=f"""
+<h2><span class="n">1</span>Introduction</h2>
+<p>Instant access accounts and current account balances can be withdrawn on demand and repriced at the bank's discretion.
+Contractually they reprice overnight. In practice a large part of these balances stays for years, and the rate paid on it
+moves much less than the policy rate. How a bank represents that behaviour in its IRRBB measures is often the most
+important single assumption in the economic value result, and smaller banks often have the least data with which to support
+it. This note describes the approach used in the IRRBB Model and measures the effect of the assumption on the model's demo
+bank.</p>
+
+<h2><span class="n">2</span>The standardised framework</h2>
+<p>Under the Basel standardised framework [1], non-maturity deposits are first divided into stable and non-stable balances.
+The stable part is then divided into a core element, which is unlikely to reprice even under a significant change in rates,
+and a non-core element. Non-stable and non-core balances are treated as repricing overnight. Core balances may be spread
+across the time buckets, subject to two limits for each category of deposit: a cap on the share of balances treated as core,
+and a cap on their average maturity.</p>
+<div class="cap">Table 1 <span>Basel caps on core deposits</span></div>
+<table>
+<tr><th>Deposit category</th><th>Cap on core share</th><th>Cap on average maturity of core (years)</th></tr>
+<tr><td>Retail transactional</td><td>90%</td><td>5.0</td></tr>
+<tr><td>Retail non-transactional</td><td>70%</td><td>4.5</td></tr>
+<tr><td>Wholesale</td><td>50%</td><td>4.0</td></tr>
+</table>
+<p class="src">Source: BCBS (2016) [1].</p>
+<p>The model sets the core share for each category as the stable share multiplied by one minus the pass-through rate, the
+proportion of a change in market rates that the bank would pass on to depositors, and then applies the cap. Core balances are
+spread evenly from the overnight bucket out to twice their average life, which gives the average life entered. Table 2 shows
+the result for the demo bank.</p>
+<div class="cap">Table 2 <span>Core and non-core split, demo bank, base assumptions</span></div>
+<table>
+<tr><th>Category</th><th>Balance (£m)</th><th>Stable share</th><th>Pass-through</th><th>Core share</th><th>Core (£m)</th><th>Average life (years)</th></tr>
+<tr><td>Retail transactional</td><td>900</td><td>85%</td><td>15%</td><td>72.3%</td><td>650.3</td><td>4.0</td></tr>
+<tr><td>Retail non-transactional</td><td>650</td><td>75%</td><td>35%</td><td>48.8%</td><td>316.9</td><td>3.5</td></tr>
+<tr><td>Wholesale</td><td>250</td><td>50%</td><td>60%</td><td>20.0%</td><td>50.0</td><td>2.5</td></tr>
+<tr class="tot"><td>Total</td><td>1,800</td><td></td><td></td><td>56.5%</td><td>1,017.1</td><td></td></tr>
+</table>
+<p class="src">None of the three categories is constrained by its cap at these inputs. Source: NMD tab.</p>
+
+<h2><span class="n">3</span>Why the assumption matters</h2>
+<p>The demo bank has total rate-sensitive assets of £3,390m, including £1,070m of fixed-rate mortgages and £395m of fixed-rate
+corporate and SME loans. It funds them largely with £1,800m of non-maturity deposits. Tier 1 capital is £310m.</p>
+<p>If every deposit is treated as repricing overnight, the liabilities carry almost no duration. A rise in rates reduces the
+value of the fixed-rate assets with little offsetting fall in the value of the funding, and ΔEVE is large. Spreading the
+core balance over several years gives the liabilities duration of their own, so the same shock reduces their value as well
+and much of the asset loss is offset. The balance sheet and the shock are unchanged; the result depends on how the deposits
+are slotted.</p>
+<p>To measure the effect, the model was run with five sets of deposit assumptions. Three are the model's own scenario
+settings. The other two are the extremes: no core balance at all, and every category at its Basel cap with a stable share of
+100% and no pass-through.</p>
+<div class="cap">Table 3 <span>Worst-case results under five sets of deposit assumptions</span></div>
+<table>
+<tr><th>Deposit assumptions</th><th>Core (£m)</th><th>Worst ΔEVE (£m)</th><th>Shock</th><th>% of Tier 1</th><th>Worst ΔNII, % of Tier 1</th><th>Outlier test</th></tr>
+<tr><td>No core balance</td><td>0</td><td>(102.5)</td><td>Parallel up</td><td>33.07%</td><td>0.78%</td><td>EVE breached</td></tr>
+<tr><td>Downside settings</td><td>723.1</td><td>(60.0)</td><td>Parallel up</td><td>19.34%</td><td>1.05% (a)</td><td>EVE breached</td></tr>
+<tr><td>Base settings</td><td>1,017.1</td><td>(27.4)</td><td>Parallel up</td><td>8.85%</td><td>3.83%</td><td>Within</td></tr>
+<tr><td>Upside settings</td><td>1,154.9</td><td>(16.0)</td><td>Flattener</td><td>5.15%</td><td>4.86% (a)</td><td>Within</td></tr>
+<tr><td>At the Basel caps</td><td>1,390.0</td><td>(25.8)</td><td>Parallel down</td><td>8.32%</td><td>5.01%</td><td>NII breached</td></tr>
+</table>
+<p class="src">Thresholds: 15% of Tier 1 for ΔEVE [1] and 5% for 12-month ΔNII [2]. (a) The Downside and Upside settings
+also change the deposit beta used in the NII measure (60% and 30%, against 40% elsewhere). Every run passed all 17 of the
+model's integrity checks when recalculated in Excel. Source: SOT tab.</p>
+<div class="fig"><div class="cap">Figure 1 <span>Worst-case ΔEVE and ΔNII against the core deposit balance (£m)</span></div>{n4_line}
+<p class="src">Source: Table 3.</p></div>
+
+<h2><span class="n">4</span>Reading the results</h2>
+<p>With no core balance the worst ΔEVE is a loss of £102.5m, a third of Tier 1, and both the parallel up and the short rates
+up shocks breach the 15% threshold. At the base assumptions the same shock costs £27.4m, or 8.9% of Tier 1. The outlier status
+of the bank therefore depends on the deposit assumption rather than on the assets.</p>
+<p>The relationship is not simply that more core balance means less risk. At the Basel caps the deposits carry more duration
+than the assets they fund, and the worst case moves from the parallel up shock to the parallel down shock. The worst ΔEVE
+rises again, to 8.3% of Tier 1, and the lowest worst-case result in the table is at the Upside settings, between the two.</p>
+<p>The NII measure moves in the opposite direction. Deposits treated as core do not reprice within the 12-month horizon, so the
+more balances are slotted as core, the more the bank's earnings depend on rates. At the caps the worst ΔNII reaches 5.01% of
+Tier 1, just beyond its threshold. A bank that justifies a high core share to reduce its EVE result should expect its NII result
+to rise, and should be ready to explain both.</p>
+
+<h2><span class="n">5</span>Supporting the assumption</h2>
+<p>The caps in Table 1 are upper limits, not a default. The stable share is normally estimated from the history of each deposit
+category, for example the proportion of the balance that has remained through past periods of outflow. The pass-through rate is
+estimated by comparing past changes in the rate paid with changes in the policy rate. The average life should be consistent with
+observed account attrition. Where the data are short, as they often are for smaller banks and for products launched since rates
+rose, the assumption should be presented as a judgement with a stated range rather than as an estimate.</p>
+<p>We would put ΔEVE in front of ALCO at the base assumption and at a more conservative one, together with the NII result
+for each. The difference between them shows how much of the reported risk rests on the deposit assumption.</p>
+
+<h2><span class="n">6</span>Documentation</h2>
+<p>For each reporting date we would expect the IRRBB file to show:</p>
+<ol>
+<li>the stable share, pass-through rate and average life for each deposit category, with the evidence for each;</li>
+<li>the resulting core share and whether any cap is binding;</li>
+<li>the slotting of core and non-core balances by time bucket;</li>
+<li>ΔEVE and ΔNII at the base assumptions and at least one more conservative set;</li>
+<li>a back-test of the stable share against actual balance movements since the previous review.</li>
+</ol>
+""")
+
+
+# ── NOTE 5: IRRBB measurement ────────────────────────────────────────────────
+n5_pv01 = divbar_svg([
+    ("Overnight", 0.1), ("O/N to 1M", -1.6), ("1M to 3M", -0.3), ("3M to 6M", -2.4), ("6M to 9M", 7.3),
+    ("9M to 1Y", 1.2), ("1Y to 1.5Y", -1.4), ("1.5Y to 2Y", -9.3), ("2Y to 3Y", -55.9), ("3Y to 4Y", -53.7),
+    ("4Y to 5Y", -47.3), ("5Y to 6Y", 32.2), ("6Y to 7Y", 23.7), ("7Y to 8Y", 40.1), ("8Y to 9Y", 0.0),
+    ("9Y to 10Y", -32.5), ("10Y to 15Y", -14.9), ("15Y to 20Y", 0.0), ("Over 20Y", 0.0)],
+    vmin=-70, vmax=50, step=10, fmt=lambda v: f"{v:.1f}", bar_h=10, gap=4)
+
+NOTE5 = dict(
+    slug="irrbb-standardised-measurement", no=5, topic="IRRBB", date_label="November 2026",
+    title="Measuring IRRBB under the standardised framework: shocks, outlier tests and where the risk sits",
+    dek="Slotting repricing cash flows, constructing the six supervisory shocks, and reading ΔEVE, ΔNII and "
+        "key-rate sensitivities together",
+    model_name="IRRBB Model", model_url="irrbb-model-excel.html",
+    summary="Building the six supervisory shocks, the EVE and NII outlier tests, and key-rate PV01s on the demo bank, "
+            "and why its economic value and earnings move in opposite directions.",
+    abstract="Smaller banks without an ALM system often rebuild the Basel standardised IRRBB framework in a spreadsheet. "
+             "This note follows the calculation on the IRRBB Model's demo bank: slotting repricing cash flows into the "
+             "19 time buckets, constructing the six supervisory shocks, and applying the EVE and NII outlier tests. The "
+             "worst ΔEVE is a loss of £27.4m under the parallel up shock, 8.9% of Tier 1 against a 15% threshold, "
+             "while the same shock increases 12-month NII by £11.9m. Key-rate PV01s show that the economic value "
+             "exposure is concentrated between two and five years and partly offset between five and eight years, "
+             "where the core deposits sit.",
+    model_para="The IRRBB Model slots repricing cash flows into the 19 Basel time buckets, applies the six prescribed "
+               "shocks with an optional post-shock floor, and reports both outlier tests, key-rate PV01s and the "
+               "parallel-shift profile on one page for ALCO.",
+    refs=["Basel Committee on Banking Supervision, <i>Interest rate risk in the banking book</i>, April 2016 (d368).",
+          "European Banking Authority, Regulatory Technical Standards specifying supervisory outlier tests, 2022."],
+    body=f"""
+<h2><span class="n">1</span>Introduction</h2>
+<p>The Basel standardised framework for interest rate risk in the banking book [1] is published in full, but turning it into a
+working calculation takes a number of decisions that the text leaves to the bank: how cash flows are slotted, how the shocks are
+applied to a particular curve, and how the results are presented. This note works through those steps using the demo bank in
+the IRRBB Model. It is a companion to Method Note 4, which covers the treatment of non-maturity deposits.</p>
+
+<h2><span class="n">2</span>The repricing gap</h2>
+<p>Every rate-sensitive position is slotted into one of 19 time buckets, from overnight to over 20 years, according to its next
+repricing date: the contractual maturity for fixed-rate items and the next reset for floating-rate items. Each bucket is
+represented by its midpoint for discounting. Table 1 summarises the demo bank.</p>
+<p>The difference between slotted assets and liabilities in Table 1, £410m, must equal equity and other non-rate-sensitive items. The model
+checks this control total at every reporting date. It is the simplest way of confirming that nothing has been left out of the
+gap or counted twice.</p>
+<div class="cap">Table 1 <span>Demo bank, rate-sensitive positions</span></div>
+<table class="pair">
+<tr><th>Assets</th><th>£m</th><th>Liabilities</th><th>£m</th></tr>
+<tr><td>Cash and central bank reserves</td><td>380</td><td>Non-maturity deposits</td><td>1,800</td></tr>
+<tr><td>Floating-rate loans</td><td>1,110</td><td>Term deposits</td><td>840</td></tr>
+<tr><td>Fixed-rate mortgages</td><td>1,070</td><td>Wholesale funding and debt issued</td><td>300</td></tr>
+<tr><td>Fixed-rate corporate and SME loans</td><td>395</td><td>Subordinated debt</td><td>40</td></tr>
+<tr><td>Securities</td><td>410</td><td></td><td></td></tr>
+<tr><td>Other</td><td>25</td><td></td><td></td></tr>
+<tr class="tot"><td>Total</td><td>3,390</td><td>Total</td><td>2,980</td></tr>
+</table>
+<p class="src">Interest rate swaps of £300m notional are slotted as a receive leg and a pay leg. Tier 1 capital £310m.
+Source: GAP and INPUTS tabs.</p>
+
+<h2><span class="n">3</span>The six supervisory shocks</h2>
+<p>The framework prescribes six interest rate shock scenarios: parallel up and down, short rates up and down, a steepener and a
+flattener. For sterling the parallel shock is 250 basis points, the short-rate shock 300 and the long-rate shock 150 [1]. The
+short and long shocks vary with maturity t, in years:</p>
+<div class="eq">Short shock(t) = 300 × exp(−t / 4)<br>
+Long shock(t) = 150 × (1 − exp(−t / 4))<br>
+Steepener(t) = −0.65 × short shock(t) + 0.9 × long shock(t)<br>
+Flattener(t) = +0.8 × short shock(t) − 0.6 × long shock(t)</div>
+<div class="cap">Table 2 <span>Shock sizes at selected maturities, basis points</span></div>
+<table>
+<tr><th>Maturity (years)</th><th>0.25</th><th>1</th><th>3</th><th>5</th><th>10</th><th>20</th></tr>
+<tr><td>Short rates up</td><td>282</td><td>234</td><td>142</td><td>86</td><td>25</td><td>2</td></tr>
+<tr><td>Long shock</td><td>9</td><td>33</td><td>79</td><td>107</td><td>138</td><td>149</td></tr>
+<tr><td>Steepener</td><td>(175)</td><td>(122)</td><td>(21)</td><td>41</td><td>108</td><td>133</td></tr>
+<tr><td>Flattener</td><td>220</td><td>167</td><td>66</td><td>5</td><td>(63)</td><td>(88)</td></tr>
+</table>
+<p class="src">Source: CURVE tab formulas.</p>
+<p>The shocks are applied to zero rates, and the model can apply a post-shock floor. The default follows the EBA approach [2]:
+minus 150 basis points at the overnight point, rising by three basis points a year to zero. On the demo curve, which runs from
+3.4% to 4.5%, the lowest shocked rate is 0.75%, so the floor does not bind. It becomes relevant when starting rates are low.</p>
+
+<h2><span class="n">4</span>Economic value of equity</h2>
+<p>EVE is the present value of the slotted asset cash flows less that of the liabilities. ΔEVE under each shock is the change
+in that value when the cash flows are discounted at the shocked curve. On the base curve the demo bank's EVE is £366.4m.</p>
+<div class="cap">Table 3 <span>ΔEVE under the six supervisory shocks</span></div>
+<table>
+<tr><th>Shock</th><th>ΔEVE (£m)</th><th>% of Tier 1</th></tr>
+<tr><td>Parallel up</td><td>(27.4)</td><td>(8.85%)</td></tr>
+<tr><td>Parallel down</td><td>30.1</td><td>9.70%</td></tr>
+<tr><td>Steepener</td><td>3.2</td><td>1.03%</td></tr>
+<tr><td>Flattener</td><td>(8.0)</td><td>(2.60%)</td></tr>
+<tr><td>Short rates up</td><td>(16.5)</td><td>(5.32%)</td></tr>
+<tr><td>Short rates down</td><td>17.2</td><td>5.55%</td></tr>
+</table>
+<p class="src">Outlier threshold: a loss of 15% of Tier 1 [1]. Source: SOT tab.</p>
+<p>The worst case is the parallel up shock, a loss of 8.85% of Tier 1, comfortably inside the threshold. The response is not
+symmetric: a 300 basis point fall in all rates would add £36.4m to EVE, while a 300 basis point rise would remove £32.7m. The
+model shows this across a range of parallel shifts in 50 basis point steps.</p>
+
+<h2><span class="n">5</span>Net interest income</h2>
+<p>The 12-month NII measure holds the balance sheet constant. A position that reprices within the year earns the shocked rate for
+the rest of the year; positions repricing after 12 months do not contribute. Non-maturity deposits reprice with a deposit beta of
+40%, the share of a rate change passed to depositors within the year.</p>
+<p>Under the parallel up shock the demo bank's NII rises by £11.9m, and under the parallel down shock it falls by the same amount,
+3.83% of Tier 1 against a 5% threshold [2]. The bank therefore loses economic value when rates rise but gains earnings. That is
+common for a bank with floating-rate assets and slow-repricing deposits funding a fixed-rate mortgage book, and it is why the two
+measures should be presented together: a hedge that reduces one will usually increase the other.</p>
+
+<h2><span class="n">6</span>Where the risk sits</h2>
+<p>A single ΔEVE figure shows the size of the exposure but not its location on the curve. Key-rate PV01s, the change in EVE
+for a one basis point rise in the rate for one bucket alone, show where it comes from. Figure 1 shows them for the demo bank.</p>
+<p>The exposure is concentrated between two and five years: £156.9k per basis point across the three buckets. £590m of the
+£1,070m of fixed-rate mortgages reprice in that range. It is partly offset between five and eight years, which contributes +£96.1k per basis point. That is
+where the core retail deposits sit, spread out to twice their average life. A further £47.4k of sensitivity lies between nine
+and 15 years. The duration of equity is 3.1 years.</p>
+<div class="fig"><div class="cap">Figure 1 <span>Key-rate PV01 by time bucket, £ thousand per basis point</span></div>{n5_pv01}
+<p class="src">Total PV01 −£114.7k per basis point. Source: SENSITIVITY tab.</p></div>
+<p>The key-rate PV01s sum to −£114,673, against −£114,653 when every rate is moved by one basis point at once. The model checks
+that the two agree within a tolerance, which confirms that the bucket-level figures account for the whole exposure.</p>
+
+<h2><span class="n">7</span>Reporting to ALCO</h2>
+<p>For each reporting date we would expect the IRRBB pack to include:</p>
+<ol>
+<li>the repricing gap by bucket, with the control total against equity and non-rate-sensitive items;</li>
+<li>ΔEVE under all six shocks and ΔNII under the parallel shocks, each against its outlier threshold;</li>
+<li>key-rate PV01s, so that a proposed hedge can be placed at the right maturity;</li>
+<li>the deposit assumptions behind the result and their effect, as set out in Method Note 4;</li>
+<li>the movement in each measure since the previous report, with the main causes.</li>
+</ol>
+""")
+
+
+# ── NOTE 6: build standards ──────────────────────────────────────────────────
+NOTE6 = dict(
+    slug="bank-model-build-standards", no=6, topic="Model build", date_label="November 2026",
+    title="Building a bank model that will stand up to review",
+    dek="The structure, formula conventions and integrity checks that internal validation, auditors and supervisors "
+        "look for, with examples from three models",
+    model_name="the SFS Models catalogue", model_url="models.html",
+    meta="Applies to: every model in the SFS Models catalogue<br>Examples: IFRS 9 ECL Model: Loan-Level Edition, "
+         "Credit Stress Test &amp; Capital Model, IRRBB Model",
+    close_heading="The models",
+    sample_line="Each model has a free sample showing its results on demo data:",
+    summary="The structure, formula conventions and integrity checks that make a spreadsheet model reviewable, with "
+            "examples from the IFRS 9, stress testing and IRRBB models.",
+    abstract="A model used for an allowance, a capital plan or an ALCO report will be reviewed by people who did not build "
+             "it. Their questions are predictable: where the assumptions are, whether the logic can be followed, and how "
+             "anyone knows the result is arithmetically right. This note sets out the standard we build to, "
+             "covering the layout of the workbook, the scenario switch, the treatment of balances and interest, the formula "
+             "conventions, and the integrity checks. The three models used as examples carry 36, 42 and 17 checks "
+             "respectively.",
+    model_para="The models in the SFS Models catalogue are built to the standard described here, and each has its own "
+               "integrity checks tab.",
+    body="""
+<h2><span class="n">1</span>Introduction</h2>
+<p>Most errors in spreadsheet models are not errors of method. They are a hard-coded number inside a formula, a range that stops
+one row short, a scenario switch that reaches some tabs but not others, or a balance that no longer reconciles after a change.
+Each is easy to make and hard to find in a large workbook. A reviewer's job is to find them, and a model built with review in mind
+makes that job quick. This note sets out the conventions we use, with examples from three models in the catalogue.</p>
+
+<h2><span class="n">2</span>Layout</h2>
+<p>Every workbook has the same structure. A COVER tab explains what the model does, what to enter and what the outputs
+show. Assumptions are entered on INPUTS, or, where a model needs a large table of inputs such as a transition matrix or a set of
+repricing cash flows, on a tab that holds that table. Calculation tabs follow in the order the calculation runs. An OUTPUTS tab
+gives a one-page summary that can be printed for a committee, and a CHECKS tab holds the integrity checks.</p>
+<p>Cells are coloured by type throughout: blue text on a pale yellow fill for inputs, black for formulas, and green for links to
+another tab. Units sit in their own column next to each label. Negative numbers are shown in brackets and zeros as a dash. None of
+this is decorative. A reviewer who can see at a glance
+which cells are inputs can confirm quickly that no formula contains a typed assumption.</p>
+
+<h2><span class="n">3</span>One scenario switch</h2>
+<p>Each of our models has a single scenario selector on INPUTS. Every assumption that differs by scenario is held in adjacent columns and
+picked by the same index, for example INDEX(C12:E12, 1, ScenIdx). There is no second switch on a calculation tab and no
+scenario-specific copy of a calculation. The test is simple: change the selector once and every output in the workbook should
+move. A model that passes this test cannot report one scenario's losses alongside another's capital.</p>
+
+<h2><span class="n">4</span>Balances and interest</h2>
+<p>Every balance is built as an explicit roll-forward, with a row for each movement and a closing row that adds them to the
+opening balance. The closing balance is never calculated another way and then reconciled afterwards.</p>
+<p>Interest is calculated on the opening balance of the period, which is the previous period's closing balance, never on the
+closing balance of the same period. Calculating interest on a closing balance that itself includes the interest creates a
+circular reference. Excel can resolve it only with iterative calculation switched on, the result can depend on the iteration
+settings and on the values left in the cells from the previous calculation, and a genuine circular error elsewhere in the workbook
+is then hidden. Where a model genuinely links two blocks in both directions, for example a capital constraint that limits lending
+which in turn uses capital, the link is broken by taking the constraint from the prior period.</p>
+
+<h2><span class="n">5</span>Formula conventions</h2>
+<p>The conventions below are chosen for the reader of the formula rather than its author.</p>
+<ol>
+<li>No INDIRECT. It breaks when a tab is renamed, recalculates on every change and cannot be traced with Excel's precedent tools.</li>
+<li>No array formulas entered with Ctrl+Shift+Enter. SUMPRODUCT does the same work and survives editing by someone who does not
+know the formula was an array.</li>
+<li>No more than three nested IF functions. Beyond that, a lookup table or a helper row is easier to read and to test.</li>
+<li>Formulas over about 200 characters are split into labelled helper rows.</li>
+<li>Key inputs have named ranges, so that a formula reads BaseRate rather than INPUTS!$C$12.</li>
+<li>Divisions are guarded so that an empty segment shows zero rather than an error. Because a guarded zero can hide a real problem,
+the totals built from those divisions are reconciled on CHECKS, so a zero that should not be there tends to show up as a
+failure.</li>
+</ol>
+
+<h2><span class="n">6</span>Integrity checks</h2>
+<p>A check is most useful when it reaches the same number by an independent route. Restating a total does not test anything; adding
+up the parts a different way does. Each check on CHECKS has an expected value, an actual value, a tolerance and a status, and an
+OVERALL row counts the failures. Table 1 gives examples from three models.</p>
+<div class="cap">Table 1 <span>Examples of integrity checks</span></div>
+<table class="text">
+<tr><th>Model</th><th>Check</th><th>What it catches</th></tr>
+<tr><td>IRRBB</td><td>Net repricing gap equals equity and non-rate-sensitive items</td><td>Positions omitted from, or counted twice in, the gap</td></tr>
+<tr><td>IRRBB</td><td>Key-rate PV01s sum to the full-repricing PV01</td><td>Buckets missed by the sensitivity analysis</td></tr>
+<tr><td>IFRS 9 Loan-Level</td><td>Probability-weighted total equals the allowance before overlay</td><td>Scenario weights not applied consistently</td></tr>
+<tr><td>IFRS 9 Loan-Level</td><td>Each Stage 2 loan has exactly one first reason</td><td>Gaps or overlaps in the staging precedence</td></tr>
+<tr><td>Credit Stress Test</td><td>Impairment charges equal the change in provisions</td><td>A break between the income statement and the balance sheet</td></tr>
+<tr><td>Credit Stress Test</td><td>CET1 bridge closes for every scenario</td><td>A movement in capital that the bridge does not explain</td></tr>
+</table>
+<p class="src">The three models carry 36 (IFRS 9 Loan-Level), 42 (Credit Stress Test) and 17 (IRRBB) checks. Source: CHECKS tab of each model.</p>
+<p>Tolerances are set deliberately. Reconciliations of currency amounts allow £1 for rounding. Checks that compare two
+approximations need a wider tolerance: in the IRRBB Model the sum of the key-rate PV01s (−£114,673) and the full-repricing PV01
+(−£114,653) are first-order estimates of the same quantity and are allowed to differ by 2%. Some checks test the shape of a result
+rather than a total, for example that cumulative default probabilities never fall as the horizon lengthens, or that losses rise
+from the baseline to the adverse to the severe scenario.</p>
+
+<h2><span class="n">7</span>Testing</h2>
+<p>A model should be tested in the application its users will open. We recalculate every workbook in desktop Excel before release
+and read the checks from the values Excel itself has calculated. Third-party calculation engines are useful during the build, but
+they do not always treat functions, text results and errors exactly as Excel does, and a check that passes in one can fail in the
+other.</p>
+<p>Beyond the checks, three tests are worth running on any model before it is relied on: change the scenario selector and confirm
+that every output moves; set an adjustment to zero and confirm that the unadjusted result comes back exactly (Method Note 2 gives an
+example); and enter an extreme but valid input, such as a balance of zero, and confirm that nothing breaks.</p>
+
+<h2><span class="n">8</span>A reviewer's checklist</h2>
+<ol>
+<li>Every assumption is in a marked input cell, and no formula contains a typed assumption.</li>
+<li>One selector drives every scenario-dependent input.</li>
+<li>Every balance has an explicit roll-forward, and interest is calculated on opening balances.</li>
+<li>There are no circular references and iterative calculation is switched off.</li>
+<li>There is no INDIRECT and no array formula.</li>
+<li>The checks reach their figures by independent routes, and the OVERALL row shows no failures in Excel.</li>
+<li>The OUTPUTS page names the active scenario and the reporting date.</li>
+</ol>
+""")
+
+NOTES = [NOTE1, NOTE2, NOTE3, NOTE4, NOTE5, NOTE6]
 
 
 def render(note):
