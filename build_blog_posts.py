@@ -1544,7 +1544,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <li><a href="/models.html">Models</a></li>
         <li><a href="/previews.html">Preview Models</a></li>
         <li><a href="/free-samples.html">Free Samples</a></li>
-        <li><a href="/research/">Research</a></li>
+        <li><a href="/research/">Method Notes</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/contact.html">Contact</a></li>
       </ul>
@@ -1626,19 +1626,14 @@ def main():
         print(f"Wrote blog/{p['slug']}.html ({len(html):,} bytes)")
 
     # Build a simple /blog/index.html
-    # Weekly research editions (The UK Banking Market Review) lead the list.
-    # Newest first. Each is a static page under /research/, built outside this
-    # script by the uk-banking-review pipeline; add one entry per edition.
-    RESEARCH = [
-        {"url": "/research/uk-banking-review-2026-w37.html",
-         "title": "The UK Banking Market Review, Week 37 2026",
-         "summary": "Free weekly review. High-LTV lending at a 2008 high, Aldermore's accounts taken apart as bids arrive, the repricing split and bank tax proposals, with last week's calls graded.",
-         "published": "2026-09-13"},
-    ]
+    # Method notes (PDFs under /research/notes/) lead the list. They are built by
+    # build_method_notes.py, which writes research/notes.json.
+    import json as _json
+    NOTES = _json.loads((Path(__file__).parent / "research" / "notes.json").read_text())
     items = []
-    for r in RESEARCH:
+    for r in NOTES:
         items.append(
-            f'<li style="margin-bottom:1.5rem;"><a href="{r["url"]}" style="color:#C9A84C; font-size:1.15rem; font-weight:600;">{r["title"]}</a><br><span style="color:var(--text-muted); font-size:0.95rem;">{r["summary"]}</span><br><span style="color:var(--text-muted); font-size:0.85rem;">Published {r["published"]}</span></li>'
+            f'<li style="margin-bottom:1.5rem;"><a href="{r["pdf"]}" style="color:#C9A84C; font-size:1.15rem; font-weight:600;">Method Note No. {r["no"]}: {r["title"]} (PDF)</a><br><span style="color:var(--text-muted); font-size:0.95rem;">{r["summary"]}</span></li>'
         )
     for p in POSTS:
         items.append(
@@ -1664,7 +1659,7 @@ def main():
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<header class="site-header"><div class="container"><nav class="nav-inner"><a href="/index.html" class="logo">SFS Models</a><ul class="nav-links"><li><a href="/models.html">Models</a></li><li><a href="/previews.html">Preview Models</a></li><li><a href="/free-samples.html">Free Samples</a></li><li><a href="/research/">Research</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav></div></header>
+<header class="site-header"><div class="container"><nav class="nav-inner"><a href="/index.html" class="logo">SFS Models</a><ul class="nav-links"><li><a href="/models.html">Models</a></li><li><a href="/previews.html">Preview Models</a></li><li><a href="/free-samples.html">Free Samples</a></li><li><a href="/research/">Method Notes</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav></div></header>
 <main id="main-content">
 <section class="page-hero"><div class="container"><h1>Blog</h1><p>Banking, finance, and modelling articles. New posts weekly.</p></div></section>
 <section class="section"><div class="container" style="max-width:760px;"><ul style="list-style:none; padding:0;">

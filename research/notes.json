@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "sicr-staging-triggers",
+    "no": 1,
+    "topic": "IFRS 9",
+    "date_label": "November 2026",
+    "title": "What actually triggers SICR: building a Stage 2 test you can defend",
+    "dek": "Thirty days past due is the backstop, not the test. How to design a significant increase in credit risk assessment that moves loans early, behaves sensibly across the rating scale, and leaves an audit trail for every exposure.",
+    "summary": "Why a fixed PD multiple behaves differently at each end of the rating scale, what the demo book's trigger mix looks like, and how far the allowance moves when the threshold changes.",
+    "model_name": "IFRS 9 ECL Model: Loan-Level Edition",
+    "model_url": "ifrs9-loan-level-ecl-model-excel.html",
+    "pdf": "/research/notes/sicr-staging-triggers.pdf"
+  },
+  {
+    "slug": "lifetime-pd-forward-looking",
+    "no": 2,
+    "topic": "IFRS 9",
+    "date_label": "November 2026",
+    "title": "From transition matrix to forward-looking lifetime PD",
+    "dek": "How to build IFRS 9 lifetime PD curves that are traceable from end to end: compounding a rating matrix, turning macro scenarios into one credit cycle index, shifting hazard rates, and why the probability-weighted allowance is higher than the baseline.",
+    "summary": "Compounding a transition matrix into PD curves, building a credit cycle index from four macro variables, and why the weighted allowance sits 24% above the baseline in the demo book.",
+    "model_name": "IFRS 9 ECL Model: Loan-Level Edition",
+    "model_url": "ifrs9-loan-level-ecl-model-excel.html",
+    "pdf": "/research/notes/lifetime-pd-forward-looking.pdf"
+  },
+  {
+    "slug": "credit-stress-test-capital",
+    "no": 3,
+    "topic": "Stress testing",
+    "date_label": "November 2026",
+    "title": "Stress testing capital from the loan book",
+    "dek": "A stressed loss rate answers one supervisory question. This note covers the follow-ups: migration as well as default, the RWA inflation that downgrades cause, the CET1 bridge a board can read, and a reverse stress test expressed in numbers rather than prose.",
+    "summary": "Migration, RWA inflation, the CET1 bridge and a reverse stress test in numbers, worked through on the demo bank, where the severe scenario leaves 0.73 points of headroom.",
+    "model_name": "Credit Stress Test & Capital Model",
+    "model_url": "credit-stress-test-model-excel.html",
+    "pdf": "/research/notes/credit-stress-test-capital.pdf"
+  }
+]
