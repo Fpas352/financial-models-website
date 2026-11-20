@@ -20,6 +20,7 @@ POSTS = [
         "summary": "End-of-year discounting under-discounts cash flows by half a year of WACC. Mid-year discounting fixes this. Here's the formula, the Excel implementation, and the common mistakes.",
         "product_link": "/dcf-model-excel.html",
         "product_name": "DCF Model Excel Template",
+        "related": [('Multi-Method Valuation Model', '/multi-method-valuation-model-excel.html')],
         "body": """<p>If you've built a DCF model in Excel and used standard end-of-year discounting, you're systematically under-valuing the business by approximately half a year of WACC. On a growth business, that's a 5-10% understatement of enterprise value. Mid-year discounting fixes this.</p>
 
 <h2>What is mid-year discounting?</h2>
@@ -112,8 +113,9 @@ PV = FCF &times; Discount factor</code></pre>
         "meta_desc": "Deposit beta assumptions calibrated against 2014-2019 are wrong by ~3x for the post-2022 cycle. How to recalibrate by deposit tier and reflect the SVB lessons.",
         "published": "2026-04-21",
         "summary": "Most US bank ALM models use deposit beta from the 2014-2019 cycle. Actual betas in 2022-2025 ran 2-3x higher. The recalibration framework, by tier, with EVE/NII shock implications.",
-        "product_link": "/bank-financial-model.html",
-        "product_name": "Bank Long-Term Plan Model",
+        "product_link": '/deposit-pricing-nii-model-excel.html',
+        "product_name": 'Deposit Pricing and NII Model',
+        "related": [('IRRBB Model: delta EVE, delta NII, SOT', '/irrbb-model-excel.html'), ('Bank Deposits Model', '/bank-deposits-model-excel.html'), ('Method note: Non-maturity deposits in IRRBB: core balances, slotting and their effect on delta EVE (PDF)', '/research/notes/nmd-slotting-delta-eve.pdf')],
         "body": """<p>Most US bank ALM models still use deposit beta assumptions calibrated against the 2014-2019 rate cycle. The 2022-2025 cycle showed those calibrations were materially wrong. Banks running stale betas understated their NII risk by ~3x heading into the SVB crisis.</p>
 
 <h2>What is deposit beta?</h2>
@@ -263,6 +265,7 @@ PV = FCF &times; Discount factor</code></pre>
         "summary": "Revised SCB rules for the 2026 CCAR cycle make planned dividends a binding input to capital adequacy. Most regional bank models still treat dividends as a pure use of capital. Here's what changes and what to fix.",
         "product_link": "/bank-stress-test-model.html",
         "product_name": "Bank Stress Test Model",
+        "related": [('Credit Stress Test and Capital Model', '/credit-stress-test-model-excel.html'), ('Method note: Credit stress testing and capital: migration, risk-weighted assets and reverse stress (PDF)', '/research/notes/credit-stress-test-capital.pdf')],
         "body": """<p>The 2026 CCAR cycle is the first under the revised stress capital buffer (SCB) rules. Most US regional banks are still running their 2024 framework. The gap between the two will show up at the next examination cycle.</p>
 
 <h2>What is the Stress Capital Buffer?</h2>
@@ -340,8 +343,9 @@ PV = FCF &times; Discount factor</code></pre>
         "meta_desc": "CECL went live for SEC filers in 2020. Five years later, most US bank methodologies have quietly drifted away from regulatory expectations. The four drift patterns examiners are flagging and how to fix each.",
         "published": "2026-04-22",
         "summary": "CECL adoption was 2020. Five years on, methodologies have drifted. Examiners are flagging four specific patterns: stale R&S forecast horizons, undefended reversion paths, ungrounded Q-factors, and outdated pool segmentation. How to fix each.",
-        "product_link": "/ifrs9-cecl-model-excel.html",
-        "product_name": "IFRS 9 / CECL ECL Model",
+        "product_link": '/cecl-model-excel.html',
+        "product_name": 'CECL Model (ASC 326)',
+        "related": [('IFRS 9 / CECL ECL Model', '/ifrs9-cecl-model-excel.html')],
         "body": """<p>CECL (ASC 326) went live for SEC filers in 2020 and for non-SEC filers in 2023. Most banks built their methodology in the adoption window and haven't materially refreshed it since. That's a problem - OCC and FDIC examiners are now flagging methodology drift as a systemic issue, particularly at regional banks with CRE concentration.</p>
 
 <h2>The four drift patterns</h2>
@@ -607,6 +611,7 @@ calc(ws, 12, 9, '=E12+F12-G12+H12')  # closing = opening + flows + interest
         "summary": "Debt sizing in an LBO model is not a single calculation - it's an iterative constraint problem with credit ratios, leverage multiples, and coverage tests all biting at once. Here's how PE professionals actually structure the debt stack.",
         "product_link": "/lbo-model-excel.html",
         "product_name": "LBO Model Excel Template",
+        "related": [('Debt Schedule Model', '/debt-schedule-model-excel.html')],
         "body": """<p>Most LBO model tutorials start with a fixed debt amount and work backwards to returns. In practice, the debt stack is determined by constraints - and identifying which constraint bites first is the core of the debt sizing exercise.</p>
 
 <h2>The four debt sizing constraints</h2>
@@ -702,8 +707,9 @@ Closing balance  = Opening + Drawdown - Repayment - Sweep</code></pre>
         "meta_desc": "WACC doesn't work for banks. Why the textbook formula breaks down for financial institutions, what to use instead, and how to value a bank correctly.",
         "published": "2026-05-07",
         "summary": "The textbook WACC formula assumes debt is a funding choice. For banks, debt (deposits) is the product. This one difference invalidates WACC for bank valuation - and most analysts apply it anyway.",
-        "product_link": "/bank-financial-model.html",
-        "product_name": "Bank Long-Term Plan Model",
+        "product_link": '/dividend-discount-model-excel.html',
+        "product_name": 'Dividend Discount Model for bank valuation',
+        "related": [('Bank Long-Term Plan Model', '/bank-financial-model.html')],
         "body": """<p>The WACC formula works by weighting the cost of each funding layer against its proportion of total capital. The insight is that debt is cheaper than equity (because interest is tax-deductible and debt ranks senior), so optimal capital structure includes some leverage.</p>
 
 <p>For non-financial companies, this is clean. A manufacturing business borrows to fund plant and equipment. The amount it borrows is a financing decision, separate from what it does with the money.</p>
@@ -796,6 +802,7 @@ Closing balance  = Opening + Drawdown - Repayment - Sweep</code></pre>
         "summary": "Most best-practice lists are generic. These 12 rules come from building 18 institutional-grade models and watching finance teams use them under pressure. They're ranked by how often violating them causes real problems.",
         "product_link": "/models.html",
         "product_name": "SFS Models Financial Model Catalogue",
+        "related": [('3-Statement Model', '/three-statement-model-excel.html'), ('Method note: Building a bank model that will stand up to review (PDF)', '/research/notes/bank-model-build-standards.pdf')],
         "body": """<p>There are hundreds of Excel modelling guides. Most repeat the same obvious advice. This list comes from a different place: watching real finance teams break real models under real time pressure, then fixing the fallout.</p>
 
 <p>These 12 rules are ranked by the cost of getting them wrong - not by how frequently they appear in textbooks.</p>
@@ -925,8 +932,9 @@ Closing balance   = Opening + drawdown - repayment + interest</code></pre>
         "meta_desc": 'IFRS 9 stage 2 transfer is the judgement that moves the provision. How to define SICR, set thresholds, avoid the 30-day backstop trap, and build staging that survives audit.',
         "published": '2026-09-07',
         "summary": 'Stage 2 is where the provision actually moves. A loan transferring from stage 1 to stage 2 can multiply its ECL by ten overnight, and the trigger is a judgement, not a number handed to you.',
-        "product_link": '/ifrs9-cecl-model-excel.html',
-        "product_name": 'IFRS 9 ECL Model',
+        "product_link": '/ifrs9-loan-level-ecl-model-excel.html',
+        "product_name": 'IFRS 9 ECL Model: Loan-Level Edition',
+        "related": [('IFRS 9 / CECL ECL Model', '/ifrs9-cecl-model-excel.html'), ('Method note: Designing the SICR assessment under IFRS 9 (PDF)', '/research/notes/sicr-staging-triggers.pdf')],
         "body": """<p>Most of the argument about an IFRS 9 provision is not about PD, LGD or discounting. It is about staging. A loan sitting in stage 1 carries 12 months of expected loss. The same loan in stage 2 carries lifetime expected loss. On a 7-year amortising facility that is not a marginal change, it is frequently a five to ten times increase in the provision for that exposure.</p>
 
 <p>So the question that moves your numbers is narrow: what counts as a significant increase in credit risk?</p>
@@ -987,6 +995,7 @@ Closing balance   = Opening + drawdown - repayment + interest</code></pre>
         "summary": 'An ECL model is not hard arithmetic. It is hard bookkeeping. Most of them fail review not because the loss numbers are wrong, but because nobody can trace how a provision moved between two dates.',
         "product_link": '/ifrs9-cecl-model-excel.html',
         "product_name": 'IFRS 9 ECL Model',
+        "related": [('IFRS 9 ECL Model: Loan-Level Edition', '/ifrs9-loan-level-ecl-model-excel.html'), ('Method note: Lifetime PD under IFRS 9: from transition matrix to forward-looking curves (PDF)', '/research/notes/lifetime-pd-forward-looking.pdf')],
         "body": """<p>The expected credit loss calculation itself is a line of arithmetic. Probability of default times loss given default times exposure at default, discounted. Anyone can write that formula.</p>
 
 <p>What makes an ECL model hard is everything around that line: getting the staging right before you calculate, holding lifetime and 12-month views in parallel, applying a forward-looking overlay without destroying the audit trail, and being able to explain in a committee why the provision moved by the amount it moved. Build for the explanation, not the arithmetic.</p>
@@ -1063,8 +1072,9 @@ Closing balance   = Opening + drawdown - repayment + interest</code></pre>
         "meta_desc": 'Reverse stress testing starts from failure and works backwards. How to define the failure point, search for the scenarios that reach it, and make the output usable by a board.',
         "published": '2026-09-07',
         "summary": 'Ordinary stress testing asks what happens if things get bad. Reverse stress testing asks what would have to happen for the bank to stop being viable. The second question is harder and more useful.',
-        "product_link": '/bank-stress-test-model.html',
-        "product_name": 'Bank Stress Test Model',
+        "product_link": '/credit-stress-test-model-excel.html',
+        "product_name": 'Credit Stress Test and Capital Model',
+        "related": [('Bank Stress Test Model', '/bank-stress-test-model.html'), ('ICAAP Model', '/icaap-model-excel.html'), ('Method note: Credit stress testing and capital: migration, risk-weighted assets and reverse stress (PDF)', '/research/notes/credit-stress-test-capital.pdf')],
         "body": """<p>A normal stress test starts with a scenario and produces a capital ratio. You pick an unemployment path and a house price fall, run them through, and see what CET1 does. The output is reassuring almost by construction, because the scenario was chosen to be severe but survivable.</p>
 
 <p>Reverse stress testing inverts it. You start at the point of non-viability and work backwards to find what could get you there. The question is not "how bad is a severe recession" but "what precisely would have to go wrong, and is that combination as implausible as we are assuming?"</p>
@@ -1121,6 +1131,7 @@ Closing balance   = Opening + drawdown - repayment + interest</code></pre>
         "summary": 'Most ICAAP submissions fail at the model layer, not the narrative layer. The regulator already knows your capital ratios. What they want to see is whether your capital model is robust enough to trust under stress. This guide covers the mechanics.',
         "product_link": '/bank-stress-test-model.html',
         "product_name": 'Bank Stress Test Model',
+        "related": [('Bank Capital Model', '/bank-capital-model-excel.html'), ('Basel IV RWA Calculator', '/basel-iv-rwa-model-excel.html'), ('Method note: Credit stress testing and capital: migration, risk-weighted assets and reverse stress (PDF)', '/research/notes/credit-stress-test-capital.pdf')],
         "body": """<p>The Internal Capital Adequacy Assessment Process (ICAAP) is the Pillar 2 submission in which a bank demonstrates to its regulator that it holds sufficient capital to absorb the risks it faces - under both base and stress conditions. In the UK, the PRA reviews ICAAP annually. In the EU, the ECB's SREP cycle uses it. For US banks under the Fed's Enhanced Prudential Standards, the internal capital plan serves a similar function.</p>
 
     <p>Getting ICAAP right is not primarily a writing exercise. The regulator can read. What they scrutinise is the capital model underpinning the narrative - how risks are quantified, how scenarios are constructed, and whether the numbers are credible.</p>
@@ -1238,8 +1249,8 @@ Closing balance   = Opening + drawdown - repayment + interest</code></pre>
         "meta_desc": 'How ILAAP works, what it must demonstrate, the difference from ICAAP, LCR vs NSFR vs survival horizon, and how to structure the liquidity model that supports it.',
         "published": '2026-05-11',
         "summary": "A bank can be adequately capitalised and still fail within days if it can't fund its liabilities. ILAAP is the regulatory framework that tests whether a bank can survive a liquidity stress. Here's what it requires and how to build the model that supports it.",
-        "product_link": '/models.html',
-        "product_name": 'SFS Model Catalogue',
+        "product_link": '/lcr-model-excel.html',
+        "product_name": 'LCR and NSFR Model',
         "body": """<p>The Internal Liquidity Adequacy Assessment Process (ILAAP) is the liquidity counterpart to ICAAP. Where ICAAP asks "does the bank have enough capital to absorb losses?", ILAAP asks "does the bank have enough liquidity to survive a stress event without external support?"</p>
 
     <p>The 2023 Silicon Valley Bank failure illustrated this distinction with brutal clarity. SVB was technically solvent on a held-to-maturity basis. It failed because a deposit run over 48 hours exhausted its liquidity. ICAAP alone doesn't protect against that. ILAAP is the framework designed to catch it early.</p>
@@ -1370,6 +1381,7 @@ Survival_horizon = first day t where HQLA_buffer(t) ≤ 0</code></pre>
         "summary": "The distribution waterfall is the mechanism that determines how a PE fund splits returns between LPs and the GP. Getting it wrong means either LPs get less than they should, or the GP takes carry they haven't earned. Here's the full mechanics.",
         "product_link": '/lbo-model-excel.html',
         "product_name": 'LBO Model',
+        "related": [('PE Fund Waterfall Model', '/pe-fund-waterfall-model-excel.html')],
         "body": """<p>A private equity fund waterfall is a sequence of distribution tiers that determines the order and proportion in which proceeds from fund realisations are paid to Limited Partners (LPs) and the General Partner (GP). Every PE fund has one. The terms are negotiated at fund formation and written into the LPA (Limited Partnership Agreement). Once set, they govern every distribution for the life of the fund.</p>
 
     <p>The two dominant structures - American and European - differ in one critical way: timing of when the GP receives carried interest.</p>
@@ -1570,7 +1582,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
       <p><a href="{product_link}" class="btn btn-primary">View {product_name}</a> &nbsp; <a href="/free-samples.html" class="btn btn-secondary">Try a Free Sample</a></p>
     </div>
-
+{related_html}
     <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-samples.html">free sample</a>.</p>
   </article>
 </main>
@@ -1616,11 +1628,24 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 """
 
 
+def render_related(links):
+    """'Further reading' list under the CTA: related models and method notes."""
+    if not links:
+        return ""
+    items = "\n".join(
+        f'        <li><a href="{href}" style="color:#C9A84C;">&rarr; {label}</a></li>'
+        for label, href in links)
+    return ("\n    <div class=\"blog-related\" style=\"margin:2rem 0;\">\n"
+            "      <h3 style=\"font-family:'DM Serif Display', serif;\">Further reading</h3>\n"
+            "      <ul style=\"list-style:none; padding:0; display:grid; gap:0.5rem;\">\n"
+            + items + "\n      </ul>\n    </div>\n")
+
+
 def main():
     out_dir = Path(__file__).parent / "blog"
     out_dir.mkdir(exist_ok=True)
     for p in POSTS:
-        html = PAGE_TEMPLATE.format(**p)
+        html = PAGE_TEMPLATE.format(**p, related_html=render_related(p.get("related", [])))
         out_path = out_dir / f"{p['slug']}.html"
         out_path.write_text(html, encoding="utf-8")
         print(f"Wrote blog/{p['slug']}.html ({len(html):,} bytes)")
