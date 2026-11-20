@@ -99,7 +99,7 @@ PV = FCF &times; Discount factor</code></pre>
 
 <h2>Free DCF model</h2>
 
-<p>If you want to skip the build, our <a href="/free-sample.html">free DCF Lite</a> has both end-of-year and mid-year discounting available as a switch.</p>
+<p>If you want to skip the build, our <a href="/dcf-model-excel.html">DCF Model</a> uses mid-year discounting, and you can <a href="/free-samples.html">download its free sample</a> first.</p>
 
 <p>For the full version with three-statement integration, terminal value cross-check, and 8 integrity checks: <a href="/dcf-model-excel.html">DCF Model Excel Template</a>.</p>
 """,
@@ -1568,10 +1568,10 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <div class="blog-cta">
       <h3>Get the {product_name}</h3>
       <p>The model that puts the principles in this post into practice. Bank-grade build, open formulas, no VBA. Same-day delivery.</p>
-      <p><a href="{product_link}" class="btn btn-primary">View {product_name}</a> &nbsp; <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample</a></p>
+      <p><a href="{product_link}" class="btn btn-primary">View {product_name}</a> &nbsp; <a href="/free-samples.html" class="btn btn-secondary">Try a Free Sample</a></p>
     </div>
 
-    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-sample.html">free sample</a>.</p>
+    <p style="margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(0,0,0,0.1); font-size:0.95rem;">SFS Models builds institutional-grade Excel financial models for banking and finance professionals. <a href="/models.html">Browse the catalogue</a> or get the <a href="/free-samples.html">free sample</a>.</p>
   </article>
 </main>
 
