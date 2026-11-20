@@ -22,8 +22,8 @@ def card(n):
       <div class="note-meta">No. {n["no"]} &middot; {h(n["topic"])} &middot; {h(n["date_label"])} &middot; PDF</div>
       <h2><a href="{h(n["pdf"])}">{h(n["title"])}</a></h2>
       <p>{h(n["summary"])}</p>
-      <p class="note-links"><a href="{h(n["pdf"])}" class="btn btn-primary btn-sm">Download the note</a>
-        <a href="/{h(n["model_url"])}" class="note-model">Goes with: {h(n["model_name"])} &rarr;</a></p>
+      <p class="note-links"><a href="{h(n["pdf"])}" class="btn btn-primary btn-sm">Download PDF</a>
+        <a href="/{h(n["model_url"])}" class="note-model">Related model: {h(n["model_name"])}</a></p>
     </article>'''
 
 
@@ -34,7 +34,7 @@ page = f'''<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Method Notes: How Banking Models Are Built | SFS Models</title>
-<meta name="description" content="Free method notes from SFS Models on how banking models are built: IFRS 9 staging and SICR, lifetime PD and forward-looking adjustments, and credit stress testing of capital. Worked examples, downloadable PDFs.">
+<meta name="description" content="Methodology notes from SFS Models on IFRS 9 staging and SICR, lifetime PD and forward-looking adjustments, and credit stress testing of capital, with worked figures. Free PDF downloads.">
 <link rel="canonical" href="https://sfsmodels.org/research/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C9A84C'/><text x='16' y='23' font-family='system-ui' font-size='20' font-weight='700' fill='%230A0C10' text-anchor='middle'>S</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,12 +84,12 @@ page = f'''<!DOCTYPE html>
     </div>
   </header>
 <main id="main-content">
-<section class="page-hero"><div class="container"><h1>Method Notes</h1><p>How the models are built, and why. Each note takes one modelling problem, works it through with real numbers from a demo book, and lists what an auditor or committee will ask to see. Free PDFs, no sign-up.</p></div></section>
+<section class="page-hero"><div class="container"><h1>Method Notes</h1><p>Methodology notes on how our banking models are built. Each note covers one modelling question, with worked figures from the demo data supplied with the related model. Free to download as PDF.</p></div></section>
 <section class="section"><div class="container notes-wrap">
 {items}
   <div class="notes-about">
-    <p>Written by SFS Models, from a senior banking FP&amp;A background. Every worked figure comes from the demo book inside the named model, so you can open the free sample and trace it to a cell. General methodology, not accounting, regulatory or investment advice.</p>
-    <p>Want a note on a problem you are working on? <a href="/contact.html">Tell us the topic</a>.</p>
+    <p>Written by SFS Models. The figures in each note are taken from the demo data in the related model and can be checked against its free sample. The notes describe general methodology and are not accounting, regulatory or investment advice.</p>
+    <p>Suggestions for future notes are welcome through the <a href="/contact.html">contact page</a>.</p>
   </div>
 </div></section>
 </main>
