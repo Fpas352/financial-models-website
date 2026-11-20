@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       submitForm('/api/contact', data, contactForm)
         .then(() => {
-          showFormSuccess(contactForm, 'Message sent! We\'ll get back to you within 24 hours.');
+          showFormSuccess(contactForm, 'Message sent! We\'ll get back to you within one business day.');
           contactForm.reset();
         })
         .catch((err) => {
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       submitForm('/api/custom-model', data, customForm)
         .then(() => {
-          showFormSuccess(customForm, 'Request received! We\'ll send you a scope and quote within 24 hours.');
+          showFormSuccess(customForm, 'Request received! We\'ll send you a scope and quote within one business day.');
           customForm.reset();
           currentStep = 1;
           goToStep(1);
