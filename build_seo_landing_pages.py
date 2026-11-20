@@ -51,7 +51,7 @@ MODELS = [
         "related": [
             ("LBO Model", "/lbo-model-excel.html"),
             ("Bank Long-Term Plan", "/bank-financial-model.html"),
-            ("Free Sample", "/free-sample.html"),
+            ("Free Samples: every model", "/free-samples.html"),
         ],
     },
     {
@@ -93,7 +93,7 @@ MODELS = [
         "spec": "Excel (.xlsx) &middot; 9 tabs &middot; ~1,500 formula cells &middot; print-ready &middot; file size ~800 KB &middot; same-day delivery",
         "related": [
             ("DCF Model", "/dcf-model-excel.html"),
-            ("Free Sample", "/free-sample.html"),
+            ("Free Samples: every model", "/free-samples.html"),
             ("Full Model Catalogue", "/models.html"),
         ],
     },
@@ -304,7 +304,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <p style="margin-top:1.5rem;">
         <a href="{checkout}" target="_blank" rel="noopener" class="btn btn-primary" data-model-id="{data_model_id}">Buy Now - &pound;{price_gbp}</a>
         &nbsp;&nbsp;
-        <a href="/free-sample.html" class="btn btn-secondary">Try Free Sample First</a>
+        <a href="{free_sample}" target="_blank" rel="noopener" class="btn btn-secondary ls-free-btn" data-model-id="{data_model_id}">Download the Free Sample</a>
       </p>
     </div>
   </section>
@@ -466,6 +466,10 @@ def render_related(related):
 
 def main():
     out_dir = Path(__file__).parent
+    # Each model's own free-sample checkout, read from ls-config.js so it
+    # cannot drift from the catalogue.
+    from build_model_landing_pages import load_ls_config
+    ls = load_ls_config()
     for m in MODELS:
         html = PAGE_TEMPLATE.format(
             title=m["title"],
@@ -477,6 +481,7 @@ def main():
             price_gbp=m["price_gbp"],
             checkout=m["checkout"],
             data_model_id=m["data_model_id"],
+            free_sample=ls[m["data_model_id"]]["freeUrl"],
             audience=m["audience"],
             tabs_html=render_tabs(m["tabs"]),
             diff_html=render_diff(m["differentiators"]),
