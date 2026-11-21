@@ -73,7 +73,7 @@ def section(vid, model, minutes):
   <script type="application/ld+json">{json.dumps({
         "@context": "https://schema.org", "@type": "VideoObject",
         "name": f"{model}: walkthrough", "description": f"The {model}, tab by tab, in Excel.",
-        "thumbnailUrl": thumb, "uploadDate": "2026-11-20",
+        "thumbnailUrl": thumb, "uploadDate": "2026-11-20T00:00:00+00:00",
         "embedUrl": f"https://www.youtube-nocookie.com/embed/{vid}",
         "contentUrl": f"https://www.youtube.com/watch?v={vid}"})}</script>
   {END}
