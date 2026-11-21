@@ -1112,11 +1112,12 @@
 
           images.forEach(img => {
             const src = 'images/previews/' + modelId + '/' + img.file;
+            const thumb = src.replace(/\.webp$/, '.thumb.webp');
             const item = document.createElement('div');
             item.className = 'preview-gallery__item';
             item.dataset.src = src;
             item.innerHTML =
-              '<img src="' + src + '" alt="' + img.label + '" loading="lazy">' +
+              '<img src="' + thumb + '" alt="' + img.label + '" width="640" height="360" loading="lazy">' +
               '<span class="preview-gallery__label">' + img.label + '</span>';
             attachZoom(item);
             gallery.appendChild(item);
