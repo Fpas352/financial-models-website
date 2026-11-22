@@ -29,6 +29,8 @@ PAGE = HERE / "previews.html"
 MANIFEST = HERE / "images/previews/manifest.json"
 FACTS = HERE / "images/previews/facts.json"
 LS = HERE / "ls-config.js"
+# Walkthrough video IDs, shared with add_walkthrough_videos.py (model pages)
+VIDEOS = HERE.parent / "marketing" / "video_production" / "_upload" / "youtube_ids.csv"
 
 # True: the chart is a large lead tile. False: equal tiles in reading order.
 LEAD_TILE = False
@@ -47,6 +49,27 @@ def free_urls():
         if f:
             out[m.group(1)] = f.group(1)
     return out
+
+
+def video_ids():
+    import csv
+    if not VIDEOS.exists():
+        return {}
+    return {r["key"]: r["youtube_id"] for r in csv.DictReader(VIDEOS.open())}
+
+
+def video_tile(model, vid):
+    """Click-to-play walkthrough tile: YouTube's thumbnail until clicked, then the
+    player (youtube-nocookie.com), so nothing loads from YouTube until a visitor asks."""
+    name = html.escape(model)
+    return (f'<div class="preview-video sfs-video" data-yt="{vid}" role="button" tabindex="0" '
+            f'aria-label="Play the {name} walkthrough video">'
+            f'<div class="preview-video__media">'
+            f'<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="{name} walkthrough video" '
+            f'width="480" height="360" loading="lazy" decoding="async">'
+            f'<span class="preview-video__play" aria-hidden="true"></span></div>'
+            f'<div class="preview-video__cap"><span>Walkthrough</span>'
+            f'Every tab, in about three minutes</div></div>')
 
 
 def role_of(i, shot):
@@ -104,7 +127,7 @@ def tile(key, model, shot, role, fact, lead):
             + (f'<small>{html.escape(note)}</small>' if note else '') + '</figcaption></figure>')
 
 
-def gallery(key, model, shots, fact, free):
+def gallery(key, model, shots, fact, free, vid=None):
     roles = [role_of(i, s) for i, s in enumerate(shots)]
     if LEAD_TILE:
         lead = next((i for want in ("chart", "outputs", "engine")
@@ -116,7 +139,9 @@ def gallery(key, model, shots, fact, free):
         order = sorted((i for i in range(len(shots)) if roles[i] not in SKIP_ROLES),
                        key=lambda i: rank[roles[i]])
     parts = [tile(key, model, shots[i], roles[i], fact, i == lead) for i in order]
-    if free and (not LEAD_TILE or len(parts) == 4):   # free-sample tile ends the row
+    if vid:                                        # the walkthrough ends the row
+        parts.append(video_tile(model, vid))
+    elif free and (not LEAD_TILE or len(parts) == 4):  # otherwise the free-sample tile
         parts.append(
             f'<a class="preview-cta" href="{free}" target="_blank" rel="noopener" data-model-id="{key}">'
             f'<strong>See every tab</strong>'
@@ -141,6 +166,7 @@ def main():
     manifest = json.loads(MANIFEST.read_text())
     facts = json.loads(FACTS.read_text()) if FACTS.exists() else {}
     free = free_urls()
+    vids = video_ids()
     done, kept = [], []
 
     def fill(m):
@@ -164,7 +190,7 @@ def main():
             return info + between + shots_html + close
         model = html.unescape(re.search(r"<h3>(.*?)</h3>", info).group(1))
         done.append(key)
-        return info + between + gallery(key, model, shots, fact, free.get(key)) + close
+        return info + between + gallery(key, model, shots, fact, free.get(key), vids.get(key)) + close
 
     pattern = re.compile(
         r'(<div class="preview-model__info">(?:(?!preview-model__info).)*?)'

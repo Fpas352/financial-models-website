@@ -103,75 +103,21 @@ def main():
     previews(ids, src)
 
 
-# ── Preview Models page: every video at the top; screenshots below unchanged ─
+# ── Preview Models page ──────────────────────────────────────────────────────
+# Since 22 Nov 2026 each video is a tile in its model's row on previews.html,
+# written by build_previews_gallery.py from the same youtube_ids.csv. The old
+# "Watch the walkthroughs" block at the top of the page is removed if present.
 PMARK, PEND = "<!-- SFS-WALKTHROUGHS -->", "<!-- /SFS-WALKTHROUGHS -->"
-
-
-def card(key, vid, src):
-    body = re.search(rf'"{re.escape(key)}":\s*\{{(.*?)\n\s*\}}', src, re.S).group(1)
-    name = re.search(r'name:\s*"([^"]+)"', body).group(1)
-    price = re.search(r'price:\s*"([^"]+)"', body).group(1).replace(".00", "")
-    buy = re.search(r'buyUrl:\s*"([^"]+)"', body).group(1)
-    thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
-    return f"""
-        <div class="preview-model" style="display:block;">
-          <div class="sfs-video" data-yt="{vid}" role="button" tabindex="0" aria-label="Play the {html.escape(name)} walkthrough video"
-               style="position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; cursor:pointer; background:#0f1117 url('{thumb}') center/cover no-repeat;">
-            <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-              <span style="width:60px; height:60px; border-radius:50%; background:#C9A84C; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.4);">
-                <span style="display:block; width:0; height:0; margin-left:5px; border-left:19px solid #0f1117; border-top:12px solid transparent; border-bottom:12px solid transparent;"></span>
-              </span>
-            </span>
-          </div>
-          <div class="preview-model__info" style="margin-top:0.9rem;">
-            <h3><a href="{PAGES[key]}" style="color:inherit;">{html.escape(name)}</a></h3>
-            <div class="preview-model__price">{price.replace("£", "&pound;")}</div>
-            <a href="{buy}" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
-          </div>
-        </div>"""
 
 
 def previews(ids, src):
     p = ROOT / "previews.html"
     s = p.read_text()
-    cards = "".join(card(k, ids[k], src) for k in PAGES if k in ids)
-    block = f"""{PMARK}
-  <section class="section preview-section" id="walkthroughs">
-    <div class="container">
-      <div class="preview-cat-header">
-        <h2>Watch the walkthroughs</h2>
-        <p>Each model, tab by tab, in about two and a half minutes. Screenshots for every model follow below.</p>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2rem;">{cards}
-      </div>
-    </div>
-  </section>
-  <script>
-  document.querySelectorAll('.sfs-video').forEach(function (el) {{
-    function play() {{
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.yt + '?autoplay=1&rel=0&cc_load_policy=0';
-      f.title = el.getAttribute('aria-label');
-      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-      f.allowFullscreen = true;
-      f.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; border:0;';
-      el.innerHTML = '';
-      el.appendChild(f);
-    }}
-    el.addEventListener('click', play, {{ once: true }});
-    el.addEventListener('keydown', function (e) {{ if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); play(); }} }});
-  }});
-  </script>
-  {PEND}
-"""
     if PMARK in s:
-        s = re.sub(re.escape(PMARK) + r".*?" + re.escape(PEND) + r"\n", block, s, flags=re.S)
-    else:
-        i = s.index('<section class="page-hero"')
-        j = s.index("</section>", i) + len("</section>")
-        s = s[:j] + "\n\n  " + block + s[j:]
-    p.write_text(s)
-    print(f"  previews.html: {sum(1 for k in PAGES if k in ids)} videos at the top")
+        s = re.sub(r"\n*  " + re.escape(PMARK) + r".*?" + re.escape(PEND) + r"\n", "\n", s, flags=re.S)
+        p.write_text(s)
+        print("  previews.html: removed the top walkthrough block")
+    print("  previews.html: videos are tiles in each model's row (run build_previews_gallery.py)")
 
 
 if __name__ == "__main__":

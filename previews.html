@@ -179,6 +179,69 @@
       letter-spacing: .1em;
       text-transform: uppercase;
     }
+    .preview-video {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid rgba(201, 168, 76, .45);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .preview-video:hover,
+    .preview-video:focus-visible { border-color: var(--gold); transform: translateY(-2px); outline: none; }
+    .preview-video__media {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      background: #0f1117;
+      overflow: hidden;
+    }
+    .preview-video__media img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .9; }
+    .zoom-overlay__video {
+      width: min(92vw, 1180px);
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+    }
+    .preview-video__play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 52px;
+      height: 52px;
+      margin: -26px 0 0 -26px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .45);
+    }
+    .preview-video__play::after {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 15px;
+      border-left: 17px solid #0f1117;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+    }
+    .preview-video__cap {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 10px 13px 11px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      font-size: .8rem;
+      line-height: 1.35;
+    }
+    .preview-video__cap span {
+      color: var(--gold);
+      font-size: .66rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
     .preview-cta {
       display: flex;
       flex-direction: column;
@@ -339,125 +402,6 @@
     </div>
   </section>
 
-  <!-- SFS-WALKTHROUGHS -->
-  <section class="section preview-section" id="walkthroughs">
-    <div class="container">
-      <div class="preview-cat-header">
-        <h2>Watch the walkthroughs</h2>
-        <p>Each model, tab by tab, in about two and a half minutes. Screenshots for every model follow below.</p>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2rem;">
-        <div class="preview-model" style="display:block;">
-          <div class="sfs-video" data-yt="g8JKyZK0i2M" role="button" tabindex="0" aria-label="Play the IFRS 9 ECL Model walkthrough video"
-               style="position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; cursor:pointer; background:#0f1117 url('https://i.ytimg.com/vi/g8JKyZK0i2M/hqdefault.jpg') center/cover no-repeat;">
-            <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-              <span style="width:60px; height:60px; border-radius:50%; background:#C9A84C; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.4);">
-                <span style="display:block; width:0; height:0; margin-left:5px; border-left:19px solid #0f1117; border-top:12px solid transparent; border-bottom:12px solid transparent;"></span>
-              </span>
-            </span>
-          </div>
-          <div class="preview-model__info" style="margin-top:0.9rem;">
-            <h3><a href="ifrs9-cecl-model-excel.html" style="color:inherit;">IFRS 9 ECL Model</a></h3>
-            <div class="preview-model__price">&pound;299</div>
-            <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c2e532cd-876b-4b73-b0b9-8f48a2b5c5b5" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
-          </div>
-        </div>
-        <div class="preview-model" style="display:block;">
-          <div class="sfs-video" data-yt="ifIcdOjyY2w" role="button" tabindex="0" aria-label="Play the CECL Model (ASC 326) walkthrough video"
-               style="position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; cursor:pointer; background:#0f1117 url('https://i.ytimg.com/vi/ifIcdOjyY2w/hqdefault.jpg') center/cover no-repeat;">
-            <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-              <span style="width:60px; height:60px; border-radius:50%; background:#C9A84C; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.4);">
-                <span style="display:block; width:0; height:0; margin-left:5px; border-left:19px solid #0f1117; border-top:12px solid transparent; border-bottom:12px solid transparent;"></span>
-              </span>
-            </span>
-          </div>
-          <div class="preview-model__info" style="margin-top:0.9rem;">
-            <h3><a href="cecl-model-excel.html" style="color:inherit;">CECL Model (ASC 326)</a></h3>
-            <div class="preview-model__price">&pound;299</div>
-            <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/deb7ef02-876a-47a0-bfd3-85f0b500b003" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
-          </div>
-        </div>
-        <div class="preview-model" style="display:block;">
-          <div class="sfs-video" data-yt="52TBIUvihAk" role="button" tabindex="0" aria-label="Play the IRRBB Model walkthrough video"
-               style="position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; cursor:pointer; background:#0f1117 url('https://i.ytimg.com/vi/52TBIUvihAk/hqdefault.jpg') center/cover no-repeat;">
-            <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-              <span style="width:60px; height:60px; border-radius:50%; background:#C9A84C; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.4);">
-                <span style="display:block; width:0; height:0; margin-left:5px; border-left:19px solid #0f1117; border-top:12px solid transparent; border-bottom:12px solid transparent;"></span>
-              </span>
-            </span>
-          </div>
-          <div class="preview-model__info" style="margin-top:0.9rem;">
-            <h3><a href="irrbb-model-excel.html" style="color:inherit;">IRRBB Model</a></h3>
-            <div class="preview-model__price">&pound;399</div>
-            <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/e9352c63-0d71-4b6a-aac1-cc6c1d2136d9" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
-          </div>
-        </div>
-        <div class="preview-model" style="display:block;">
-          <div class="sfs-video" data-yt="-NUY4gutMk4" role="button" tabindex="0" aria-label="Play the IFRS 9 ECL Model: Loan-Level Edition walkthrough video"
-               style="position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; cursor:pointer; background:#0f1117 url('https://i.ytimg.com/vi/-NUY4gutMk4/hqdefault.jpg') center/cover no-repeat;">
-            <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-              <span style="width:60px; height:60px; border-radius:50%; background:#C9A84C; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.4);">
-                <span style="display:block; width:0; height:0; margin-left:5px; border-left:19px solid #0f1117; border-top:12px solid transparent; border-bottom:12px solid transparent;"></span>
-              </span>
-            </span>
-          </div>
-          <div class="preview-model__info" style="margin-top:0.9rem;">
-            <h3><a href="ifrs9-loan-level-ecl-model-excel.html" style="color:inherit;">IFRS 9 ECL Model: Loan-Level Edition</a></h3>
-            <div class="preview-model__price">&pound;499</div>
-            <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/04d458a9-0750-42e6-a1b4-c491861c97bb" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
-          </div>
-        </div>
-        <div class="preview-model" style="display:block;">
-          <div class="sfs-video" data-yt="80mGJYxz1H8" role="button" tabindex="0" aria-label="Play the Credit Stress Test &amp; Capital Model walkthrough video"
-               style="position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; cursor:pointer; background:#0f1117 url('https://i.ytimg.com/vi/80mGJYxz1H8/hqdefault.jpg') center/cover no-repeat;">
-            <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-              <span style="width:60px; height:60px; border-radius:50%; background:#C9A84C; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.4);">
-                <span style="display:block; width:0; height:0; margin-left:5px; border-left:19px solid #0f1117; border-top:12px solid transparent; border-bottom:12px solid transparent;"></span>
-              </span>
-            </span>
-          </div>
-          <div class="preview-model__info" style="margin-top:0.9rem;">
-            <h3><a href="credit-stress-test-model-excel.html" style="color:inherit;">Credit Stress Test &amp; Capital Model</a></h3>
-            <div class="preview-model__price">&pound;599</div>
-            <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/2167486a-7de5-40fc-8a2c-13bb59039215" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
-          </div>
-        </div>
-        <div class="preview-model" style="display:block;">
-          <div class="sfs-video" data-yt="mnyl3JdVrB8" role="button" tabindex="0" aria-label="Play the IFRS 16 Lease Model walkthrough video"
-               style="position:relative; aspect-ratio:16/9; border-radius:10px; overflow:hidden; cursor:pointer; background:#0f1117 url('https://i.ytimg.com/vi/mnyl3JdVrB8/hqdefault.jpg') center/cover no-repeat;">
-            <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-              <span style="width:60px; height:60px; border-radius:50%; background:#C9A84C; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,0.4);">
-                <span style="display:block; width:0; height:0; margin-left:5px; border-left:19px solid #0f1117; border-top:12px solid transparent; border-bottom:12px solid transparent;"></span>
-              </span>
-            </span>
-          </div>
-          <div class="preview-model__info" style="margin-top:0.9rem;">
-            <h3><a href="ifrs16-lease-model-excel.html" style="color:inherit;">IFRS 16 Lease Model</a></h3>
-            <div class="preview-model__price">&pound;199</div>
-            <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/ba45e116-9188-4c3d-840d-da9ddccd5392" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <script>
-  document.querySelectorAll('.sfs-video').forEach(function (el) {
-    function play() {
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.yt + '?autoplay=1&rel=0&cc_load_policy=0';
-      f.title = el.getAttribute('aria-label');
-      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-      f.allowFullscreen = true;
-      f.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; border:0;';
-      el.innerHTML = '';
-      el.appendChild(f);
-    }
-    el.addEventListener('click', play, { once: true });
-    el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); } });
-  });
-  </script>
-  <!-- /SFS-WALKTHROUGHS -->
-
 
   <!-- BANKING & LENDING -->
   <section class="section preview-section">
@@ -514,7 +458,7 @@
           <p class="preview-model__desc">Expected credit losses with stage 1/2/3 allocation, PD term structures, LGD and macro overlay.</p><!--facts--><p class="preview-model__facts">15 tabs &middot; 52 integrity checks, all passing &middot; Base, Upside, Downside and Stress scenarios &middot; open formulas, no macros</p><!--/facts-->
           <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c2e532cd-876b-4b73-b0b9-8f48a2b5c5b5" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a><!--sample--><a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/571bd9b4-b43e-47e2-aebb-b2b936211446" target="_blank" rel="noopener" class="preview-model__sample" data-model-id="ifrs9-ecl">Free sample</a><!--/sample-->
         </div>
-        <div class="preview-gallery" data-model="ifrs9-ecl"><!--shots--><figure class="preview-shot" data-src="images/previews/ifrs9-ecl/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Inputs"><img src="images/previews/ifrs9-ecl/01_inputs.thumb.webp" alt="IFRS 9 ECL Model: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-ecl/02_ecl-engine.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: ECL Engine"><img src="images/previews/ifrs9-ecl/02_ecl-engine.thumb.webp" alt="IFRS 9 ECL Model: ECL Engine" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>ECL Engine tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-ecl/04_ecl-by-stage-stage-3-highest-at-2-575.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: ECL by Stage. Stage 3 highest, at 2,575"><img src="images/previews/ifrs9-ecl/04_ecl-by-stage-stage-3-highest-at-2-575.thumb.webp" alt="IFRS 9 ECL Model: ECL by Stage. Stage 3 highest, at 2,575" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>ECL by Stage<small>Stage 3 highest, at 2,575</small></figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-ecl/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Checks"><img src="images/previews/ifrs9-ecl/05_checks.thumb.webp" alt="IFRS 9 ECL Model: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>52 integrity checks, all passing</figcaption></figure><a class="preview-cta" href="https://sfsmodels.lemonsqueezy.com/checkout/buy/571bd9b4-b43e-47e2-aebb-b2b936211446" target="_blank" rel="noopener" data-model-id="ifrs9-ecl"><strong>See every tab</strong><span>The free sample has every tab, chart and check, with real results on demo data.</span><em>Download the free sample &rarr;</em></a><!--/shots--></div>
+        <div class="preview-gallery" data-model="ifrs9-ecl"><!--shots--><figure class="preview-shot" data-src="images/previews/ifrs9-ecl/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Inputs"><img src="images/previews/ifrs9-ecl/01_inputs.thumb.webp" alt="IFRS 9 ECL Model: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-ecl/02_ecl-engine.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: ECL Engine"><img src="images/previews/ifrs9-ecl/02_ecl-engine.thumb.webp" alt="IFRS 9 ECL Model: ECL Engine" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>ECL Engine tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-ecl/04_ecl-by-stage-stage-3-highest-at-2-575.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: ECL by Stage. Stage 3 highest, at 2,575"><img src="images/previews/ifrs9-ecl/04_ecl-by-stage-stage-3-highest-at-2-575.thumb.webp" alt="IFRS 9 ECL Model: ECL by Stage. Stage 3 highest, at 2,575" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>ECL by Stage<small>Stage 3 highest, at 2,575</small></figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-ecl/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Checks"><img src="images/previews/ifrs9-ecl/05_checks.thumb.webp" alt="IFRS 9 ECL Model: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>52 integrity checks, all passing</figcaption></figure><div class="preview-video sfs-video" data-yt="g8JKyZK0i2M" role="button" tabindex="0" aria-label="Play the IFRS 9 ECL Model walkthrough video"><div class="preview-video__media"><img src="https://i.ytimg.com/vi/g8JKyZK0i2M/hqdefault.jpg" alt="IFRS 9 ECL Model walkthrough video" width="480" height="360" loading="lazy" decoding="async"><span class="preview-video__play" aria-hidden="true"></span></div><div class="preview-video__cap"><span>Walkthrough</span>Every tab, in about three minutes</div></div><!--/shots--></div>
       </div>
 
       <div class="preview-model">
@@ -544,7 +488,7 @@
           <p class="preview-model__desc">Stage and measure up to 1,000 loans individually under IFRS 9, from loan tape to disclosure.</p><!--facts--><p class="preview-model__facts">16 tabs &middot; 36 integrity checks, all passing &middot; Base, Upside and Downside scenarios &middot; open formulas, no macros</p><!--/facts-->
           <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/04d458a9-0750-42e6-a1b4-c491861c97bb" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a><!--sample--><a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/8f2d2469-d028-4068-bd95-bf5cf19068aa" target="_blank" rel="noopener" class="preview-model__sample" data-model-id="ifrs9-loan-level">Free sample</a><!--/sample-->
         </div>
-        <div class="preview-gallery" data-model="ifrs9-loan-level"><!--shots--><figure class="preview-shot" data-src="images/previews/ifrs9-loan-level/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Loan-Level Edition: Inputs"><img src="images/previews/ifrs9-loan-level/01_inputs.thumb.webp" alt="IFRS 9 ECL Model: Loan-Level Edition: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-loan-level/02_loan-staging.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Loan-Level Edition: Loan Staging"><img src="images/previews/ifrs9-loan-level/02_loan-staging.thumb.webp" alt="IFRS 9 ECL Model: Loan-Level Edition: Loan Staging" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>Loan Staging tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-loan-level/04_sme-lending-highest-on-stage-1-at-0-6m.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Loan-Level Edition: SME lending highest on Stage 1, at 0.6m"><img src="images/previews/ifrs9-loan-level/04_sme-lending-highest-on-stage-1-at-0-6m.thumb.webp" alt="IFRS 9 ECL Model: Loan-Level Edition: SME lending highest on Stage 1, at 0.6m" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>SME lending highest on Stage 1, at 0.6m</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-loan-level/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Loan-Level Edition: Checks"><img src="images/previews/ifrs9-loan-level/05_checks.thumb.webp" alt="IFRS 9 ECL Model: Loan-Level Edition: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>36 integrity checks, all passing</figcaption></figure><a class="preview-cta" href="https://sfsmodels.lemonsqueezy.com/checkout/buy/8f2d2469-d028-4068-bd95-bf5cf19068aa" target="_blank" rel="noopener" data-model-id="ifrs9-loan-level"><strong>See every tab</strong><span>The free sample has every tab, chart and check, with real results on demo data.</span><em>Download the free sample &rarr;</em></a><!--/shots--></div>
+        <div class="preview-gallery" data-model="ifrs9-loan-level"><!--shots--><figure class="preview-shot" data-src="images/previews/ifrs9-loan-level/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Loan-Level Edition: Inputs"><img src="images/previews/ifrs9-loan-level/01_inputs.thumb.webp" alt="IFRS 9 ECL Model: Loan-Level Edition: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-loan-level/02_loan-staging.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Loan-Level Edition: Loan Staging"><img src="images/previews/ifrs9-loan-level/02_loan-staging.thumb.webp" alt="IFRS 9 ECL Model: Loan-Level Edition: Loan Staging" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>Loan Staging tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-loan-level/04_sme-lending-highest-on-stage-1-at-0-6m.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Loan-Level Edition: SME lending highest on Stage 1, at 0.6m"><img src="images/previews/ifrs9-loan-level/04_sme-lending-highest-on-stage-1-at-0-6m.thumb.webp" alt="IFRS 9 ECL Model: Loan-Level Edition: SME lending highest on Stage 1, at 0.6m" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>SME lending highest on Stage 1, at 0.6m</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs9-loan-level/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 9 ECL Model: Loan-Level Edition: Checks"><img src="images/previews/ifrs9-loan-level/05_checks.thumb.webp" alt="IFRS 9 ECL Model: Loan-Level Edition: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>36 integrity checks, all passing</figcaption></figure><div class="preview-video sfs-video" data-yt="-NUY4gutMk4" role="button" tabindex="0" aria-label="Play the IFRS 9 ECL Model: Loan-Level Edition walkthrough video"><div class="preview-video__media"><img src="https://i.ytimg.com/vi/-NUY4gutMk4/hqdefault.jpg" alt="IFRS 9 ECL Model: Loan-Level Edition walkthrough video" width="480" height="360" loading="lazy" decoding="async"><span class="preview-video__play" aria-hidden="true"></span></div><div class="preview-video__cap"><span>Walkthrough</span>Every tab, in about three minutes</div></div><!--/shots--></div>
       </div>
 
       <div class="preview-model">
@@ -554,7 +498,7 @@
           <p class="preview-model__desc">Estimate the lifetime allowance for credit losses on a US loan book under ASC 326.</p><!--facts--><p class="preview-model__facts">13 tabs &middot; 18 integrity checks, all passing &middot; Base, Upside and Downside scenarios &middot; open formulas, no macros</p><!--/facts-->
           <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/deb7ef02-876a-47a0-bfd3-85f0b500b003" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a><!--sample--><a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/feeb7269-d4a3-4b42-a29e-d711ad07ab52" target="_blank" rel="noopener" class="preview-model__sample" data-model-id="cecl">Free sample</a><!--/sample-->
         </div>
-        <div class="preview-gallery" data-model="cecl"><!--shots--><figure class="preview-shot" data-src="images/previews/cecl/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge CECL Model (ASC 326): Inputs"><img src="images/previews/cecl/01_inputs.thumb.webp" alt="CECL Model (ASC 326): Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/cecl/02_warm-method.webp" tabindex="0" role="button" aria-label="Enlarge CECL Model (ASC 326): WARM Method"><img src="images/previews/cecl/02_warm-method.thumb.webp" alt="CECL Model (ASC 326): WARM Method" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>WARM Method tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/cecl/04_cre-non-owner-occupied-highest-on-collec.webp" tabindex="0" role="button" aria-label="Enlarge CECL Model (ASC 326): CRE: non-owner occupied highest on Collective allowance, at 4.5m"><img src="images/previews/cecl/04_cre-non-owner-occupied-highest-on-collec.thumb.webp" alt="CECL Model (ASC 326): CRE: non-owner occupied highest on Collective allowance, at 4.5m" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>CRE: non-owner occupied highest on Collective allowance, at 4.5m</figcaption></figure><figure class="preview-shot" data-src="images/previews/cecl/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge CECL Model (ASC 326): Checks"><img src="images/previews/cecl/05_checks.thumb.webp" alt="CECL Model (ASC 326): Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>18 integrity checks, all passing</figcaption></figure><a class="preview-cta" href="https://sfsmodels.lemonsqueezy.com/checkout/buy/feeb7269-d4a3-4b42-a29e-d711ad07ab52" target="_blank" rel="noopener" data-model-id="cecl"><strong>See every tab</strong><span>The free sample has every tab, chart and check, with real results on demo data.</span><em>Download the free sample &rarr;</em></a><!--/shots--></div>
+        <div class="preview-gallery" data-model="cecl"><!--shots--><figure class="preview-shot" data-src="images/previews/cecl/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge CECL Model (ASC 326): Inputs"><img src="images/previews/cecl/01_inputs.thumb.webp" alt="CECL Model (ASC 326): Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/cecl/02_warm-method.webp" tabindex="0" role="button" aria-label="Enlarge CECL Model (ASC 326): WARM Method"><img src="images/previews/cecl/02_warm-method.thumb.webp" alt="CECL Model (ASC 326): WARM Method" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>WARM Method tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/cecl/04_cre-non-owner-occupied-highest-on-collec.webp" tabindex="0" role="button" aria-label="Enlarge CECL Model (ASC 326): CRE: non-owner occupied highest on Collective allowance, at 4.5m"><img src="images/previews/cecl/04_cre-non-owner-occupied-highest-on-collec.thumb.webp" alt="CECL Model (ASC 326): CRE: non-owner occupied highest on Collective allowance, at 4.5m" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>CRE: non-owner occupied highest on Collective allowance, at 4.5m</figcaption></figure><figure class="preview-shot" data-src="images/previews/cecl/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge CECL Model (ASC 326): Checks"><img src="images/previews/cecl/05_checks.thumb.webp" alt="CECL Model (ASC 326): Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>18 integrity checks, all passing</figcaption></figure><div class="preview-video sfs-video" data-yt="ifIcdOjyY2w" role="button" tabindex="0" aria-label="Play the CECL Model (ASC 326) walkthrough video"><div class="preview-video__media"><img src="https://i.ytimg.com/vi/ifIcdOjyY2w/hqdefault.jpg" alt="CECL Model (ASC 326) walkthrough video" width="480" height="360" loading="lazy" decoding="async"><span class="preview-video__play" aria-hidden="true"></span></div><div class="preview-video__cap"><span>Walkthrough</span>Every tab, in about three minutes</div></div><!--/shots--></div>
       </div>
 
     </div>
@@ -625,7 +569,7 @@
           <p class="preview-model__desc">Measure interest rate risk in the banking book against the six Basel supervisory shocks.</p><!--facts--><p class="preview-model__facts">13 tabs &middot; 17 integrity checks, all passing &middot; Base, Upside and Downside scenarios &middot; open formulas, no macros</p><!--/facts-->
           <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/e9352c63-0d71-4b6a-aac1-cc6c1d2136d9" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a><!--sample--><a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/1f27ba0c-4b05-4997-a5f2-4e5a289c7ea1" target="_blank" rel="noopener" class="preview-model__sample" data-model-id="irrbb">Free sample</a><!--/sample-->
         </div>
-        <div class="preview-gallery" data-model="irrbb"><!--shots--><figure class="preview-shot" data-src="images/previews/irrbb/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge IRRBB Model: Inputs"><img src="images/previews/irrbb/01_inputs.thumb.webp" alt="IRRBB Model: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/irrbb/02_eve.webp" tabindex="0" role="button" aria-label="Enlarge IRRBB Model: EVE"><img src="images/previews/irrbb/02_eve.thumb.webp" alt="IRRBB Model: EVE" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>EVE tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/irrbb/04_parallel-down-highest-at-30-1m.webp" tabindex="0" role="button" aria-label="Enlarge IRRBB Model: Parallel down highest, at 30.1m"><img src="images/previews/irrbb/04_parallel-down-highest-at-30-1m.thumb.webp" alt="IRRBB Model: Parallel down highest, at 30.1m" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>Parallel down highest, at 30.1m</figcaption></figure><figure class="preview-shot" data-src="images/previews/irrbb/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge IRRBB Model: Checks"><img src="images/previews/irrbb/05_checks.thumb.webp" alt="IRRBB Model: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>17 integrity checks, all passing</figcaption></figure><a class="preview-cta" href="https://sfsmodels.lemonsqueezy.com/checkout/buy/1f27ba0c-4b05-4997-a5f2-4e5a289c7ea1" target="_blank" rel="noopener" data-model-id="irrbb"><strong>See every tab</strong><span>The free sample has every tab, chart and check, with real results on demo data.</span><em>Download the free sample &rarr;</em></a><!--/shots--></div>
+        <div class="preview-gallery" data-model="irrbb"><!--shots--><figure class="preview-shot" data-src="images/previews/irrbb/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge IRRBB Model: Inputs"><img src="images/previews/irrbb/01_inputs.thumb.webp" alt="IRRBB Model: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/irrbb/02_eve.webp" tabindex="0" role="button" aria-label="Enlarge IRRBB Model: EVE"><img src="images/previews/irrbb/02_eve.thumb.webp" alt="IRRBB Model: EVE" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>EVE tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/irrbb/04_parallel-down-highest-at-30-1m.webp" tabindex="0" role="button" aria-label="Enlarge IRRBB Model: Parallel down highest, at 30.1m"><img src="images/previews/irrbb/04_parallel-down-highest-at-30-1m.thumb.webp" alt="IRRBB Model: Parallel down highest, at 30.1m" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>Parallel down highest, at 30.1m</figcaption></figure><figure class="preview-shot" data-src="images/previews/irrbb/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge IRRBB Model: Checks"><img src="images/previews/irrbb/05_checks.thumb.webp" alt="IRRBB Model: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>17 integrity checks, all passing</figcaption></figure><div class="preview-video sfs-video" data-yt="52TBIUvihAk" role="button" tabindex="0" aria-label="Play the IRRBB Model walkthrough video"><div class="preview-video__media"><img src="https://i.ytimg.com/vi/52TBIUvihAk/hqdefault.jpg" alt="IRRBB Model walkthrough video" width="480" height="360" loading="lazy" decoding="async"><span class="preview-video__play" aria-hidden="true"></span></div><div class="preview-video__cap"><span>Walkthrough</span>Every tab, in about three minutes</div></div><!--/shots--></div>
       </div>
 
     </div>
@@ -716,7 +660,7 @@
           <p class="preview-model__desc">Push a three-year macro stress through every loan to impairments, RWA and the CET1 ratio.</p><!--facts--><p class="preview-model__facts">18 tabs &middot; 42 integrity checks, all passing &middot; Base, Upside and Downside scenarios &middot; open formulas, no macros</p><!--/facts-->
           <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/2167486a-7de5-40fc-8a2c-13bb59039215" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a><!--sample--><a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/d40cba07-521d-4700-a679-685ef23f2a18" target="_blank" rel="noopener" class="preview-model__sample" data-model-id="credit-stress-test">Free sample</a><!--/sample-->
         </div>
-        <div class="preview-gallery" data-model="credit-stress-test"><!--shots--><figure class="preview-shot" data-src="images/previews/credit-stress-test/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge Credit Stress Test &amp; Capital Model: Inputs"><img src="images/previews/credit-stress-test/01_inputs.thumb.webp" alt="Credit Stress Test &amp; Capital Model: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/credit-stress-test/02_capital.webp" tabindex="0" role="button" aria-label="Enlarge Credit Stress Test &amp; Capital Model: Capital"><img src="images/previews/credit-stress-test/02_capital.thumb.webp" alt="Credit Stress Test &amp; Capital Model: Capital" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>Capital tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/credit-stress-test/04_severely-adverse-at-or-above-hurdle-in-s.webp" tabindex="0" role="button" aria-label="Enlarge Credit Stress Test &amp; Capital Model: Severely adverse at or above Hurdle in stress throughout"><img src="images/previews/credit-stress-test/04_severely-adverse-at-or-above-hurdle-in-s.thumb.webp" alt="Credit Stress Test &amp; Capital Model: Severely adverse at or above Hurdle in stress throughout" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>Severely adverse at or above Hurdle in stress throughout</figcaption></figure><figure class="preview-shot" data-src="images/previews/credit-stress-test/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge Credit Stress Test &amp; Capital Model: Checks"><img src="images/previews/credit-stress-test/05_checks.thumb.webp" alt="Credit Stress Test &amp; Capital Model: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>42 integrity checks, all passing</figcaption></figure><a class="preview-cta" href="https://sfsmodels.lemonsqueezy.com/checkout/buy/d40cba07-521d-4700-a679-685ef23f2a18" target="_blank" rel="noopener" data-model-id="credit-stress-test"><strong>See every tab</strong><span>The free sample has every tab, chart and check, with real results on demo data.</span><em>Download the free sample &rarr;</em></a><!--/shots--></div>
+        <div class="preview-gallery" data-model="credit-stress-test"><!--shots--><figure class="preview-shot" data-src="images/previews/credit-stress-test/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge Credit Stress Test &amp; Capital Model: Inputs"><img src="images/previews/credit-stress-test/01_inputs.thumb.webp" alt="Credit Stress Test &amp; Capital Model: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/credit-stress-test/02_capital.webp" tabindex="0" role="button" aria-label="Enlarge Credit Stress Test &amp; Capital Model: Capital"><img src="images/previews/credit-stress-test/02_capital.thumb.webp" alt="Credit Stress Test &amp; Capital Model: Capital" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>Capital tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/credit-stress-test/04_severely-adverse-at-or-above-hurdle-in-s.webp" tabindex="0" role="button" aria-label="Enlarge Credit Stress Test &amp; Capital Model: Severely adverse at or above Hurdle in stress throughout"><img src="images/previews/credit-stress-test/04_severely-adverse-at-or-above-hurdle-in-s.thumb.webp" alt="Credit Stress Test &amp; Capital Model: Severely adverse at or above Hurdle in stress throughout" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>Severely adverse at or above Hurdle in stress throughout</figcaption></figure><figure class="preview-shot" data-src="images/previews/credit-stress-test/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge Credit Stress Test &amp; Capital Model: Checks"><img src="images/previews/credit-stress-test/05_checks.thumb.webp" alt="Credit Stress Test &amp; Capital Model: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>42 integrity checks, all passing</figcaption></figure><div class="preview-video sfs-video" data-yt="80mGJYxz1H8" role="button" tabindex="0" aria-label="Play the Credit Stress Test &amp; Capital Model walkthrough video"><div class="preview-video__media"><img src="https://i.ytimg.com/vi/80mGJYxz1H8/hqdefault.jpg" alt="Credit Stress Test &amp; Capital Model walkthrough video" width="480" height="360" loading="lazy" decoding="async"><span class="preview-video__play" aria-hidden="true"></span></div><div class="preview-video__cap"><span>Walkthrough</span>Every tab, in about three minutes</div></div><!--/shots--></div>
       </div>
 
     </div>
@@ -958,7 +902,7 @@
           <p class="preview-model__desc">Account for a lessee's lease portfolio under IFRS 16, from commencement to disclosure.</p><!--facts--><p class="preview-model__facts">11 tabs &middot; 19 integrity checks, all passing &middot; Base, Upside and Downside scenarios &middot; open formulas, no macros</p><!--/facts-->
           <a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/ba45e116-9188-4c3d-840d-da9ddccd5392" target="_blank" rel="noopener" class="preview-model__buy">Buy Model</a><!--sample--><a href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c5b0e09e-8b6d-42b5-9fe6-419c49b55939" target="_blank" rel="noopener" class="preview-model__sample" data-model-id="ifrs16-lease">Free sample</a><!--/sample-->
         </div>
-        <div class="preview-gallery" data-model="ifrs16-lease"><!--shots--><figure class="preview-shot" data-src="images/previews/ifrs16-lease/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 16 Lease Model: Inputs"><img src="images/previews/ifrs16-lease/01_inputs.thumb.webp" alt="IFRS 16 Lease Model: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs16-lease/02_lease-schedule.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 16 Lease Model: Lease Schedule"><img src="images/previews/ifrs16-lease/02_lease-schedule.thumb.webp" alt="IFRS 16 Lease Model: Lease Schedule" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>Lease Schedule tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs16-lease/04_right-of-use-assets-turns-negative-in-ye.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 16 Lease Model: Right-of-use assets turns negative in year 9, ends at 0.0m"><img src="images/previews/ifrs16-lease/04_right-of-use-assets-turns-negative-in-ye.thumb.webp" alt="IFRS 16 Lease Model: Right-of-use assets turns negative in year 9, ends at 0.0m" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>Right-of-use assets turns negative in year 9, ends at 0.0m</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs16-lease/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 16 Lease Model: Checks"><img src="images/previews/ifrs16-lease/05_checks.thumb.webp" alt="IFRS 16 Lease Model: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>19 integrity checks, all passing</figcaption></figure><a class="preview-cta" href="https://sfsmodels.lemonsqueezy.com/checkout/buy/c5b0e09e-8b6d-42b5-9fe6-419c49b55939" target="_blank" rel="noopener" data-model-id="ifrs16-lease"><strong>See every tab</strong><span>The free sample has every tab, chart and check, with real results on demo data.</span><em>Download the free sample &rarr;</em></a><!--/shots--></div>
+        <div class="preview-gallery" data-model="ifrs16-lease"><!--shots--><figure class="preview-shot" data-src="images/previews/ifrs16-lease/01_inputs.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 16 Lease Model: Inputs"><img src="images/previews/ifrs16-lease/01_inputs.thumb.webp" alt="IFRS 16 Lease Model: Inputs" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Inputs</span>Every assumption on one tab</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs16-lease/02_lease-schedule.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 16 Lease Model: Lease Schedule"><img src="images/previews/ifrs16-lease/02_lease-schedule.thumb.webp" alt="IFRS 16 Lease Model: Lease Schedule" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Calculation</span>Lease Schedule tab, every formula open</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs16-lease/04_right-of-use-assets-turns-negative-in-ye.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 16 Lease Model: Right-of-use assets turns negative in year 9, ends at 0.0m"><img src="images/previews/ifrs16-lease/04_right-of-use-assets-turns-negative-in-ye.thumb.webp" alt="IFRS 16 Lease Model: Right-of-use assets turns negative in year 9, ends at 0.0m" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Chart</span>Right-of-use assets turns negative in year 9, ends at 0.0m</figcaption></figure><figure class="preview-shot" data-src="images/previews/ifrs16-lease/05_checks.webp" tabindex="0" role="button" aria-label="Enlarge IFRS 16 Lease Model: Checks"><img src="images/previews/ifrs16-lease/05_checks.thumb.webp" alt="IFRS 16 Lease Model: Checks" width="720" height="480" loading="lazy" decoding="async"><figcaption><span>Controls</span>19 integrity checks, all passing</figcaption></figure><div class="preview-video sfs-video" data-yt="mnyl3JdVrB8" role="button" tabindex="0" aria-label="Play the IFRS 16 Lease Model walkthrough video"><div class="preview-video__media"><img src="https://i.ytimg.com/vi/mnyl3JdVrB8/hqdefault.jpg" alt="IFRS 16 Lease Model walkthrough video" width="480" height="360" loading="lazy" decoding="async"><span class="preview-video__play" aria-hidden="true"></span></div><div class="preview-video__cap"><span>Walkthrough</span>Every tab, in about three minutes</div></div><!--/shots--></div>
       </div>
 
     </div>
@@ -1180,6 +1124,8 @@
     }
 
     function closeOverlay() {
+      overlay.querySelectorAll('.zoom-overlay__video').forEach(v => v.remove());
+      zoomImg.style.display = '';
       overlay.classList.remove('active');
       document.body.style.overflow = '';
     }
@@ -1190,6 +1136,27 @@
     closeBtn.addEventListener('click', closeOverlay);
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay();
+    });
+
+    // Walkthrough tiles: open the YouTube player large in the overlay, and only
+    // load it when a visitor asks for it.
+    document.querySelectorAll('.preview-video').forEach(tile => {
+      const play = () => {
+        const f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + tile.dataset.yt + '?autoplay=1&rel=0&cc_load_policy=0';
+        f.title = tile.getAttribute('aria-label');
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        f.allowFullscreen = true;
+        f.className = 'zoom-overlay__video';
+        zoomImg.style.display = 'none';
+        overlay.appendChild(f);
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+      tile.addEventListener('click', play);
+      tile.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+      });
     });
 
     // Screenshot tiles are written into the page by build_previews_gallery.py.
