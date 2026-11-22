@@ -1,0 +1,597 @@
+{
+ "lending": {
+  "tabs": 14,
+  "checks": 16,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "deposits": {
+  "tabs": 14,
+  "checks": 27,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "credit-analysis": {
+  "tabs": 19,
+  "checks": 48,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "loan-pricing": {
+  "tabs": 16,
+  "checks": 76,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "ifrs9-ecl": {
+  "tabs": 15,
+  "checks": 52,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "deposit-nii": {
+  "tabs": 14,
+  "checks": 37,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "treasury": {
+  "tabs": 17,
+  "checks": 15,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "bond-pricing": {
+  "tabs": 14,
+  "checks": 15,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "duration": {
+  "tabs": 18,
+  "checks": 55,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "fx-hedging": {
+  "tabs": 17,
+  "checks": 85,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "lcr": {
+  "tabs": 17,
+  "checks": 55,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Stress",
+   "Severe",
+   "Custom"
+  ]
+ },
+ "capital": {
+  "tabs": 18,
+  "checks": 64,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Severe"
+  ]
+ },
+ "var": {
+  "tabs": 18,
+  "checks": 55,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Stressed",
+   "Crisis",
+   "Custom"
+  ]
+ },
+ "stress-testing": {
+  "tabs": 19,
+  "checks": 58,
+  "failing": 0,
+  "scenarios": [
+   "Baseline",
+   "Mild",
+   "Moderate",
+   "Severe"
+  ]
+ },
+ "dcf": {
+  "tabs": 15,
+  "checks": 49,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "trading-comps": {
+  "tabs": 16,
+  "checks": 58,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "precedent-transactions": {
+  "tabs": 16,
+  "checks": 52,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "lbo": {
+  "tabs": 15,
+  "checks": 46,
+  "failing": 0,
+  "scenarios": [
+   "Base Case",
+   "Upside",
+   "Downside",
+   "Mgmt Case"
+  ]
+ },
+ "sotp": {
+  "tabs": 21,
+  "checks": 63,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "ddm": {
+  "tabs": 17,
+  "checks": 80,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "valuations": {
+  "tabs": 18,
+  "checks": 115,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "three-statement": {
+  "tabs": 16,
+  "checks": 193,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "budget-variance": {
+  "tabs": 17,
+  "checks": 70,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "rolling-forecast": {
+  "tabs": 17,
+  "checks": 45,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "budget-forecast": {
+  "tabs": 17,
+  "checks": 47,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "cost-control": {
+  "tabs": 17,
+  "checks": 52,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "management-accounts": {
+  "tabs": 17,
+  "checks": 50,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "working-capital": {
+  "tabs": 17,
+  "checks": 64,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "capitalisation": {
+  "tabs": 17,
+  "checks": 53,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "ppe": {
+  "tabs": 17,
+  "checks": 53,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "impairment": {
+  "tabs": 20,
+  "checks": 54,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "capex": {
+  "tabs": 17,
+  "checks": 72,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "debt-schedule": {
+  "tabs": 21,
+  "checks": 100,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "debt-amortisation": {
+  "tabs": 18,
+  "checks": 75,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "complete-ltp": {
+  "tabs": 32,
+  "checks": 23,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "basel-iv-rwa": {
+  "tabs": 17,
+  "checks": 67,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "buy-to-let": {
+  "tabs": 17,
+  "checks": 62,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "credit-fund": {
+  "tabs": 17,
+  "checks": 57,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "icaap": {
+  "tabs": 17,
+  "checks": 109,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "ifrs17": {
+  "tabs": 17,
+  "checks": 69,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "ilaap": {
+  "tabs": 17,
+  "checks": 51,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Mild Stress",
+   "Moderate Stress",
+   "Severe Stress"
+  ]
+ },
+ "infra-dcf": {
+  "tabs": 18,
+  "checks": 64,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "merger": {
+  "tabs": 18,
+  "checks": 53,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "pe-fund": {
+  "tabs": 17,
+  "checks": 66,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "portfolio-attrib": {
+  "tabs": 17,
+  "checks": 75,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "ppp-concession": {
+  "tabs": 18,
+  "checks": 59,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "project-finance": {
+  "tabs": 18,
+  "checks": 51,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "re-fund": {
+  "tabs": 17,
+  "checks": 51,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "restructuring": {
+  "tabs": 18,
+  "checks": 52,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside",
+   "Stress"
+  ]
+ },
+ "nim-budget-tracking": {
+  "tabs": 13,
+  "checks": 8,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Stress",
+   "Outperform",
+   "Custom"
+  ]
+ },
+ "ifrs16-lease": {
+  "tabs": 11,
+  "checks": 19,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "cecl": {
+  "tabs": 13,
+  "checks": 18,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "irrbb": {
+  "tabs": 13,
+  "checks": 17,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "ifrs9-loan-level": {
+  "tabs": 16,
+  "checks": 36,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ },
+ "credit-stress-test": {
+  "tabs": 18,
+  "checks": 42,
+  "failing": 0,
+  "scenarios": [
+   "Base",
+   "Upside",
+   "Downside"
+  ]
+ }
+}

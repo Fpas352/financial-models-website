@@ -1,750 +1,2232 @@
 {
-  "lending": [
-    {
-      "file": "lending-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "lending-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "lending-model_03_rwa.webp",
-      "label": "RWA"
-    },
-    {
-      "file": "lending-model_04_sensitivity.webp",
-      "label": "Sensitivity"
-    },
-    {
-      "file": "lending-model_05_outputs.webp",
-      "label": "Outputs"
-    }
-  ],
-  "deposits": [
-    {
-      "file": "deposits-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "deposits-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "deposits-model_03_liquidity.webp",
-      "label": "Liquidity"
-    },
-    {
-      "file": "deposits-model_04_sensitivity.webp",
-      "label": "Sensitivity"
-    },
-    {
-      "file": "deposits-model_05_outputs.webp",
-      "label": "Outputs"
-    }
-  ],
-  "credit-analysis": [
-    {
-      "file": "credit-analysis-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "credit-analysis-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "credit-analysis-model_03_cashflow.webp",
-      "label": "Cashflow"
-    },
-    {
-      "file": "credit-analysis-model_04_outputs.webp",
-      "label": "Outputs"
-    },
-    {
-      "file": "credit-analysis-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "loan-pricing": [
-    {
-      "file": "loan-pricing-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "loan-pricing-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "loan-pricing-model_03_rate-sensitivity.webp",
-      "label": "Rate Sensitivity"
-    },
-    {
-      "file": "loan-pricing-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "loan-pricing-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "ifrs9-ecl": [
-    {
-      "file": "ifrs9-ecl-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "ifrs9-ecl-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "ifrs9-ecl-model_03_ecl-engine.webp",
-      "label": "ECL Engine"
-    },
-    {
-      "file": "ifrs9-ecl-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "ifrs9-ecl-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "deposit-nii": [
-    {
-      "file": "deposit-nii-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "deposit-nii-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "deposit-nii-model_03_pricing-opt.webp",
-      "label": "Pricing Opt"
-    },
-    {
-      "file": "deposit-nii-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "deposit-nii-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "treasury": [
-    {
-      "file": "treasury-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "treasury-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "treasury-model_03_cashflows.webp",
-      "label": "Cashflows"
-    },
-    {
-      "file": "treasury-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "treasury-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "bond-pricing": [
-    {
-      "file": "bond-pricing-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "bond-pricing-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "bond-pricing-model_03_scenarios.webp",
-      "label": "Scenarios"
-    },
-    {
-      "file": "bond-pricing-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "bond-pricing-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "duration": [
-    {
-      "file": "duration-model_01_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "duration-model_02_bond-valuation.webp",
-      "label": "Bond Valuation"
-    },
-    {
-      "file": "duration-model_03_price-sensitivity.webp",
-      "label": "Price Sensitivity"
-    },
-    {
-      "file": "duration-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "duration-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "fx-hedging": [
-    {
-      "file": "fx-hedging-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "fx-hedging-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "fx-hedging-model_03_forward-curves.webp",
-      "label": "Forward Curves"
-    },
-    {
-      "file": "fx-hedging-model_04_mtm-valuation.webp",
-      "label": "MTM Valuation"
-    },
-    {
-      "file": "fx-hedging-model_05_dashboard.webp",
-      "label": "Dashboard"
-    }
-  ],
-  "lcr": [
-    {
-      "file": "lcr-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "lcr-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "lcr-model_03_stress-test.webp",
-      "label": "Stress Test"
-    },
-    {
-      "file": "lcr-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "lcr-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "capital": [
-    {
-      "file": "capital-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "capital-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "capital-model_03_credit-rwa.webp",
-      "label": "Credit RWA"
-    },
-    {
-      "file": "capital-model_04_market-rwa.webp",
-      "label": "Market RWA"
-    },
-    {
-      "file": "capital-model_05_dashboard.webp",
-      "label": "Dashboard"
-    }
-  ],
-  "var": [
-    {
-      "file": "var-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "var-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "var-model_03_stressed-var.webp",
-      "label": "Stressed VaR"
-    },
-    {
-      "file": "var-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "var-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "stress-testing": [
-    {
-      "file": "stress-testing-model_01_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "stress-testing-model_02_macro-scenarios.webp",
-      "label": "Macro Scenarios"
-    },
-    {
-      "file": "stress-testing-model_03_credit-stress.webp",
-      "label": "Credit Stress"
-    },
-    {
-      "file": "stress-testing-model_04_market-stress.webp",
-      "label": "Market Stress"
-    },
-    {
-      "file": "stress-testing-model_05_dashboard.webp",
-      "label": "Dashboard"
-    }
-  ],
-  "dcf": [
-    {
-      "file": "dcf-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "dcf-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "dcf-model_03_dcf-valuation.webp",
-      "label": "DCF Valuation"
-    },
-    {
-      "file": "dcf-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "dcf-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "trading-comps": [
-    {
-      "file": "trading-comps-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "trading-comps-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "trading-comps-model_03_valuation-metrics.webp",
-      "label": "Valuation Metrics"
-    },
-    {
-      "file": "trading-comps-model_04_implied-valuation.webp",
-      "label": "Implied Valuation"
-    },
-    {
-      "file": "trading-comps-model_05_dashboard.webp",
-      "label": "Dashboard"
-    }
-  ],
-  "precedent-transactions": [
-    {
-      "file": "precedent-transactions-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "precedent-transactions-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "precedent-transactions-model_03_implied-valuation.webp",
-      "label": "Implied Valuation"
-    },
-    {
-      "file": "precedent-transactions-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "precedent-transactions-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "lbo": [
-    {
-      "file": "lbo-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "lbo-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "lbo-model_03_balance-sheet.webp",
-      "label": "Balance Sheet"
-    },
-    {
-      "file": "lbo-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "lbo-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "sotp": [
-    {
-      "file": "sotp-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "sotp-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "sotp-model_03_sotp-summary.webp",
-      "label": "Sotp Summary"
-    },
-    {
-      "file": "sotp-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "sotp-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "ddm": [
-    {
-      "file": "ddm-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "ddm-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "ddm-model_03_valuation-summary.webp",
-      "label": "Valuation Summary"
-    },
-    {
-      "file": "ddm-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "ddm-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "valuations": [
-    {
-      "file": "valuations-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "valuations-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "valuations-model_03_dcf.webp",
-      "label": "DCF"
-    },
-    {
-      "file": "valuations-model_04_weighted-valuation.webp",
-      "label": "Weighted Valuation"
-    },
-    {
-      "file": "valuations-model_05_dashboard.webp",
-      "label": "Dashboard"
-    }
-  ],
-  "three-statement": [
-    {
-      "file": "three-statement-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "three-statement-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "three-statement-model_03_balance-sheet.webp",
-      "label": "Balance Sheet"
-    },
-    {
-      "file": "three-statement-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "three-statement-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "budget-variance": [
-    {
-      "file": "budget-variance-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "budget-variance-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "budget-variance-model_03_budget.webp",
-      "label": "Budget"
-    },
-    {
-      "file": "budget-variance-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "budget-variance-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "rolling-forecast": [
-    {
-      "file": "rolling-forecast-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "rolling-forecast-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "rolling-forecast-model_03_original-budget.webp",
-      "label": "Original Budget"
-    },
-    {
-      "file": "rolling-forecast-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "rolling-forecast-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "budget-forecast": [
-    {
-      "file": "budget-forecast-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "budget-forecast-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "budget-forecast-model_03_revenue-budget.webp",
-      "label": "Revenue Budget"
-    },
-    {
-      "file": "budget-forecast-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "budget-forecast-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "cost-control": [
-    {
-      "file": "cost-control-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "cost-control-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "cost-control-model_03_cost-detail.webp",
-      "label": "Cost Detail"
-    },
-    {
-      "file": "cost-control-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "cost-control-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "management-accounts": [
-    {
-      "file": "management-accounts-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "management-accounts-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "management-accounts-model_03_balance-sheet.webp",
-      "label": "Balance Sheet"
-    },
-    {
-      "file": "management-accounts-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "management-accounts-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "working-capital": [
-    {
-      "file": "working-capital-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "working-capital-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "working-capital-model_03_nwc-summary.webp",
-      "label": "Nwc Summary"
-    },
-    {
-      "file": "working-capital-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "working-capital-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "capitalisation": [
-    {
-      "file": "capitalisation-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "capitalisation-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "capitalisation-model_03_amortisation.webp",
-      "label": "Amortisation"
-    },
-    {
-      "file": "capitalisation-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "capitalisation-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "ppe": [
-    {
-      "file": "ppe-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "ppe-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "ppe-model_03_revaluation.webp",
-      "label": "Revaluation"
-    },
-    {
-      "file": "ppe-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "ppe-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "impairment": [
-    {
-      "file": "impairment-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "impairment-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "impairment-model_03_recoverable-amount.webp",
-      "label": "Recoverable Amount"
-    },
-    {
-      "file": "impairment-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "impairment-model_05_scenario-comparison.webp",
-      "label": "Scenario Comparison"
-    }
-  ],
-  "capex": [
-    {
-      "file": "capex-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "capex-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "capex-model_03_budget-tracking.webp",
-      "label": "Budget Tracking"
-    },
-    {
-      "file": "capex-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "capex-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "debt-schedule": [
-    {
-      "file": "debt-schedule-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "debt-schedule-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "debt-schedule-model_03_facility-1.webp",
-      "label": "Facility 1"
-    },
-    {
-      "file": "debt-schedule-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "debt-schedule-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ],
-  "debt-amortisation": [
-    {
-      "file": "debt-amortisation-model_01_cover.webp",
-      "label": "Cover"
-    },
-    {
-      "file": "debt-amortisation-model_02_inputs.webp",
-      "label": "Inputs"
-    },
-    {
-      "file": "debt-amortisation-model_03_tranche-1.webp",
-      "label": "Tranche 1"
-    },
-    {
-      "file": "debt-amortisation-model_04_dashboard.webp",
-      "label": "Dashboard"
-    },
-    {
-      "file": "debt-amortisation-model_05_sensitivity.webp",
-      "label": "Sensitivity"
-    }
-  ]
+ "lending": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 921
+  },
+  {
+   "file": "02_ecl.webp",
+   "thumb": "02_ecl.thumb.webp",
+   "role": "engine",
+   "label": "ECL",
+   "w": 1800,
+   "h": 1003
+  },
+  {
+   "file": "03_outputs-headline-figures.webp",
+   "thumb": "03_outputs-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Outputs: headline figures",
+   "w": 1800,
+   "h": 398
+  },
+  {
+   "file": "04_portfolio-balance-by-product-m-resi-mtg-.webp",
+   "thumb": "04_portfolio-balance-by-product-m-resi-mtg-.thumb.webp",
+   "role": "chart",
+   "label": "Portfolio Balance by Product (\u00a3m)\nResi Mtg up from 2,099 to 6,440",
+   "w": 1227,
+   "h": 792
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 806
+  }
+ ],
+ "deposits": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 824
+  },
+  {
+   "file": "02_pricing.webp",
+   "thumb": "02_pricing.thumb.webp",
+   "role": "engine",
+   "label": "Pricing",
+   "w": 1800,
+   "h": 886
+  },
+  {
+   "file": "03_outputs-headline-figures.webp",
+   "thumb": "03_outputs-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Outputs: headline figures",
+   "w": 1800,
+   "h": 615
+  },
+  {
+   "file": "04_deposit-book-by-product-gbp-m-ca-up-from.webp",
+   "thumb": "04_deposit-book-by-product-gbp-m-ca-up-from.thumb.webp",
+   "role": "chart",
+   "label": "Deposit Book by Product (GBP m)\nCA up from 3,511 to 4,189",
+   "w": 1617,
+   "h": 762
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 781
+  }
+ ],
+ "credit-analysis": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1112
+  },
+  {
+   "file": "02_credit-scoring.webp",
+   "thumb": "02_credit-scoring.thumb.webp",
+   "role": "engine",
+   "label": "Credit Scoring",
+   "w": 1800,
+   "h": 976
+  },
+  {
+   "file": "03_z-score-by-borrower-evergreen-logistics-.webp",
+   "thumb": "03_z-score-by-borrower-evergreen-logistics-.thumb.webp",
+   "role": "chart",
+   "label": "Z-Score by Borrower\nEvergreen Logistics highest, at 3.4",
+   "w": 1278,
+   "h": 714
+  },
+  {
+   "file": "04_checks.webp",
+   "thumb": "04_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 820
+  }
+ ],
+ "loan-pricing": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1050
+  },
+  {
+   "file": "02_pricing-engine.webp",
+   "thumb": "02_pricing-engine.thumb.webp",
+   "role": "engine",
+   "label": "Pricing Engine",
+   "w": 1800,
+   "h": 831
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1023,
+   "h": 1107
+  },
+  {
+   "file": "04_all-in-price-decomposition-by-product-bb.webp",
+   "thumb": "04_all-in-price-decomposition-by-product-bb.thumb.webp",
+   "role": "chart",
+   "label": "All-In Price Decomposition by Product (BBB Grade, Year 1)\nCRE highest on Funding Cost, at 6.4%",
+   "w": 1617,
+   "h": 648
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 690
+  }
+ ],
+ "ifrs9-ecl": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1040
+  },
+  {
+   "file": "02_ecl-engine.webp",
+   "thumb": "02_ecl-engine.thumb.webp",
+   "role": "engine",
+   "label": "ECL Engine",
+   "w": 1800,
+   "h": 892
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 907
+  },
+  {
+   "file": "04_ecl-by-stage-stage-3-highest-at-2-575.webp",
+   "thumb": "04_ecl-by-stage-stage-3-highest-at-2-575.thumb.webp",
+   "role": "chart",
+   "label": "ECL by Stage\nStage 3 highest, at 2,575",
+   "w": 1617,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 730
+  }
+ ],
+ "deposit-nii": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 927
+  },
+  {
+   "file": "02_nii-calculation.webp",
+   "thumb": "02_nii-calculation.thumb.webp",
+   "role": "engine",
+   "label": "NII Calculation",
+   "w": 1800,
+   "h": 862
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1185
+  },
+  {
+   "file": "04_deposit-balances-by-product-easy-access-.webp",
+   "thumb": "04_deposit-balances-by-product-easy-access-.thumb.webp",
+   "role": "chart",
+   "label": "Deposit Balances by Product\nEasy Access flat at 7,832",
+   "w": 1617,
+   "h": 879
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 765
+  }
+ ],
+ "treasury": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1040
+  },
+  {
+   "file": "02_swap-portfolio.webp",
+   "thumb": "02_swap-portfolio.thumb.webp",
+   "role": "engine",
+   "label": "Swap Portfolio",
+   "w": 1800,
+   "h": 956
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 838
+  },
+  {
+   "file": "04_par-zero-forward-curves-zero-rate-peaks-.webp",
+   "thumb": "04_par-zero-forward-curves-zero-rate-peaks-.thumb.webp",
+   "role": "chart",
+   "label": "Par, Zero & Forward Curves\nZero Rate peaks at 5.1% in 1Y",
+   "w": 1617,
+   "h": 879
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 717
+  }
+ ],
+ "bond-pricing": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1058
+  },
+  {
+   "file": "02_bond-pricing.webp",
+   "thumb": "02_bond-pricing.thumb.webp",
+   "role": "engine",
+   "label": "Bond Pricing",
+   "w": 1800,
+   "h": 966
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1509,
+   "h": 498
+  },
+  {
+   "file": "04_price-yield-relationship.webp",
+   "thumb": "04_price-yield-relationship.thumb.webp",
+   "role": "chart",
+   "label": "Price-Yield Relationship",
+   "w": 1617,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 683
+  }
+ ],
+ "duration": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1043
+  },
+  {
+   "file": "02_bond-valuation.webp",
+   "thumb": "02_bond-valuation.thumb.webp",
+   "role": "engine",
+   "label": "Bond Valuation",
+   "w": 1800,
+   "h": 942
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 990
+  },
+  {
+   "file": "04_uk-gilt-1-75-2037-highest-at-9-7.webp",
+   "thumb": "04_uk-gilt-1-75-2037-highest-at-9-7.thumb.webp",
+   "role": "chart",
+   "label": "UK Gilt 1.75% 2037 highest, at 9.7",
+   "w": 1152,
+   "h": 747
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 742
+  }
+ ],
+ "fx-hedging": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 976
+  },
+  {
+   "file": "02_hedge-portfolio.webp",
+   "thumb": "02_hedge-portfolio.thumb.webp",
+   "role": "engine",
+   "label": "Hedge Portfolio",
+   "w": 1800,
+   "h": 879
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1023,
+   "h": 582
+  },
+  {
+   "file": "04_fx-exposure-by-currency-gbp-000s-eur-hig.webp",
+   "thumb": "04_fx-exposure-by-currency-gbp-000s-eur-hig.thumb.webp",
+   "role": "chart",
+   "label": "FX Exposure by Currency (GBP 000s)\nEUR highest on Revenue, at 80,000",
+   "w": 1617,
+   "h": 639
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 742
+  }
+ ],
+ "lcr": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 893
+  },
+  {
+   "file": "02_lcr-outflows.webp",
+   "thumb": "02_lcr-outflows.thumb.webp",
+   "role": "engine",
+   "label": "LCR Outflows",
+   "w": 1800,
+   "h": 802
+  },
+  {
+   "file": "03_dashboard.webp",
+   "thumb": "03_dashboard.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard",
+   "w": 1800,
+   "h": 824
+  },
+  {
+   "file": "04_checks.webp",
+   "thumb": "04_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 707
+  }
+ ],
+ "capital": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 926
+  },
+  {
+   "file": "02_credit-rwa.webp",
+   "thumb": "02_credit-rwa.thumb.webp",
+   "role": "engine",
+   "label": "Credit RWA",
+   "w": 1800,
+   "h": 841
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 795
+  },
+  {
+   "file": "04_capital-ratio-trend-total-ratio-flat-at-.webp",
+   "thumb": "04_capital-ratio-trend-total-ratio-flat-at-.thumb.webp",
+   "role": "chart",
+   "label": "Capital Ratio Trend\nTotal Ratio (%) flat at 14.7%",
+   "w": 1617,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 691
+  }
+ ],
+ "var": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 880
+  },
+  {
+   "file": "02_parametric-var.webp",
+   "thumb": "02_parametric-var.thumb.webp",
+   "role": "engine",
+   "label": "Parametric VaR",
+   "w": 1800,
+   "h": 1072
+  },
+  {
+   "file": "03_dashboard.webp",
+   "thumb": "03_dashboard.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard",
+   "w": 1275,
+   "h": 1437
+  },
+  {
+   "file": "04_checks.webp",
+   "thumb": "04_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 768
+  }
+ ],
+ "stress-testing": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1177
+  },
+  {
+   "file": "02_capital-stress.webp",
+   "thumb": "02_capital-stress.thumb.webp",
+   "role": "engine",
+   "label": "Capital Stress",
+   "w": 1800,
+   "h": 886
+  },
+  {
+   "file": "03_checks.webp",
+   "thumb": "03_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 742
+  }
+ ],
+ "dcf": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1222
+  },
+  {
+   "file": "02_dcf-valuation.webp",
+   "thumb": "02_dcf-valuation.thumb.webp",
+   "role": "engine",
+   "label": "DCF Valuation",
+   "w": 1800,
+   "h": 944
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 378
+  },
+  {
+   "file": "04_revenue-by-segment-tech-above-cp-from-fy.webp",
+   "thumb": "04_revenue-by-segment-tech-above-cp-from-fy.thumb.webp",
+   "role": "chart",
+   "label": "Revenue by Segment\nTech above CP from FY2034",
+   "w": 1617,
+   "h": 789
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 778
+  }
+ ],
+ "trading-comps": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 899
+  },
+  {
+   "file": "02_implied-valuation.webp",
+   "thumb": "02_implied-valuation.thumb.webp",
+   "role": "engine",
+   "label": "Implied Valuation",
+   "w": 1800,
+   "h": 692
+  },
+  {
+   "file": "03_ev-ebitda-by-company-fy2025e-gbc-highest.webp",
+   "thumb": "03_ev-ebitda-by-company-fy2025e-gbc-highest.thumb.webp",
+   "role": "chart",
+   "label": "EV/EBITDA by Company (FY2025E)\nGBC highest, at 13.85x",
+   "w": 1260,
+   "h": 813
+  },
+  {
+   "file": "04_checks.webp",
+   "thumb": "04_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 799
+  }
+ ],
+ "precedent-transactions": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 912
+  },
+  {
+   "file": "02_deal-metrics.webp",
+   "thumb": "02_deal-metrics.thumb.webp",
+   "role": "engine",
+   "label": "Deal Metrics",
+   "w": 1800,
+   "h": 969
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1103
+  },
+  {
+   "file": "04_ev-ebitda-multiples-by-transaction-figma.webp",
+   "thumb": "04_ev-ebitda-multiples-by-transaction-figma.thumb.webp",
+   "role": "chart",
+   "label": "EV/EBITDA Multiples by Transaction\nFigma highest on EV/EBITDA LTM, at 495.00x",
+   "w": 1800,
+   "h": 809
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 756
+  }
+ ],
+ "lbo": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 970
+  },
+  {
+   "file": "02_sources-uses.webp",
+   "thumb": "02_sources-uses.thumb.webp",
+   "role": "engine",
+   "label": "Sources & Uses",
+   "w": 1761,
+   "h": 1134
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 962
+  },
+  {
+   "file": "04_debt-balance-over-time-mm-tlb-down-from-.webp",
+   "thumb": "04_debt-balance-over-time-mm-tlb-down-from-.thumb.webp",
+   "role": "chart",
+   "label": "Debt Balance Over Time ($mm)\nTLB down from 200 to 186",
+   "w": 1617,
+   "h": 879
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 746
+  }
+ ],
+ "sotp": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 899
+  },
+  {
+   "file": "02_sotp-summary.webp",
+   "thumb": "02_sotp-summary.thumb.webp",
+   "role": "engine",
+   "label": "SOTP Summary",
+   "w": 1800,
+   "h": 814
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 753
+  },
+  {
+   "file": "04_enterprise-value-by-segment-method-m-con.webp",
+   "thumb": "04_enterprise-value-by-segment-method-m-con.thumb.webp",
+   "role": "chart",
+   "label": "Enterprise Value by Segment & Method ($m)\nConsumer Banking highest on DCF Value, at 44,784",
+   "w": 1563,
+   "h": 771
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 761
+  }
+ ],
+ "ddm": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1076
+  },
+  {
+   "file": "02_dividend-projections.webp",
+   "thumb": "02_dividend-projections.thumb.webp",
+   "role": "engine",
+   "label": "Dividend Projections",
+   "w": 1800,
+   "h": 823
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 524
+  },
+  {
+   "file": "04_market-price-vs-ddm-implied-value-gs-hig.webp",
+   "thumb": "04_market-price-vs-ddm-implied-value-gs-hig.thumb.webp",
+   "role": "chart",
+   "label": "Market Price vs DDM Implied Value\nGS highest on Market Price, at 450",
+   "w": 1152,
+   "h": 747
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 702
+  }
+ ],
+ "valuations": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1058
+  },
+  {
+   "file": "02_football-field.webp",
+   "thumb": "02_football-field.thumb.webp",
+   "role": "engine",
+   "label": "Football Field",
+   "w": 1800,
+   "h": 892
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 926
+  },
+  {
+   "file": "04_implied-ev-by-methodology-mm-lbo-highest.webp",
+   "thumb": "04_implied-ev-by-methodology-mm-lbo-highest.thumb.webp",
+   "role": "chart",
+   "label": "Implied EV by Methodology ($mm)\nLBO highest on EV Low, at 34,650",
+   "w": 1260,
+   "h": 813
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 742
+  }
+ ],
+ "three-statement": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1211
+  },
+  {
+   "file": "02_income-statement.webp",
+   "thumb": "02_income-statement.thumb.webp",
+   "role": "engine",
+   "label": "Income Statement",
+   "w": 1800,
+   "h": 879
+  },
+  {
+   "file": "03_revenue-by-segment-monthly-enterprise-so.webp",
+   "thumb": "03_revenue-by-segment-monthly-enterprise-so.thumb.webp",
+   "role": "chart",
+   "label": "Revenue by Segment (Monthly)\nEnterprise Software up from 10,000,000 to 10,858,126",
+   "w": 1662,
+   "h": 816
+  },
+  {
+   "file": "04_checks.webp",
+   "thumb": "04_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 802
+  }
+ ],
+ "budget-variance": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1105
+  },
+  {
+   "file": "02_variance.webp",
+   "thumb": "02_variance.thumb.webp",
+   "role": "engine",
+   "label": "Variance",
+   "w": 1800,
+   "h": 868
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1103
+  },
+  {
+   "file": "04_budget-vs-actual-revenue-by-department-y.webp",
+   "thumb": "04_budget-vs-actual-revenue-by-department-y.thumb.webp",
+   "role": "chart",
+   "label": "Budget vs Actual Revenue by Department (YTD)\nWealth Management highest on Budget, at 513,912",
+   "w": 1467,
+   "h": 942
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 740
+  }
+ ],
+ "rolling-forecast": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1725,
+   "h": 1296
+  },
+  {
+   "file": "02_rolling-forecast.webp",
+   "thumb": "02_rolling-forecast.thumb.webp",
+   "role": "engine",
+   "label": "Rolling Forecast",
+   "w": 1800,
+   "h": 915
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 584
+  },
+  {
+   "file": "04_revenue-actual-fc-vs-budget.webp",
+   "thumb": "04_revenue-actual-fc-vs-budget.thumb.webp",
+   "role": "chart",
+   "label": "Revenue: Actual/FC vs Budget",
+   "w": 1800,
+   "h": 908
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 756
+  }
+ ],
+ "budget-forecast": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 932
+  },
+  {
+   "file": "02_cost-budget.webp",
+   "thumb": "02_cost-budget.thumb.webp",
+   "role": "engine",
+   "label": "Cost Budget",
+   "w": 1800,
+   "h": 847
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 989
+  },
+  {
+   "file": "04_revenue-by-department-monthly-corporate-.webp",
+   "thumb": "04_revenue-by-department-monthly-corporate-.thumb.webp",
+   "role": "chart",
+   "label": "Revenue by Department (Monthly)\nCorporate Banki flat at 10,238",
+   "w": 1644,
+   "h": 987
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 730
+  }
+ ],
+ "cost-control": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1040
+  },
+  {
+   "file": "02_cost-detail.webp",
+   "thumb": "02_cost-detail.thumb.webp",
+   "role": "engine",
+   "label": "Cost Detail",
+   "w": 1800,
+   "h": 942
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 515
+  },
+  {
+   "file": "04_total-cost-by-department-nature-technolo.webp",
+   "thumb": "04_total-cost-by-department-nature-technolo.thumb.webp",
+   "role": "chart",
+   "label": "Total Cost by Department & Nature\nTechnology highest on People, at 847,874",
+   "w": 1617,
+   "h": 816
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 755
+  }
+ ],
+ "management-accounts": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1222
+  },
+  {
+   "file": "02_divisional.webp",
+   "thumb": "02_divisional.thumb.webp",
+   "role": "engine",
+   "label": "Divisional",
+   "w": 1800,
+   "h": 906
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1235
+  },
+  {
+   "file": "04_monthly-revenue-ebitda-trend-revenue-up-.webp",
+   "thumb": "04_monthly-revenue-ebitda-trend-revenue-up-.thumb.webp",
+   "role": "chart",
+   "label": "Monthly Revenue & EBITDA Trend\nRevenue up from 229,926 to 267,450",
+   "w": 1617,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 761
+  }
+ ],
+ "working-capital": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1199
+  },
+  {
+   "file": "02_nwc-summary.webp",
+   "thumb": "02_nwc-summary.thumb.webp",
+   "role": "engine",
+   "label": "NWC Summary",
+   "w": 1800,
+   "h": 920
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 448
+  },
+  {
+   "file": "04_cash-conversion-cycle-components-12-mont.webp",
+   "thumb": "04_cash-conversion-cycle-components-12-mont.thumb.webp",
+   "role": "chart",
+   "label": "Cash Conversion Cycle Components (12 Months)\nDPO up from 47.5 to 48.0",
+   "w": 1788,
+   "h": 879
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 768
+  }
+ ],
+ "capitalisation": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 899
+  },
+  {
+   "file": "02_capitalisation-test.webp",
+   "thumb": "02_capitalisation-test.thumb.webp",
+   "role": "engine",
+   "label": "Capitalisation Test",
+   "w": 1800,
+   "h": 809
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1005
+  },
+  {
+   "file": "04_nbv-by-intangible-category-goodwill-high.webp",
+   "thumb": "04_nbv-by-intangible-category-goodwill-high.thumb.webp",
+   "role": "chart",
+   "label": "NBV by Intangible Category\nGoodwill highest on Year 1, at 15,595,193",
+   "w": 1617,
+   "h": 816
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 742
+  }
+ ],
+ "ppe": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1114
+  },
+  {
+   "file": "02_depreciation.webp",
+   "thumb": "02_depreciation.thumb.webp",
+   "role": "engine",
+   "label": "Depreciation",
+   "w": 1800,
+   "h": 950
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1779,
+   "h": 810
+  },
+  {
+   "file": "04_nbv-by-asset-class-buildings-highest-on-.webp",
+   "thumb": "04_nbv-by-asset-class-buildings-highest-on-.thumb.webp",
+   "role": "chart",
+   "label": "NBV by Asset Class\nBuildings highest on Year 1, at 71,920,764",
+   "w": 1617,
+   "h": 771
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 788
+  }
+ ],
+ "impairment": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1199
+  },
+  {
+   "file": "02_impairment-calc.webp",
+   "thumb": "02_impairment-calc.thumb.webp",
+   "role": "engine",
+   "label": "Impairment Calc",
+   "w": 1800,
+   "h": 754
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1423
+  },
+  {
+   "file": "04_carrying-amount-vs-recoverable-amount-by.webp",
+   "thumb": "04_carrying-amount-vs-recoverable-amount-by.thumb.webp",
+   "role": "chart",
+   "label": "Carrying Amount vs Recoverable Amount by CGU\nRB highest on Carrying, at 700",
+   "w": 1437,
+   "h": 924
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 774
+  }
+ ],
+ "capex": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 912
+  },
+  {
+   "file": "02_project-returns.webp",
+   "thumb": "02_project-returns.thumb.webp",
+   "role": "engine",
+   "label": "Project Returns",
+   "w": 1800,
+   "h": 764
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1209
+  },
+  {
+   "file": "04_capex-by-category-it-largest-share-at-64.webp",
+   "thumb": "04_capex-by-category-it-largest-share-at-64.thumb.webp",
+   "role": "chart",
+   "label": "CapEx by Category\nIT largest share, at 64%",
+   "w": 1392,
+   "h": 897
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 788
+  }
+ ],
+ "debt-schedule": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 868
+  },
+  {
+   "file": "02_consolidated.webp",
+   "thumb": "02_consolidated.thumb.webp",
+   "role": "engine",
+   "label": "Consolidated",
+   "w": 1800,
+   "h": 758
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 928
+  },
+  {
+   "file": "04_debt-composition-by-facility-mezz-above-.webp",
+   "thumb": "04_debt-composition-by-facility-mezz-above-.thumb.webp",
+   "role": "chart",
+   "label": "Debt Composition by Facility\nMEZZ above STL_A from Year 4",
+   "w": 1617,
+   "h": 816
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 713
+  }
+ ],
+ "debt-amortisation": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 946
+  },
+  {
+   "file": "02_tranche-1-schedule.webp",
+   "thumb": "02_tranche-1-schedule.thumb.webp",
+   "role": "engine",
+   "label": "Tranche 1 Schedule",
+   "w": 1800,
+   "h": 849
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1262
+  },
+  {
+   "file": "04_outstanding-balance-by-tranche-t6-down-f.webp",
+   "thumb": "04_outstanding-balance-by-tranche-t6-down-f.thumb.webp",
+   "role": "chart",
+   "label": "Outstanding Balance by Tranche\nT6 down from 2,824,868 to 0",
+   "w": 1788,
+   "h": 816
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 792
+  }
+ ],
+ "complete-ltp": [
+  {
+   "file": "01_lending-inputs.webp",
+   "thumb": "01_lending-inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Lending Inputs",
+   "w": 1800,
+   "h": 976
+  },
+  {
+   "file": "02_lending-book.webp",
+   "thumb": "02_lending-book.thumb.webp",
+   "role": "engine",
+   "label": "Lending Book",
+   "w": 1800,
+   "h": 1010
+  },
+  {
+   "file": "03_cfo-dashboard-headline-figures.webp",
+   "thumb": "03_cfo-dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "CFO Dashboard: headline figures",
+   "w": 1800,
+   "h": 350
+  },
+  {
+   "file": "04_cet1-capital-bridge-last-12-months-closi.webp",
+   "thumb": "04_cet1-capital-bridge-last-12-months-closi.thumb.webp",
+   "role": "chart",
+   "label": "CET1 Capital Bridge \u2014 Last 12 Months\nClosing CET1 highest, at 657",
+   "w": 1620,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1671,
+   "h": 945
+  }
+ ],
+ "basel-iv-rwa": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1105
+  },
+  {
+   "file": "02_credit-rwa-irb.webp",
+   "thumb": "02_credit-rwa-irb.thumb.webp",
+   "role": "engine",
+   "label": "Credit RWA (IRB)",
+   "w": 1800,
+   "h": 837
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 640
+  },
+  {
+   "file": "04_rwa-composition-by-risk-type-m-market-at.webp",
+   "thumb": "04_rwa-composition-by-risk-type-m-market-at.thumb.webp",
+   "role": "chart",
+   "label": "RWA Composition by Risk Type ($m)\nMarket at or below Credit (Floored) throughout",
+   "w": 1800,
+   "h": 710
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 765
+  }
+ ],
+ "buy-to-let": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 932
+  },
+  {
+   "file": "02_annual-p-l.webp",
+   "thumb": "02_annual-p-l.thumb.webp",
+   "role": "engine",
+   "label": "Annual P&L",
+   "w": 1800,
+   "h": 829
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 370
+  },
+  {
+   "file": "04_equity-build-up-by-property-5-property-s.webp",
+   "thumb": "04_equity-build-up-by-property-5-property-s.thumb.webp",
+   "role": "chart",
+   "label": "Equity Build-Up by Property (5-Property Sample)\nProperty 1 up from 134,720 to 1,063,460",
+   "w": 1800,
+   "h": 751
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 742
+  }
+ ],
+ "credit-fund": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 895
+  },
+  {
+   "file": "02_default-modelling.webp",
+   "thumb": "02_default-modelling.thumb.webp",
+   "role": "engine",
+   "label": "Default Modelling",
+   "w": 1800,
+   "h": 795
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 979
+  },
+  {
+   "file": "04_fund-nav-vs-benchmark-nav-mm-below-bench.webp",
+   "thumb": "04_fund-nav-vs-benchmark-nav-mm-below-bench.thumb.webp",
+   "role": "chart",
+   "label": "Fund NAV vs Benchmark\nNAV ($mm) below Benchmark in 6 of 20 periods",
+   "w": 1617,
+   "h": 789
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 781
+  }
+ ],
+ "icaap": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 939
+  },
+  {
+   "file": "02_capital-adequacy.webp",
+   "thumb": "02_capital-adequacy.thumb.webp",
+   "role": "engine",
+   "label": "Capital Adequacy",
+   "w": 1800,
+   "h": 802
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 1039
+  },
+  {
+   "file": "04_cet1-ratio-under-stress-scenarios-mild-s.webp",
+   "thumb": "04_cet1-ratio-under-stress-scenarios-mild-s.thumb.webp",
+   "role": "chart",
+   "label": "CET1 Ratio Under Stress Scenarios\nMild Stress below MDA Trigger in 1 of 20 periods",
+   "w": 1788,
+   "h": 879
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 730
+  }
+ ],
+ "ifrs17": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1040
+  },
+  {
+   "file": "02_bba-gmm.webp",
+   "thumb": "02_bba-gmm.thumb.webp",
+   "role": "engine",
+   "label": "BBA / GMM",
+   "w": 1800,
+   "h": 788
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 805
+  },
+  {
+   "file": "04_csm-closing-balance-by-portfolio-marine-.webp",
+   "thumb": "04_csm-closing-balance-by-portfolio-marine-.thumb.webp",
+   "role": "chart",
+   "label": "CSM Closing Balance by Portfolio\nMarine highest on Year 1, at 3.8",
+   "w": 1617,
+   "h": 834
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 755
+  }
+ ],
+ "ilaap": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1015
+  },
+  {
+   "file": "02_lcr.webp",
+   "thumb": "02_lcr.thumb.webp",
+   "role": "engine",
+   "label": "LCR",
+   "w": 1800,
+   "h": 913
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 740
+  },
+  {
+   "file": "04_lcr-nsfr-trend-nsfr-at-or-above-minimum-.webp",
+   "thumb": "04_lcr-nsfr-trend-nsfr-at-or-above-minimum-.thumb.webp",
+   "role": "chart",
+   "label": "LCR & NSFR Trend\nNSFR at or above Minimum throughout",
+   "w": 1617,
+   "h": 879
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 768
+  }
+ ],
+ "infra-dcf": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1068
+  },
+  {
+   "file": "02_free-cash-flow.webp",
+   "thumb": "02_free-cash-flow.thumb.webp",
+   "role": "engine",
+   "label": "Free Cash Flow",
+   "w": 1800,
+   "h": 888
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 407
+  },
+  {
+   "file": "04_revenue-by-asset-mm-water-utility-up-fro.webp",
+   "thumb": "04_revenue-by-asset-mm-water-utility-up-fro.thumb.webp",
+   "role": "chart",
+   "label": "Revenue by Asset ($mm)\nWater Utility up from 276 to 423",
+   "w": 1470,
+   "h": 816
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 806
+  }
+ ],
+ "merger": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 868
+  },
+  {
+   "file": "02_accretion-dilution.webp",
+   "thumb": "02_accretion-dilution.thumb.webp",
+   "role": "engine",
+   "label": "Accretion / Dilution",
+   "w": 1800,
+   "h": 761
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 951
+  },
+  {
+   "file": "04_pro-forma-eps-vs-standalone-eps-y1-y10-p.webp",
+   "thumb": "04_pro-forma-eps-vs-standalone-eps-y1-y10-p.thumb.webp",
+   "role": "chart",
+   "label": "Pro Forma EPS vs Standalone EPS (Y1-Y10)\nPro forma EPS above Standalone EPS from Y4",
+   "w": 1617,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 777
+  }
+ ],
+ "pe-fund": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 976
+  },
+  {
+   "file": "02_distribution-waterfall.webp",
+   "thumb": "02_distribution-waterfall.thumb.webp",
+   "role": "engine",
+   "label": "Distribution Waterfall",
+   "w": 1800,
+   "h": 879
+  },
+  {
+   "file": "03_j-curve-fund-performance-over-time-net-p.webp",
+   "thumb": "03_j-curve-fund-performance-over-time-net-p.thumb.webp",
+   "role": "chart",
+   "label": "J-Curve: Fund Performance Over Time\nNet Position turns positive in quarter 27, ends at 2,656",
+   "w": 1617,
+   "h": 684
+  },
+  {
+   "file": "04_checks.webp",
+   "thumb": "04_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 755
+  }
+ ],
+ "portfolio-attrib": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1779,
+   "h": 1257
+  },
+  {
+   "file": "02_portfolio-holdings.webp",
+   "thumb": "02_portfolio-holdings.thumb.webp",
+   "role": "engine",
+   "label": "Portfolio Holdings",
+   "w": 1743,
+   "h": 1167
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 745
+  },
+  {
+   "file": "04_monthly-attribution-effects-interact-tur.webp",
+   "thumb": "04_monthly-attribution-effects-interact-tur.thumb.webp",
+   "role": "chart",
+   "label": "Monthly Attribution Effects\nInteract turns negative in Feb-25, ends at -0.2%",
+   "w": 1149,
+   "h": 744
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1779,
+   "h": 897
+  }
+ ],
+ "ppp-concession": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 912
+  },
+  {
+   "file": "02_cash-flows.webp",
+   "thumb": "02_cash-flows.thumb.webp",
+   "role": "engine",
+   "label": "Cash Flows",
+   "w": 1800,
+   "h": 808
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 625
+  },
+  {
+   "file": "04_vfm-comparison-psc-vs-ppp-m-road-shadow-.webp",
+   "thumb": "04_vfm-comparison-psc-vs-ppp-m-road-shadow-.thumb.webp",
+   "role": "chart",
+   "label": "VFM Comparison: PSC vs PPP (\u00a3m)\nRoad Shadow Toll highest on PSC NPV (\u00a3m), at 1,085.1m",
+   "w": 1617,
+   "h": 834
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 768
+  }
+ ],
+ "project-finance": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 914
+  },
+  {
+   "file": "02_operations-revenue.webp",
+   "thumb": "02_operations-revenue.thumb.webp",
+   "role": "engine",
+   "label": "Operations Revenue",
+   "w": 1800,
+   "h": 952
+  },
+  {
+   "file": "03_annual-revenue-vs-ebitda-revenue-up-from.webp",
+   "thumb": "03_annual-revenue-vs-ebitda-revenue-up-from.thumb.webp",
+   "role": "chart",
+   "label": "Annual Revenue vs EBITDA\nRevenue up from 11,317,157 to 18,948,734",
+   "w": 1089,
+   "h": 708
+  },
+  {
+   "file": "04_checks.webp",
+   "thumb": "04_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 828
+  }
+ ],
+ "re-fund": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 868
+  },
+  {
+   "file": "02_property-cash-flows.webp",
+   "thumb": "02_property-cash-flows.thumb.webp",
+   "role": "engine",
+   "label": "Property Cash Flows",
+   "w": 1800,
+   "h": 841
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 965
+  },
+  {
+   "file": "04_noi-by-property-type-office-highest-on-y.webp",
+   "thumb": "04_noi-by-property-type-office-highest-on-y.thumb.webp",
+   "role": "chart",
+   "label": "NOI by Property Type\nOffice highest on Year 1, at 16,640,369",
+   "w": 1617,
+   "h": 987
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 755
+  }
+ ],
+ "restructuring": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 907
+  },
+  {
+   "file": "02_waterfall-recovery.webp",
+   "thumb": "02_waterfall-recovery.thumb.webp",
+   "role": "engine",
+   "label": "Waterfall Recovery",
+   "w": 1800,
+   "h": 785
+  },
+  {
+   "file": "03_dashboard-headline-figures.webp",
+   "thumb": "03_dashboard-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard: headline figures",
+   "w": 1800,
+   "h": 592
+  },
+  {
+   "file": "04_recovery-by-tranche-claim-vs-recovery-mm.webp",
+   "thumb": "04_recovery-by-tranche-claim-vs-recovery-mm.thumb.webp",
+   "role": "chart",
+   "label": "Recovery by Tranche \u2014 Claim vs Recovery ($mm)\nSr Secured highest on Recovery, at 300",
+   "w": 1617,
+   "h": 681
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 756
+  }
+ ],
+ "nim-budget-tracking": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 1135
+  },
+  {
+   "file": "02_actuals.webp",
+   "thumb": "02_actuals.thumb.webp",
+   "role": "engine",
+   "label": "Actuals",
+   "w": 1800,
+   "h": 901
+  },
+  {
+   "file": "03_dashboard.webp",
+   "thumb": "03_dashboard.thumb.webp",
+   "role": "outputs",
+   "label": "Dashboard",
+   "w": 1800,
+   "h": 1166
+  },
+  {
+   "file": "04_checks.webp",
+   "thumb": "04_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 561
+  }
+ ],
+ "ifrs16-lease": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 501
+  },
+  {
+   "file": "02_lease-schedule.webp",
+   "thumb": "02_lease-schedule.thumb.webp",
+   "role": "engine",
+   "label": "Lease Schedule",
+   "w": 1800,
+   "h": 999
+  },
+  {
+   "file": "03_outputs-headline-figures.webp",
+   "thumb": "03_outputs-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Outputs: headline figures",
+   "w": 1800,
+   "h": 697
+  },
+  {
+   "file": "04_right-of-use-assets-turns-negative-in-ye.webp",
+   "thumb": "04_right-of-use-assets-turns-negative-in-ye.thumb.webp",
+   "role": "chart",
+   "label": "Right-of-use assets turns negative in year 9, ends at 0.0m",
+   "w": 1587,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 697
+  }
+ ],
+ "cecl": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 576
+  },
+  {
+   "file": "02_warm-method.webp",
+   "thumb": "02_warm-method.thumb.webp",
+   "role": "engine",
+   "label": "WARM Method",
+   "w": 1800,
+   "h": 845
+  },
+  {
+   "file": "03_outputs-headline-figures.webp",
+   "thumb": "03_outputs-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Outputs: headline figures",
+   "w": 1800,
+   "h": 1022
+  },
+  {
+   "file": "04_cre-non-owner-occupied-highest-on-collec.webp",
+   "thumb": "04_cre-non-owner-occupied-highest-on-collec.thumb.webp",
+   "role": "chart",
+   "label": "CRE: non-owner occupied highest on Collective allowance, at 4.5m",
+   "w": 1569,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 697
+  }
+ ],
+ "irrbb": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 750
+  },
+  {
+   "file": "02_eve.webp",
+   "thumb": "02_eve.thumb.webp",
+   "role": "engine",
+   "label": "EVE",
+   "w": 1800,
+   "h": 1004
+  },
+  {
+   "file": "03_outputs-headline-figures.webp",
+   "thumb": "03_outputs-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Outputs: headline figures",
+   "w": 1800,
+   "h": 1252
+  },
+  {
+   "file": "04_parallel-down-highest-at-30-1m.webp",
+   "thumb": "04_parallel-down-highest-at-30-1m.thumb.webp",
+   "role": "chart",
+   "label": "Parallel down highest, at 30.1m",
+   "w": 1569,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 697
+  }
+ ],
+ "ifrs9-loan-level": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 725
+  },
+  {
+   "file": "02_loan-staging.webp",
+   "thumb": "02_loan-staging.thumb.webp",
+   "role": "engine",
+   "label": "Loan Staging",
+   "w": 1800,
+   "h": 1030
+  },
+  {
+   "file": "03_outputs-headline-figures.webp",
+   "thumb": "03_outputs-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Outputs: headline figures",
+   "w": 1800,
+   "h": 857
+  },
+  {
+   "file": "04_sme-lending-highest-on-stage-1-at-0-6m.webp",
+   "thumb": "04_sme-lending-highest-on-stage-1-at-0-6m.thumb.webp",
+   "role": "chart",
+   "label": "SME lending highest on Stage 1, at 0.6m",
+   "w": 1569,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 697
+  }
+ ],
+ "credit-stress-test": [
+  {
+   "file": "01_inputs.webp",
+   "thumb": "01_inputs.thumb.webp",
+   "role": "inputs",
+   "label": "Inputs",
+   "w": 1800,
+   "h": 750
+  },
+  {
+   "file": "02_capital.webp",
+   "thumb": "02_capital.thumb.webp",
+   "role": "engine",
+   "label": "Capital",
+   "w": 1800,
+   "h": 1142
+  },
+  {
+   "file": "03_outputs-headline-figures.webp",
+   "thumb": "03_outputs-headline-figures.thumb.webp",
+   "role": "outputs",
+   "label": "Outputs: headline figures",
+   "w": 1800,
+   "h": 706
+  },
+  {
+   "file": "04_severely-adverse-at-or-above-hurdle-in-s.webp",
+   "thumb": "04_severely-adverse-at-or-above-hurdle-in-s.thumb.webp",
+   "role": "chart",
+   "label": "Severely adverse at or above Hurdle in stress throughout",
+   "w": 1569,
+   "h": 936
+  },
+  {
+   "file": "05_checks.webp",
+   "thumb": "05_checks.thumb.webp",
+   "role": "checks",
+   "label": "Checks",
+   "w": 1800,
+   "h": 697
+  }
+ ]
 }
