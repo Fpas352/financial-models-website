@@ -792,6 +792,33 @@ document.head.appendChild(injectedStyles);
 
 
 // ============================================================
+// CHECKOUT CLICK COUNTER (free, via Cloudflare Web Analytics)
+// ============================================================
+//
+// Cloudflare Web Analytics only counts page views, so each checkout link is
+// sent through go.html, which records itself as /go/buy/<model> or
+// /go/sample/<model> and then forwards to Lemon Squeezy. In the Cloudflare
+// dashboard, filter paths by "/go/" to see the clicks.
+//
+// The link is rewritten at the moment of the click, not on page load, so
+// hovering still shows the Lemon Squeezy address and links filled in later
+// from ls-config.js are caught too.
+
+(function () {
+  var LS_CHECKOUT = /^https:\/\/sfsmodels\.lemonsqueezy\.com\/checkout\/buy\/([0-9a-f-]{36})\/?$/i;
+  function routeThroughCounter(e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var m = LS_CHECKOUT.exec(a.href);
+    if (m) a.href = '/go.html?to=' + m[1].toLowerCase();
+  }
+  ['click', 'auxclick', 'contextmenu'].forEach(function (type) {
+    document.addEventListener(type, routeThroughCounter, true);
+  });
+})();
+
+
+// ============================================================
 // GA4 EVENT TRACKING
 // ============================================================
 

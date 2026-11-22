@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opening checkout | SFS Models</title>
+  <meta name="robots" content="noindex, nofollow">
+  <!--
+    Click counter for checkout buttons. Free: it uses the Cloudflare Web
+    Analytics beacon already on every page, which only counts page views.
+
+    js/scripts.js sends every Lemon Squeezy checkout link here as
+    /go.html?to=<checkout id>. This page looks the id up in ls-config.js,
+    renames its own address to /go/<buy|sample>/<model> before the beacon
+    loads, then forwards to the real checkout. In Cloudflare each click shows
+    as a page view of that path, e.g. /go/buy/dcf or /go/sample/lending.
+
+    Only ids that look like a checkout id are forwarded, and only to the
+    sfsmodels.lemonsqueezy.com store, so this cannot be used as an open
+    redirect.
+  -->
+  <style>
+    html, body { margin: 0; height: 100%; background: #0A0C10; color: #E8E6E1;
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif; }
+    main { min-height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px; padding: 16px;
+      text-align: center; }
+    p { margin: 0; font-size: 16px; }
+    a { color: #C9A84C; }
+  </style>
+  <script type="module">
+    // Labels the click for the report. A module runs after parsing but before
+    // the deferred analytics beacon below, because both execute in document
+    // order. If this fails the visitor is still forwarded by the plain script
+    // in the body; the click is just recorded as /go.html.
+    import products from '/ls-config.js';
+
+    var id = window.SFS_GO_ID;
+    var kind = 'other', model = 'unknown';
+    Object.keys(products).some(function (key) {
+      var p = products[key];
+      if (p.buyUrl && p.buyUrl.indexOf(id) !== -1) { kind = 'buy'; model = key; return true; }
+      if (p.freeUrl && p.freeUrl.indexOf(id) !== -1) { kind = 'sample'; model = key; return true; }
+      return false;
+    });
+
+    // Rename the address before the beacon reads it, so the click is recorded
+    // under a readable path such as /go/buy/dcf and the query string is dropped.
+    if (id) {
+      try { history.replaceState(null, '', '/go/' + kind + '/' + model); } catch (e) {}
+    }
+  </script>
+<!-- SFS-ANALYTICS -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7852444a13cc4cc78cdb4162c284e1de"}'></script>
+<!-- /SFS-ANALYTICS -->
+</head>
+<body>
+  <main>
+    <p>Opening secure checkout&hellip;</p>
+    <p><a id="go-link" href="/models.html">Continue if nothing happens</a></p>
+  </main>
+  <script>
+    // Forwarding lives here, outside the module, so a buyer always reaches
+    // checkout even if ls-config.js fails to load.
+    (function () {
+      var id = (new URLSearchParams(location.search).get('to') || '').toLowerCase();
+      var ok = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(id);
+      window.SFS_GO_ID = ok ? id : '';
+      var dest = ok ? 'https://sfsmodels.lemonsqueezy.com/checkout/buy/' + id : '/models.html';
+      document.getElementById('go-link').href = dest;
+
+      var gone = false;
+      function forward() {
+        if (gone) return;
+        gone = true;
+        location.replace(dest);
+      }
+      // Give the beacon a moment after load to report the view, but never hold
+      // the visitor for more than two seconds.
+      window.addEventListener('load', function () { setTimeout(forward, 150); });
+      setTimeout(forward, 2000);
+    })();
+  </script>
+</body>
+</html>

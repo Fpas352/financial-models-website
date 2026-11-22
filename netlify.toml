@@ -3,6 +3,13 @@
 
 # No build command — plain HTML/CSS/JS, no bundler
 
+# Checkout click counter: /go/buy/<model> is the address go.html gives itself
+# after loading, so a reload of that address must still serve go.html.
+[[redirects]]
+  from = "/go/*"
+  to = "/go.html"
+  status = 200
+
 # Custom 404 page
 [[redirects]]
   from = "/api/*"

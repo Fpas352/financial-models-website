@@ -7,3 +7,5 @@ Sitemap: https://sfsmodels.org/sitemap.xml
 
 # Block backend and data directories
 Disallow: /backend/
+Disallow: /go.html
+Disallow: /go/
