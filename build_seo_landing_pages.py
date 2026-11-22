@@ -348,7 +348,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <p style="margin-top:2rem;">
         <a href="{checkout}" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-model-id="{data_model_id}">Buy Now - &pound;{price_gbp}</a>
       </p>
-      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">Free sample available &middot; same-day delivery &middot; secure checkout via Lemon Squeezy</p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">Free sample available &middot; same-day delivery &middot; secure checkout via Lemon Squeezy &middot; prices exclude VAT, added at checkout where applicable</p>
     </div>
   </section>
 

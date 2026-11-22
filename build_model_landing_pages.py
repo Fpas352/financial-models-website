@@ -2864,7 +2864,7 @@ def render(m):
       <p style="margin-top:2rem;">
         {buttons(m, big=True)}
       </p>
-      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample shows every tab with real results &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample shows every tab with real results &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy &middot; prices exclude VAT, added at checkout where applicable</p>
     </div>
   </section>
 
