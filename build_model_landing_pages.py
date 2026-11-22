@@ -75,7 +75,7 @@ MODELS = [
             ("How is this different from the £299 IFRS 9 / CECL model?", "That model works at segment level and switches between IFRS 9 and CECL. This one works loan by loan, with five staging triggers per loan, transition-matrix PD curves and IFRS 7 disclosure tables. Choose this one when you need to explain individual exposures."),
             ("What does it not do?", "It runs in annual steps over a 20-year horizon. Exposure is bullet or straight-line amortising, LGD is constant over a loan's life within a scenario, and there is no cure or prepayment modelling. Prior-period stage and ECL are inputs, used for the movement table."),
             ("Are there macros?", "No. Open formulas, no VBA, no hidden sheets. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live. The only difference is that inputs are locked, so you evaluate it on the demo loan book rather than your own."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo loan book, plus one engine tab with live formulas. To run your own loan book you need the full version."),
         ],
         "spec": "Excel (.xlsx) &middot; 15 tabs &middot; up to 1,000 loans &middot; 36 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -128,7 +128,7 @@ MODELS = [
             ("How does it relate to the Stress Testing Model?", "The Stress Testing Model works at portfolio level across the whole income statement. This model starts from the loan tape and gives a granular credit view with its own capital plan. They can be used together, or this one on its own for a credit-led stress."),
             ("What does it not do?", "Annual steps over three years, expected values rather than simulated paths. No cures from default and no write-offs, so Stage 3 only grows. Tax losses are not carried forward. Under the static balance sheet option, maturing loans are replaced like for like."),
             ("How many loans can it take?", "Up to 1,000 rows. Paste over the demo tape; blank rows return zero."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 17 tabs &middot; up to 1,000 loans &middot; 3 scenarios &times; 3 years &middot; 42 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -177,7 +177,7 @@ MODELS = [
             ("Is it loan level?", "No. It works on eight pooled segments, which is how most community banks estimate CECL. Balances amortise on a straight line with a constant prepayment rate."),
             ("How is this different from the IFRS 9 / CECL model?", "That model is a PD/LGD/EAD engine with a switch between IFRS 9 and CECL. This one is built for ASC 326 only, with WARM, the interagency Q-factors, the unfunded commitment reserve and the roll-forward."),
             ("What does it not do?", "Annual periods and remaining terms up to 15 years. Losses are applied to projected balances, so exposure is not reduced for earlier defaults, which is slightly conservative. It supports management judgement and audit, it does not replace them."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 12 tabs &middot; 8 loan segments &middot; 18 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -225,7 +225,7 @@ MODELS = [
             ("Does it model option risk?", "Behavioural optionality is captured through deposit slotting. Prepayment and early redemption are not modelled separately: reflect them in the buckets you enter. Automatic options such as caps and floors are not modelled."),
             ("Can it handle more than one currency?", "One currency per copy. Run a copy for each material currency."),
             ("How is it different from the Duration &amp; Rate Sensitivity Model?", "That model measures duration and rate sensitivity for a portfolio. This one implements the regulatory IRRBB framework: Basel buckets, the six shocks, deposit slotting and the outlier tests."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 12 tabs &middot; 19 Basel buckets &middot; 6 rate shocks &middot; 17 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -271,7 +271,7 @@ MODELS = [
             ("How many leases?", "Ten rows, each a separate lease. For a larger estate, run a copy per entity or group leases of the same class and terms."),
             ("Does it handle index-linked payments?", "Payments linked to an index are measured at the commencement rate, as IFRS 16 requires, so only fixed uplifts are projected. Remeasurements and modifications are not modelled."),
             ("Monthly or annual?", "Monthly. A lease that commences mid-month is treated as starting on the first of that month. Every lease must end within the 120-month horizon; CHECKS tests this."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 10 tabs &middot; up to 10 leases &middot; monthly over 10 years &middot; 19 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -325,7 +325,7 @@ MODELS = [
             ("What does it not cover?", "Securitisation exposures and counterparty credit risk under SA-CCR are not included. CVA uses the basic approach only, and the market risk standardised approach uses simplified risk weights."),
             ("How is it different from the Capital / Regulatory Model?", "The Capital Model plans the capital base, buffers, Pillar 2 and the five-year capital plan on the current rules. This calculator goes deep on RWA under the final reforms: the new standardised approach, IRB, the output floor, FRTB, SMA and CVA."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 17 tabs &middot; 12 exposure classes &middot; 20 quarters &times; 4 scenarios &middot; 65 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -376,7 +376,7 @@ MODELS = [
             ("Can I use it for regulatory submissions?", "It is a projection and planning model. Regulatory returns need counterparty-level data and validation against your own systems; this model shows where the numbers are heading and why."),
             ("How is it different from the ILAAP Model?", "The ILAAP Model frames the full internal liquidity adequacy assessment. This model is the calculation engine for the LCR and NSFR, with stress testing and a maturity ladder."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 17 tabs &middot; 60-month projection &middot; 3 stress scenarios &middot; 55 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -428,7 +428,7 @@ MODELS = [
             ("What does it not do?", "Risk weights are static, with no credit migration. Operational risk uses the Basic Indicator Approach. Counterparty credit risk under SA-CCR and MREL are not included. For the Basel 3.1 RWA changes, see the Basel IV RWA Calculator."),
             ("How does it relate to the ICAAP Model?", "The ICAAP Model frames the whole internal capital adequacy assessment. This model is the capital engine: the stack, RWA, buffers, Pillar 2, stress and the capital plan."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 18 tabs &middot; 60-month projection &middot; 10 exposure classes &middot; 64 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -477,7 +477,7 @@ MODELS = [
             ("Can I change the products?", "Every volume, rate and risk assumption is set per product on INPUTS, and the eight rows can be relabelled for the lending products you run."),
             ("Does it handle changing interest rates?", "Yes. A rate trajectory sets the rate on new originations year by year, and each vintage keeps its own rate."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 14 tabs &middot; 8 lending products &middot; 60 months, vintage engine &middot; 16 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -525,7 +525,7 @@ MODELS = [
             ("Can I add or rename products?", "Every balance, flow and pricing assumption is set per product on INPUTS, and the seven rows can be relabelled for your own range. Adding a product means extending the formulas on BOOK."),
             ("Which liquidity rules does it use?", "Basel III LCR outflow rates and NSFR available stable funding factors as defaults, editable if your regulator sets different add-ons."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 14 tabs &middot; 7 deposit products &middot; 60-month projection &middot; 27 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -581,7 +581,7 @@ MODELS = [
             ("Does it handle options?", "No. It is a linear VaR model, so it does not capture option gamma or convexity. Multi-day VaR uses the square-root-of-time rule."),
             ("How many simulations does the Monte Carlo use?", "250 scenarios drawn from the estimated distribution, which keeps it fast in Excel. It shows the method clearly; production Monte Carlo engines run many more paths."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 18 tabs &middot; 10 assets &times; 250 days &middot; 3 VaR methods &middot; 55 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -627,7 +627,7 @@ MODELS = [
             ("Which base rate does it assume?", "It is set up for the Bank of England base rate with configurable betas, but the rate path is an input, so it works for any policy rate."),
             ("How is it different from the Deposit Pricing &amp; NII Model?", "That model projects deposit pricing and NII forward. This one explains the past: actuals against budget, decomposed."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 13 tabs &middot; lending, deposits and treasury &middot; 16+ step NIM walk &middot; no macros &middot; instant download",
         "related": [
@@ -674,7 +674,7 @@ MODELS = [
             ("What does it not include?", "Regulatory costs such as the FSCS levy are not in the pricing, market share is static rather than linked to competitor rates, and NII sensitivity assumes parallel curve shifts."),
             ("Which day count does it use?", "Actual/365."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 14 tabs &middot; 60-month projection &middot; 4 scenarios &middot; 37 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -725,7 +725,7 @@ MODELS = [
             ("What does it not do?", "It assumes a flat volatility surface, the convexity adjustment is approximate, there is no CVA or DVA, and day counts are simplified for semi-annual periods."),
             ("Can I value my own swaps?", "Yes. Each of the 20 portfolio rows takes its own notional, fixed rate, tenor and direction."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 17 tabs &middot; 20-swap portfolio &middot; 9 stress scenarios &middot; 15 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -774,7 +774,7 @@ MODELS = [
             ("What does it not do?", "It runs in annual periods, PD and LGD are constant within a scenario with no term structure of default, and portfolio effects are additive with no correlation between products."),
             ("How is it different from the Lending Model?", "The Lending Model projects a loan book's balances, P&amp;L and capital. This model prices individual products and grades and measures their risk-adjusted return."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo bank."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo bank, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 16 tabs &middot; 6 products &times; 7 grades &times; 10 years &middot; 76 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -826,7 +826,7 @@ MODELS = [
             ("What does it not do?", "Collateral values are static, there is no wrong-way risk modelling, and portfolio correlation between obligors is assumed to be zero. The distance-to-default proxy is simplified."),
             ("How often should I update it?", "With each set of audited annual financials. Inputs are annual."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo portfolio."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 19 tabs &middot; 15 obligors &times; 10 periods &middot; 48 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -880,7 +880,7 @@ MODELS = [
             ("Which currency is it in?", "The demo data is in US dollars, millions. All values are inputs, so any currency works if you are consistent."),
             ("How is it different from the Multi-Method Valuations Model?", "This model goes deep on one method: comparable companies. The Multi-Method model runs six methods side by side, with comps as one of them."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo peer set."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo peer set, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 16 tabs &middot; up to 30 peers &times; 8 years &middot; 15+ multiples &middot; 58 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -929,7 +929,7 @@ MODELS = [
             ("How many scenarios does it have?", "Three: Base, Upside and Downside, switched from one cell on INPUTS."),
             ("How should I use the result?", "As one input in a wider valuation alongside comparable companies and a DCF. The football field shows the ranges together."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo deal set."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo deal set, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 16 tabs &middot; up to 25 transactions &middot; LTM, NTM, NTM+1 &middot; 49 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -975,7 +975,7 @@ MODELS = [
             ("Can I use fewer than eight segments?", "Yes. Set unused segments to zero and they drop out of the total."),
             ("What does it not capture?", "Optionality and synergy values are not modelled, and terminal value usually makes up a large share of each segment's DCF, as with any DCF."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo group."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo group, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 21 tabs &middot; 8 segments &times; 3 methods &middot; 10-year DCF &middot; 63 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -1025,7 +1025,7 @@ MODELS = [
             ("How is the cost of equity set?", "CAPM: risk-free rate plus beta times the equity risk premium, per company."),
             ("How long is the projection?", "Twenty years of dividends, with growth transitioning between stages."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo peer group."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo peer group, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 17 tabs &middot; 10 companies &times; 5 methods &middot; 20-year projection &middot; 80 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -1075,7 +1075,7 @@ MODELS = [
             ("What are the limits?", "Point-in-time data, a simplified LBO with a cash sweep, and a DDM that suits regular dividend payers. Each method's tab states its assumptions."),
             ("Which currency is it in?", "The demo is in US dollars, millions. All values are inputs."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo company."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo company, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 18 tabs &middot; 6 valuation methods &middot; 4 scenarios &middot; 115 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -1125,7 +1125,7 @@ MODELS = [
             ("What does it not include?", "Share issuance and buybacks, seasonality, covenant breach mechanics, foreign exchange and acquisitions beyond PP&amp;E. Deferred tax is simplified, and no tax credit is taken on losses."),
             ("Is it suitable for a bank?", "No. Banks need a balance-sheet-driven model with NII, provisions and capital: see the Bank Long-Term Plan Model."),
             ("Are there macros?", "No. Open formulas, no VBA. Every number traces back to an input."),
-            ("Can I see it before I buy?", "Yes. The free sample is the complete workbook with every formula and check live, inputs locked, so you evaluate it on the demo company."),
+            ("Can I see it before I buy?", "Yes. The free sample shows every tab, chart and check with real results on the demo company, plus one engine tab with live formulas."),
         ],
         "spec": "Excel (.xlsx) &middot; 16 tabs &middot; 36 months + years 4-10 &middot; 5 revenue segments &middot; 193 integrity checks &middot; no macros &middot; instant download",
         "related": [
@@ -1212,8 +1212,8 @@ MODELS = [
                'currency works if you are consistent.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo portfolio.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 14 tabs &middot; 30 bonds &middot; 9 scenarios &middot; 15 integrity checks '
              '&middot; no macros &middot; instant download',
      'related': [('Duration &amp; Rate Sensitivity Model', '/duration-rate-sensitivity-model-excel.html'),
@@ -1304,8 +1304,8 @@ MODELS = [
                'Yes. The 20 positions, the par yield curve and the liability profile are all inputs on INPUTS.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo portfolio.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 18 tabs &middot; 20 bonds &middot; 17 rate shocks &middot; 55 integrity '
              'checks &middot; no macros &middot; instant download',
      'related': [('IRRBB Model', '/irrbb-model-excel.html'),
@@ -1395,8 +1395,8 @@ MODELS = [
                'selector on INPUTS.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo company.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo company, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 6 currency pairs &times; 60 months &middot; 15 hedge '
              'instruments &middot; 70 integrity checks &middot; no macros &middot; instant download',
      'related': [('Value at Risk (VaR) Model', '/var-model-excel.html'),
@@ -1469,8 +1469,8 @@ MODELS = [
                'one takes a budget as given and tracks actual results against it every month.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo bank.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo bank, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 8 departments &times; 40 lines &times; 12 months &middot; '
              '70 integrity checks &middot; no macros &middot; instant download',
      'related': [('Budget &amp; Forecast Model', '/budget-vs-forecast-model-excel.html'),
@@ -1560,8 +1560,8 @@ MODELS = [
                'generic: departments, revenue streams, cost categories, headcount and capex.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo bank.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo bank, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 10 departments &times; 12 months &middot; 4 scenarios '
              '&middot; 47 integrity checks &middot; no macros &middot; instant download',
      'related': [('Budget vs Actual Variance Model', '/budget-vs-actual-variance-model-excel.html'),
@@ -1653,8 +1653,8 @@ MODELS = [
                'for one reporting month.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo bank.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo bank, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 6 divisions &middot; 20 KPIs &middot; 50 integrity checks '
              '&middot; no macros &middot; instant download',
      'related': [('Budget vs Actual Variance Model', '/budget-vs-actual-variance-model-excel.html'),
@@ -1742,8 +1742,8 @@ MODELS = [
                'The demo is in US dollars. All values are inputs, so any currency works if you are consistent.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo company.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo company, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 5 segments &times; 60 months &middot; 64 integrity checks '
              '&middot; no macros &middot; instant download',
      'related': [('3-Statement Integrated Model', '/three-statement-model-excel.html'),
@@ -1833,8 +1833,8 @@ MODELS = [
                'switched from one selector. The SENSITIVITY tables run independently of the selector.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo bank.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo bank, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 20 projects &times; 60 months &middot; 72 integrity checks '
              '&middot; no macros &middot; instant download',
      'related': [('IAS 16 PP&amp;E Model', '/ias-16-ppe-model-excel.html'),
@@ -1931,8 +1931,8 @@ MODELS = [
                'Impairment Model.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo company.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo company, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 8 categories &middot; 120 assets &times; 60 months '
              '&middot; 53 integrity checks &middot; no macros &middot; instant download',
      'related': [('IAS 36 Impairment Model', '/ias-36-impairment-model-excel.html'),
@@ -2026,8 +2026,8 @@ MODELS = [
                'recoverable amount test: for that, see the IAS 36 Impairment Model.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo company.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo company, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 6 asset classes &middot; 120 assets &times; 60 months '
              '&middot; 53 integrity checks &middot; no macros &middot; instant download',
      'related': [('Capex Model', '/capex-model-excel.html'),
@@ -2128,8 +2128,8 @@ MODELS = [
                'results. Fair value is based on multiples.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo company.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo company, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 20 tabs &middot; 8 CGUs &middot; 10-year DCF &middot; 54 integrity checks '
              '&middot; no macros &middot; instant download',
      'related': [('IAS 38 Capitalisation Model', '/ias-38-capitalisation-model-excel.html'),
@@ -2212,8 +2212,8 @@ MODELS = [
                'Refinancing options cover the term loan and the revolver.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo company.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo company, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 21 tabs &middot; 8 facilities &times; 60 months &middot; 5 covenants '
              '&middot; 100 integrity checks &middot; no macros &middot; instant download',
      'related': [('Debt Amortisation Model', '/debt-amortisation-model-excel.html'),
@@ -2284,8 +2284,8 @@ MODELS = [
                'grace periods and tax effects are not modelled.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo portfolio.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 18 tabs &middot; 6 tranches &middot; up to 360 months &middot; 75 integrity '
              'checks &middot; no macros &middot; instant download',
      'related': [('Debt Schedule Model', '/debt-schedule-model-excel.html'),
@@ -2364,8 +2364,8 @@ MODELS = [
                'input rates. It covers 40 securities over 12 monthly periods.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo portfolio.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 40 securities &times; 12 months &middot; 5 factors '
              '&middot; 75 integrity checks &middot; no macros &middot; instant download',
      'related': [('PE Fund Waterfall Model', '/pe-fund-waterfall-model-excel.html'),
@@ -2456,8 +2456,8 @@ MODELS = [
                'payback rather than IRR.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo portfolio.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 18 tabs &middot; 3 assets &times; 30 years &middot; 4 scenarios &middot; 64 '
              'integrity checks &middot; no macros &middot; instant download',
      'related': [('Project Finance Model', '/project-finance-model-excel.html'),
@@ -2547,8 +2547,8 @@ MODELS = [
                'and one inflation rate applies throughout; sector-specific indices are not modelled.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo portfolio.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 18 tabs &middot; 3 projects &middot; 40 quarters + 20 years &middot; 59 '
              'integrity checks &middot; no macros &middot; instant download',
      'related': [('Project Finance Model', '/project-finance-model-excel.html'),
@@ -2634,8 +2634,8 @@ MODELS = [
                'held flat, and the company route assumes all profit is extracted as dividends.'),
               ('Are there macros?', 'No. Open formulas, no VBA. Every number traces back to an input.'),
               ('Can I see it before I buy?',
-               'Yes. The free sample is the complete workbook with every formula and check live, inputs locked, '
-               'so you evaluate it on the demo portfolio.')],
+               'Yes. The free sample shows every tab, chart and check with real results on the demo portfolio, '
+               'plus one engine tab with live formulas.')],
      'spec': 'Excel (.xlsx) &middot; 17 tabs &middot; 10 properties &middot; 30-year horizon &middot; 62 '
              'integrity checks &middot; no macros &middot; instant download',
      'related': [('Real Estate Fund Model', '/real-estate-fund-model-excel.html'),
@@ -2864,7 +2864,7 @@ def render(m):
       <p style="margin-top:2rem;">
         {buttons(m, big=True)}
       </p>
-      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample is the full workbook with inputs locked &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">The free sample shows every tab with real results &middot; one-time purchase, no subscription &middot; secure checkout via Lemon Squeezy</p>
     </div>
   </section>
 
