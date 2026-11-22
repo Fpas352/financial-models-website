@@ -113,6 +113,33 @@ def divbar_svg(rows, vmin, vmax, width=640, bar_h=13, gap=5, label_w=92, step=20
     return "".join(out)
 
 
+def tornado_svg(rows, vmin, vmax, width=640, bar_h=20, gap=12, label_w=210, step=5):
+    """Tornado chart. rows = [(label, low_pct, high_pct, low_note, high_note)] in % change."""
+    L, R = label_w, 70
+    pw = width - L - R
+    x = lambda v: L + pw * (v - vmin) / (vmax - vmin)
+    h = len(rows) * (bar_h + gap) + 30
+    out = [f'<svg viewBox="0 0 {width} {h}" width="100%" xmlns="http://www.w3.org/2000/svg" '
+           f'font-family="{FONT}" font-size="11.5">']
+    k = vmin
+    while k <= vmax:
+        out.append(f'<line x1="{x(k):.1f}" x2="{x(k):.1f}" y1="0" y2="{h - 22}" stroke="{LIGHT}"/>')
+        out.append(f'<text x="{x(k):.1f}" y="{h - 8}" text-anchor="middle" fill="{GREY}">'
+                   f'{("+" if k > 0 else "") + str(k).replace("-", chr(8722))}%</text>')
+        k += step
+    out.append(f'<line x1="{x(0):.1f}" x2="{x(0):.1f}" y1="0" y2="{h - 22}" stroke="#555"/>')
+    for i, (lab, lo, hi, lon, hin) in enumerate(rows):
+        yy = 3 + i * (bar_h + gap)
+        out.append(f'<text x="{L - 8}" y="{yy + bar_h * 0.7}" text-anchor="end" fill="#222">{lab}</text>')
+        out.append(f'<rect x="{x(lo):.1f}" y="{yy}" width="{x(0) - x(lo):.1f}" height="{bar_h}" fill="{MID}"/>')
+        out.append(f'<rect x="{x(0):.1f}" y="{yy}" width="{x(hi) - x(0):.1f}" height="{bar_h}" fill="{NAVY}"/>')
+        lo_txt = f"{lo:.1f}%".replace("-", chr(8722))
+        out.append(f'<text x="{x(lo) - 4:.1f}" y="{yy + bar_h * 0.7}" text-anchor="end" fill="#222">{lo_txt}</text>')
+        out.append(f'<text x="{x(hi) + 4:.1f}" y="{yy + bar_h * 0.7}" fill="#222">+{hi:.1f}%</text>')
+    out.append("</svg>")
+    return "".join(out)
+
+
 def waterfall_svg(steps, ymin, ymax, hurdle=None, width=640, height=290):
     """steps = [(label, value, kind)] kind in start|delta|end. Values in % points."""
     L, R, T, B = 44, 12, 14, 52
@@ -867,7 +894,7 @@ NOTE6 = dict(
     dek="The structure, formula conventions and integrity checks that internal validation, auditors and supervisors "
         "look for, with examples from three models",
     model_name="the SFS Models catalogue", model_url="models.html",
-    meta="Applies to: every model in the SFS Models catalogue<br>Examples: IFRS 9 ECL Model: Loan-Level Edition, "
+    meta="Applies to: model build and review<br>Examples: IFRS 9 ECL Model: Loan-Level Edition, "
          "Credit Stress Test &amp; Capital Model, IRRBB Model",
     close_heading="The models",
     sample_line="Each model has a free sample showing its results on demo data:",
@@ -879,8 +906,8 @@ NOTE6 = dict(
              "covering the layout of the workbook, the scenario switch, the treatment of balances and interest, the formula "
              "conventions, and the integrity checks. The three models used as examples carry 36, 42 and 17 checks "
              "respectively.",
-    model_para="The models in the SFS Models catalogue are built to the standard described here, and each has its own "
-               "integrity checks tab.",
+    model_para="The three models used as examples are built to the standard described here. Every model in the SFS Models "
+               "catalogue has its own integrity checks tab.",
     body="""
 <h2><span class="n">1</span>Introduction</h2>
 <p>Most errors in spreadsheet models are not errors of method. They are a hard-coded number inside a formula, a range that stops
@@ -889,7 +916,7 @@ Each is easy to make and hard to find in a large workbook. A reviewer's job is t
 makes that job quick. This note sets out the conventions we use, with examples from three models in the catalogue.</p>
 
 <h2><span class="n">2</span>Layout</h2>
-<p>Every workbook has the same structure. A COVER tab explains what the model does, what to enter and what the outputs
+<p>The three example models share the same structure. A COVER tab explains what the model does, what to enter and what the outputs
 show. Assumptions are entered on INPUTS, or, where a model needs a large table of inputs such as a transition matrix or a set of
 repricing cash flows, on a tab that holds that table. Calculation tabs follow in the order the calculation runs. An OUTPUTS tab
 gives a one-page summary that can be printed for a committee, and a CHECKS tab holds the integrity checks.</p>
@@ -899,7 +926,7 @@ this is decorative. A reviewer who can see at a glance
 which cells are inputs can confirm quickly that no formula contains a typed assumption.</p>
 
 <h2><span class="n">3</span>One scenario switch</h2>
-<p>Each of our models has a single scenario selector on INPUTS. Every assumption that differs by scenario is held in adjacent columns and
+<p>Each of the three example models has a single scenario selector on INPUTS. Every assumption that differs by scenario is held in adjacent columns and
 picked by the same index, for example INDEX(C12:E12, 1, ScenIdx). There is no second switch on a calculation tab and no
 scenario-specific copy of a calculation. The test is simple: change the selector once and every output in the workbook should
 move. A model that passes this test cannot report one scenario's losses alongside another's capital.</p>
@@ -907,8 +934,9 @@ move. A model that passes this test cannot report one scenario's losses alongsid
 <h2><span class="n">4</span>Balances and interest</h2>
 <p>Every balance is built as an explicit roll-forward, with a row for each movement and a closing row that adds them to the
 opening balance. The closing balance is never calculated another way and then reconciled afterwards.</p>
-<p>Interest is calculated on the opening balance of the period, which is the previous period's closing balance, never on the
-closing balance of the same period. Calculating interest on a closing balance that itself includes the interest creates a
+<p>Interest is calculated on the opening balance of the period, which is the previous period's closing balance, or on the average
+of the opening and closing balances where the closing balance does not itself include the period's interest. It is never
+calculated on a closing balance that includes it. Calculating interest on a closing balance that itself includes the interest creates a
 circular reference. Excel can resolve it only with iterative calculation switched on, the result can depend on the iteration
 settings and on the values left in the cells from the previous calculation, and a genuine circular error elsewhere in the workbook
 is then hidden. Where a model genuinely links two blocks in both directions, for example a capital constraint that limits lending
@@ -962,7 +990,7 @@ example); and enter an extreme but valid input, such as a balance of zero, and c
 <ol>
 <li>Every assumption is in a marked input cell, and no formula contains a typed assumption.</li>
 <li>One selector drives every scenario-dependent input.</li>
-<li>Every balance has an explicit roll-forward, and interest is calculated on opening balances.</li>
+<li>Every balance has an explicit roll-forward, and no interest calculation refers to a balance that includes that interest.</li>
 <li>There are no circular references and iterative calculation is switched off.</li>
 <li>There is no INDIRECT and no array formula.</li>
 <li>The checks reach their figures by independent routes, and the OVERALL row shows no failures in Excel.</li>
@@ -970,7 +998,188 @@ example); and enter an extreme but valid input, such as a balance of zero, and c
 </ol>
 """)
 
-NOTES = [NOTE1, NOTE2, NOTE3, NOTE4, NOTE5, NOTE6]
+# ── NOTE 7: reviewing a model you did not build ─────────────────────────────
+# Figures: four copies of irrbb-model-v5.xlsx with one error planted in each,
+# recalculated in desktop Excel on 22 Nov 2026 (scratchpad irrbb-review/).
+# Correct Downside figures from the 20 Nov runs used in Method Note 4.
+NOTE7 = dict(
+    slug="reviewing-a-model-you-did-not-build", no=7, topic="Model review", date_label="November 2026",
+    title="Reviewing a model you did not build: what integrity checks catch and what they miss",
+    dek="Four common errors planted in a copy of a working IRRBB model, the checks that found two of them, and the "
+        "tests that find the other two",
+    model_name="IRRBB Model", model_url="irrbb-model-excel.html",
+    meta="Applies to: any model built by someone else, or by an AI tool<br>Example: IRRBB Model, demo data",
+    summary="Four errors planted in a copy of a working model: the integrity checks caught two, and the other two "
+            "needed a scenario test to find. A review procedure for inherited and AI-built models.",
+    abstract="More finance teams now receive models they did not build, either inherited from a colleague or produced "
+             "with an AI tool. To see what a reviewer can rely on, we planted four common errors, one at a time, in "
+             "copies of the IRRBB Model and recalculated each in Excel. The model's integrity checks caught two: a sum "
+             "range that stopped one row short and a typed-over output. They missed two: a typed number left in place "
+             "of a formula, and an assumption that no longer followed the scenario selector. Both of those left the base "
+             "case unchanged and showed up only when an input was changed. The note sets out a review procedure that "
+             "covers both kinds of error.",
+    close_heading="The model",
+    model_para="The IRRBB Model used for the test has 17 integrity checks, a live-value column on INPUTS showing which "
+               "value each scenario-dependent assumption is using, and a scenario selector that switches all of them.",
+    body="""
+<h2><span class="n">1</span>Introduction</h2>
+<p>A model that arrives from someone else carries none of the reasoning that went into it. That has always been true of
+inherited spreadsheets, and it is now true of models built with AI tools, which can produce a working structure quickly but
+cannot be asked afterwards why a range stops where it does. In either case the reviewer has to establish four things: where the
+inputs are, whether the logic can be followed, whether the arithmetic is right, and whether the model responds correctly when
+its inputs change. Integrity checks help with the third. This note tests how far they go.</p>
+
+<h2><span class="n">2</span>The test</h2>
+<p>We took the IRRBB Model, which recalculates with all 17 of its integrity checks passing, and made four copies. In each copy we
+planted one error of a kind that is common in practice. Each copy was then recalculated in desktop Excel, first in the base
+scenario and, where relevant, in the Downside scenario, and the results were compared with the unaltered model.</p>
+<div class="cap">Table 1 <span>Four planted errors and what found them</span></div>
+<table class="text">
+<tr><th>Planted error</th><th>Integrity checks</th><th>Effect on the reported results</th></tr>
+<tr><td>A sum range stops one row short: £25m of other assets dropped from the one-month bucket</td><td>Two failed</td><td>Barely visible: worst ΔEVE −£27.41m against −£27.44m</td></tr>
+<tr><td>A typed-over output: one shock's ΔEVE on the outlier tab replaced with a number</td><td>One failed</td><td>Worst ΔEVE shown as −£20.0m beside a ratio still at 8.85%</td></tr>
+<tr><td>A typed number left in place of the core deposit formula for one category</td><td>All passed</td><td>None in the base case. In Downside, core deposits £867.1m instead of £723.1m and worst ΔEVE 16.46% of Tier 1 instead of 19.34%</td></tr>
+<tr><td>The deposit beta used for NII no longer follows the scenario selector</td><td>All passed</td><td>None in the base case. In Downside, worst ΔNII 2.89% of Tier 1 instead of 1.05%</td></tr>
+</table>
+<p class="src">Each error was planted in a separate copy of the model and recalculated in Excel. Source: CHECKS, SOT and NMD tabs.</p>
+
+<h2><span class="n">3</span>What the checks caught</h2>
+<p>The short range removed £25m from the asset total of one time bucket. The results moved so little that no reviewer reading the
+outputs would have noticed: the worst ΔEVE changed by about £26,000. Two checks failed because they reach the same figure by a
+second route. One compares the net cash flows used in the EVE calculation with the total of the repricing gap; the other
+compares the cumulative gap in the last bucket with the total. In each, one side is built from the bucket columns and the other
+from row totals, so they disagreed by exactly £25m.</p>
+<p>The typed-over output failed the check that adds the six ΔEVE results on the outlier tab and compares them with the same
+six figures on the EVE tab. The error was also visible on the page, because the worst-case value and the worst-case ratio no longer
+agreed, but only to a reader who compared them.</p>
+<p>Both errors were caught because the checks compare two independent routes to the same number. A check that restated the damaged
+total would have passed.</p>
+
+<h2><span class="n">4</span>What the checks missed</h2>
+<p>The typed number was entered over the formula for core retail transactional deposits, at the value the formula was producing at
+the time. In the base case nothing changed and every check passed, since each check that uses the core balance reads it from the
+same cell. The error appeared only when the scenario was switched to Downside: the core balance stayed at its base value, core
+deposits were overstated by £144.0m, and the worst ΔEVE fell from 19.34% to 16.46% of Tier 1. Both figures breach the 15%
+threshold, but a reviewer would have been looking at the wrong number.</p>
+<p>The broken scenario link behaved the same way. The deposit beta used in the NII measure was fixed at its base value of 40%
+rather than following the selector. Every check passed, because no check tests whether an input responds to the
+selector. Under Downside the worst ΔNII was reported as 2.89% of Tier 1 instead of 1.05%.</p>
+<p>Neither error breaks an identity in the model. Each one replaces a relationship between an input and a result with a fixed value
+that happens to be right at the moment it is entered. Arithmetic checks cannot see that. Changing the inputs can.</p>
+
+<h2><span class="n">5</span>A review procedure</h2>
+<p>For a model we did not build, we would work through the following steps in order.</p>
+<ol>
+<li>Map the inputs. List every tab that holds assumptions, and confirm that the cells styled as inputs are the only cells that
+contain typed numbers. In Excel, Go To Special with Constants selected, applied to each calculation tab, selects every typed value at
+once.</li>
+<li>Recalculate in desktop Excel and read the integrity checks. Note which checks reach their figure by an independent route; a
+check that restates a total adds nothing.</li>
+<li>Switch every scenario and confirm that each scenario-dependent input changes. Where the model shows the value in use next to
+each input, as the IRRBB Model does, this takes a few minutes and would have found the broken link in Table 1.</li>
+<li>Change the main inputs one at a time and confirm that the results move in the expected direction and by a plausible amount. A
+result that does not move when its driver changes points to a typed value, as with the core deposit error.</li>
+<li>Trace one figure from the output page back to the inputs, cell by cell.</li>
+<li>Enter extreme but valid values, such as a zero balance or a 100% weight on one scenario, and confirm that nothing breaks.</li>
+</ol>
+<p>Steps 3 and 4 would have found both of the errors that the checks missed, and they take less time than step 5.</p>
+
+<h2><span class="n">6</span>Models built with AI tools</h2>
+<p>The same procedure applies. Two points deserve emphasis. First, a model reviewed by the tool that produced it is not
+independently reviewed: the review needs a person, or at least a different route to the numbers. Second, an AI-built model can be
+correct for the inputs it was built with and fragile when those inputs change, which is exactly the class of error in section 4.
+Changing the inputs and watching the results is the most useful single test.</p>
+""")
+
+
+# ── NOTE 8: which assumptions move the answer ───────────────────────────────
+# Figures: ifrs9-loan-level-model-v5.xlsx demo. Weights and threshold from the
+# model's SENSITIVITY tab; the other four from copies with SEGMENTS flexed,
+# recalculated in desktop Excel on 22 Nov 2026 (scratchpad ifrs9-sens/), all
+# 36 checks passing.
+n8_tornado = tornado_svg([
+    ("Scenario weights (alternative sets)", -10.1, 15.5, "", ""),
+    ("Unsecured loss rate ±10%", -8.7, 8.6, "", ""),
+    ("SICR threshold 3× / 1.5×", -1.4, 9.7, "", ""),
+    ("Macro sensitivity ±20%", -3.9, 4.4, "", ""),
+    ("LGD floor ±5pp", -3.2, 4.0, "", ""),
+    ("Collateral haircut ±5pp", -1.6, 1.7, "", "")], vmin=-15, vmax=20, step=5)
+
+NOTE8 = dict(
+    slug="which-assumptions-move-the-answer", no=8, topic="IFRS 9", date_label="November 2026",
+    title="Which assumptions move the answer: ranking sensitivities in an IFRS 9 model",
+    dek="A loan-level model has hundreds of inputs. Flexing them one at a time shows that a few judgements carry most of "
+        "the result.",
+    model_name="IFRS 9 ECL Model: Loan-Level Edition", model_url="ifrs9-loan-level-ecl-model-excel.html",
+    summary="Flexing six assumptions in a 1,000-loan IFRS 9 model one at a time: two judgements, the scenario weights and "
+            "the unsecured loss rate, move the allowance more than the other four combined.",
+    abstract="Detailed models invite the question of whether the detail improves the answer. This note flexes six "
+             "assumptions in the IFRS 9 ECL Model: Loan-Level Edition, one at a time, and ranks them by their effect on "
+             "the demo portfolio's £4.33m allowance. The alternative scenario weightings move it by between −10.1% and "
+             "+15.5%, and a 10% change in unsecured loss rates by about ±8.7%. Collateral haircuts, which can attract the "
+             "most modelling effort, move it by less than 2% for a five-point change. A sensitivity ranking of this kind shows a "
+             "committee where its attention is best spent and where additional model detail is unlikely to change the "
+             "result.",
+    model_para="The IFRS 9 ECL Model: Loan-Level Edition re-runs the portfolio at alternative SICR thresholds, staging "
+               "bounds and scenario weightings on its SENSITIVITY tab. The four LGD and macro sensitivities in Table 1 "
+               "were produced by changing the segment parameters on its SEGMENTS tab.",
+    body=f"""
+<h2><span class="n">1</span>Introduction</h2>
+<p>Institutional models tend to be large. A loan-level IFRS 9 model carries a transition matrix, macroeconomic paths, segment
+parameters, staging rules and, for every loan, a dozen or more fields. Size is sometimes taken as evidence of rigour, and some of
+it is necessary. But the number of inputs says little about which of them matter, and a committee that reviews every assumption
+with equal care will spend most of its time on the ones that do not move the result. A sensitivity ranking shows which ones do.</p>
+
+<h2><span class="n">2</span>Method</h2>
+<p>Each assumption was changed on its own, with everything else held at its demo value, and the allowance was recalculated. The
+size of each change was chosen to represent a plausible range of judgement rather than a stress: plus and minus 20% on the
+sensitivity of default rates to the credit cycle index, plus and minus 10% on unsecured loss rates, five percentage points either
+way on collateral haircuts and on the LGD floor, the tighter and looser SICR thresholds from Method Note 1, and the two alternative
+scenario weightings held in the model. Every run was recalculated in Excel with all 36 integrity checks passing.</p>
+<div class="cap">Table 1 <span>Change in the allowance for each assumption, demo portfolio</span></div>
+<table>
+<tr><th>Assumption</th><th>Low setting</th><th>High setting</th><th>Low</th><th>High</th><th>Range</th></tr>
+<tr><td>Scenario weights</td><td>45/30/20/5</td><td>30/10/40/20</td><td>(10.1%)</td><td>+15.5%</td><td>25.6pp</td></tr>
+<tr><td>Unsecured loss rate</td><td>×0.9</td><td>×1.1</td><td>(8.7%)</td><td>+8.6%</td><td>17.3pp</td></tr>
+<tr><td>SICR relative threshold</td><td>3.0×</td><td>1.5×</td><td>(1.4%)</td><td>+9.7%</td><td>11.1pp</td></tr>
+<tr><td>Macro sensitivity (beta)</td><td>×0.8</td><td>×1.2</td><td>(3.9%)</td><td>+4.4%</td><td>8.3pp</td></tr>
+<tr><td>LGD floor</td><td>−5pp</td><td>+5pp</td><td>(3.2%)</td><td>+4.0%</td><td>7.2pp</td></tr>
+<tr><td>Collateral haircut</td><td>−5pp</td><td>+5pp</td><td>(1.6%)</td><td>+1.7%</td><td>3.3pp</td></tr>
+</table>
+<p class="src">Base allowance £4.33m, of which management overlay £0.11m. Weights are baseline/upside/downside/severe downside; the
+base weighting is 40/20/30/10. LGD floors and haircuts apply only to the secured segments. Source: SENSITIVITY tab and recalculated
+copies of the model.</p>
+<div class="fig"><div class="cap">Figure 1 <span>Change in the allowance by assumption</span></div>{n8_tornado}
+<p class="src">Source: Table 1.</p></div>
+
+<h2><span class="n">3</span>Reading the ranking</h2>
+<p>Two judgements dominate. The choice between the model's three scenario weightings moves the allowance across a range of 25.6
+percentage points, and a modest change in unsecured loss rates across 17.3 points. Together they account for more of the range than
+the other four assumptions combined. Neither is estimated by the model. The weights are set by a committee, and the unsecured loss
+rates are segment-level inputs that often rest on limited recovery data.</p>
+<p>The SICR threshold sits third, and its effect is one-sided: tightening it adds far more than loosening it removes, for the reason
+set out in Method Note 1. The macro sensitivity and the LGD floor follow at around four percentage points either way.</p>
+<p>Collateral haircuts come last. In the demo portfolio a five-point change in the forced-sale discount moves the allowance by less than
+2%. Haircuts can nonetheless be among the most carefully documented assumptions in an ECL model.</p>
+<p>The LGD and macro sensitivity runs all kept 157 loans in Stage 2. Their effect comes through the size of the expected loss on each loan, not through staging.</p>
+
+<h2><span class="n">4</span>The same pattern elsewhere</h2>
+<p>The IRRBB results in Method Note 4 show the same concentration. In that model one assumption, the core deposit split, moves the
+worst ΔEVE from 8.85% of Tier 1 to 19.34% between the base and downside settings, more than doubling it. Most of the other inputs,
+including the positions themselves, are taken from the balance sheet and leave little room for judgement.</p>
+
+<h2><span class="n">5</span>Using the ranking</h2>
+<p>A ranking of this kind is cheap to produce once the model can be re-run, and it changes how the model is governed.</p>
+<ol>
+<li>Put the top two or three assumptions in front of the committee with their ranges, and record the decision on each.</li>
+<li>Spend validation and documentation effort in proportion to the ranking, not in proportion to the number of cells.</li>
+<li>Before adding detail to a model, ask whether it would change one of the top-ranked inputs. If it would not, it is unlikely to change
+the result.</li>
+<li>Repeat the ranking at each review. The order changes with the portfolio and with the economic outlook.</li>
+</ol>
+""")
+
+NOTES = [NOTE1, NOTE2, NOTE3, NOTE4, NOTE5, NOTE6, NOTE7, NOTE8]
 
 
 def render(note):

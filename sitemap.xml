@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://sfsmodels.org/research/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -81,6 +81,18 @@
   <url>
     <loc>https://sfsmodels.org/research/notes/bank-model-build-standards.pdf</loc>
     <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sfsmodels.org/research/notes/reviewing-a-model-you-did-not-build.pdf</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sfsmodels.org/research/notes/which-assumptions-move-the-answer.pdf</loc>
+    <lastmod>2026-11-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

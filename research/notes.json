@@ -70,5 +70,29 @@
     "model_name": "the SFS Models catalogue",
     "model_url": "models.html",
     "pdf": "/research/notes/bank-model-build-standards.pdf"
+  },
+  {
+    "slug": "reviewing-a-model-you-did-not-build",
+    "no": 7,
+    "topic": "Model review",
+    "date_label": "November 2026",
+    "title": "Reviewing a model you did not build: what integrity checks catch and what they miss",
+    "dek": "Four common errors planted in a copy of a working IRRBB model, the checks that found two of them, and the tests that find the other two",
+    "summary": "Four errors planted in a copy of a working model: the integrity checks caught two, and the other two needed a scenario test to find. A review procedure for inherited and AI-built models.",
+    "model_name": "IRRBB Model",
+    "model_url": "irrbb-model-excel.html",
+    "pdf": "/research/notes/reviewing-a-model-you-did-not-build.pdf"
+  },
+  {
+    "slug": "which-assumptions-move-the-answer",
+    "no": 8,
+    "topic": "IFRS 9",
+    "date_label": "November 2026",
+    "title": "Which assumptions move the answer: ranking sensitivities in an IFRS 9 model",
+    "dek": "A loan-level model has hundreds of inputs. Flexing them one at a time shows that a few judgements carry most of the result.",
+    "summary": "Flexing six assumptions in a 1,000-loan IFRS 9 model one at a time: two judgements, the scenario weights and the unsecured loss rate, move the allowance more than the other four combined.",
+    "model_name": "IFRS 9 ECL Model: Loan-Level Edition",
+    "model_url": "ifrs9-loan-level-ecl-model-excel.html",
+    "pdf": "/research/notes/which-assumptions-move-the-answer.pdf"
   }
 ]
