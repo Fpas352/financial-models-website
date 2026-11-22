@@ -36,7 +36,7 @@ PAGES = {
 }
 
 
-def section(vid, model, minutes):
+def section(vid, model, minutes, published="2026-11-20"):
     thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
     return f"""{MARK}
   <section class="section" id="walkthrough">
@@ -73,7 +73,7 @@ def section(vid, model, minutes):
   <script type="application/ld+json">{json.dumps({
         "@context": "https://schema.org", "@type": "VideoObject",
         "name": f"{model}: walkthrough", "description": f"The {model}, tab by tab, in Excel.",
-        "thumbnailUrl": thumb, "uploadDate": "2026-11-20T00:00:00+00:00",
+        "thumbnailUrl": thumb, "uploadDate": f"{published}T00:00:00+00:00",
         "embedUrl": f"https://www.youtube-nocookie.com/embed/{vid}",
         "contentUrl": f"https://www.youtube.com/watch?v={vid}"})}</script>
   {END}
@@ -81,7 +81,8 @@ def section(vid, model, minutes):
 
 
 def main():
-    ids = {r["key"]: r["youtube_id"] for r in csv.DictReader(IDS.open())}
+    rows = {r["key"]: r for r in csv.DictReader(IDS.open())}
+    ids = {k: r["youtube_id"] for k, r in rows.items()}
     src = (ROOT / "ls-config.js").read_text()
     for key, page in PAGES.items():
         if key not in ids:
@@ -90,7 +91,7 @@ def main():
         p = ROOT / page
         s = p.read_text()
         name = re.search(rf'"{re.escape(key)}":\s*\{{[^}}]*?name:\s*"([^"]+)"', src).group(1)
-        block = section(ids[key], name, 2.5 if key != "ifrs9-loan-level" else 3)
+        block = section(ids[key], name, 2.5 if key != "ifrs9-loan-level" else 3, rows[key]["published"])
         if MARK in s:                                   # replace the existing block
             s = re.sub(re.escape(MARK) + r".*?" + re.escape(END) + r"\n", block, s, flags=re.S)
         else:                                           # insert after the hero
