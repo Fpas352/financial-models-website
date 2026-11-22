@@ -30,6 +30,12 @@ MANIFEST = HERE / "images/previews/manifest.json"
 FACTS = HERE / "images/previews/facts.json"
 LS = HERE / "ls-config.js"
 
+# True: the chart is a large lead tile. False: equal tiles in reading order.
+LEAD_TILE = False
+# Roles left out of the gallery. The dashboard headline strips are too wide to
+# read at tile size and cannot be cropped without slicing figures.
+SKIP_ROLES = {"outputs"}
+
 TAG = {"inputs": "Inputs", "engine": "Calculation", "outputs": "Dashboard",
        "chart": "Chart", "checks": "Controls"}
 
@@ -100,11 +106,17 @@ def tile(key, model, shot, role, fact, lead):
 
 def gallery(key, model, shots, fact, free):
     roles = [role_of(i, s) for i, s in enumerate(shots)]
-    lead = next((i for want in ("chart", "outputs", "engine")
-                 for i, r in enumerate(roles) if r == want), 0)
-    order = [lead] + [i for i in range(len(shots)) if i != lead]
+    if LEAD_TILE:
+        lead = next((i for want in ("chart", "outputs", "engine")
+                     for i, r in enumerate(roles) if r == want), 0)
+        order = [lead] + [i for i in range(len(shots)) if i != lead]
+    else:
+        rank = {"inputs": 0, "engine": 1, "outputs": 2, "chart": 3, "checks": 4}
+        lead = -1
+        order = sorted((i for i in range(len(shots)) if roles[i] not in SKIP_ROLES),
+                       key=lambda i: rank[roles[i]])
     parts = [tile(key, model, shots[i], roles[i], fact, i == lead) for i in order]
-    if len(parts) == 4 and free:                   # fill the empty slot in the grid
+    if free and (not LEAD_TILE or len(parts) == 4):   # free-sample tile ends the row
         parts.append(
             f'<a class="preview-cta" href="{free}" target="_blank" rel="noopener" data-model-id="{key}">'
             f'<strong>See every tab</strong>'
