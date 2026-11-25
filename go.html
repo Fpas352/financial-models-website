@@ -46,8 +46,10 @@
 
     // Rename the address before the beacon reads it, so the click is recorded
     // under a readable path such as /go/buy/dcf and the query string is dropped.
+    // An ad click adds its source, e.g. /go/sample/ifrs9-ecl/gads.
     if (id) {
-      try { history.replaceState(null, '', '/go/' + kind + '/' + model); } catch (e) {}
+      var tail = window.SFS_GO_SRC ? '/' + window.SFS_GO_SRC : '';
+      try { history.replaceState(null, '', '/go/' + kind + '/' + model + tail); } catch (e) {}
     }
   </script>
 <!-- SFS-ANALYTICS -->
@@ -63,10 +65,21 @@
     // Forwarding lives here, outside the module, so a buyer always reaches
     // checkout even if ls-config.js fails to load.
     (function () {
-      var id = (new URLSearchParams(location.search).get('to') || '').toLowerCase();
+      var q = new URLSearchParams(location.search);
+      var id = (q.get('to') || '').toLowerCase();
       var ok = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(id);
       window.SFS_GO_ID = ok ? id : '';
-      var dest = ok ? 'https://sfsmodels.lemonsqueezy.com/checkout/buy/' + id : '/models.html';
+      // Ad attribution: src and grp (validated) go to Lemon Squeezy as
+      // checkout custom data, so the order shows which ad it came from.
+      var tag = /^[a-z0-9_-]{1,20}$/;
+      var src = (q.get('src') || '').toLowerCase(), grp = (q.get('grp') || '').toLowerCase();
+      window.SFS_GO_SRC = tag.test(src) ? src : '';
+      var custom = '';
+      if (window.SFS_GO_SRC) {
+        custom = '?checkout%5Bcustom%5D%5Bsrc%5D=' + src;
+        if (tag.test(grp)) custom += '&checkout%5Bcustom%5D%5Bgrp%5D=' + grp;
+      }
+      var dest = ok ? 'https://sfsmodels.lemonsqueezy.com/checkout/buy/' + id + custom : '/models.html';
       document.getElementById('go-link').href = dest;
 
       var gone = false;

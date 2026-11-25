@@ -804,13 +804,27 @@ document.head.appendChild(injectedStyles);
 // hovering still shows the Lemon Squeezy address and links filled in later
 // from ls-config.js are caught too.
 
+// Ad attribution (added 25 Nov 2026). Ads land on a model page with
+// ?src=gads&grp=<ad group> (Microsoft adds utm_source=bing). If the visitor
+// clicks Buy or Free sample on that same page, the source and ad group ride
+// along to go.html, which records them in the click path and passes them to
+// Lemon Squeezy as checkout custom data. Nothing is stored on the device: no
+// cookies, no localStorage, so the site stays consent-free.
+
 (function () {
   var LS_CHECKOUT = /^https:\/\/sfsmodels\.lemonsqueezy\.com\/checkout\/buy\/([0-9a-f-]{36})\/?$/i;
+  var TAG = /^[a-z0-9_-]{1,20}$/;
+  var params = new URLSearchParams(location.search);
+  var src = (params.get('utm_source') || params.get('src') || '').toLowerCase();
+  var grp = (params.get('grp') || '').toLowerCase();
+  var adTag = '';
+  if (TAG.test(src)) adTag += '&src=' + src;
+  if (adTag && TAG.test(grp)) adTag += '&grp=' + grp;
   function routeThroughCounter(e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var m = LS_CHECKOUT.exec(a.href);
-    if (m) a.href = '/go.html?to=' + m[1].toLowerCase();
+    if (m) a.href = '/go.html?to=' + m[1].toLowerCase() + adTag;
   }
   ['click', 'auxclick', 'contextmenu'].forEach(function (type) {
     document.addEventListener(type, routeThroughCounter, true);
